@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f8fafb;        /* page background — clean white */
+  --ink: #0d3b5c;          /* headings — trust blue */
+  --body: #5a6d7d;         /* body text — warm gray-blue */
+  --accent: #e85d2f;       /* CTA — warm orange (drives action/booking) */
+  --paper-dark: #0a2238;   /* dark-section background — deep trust blue */
+  --line: rgba(13, 59, 92, 0.12);  /* hairlines/borders — from --ink */
+}
+
+@layer base {
+  body {
+    background: var(--paper);
+    color: var(--body);
+    font-family: var(--font-body), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: white;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

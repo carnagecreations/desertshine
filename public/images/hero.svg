@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="base" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b3d3f"/>
+      <stop offset="0.5" stop-color="#116663"/>
+      <stop offset="1" stop-color="#1e8f8a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.75" cy="0.2" r="0.9">
+      <stop offset="0" stop-color="#bfe8e4" stop-opacity="0.55"/>
+      <stop offset="0.5" stop-color="#bfe8e4" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#bfe8e4" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#base)"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+  <polygon points="900,0 1250,0 750,900 400,900" fill="url(#sweep)"/>
+</svg>

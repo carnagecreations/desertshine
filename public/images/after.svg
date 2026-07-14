@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="fresh" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f3fbfa"/>
+      <stop offset="0.6" stop-color="#d7efec"/>
+      <stop offset="1" stop-color="#b8e2dd"/>
+    </linearGradient>
+    <radialGradient id="light" cx="0.7" cy="0.25" r="0.9">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#fresh)"/>
+  <rect width="1600" height="900" fill="url(#light)"/>
+  <text x="800" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" letter-spacing="10" fill="#14a09c" opacity="0.6">YOUR AFTER PHOTO HERE</text>
+</svg>
