@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { SITE } from '@/lib/site';
 
+export const revalidate = 3600;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = ['', '/services', '/pricing', '/about', '/contact'];
   return routes.map((route) => ({
