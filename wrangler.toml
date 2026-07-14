@@ -1,7 +1,15 @@
 name = "desertshine"
+type = "javascript"
 
 [build]
 command = "npm run build"
+cwd = "./"
 
 [build.upload]
 dir = "out"
+
+[pages_build_output_dir]
+dir = "out"
+
+[env.production]
+name = "desertshine"
