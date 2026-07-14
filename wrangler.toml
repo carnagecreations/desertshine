@@ -1,17 +1,11 @@
 name = "desertshine"
-type = "javascript"
-main = "src/index.js"
-compatibility_date = "2024-11-21"
-
-[env.production]
-name = "desertshine-production"
-route = "desertshine.pages.dev"
 
 [build]
 command = "npm run build"
-cwd = "./"
-watch_paths = ["./src/**/*.ts", "./src/**/*.tsx"]
 
 [build.upload]
-format = "modules"
-main = "./.next/server/index.js"
+dir = ".next"
+
+[env.production]
+name = "desertshine"
+route = "desertshine.pages.dev"
