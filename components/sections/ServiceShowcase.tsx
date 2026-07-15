@@ -71,37 +71,27 @@ export default function ServiceShowcase({ services }: Props) {
                   </div>
 
                   {/* Blurb - always visible */}
-                  <p className="text-[var(--body)] text-sm md:text-base leading-relaxed line-clamp-2 md:line-clamp-3 group-hover:text-[var(--ink)] transition-colors">
+                  <p className="text-[var(--body)] text-sm md:text-base leading-relaxed group-hover:text-[var(--ink)] transition-colors">
                     {service.blurb}
                   </p>
 
-                  {/* Expandable checklist */}
-                  <AnimatePresence>
-                    {isExpanded && (
+                  {/* Checklist - always visible */}
+                  <div className="mt-6 space-y-3 pt-6 border-t border-[var(--line)]">
+                    {service.includes.map((item, i) => (
                       <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="mt-6 space-y-3 pt-6 border-t border-[var(--line)]"
+                        key={item}
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: i * 0.08 }}
+                        className="flex items-start gap-3"
                       >
-                        {service.includes.map((item, i) => (
-                          <motion.div
-                            key={item}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: i * 0.08 }}
-                            className="flex items-start gap-3"
-                          >
-                            <span className="mt-1 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-[var(--accent)]/15 text-xs text-[var(--accent)] font-bold">
-                              ✓
-                            </span>
-                            <span className="text-sm text-[var(--body)]">{item}</span>
-                          </motion.div>
-                        ))}
+                        <span className="mt-1 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-[var(--accent)]/15 text-xs text-[var(--accent)] font-bold">
+                          ✓
+                        </span>
+                        <span className="text-sm text-[var(--body)]">{item}</span>
                       </motion.div>
-                    )}
-                  </AnimatePresence>
+                    ))}
+                  </div>
 
                   {/* CTA button - only on expanded */}
                   <AnimatePresence>
@@ -123,12 +113,6 @@ export default function ServiceShowcase({ services }: Props) {
                     )}
                   </AnimatePresence>
 
-                  {/* Expand hint - on collapsed */}
-                  {!isExpanded && (
-                    <motion.p className="mt-4 text-xs text-[var(--body)]/60 group-hover:text-[var(--body)] transition-colors">
-                      Click to explore →
-                    </motion.p>
-                  )}
                 </motion.div>
               </motion.div>
             );
