@@ -1,29 +1,33 @@
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { getNeighborhoodBySlug, NEIGHBORHOODS } from '@/lib/neighborhoods';
-import { serviceSchema, breadcrumbSchema } from '@/lib/schema';
+import { breadcrumbSchema } from '@/lib/schema';
 import { SITE } from '@/lib/site';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ServiceShowcase from '@/components/sections/ServiceShowcase';
 import FaqSection from '@/components/sections/FaqSection';
 import GiantCTA from '@/components/sections/GiantCTA';
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return NEIGHBORHOODS.map((n) => ({ slug: n.slug }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const neighborhood = getNeighborhoodBySlug(params.slug);
-  if (!neighborhood) return { title: 'Neighborhood not found' };
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const neighborhood = getNeighborhoodBySlug(slug);
+  if (!neighborhood) return {};
 
   return {
     title: `${neighborhood.name} Cleaning Services | Clean Conviction`,
     description: `Professional cleaning for ${neighborhood.name}, ${neighborhood.city}. ${neighborhood.description} Flat-rate pricing, 100% re-clean guarantee.`,
+    alternates: { canonical: `${SITE.url}/neighborhoods/${neighborhood.slug}` },
   };
 }
 
-export default function NeighborhoodPage({ params }: { params: { slug: string } }) {
-  const neighborhood = getNeighborhoodBySlug(params.slug);
-  if (!neighborhood) return <div className="px-6 py-20 text-center">Neighborhood not found</div>;
+export default async function NeighborhoodPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const neighborhood = getNeighborhoodBySlug(slug);
+  if (!neighborhood) notFound();
 
   const breadcrumbs = [
     { name: 'Home', url: '/' },
