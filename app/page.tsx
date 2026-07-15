@@ -11,6 +11,7 @@ import ProgressTimeline from '@/components/sections/ProgressTimeline';
 import SpotlightGrid from '@/components/sections/SpotlightGrid';
 import DragCarousel from '@/components/sections/DragCarousel';
 import TiltShowcase from '@/components/sections/TiltShowcase';
+import FaqSection from '@/components/sections/FaqSection';
 import GiantCTA from '@/components/sections/GiantCTA';
 import RevealFooter from '@/components/sections/RevealFooter';
 
@@ -92,6 +93,9 @@ export default function Home() {
             />
           </div>
         </section>
+
+        {/* Visible FAQ + FAQPage schema */}
+        <FaqSection />
 
         {/* Call to action */}
         <GiantCTA />

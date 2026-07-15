@@ -90,43 +90,43 @@ export const servicesSchema = [
   },
 ];
 
+// Shared homepage FAQ content — rendered visibly on the homepage AND used to build
+// the FAQPage schema, so structured data always matches on-page content.
+export const HOME_FAQS: { q: string; a: string }[] = [
+  {
+    q: 'How much does cleaning cost in Yuma?',
+    a: 'Recurring house cleaning starts at $129 per visit, deep cleaning at $249, and move-out cleaning at $299. The "from" price covers homes up to about 1,500 sq ft with 2 bathrooms; larger homes get an exact flat quote before we book — never a surprise after.',
+  },
+  {
+    q: 'Do you clean on evenings or weekends?',
+    a: 'Yes. We schedule around you — mornings, evenings, or weekends — so cleaning never disrupts your day or your business.',
+  },
+  {
+    q: 'Do I need to be home during cleaning?',
+    a: 'No. Most recurring clients give us a garage code or lockbox key, and we lock up when we leave.',
+  },
+  {
+    q: 'What if something isn\'t cleaned right?',
+    a: 'Tell us within 24 hours and we come back and re-clean it free. That\'s the guarantee, no fine print.',
+  },
+  {
+    q: 'How do recurring discounts work?',
+    a: 'Weekly saves 20%, bi-weekly 15%, and monthly 10% off the standard rate — starting from the first recurring visit.',
+  },
+  {
+    q: 'Which areas do you serve?',
+    a: 'All of Yuma County at the same flat rates, with no travel fee: Yuma, Fortuna Foothills, Somerton, San Luis, Wellton, and Winterhaven.',
+  },
+];
+
 export const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Are your prices final?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'The "from" price covers homes up to about 1,500 sq ft with 2 bathrooms. Larger homes get an exact flat quote before we book — never a surprise after.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Do I need to be home during cleaning?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'No. Most recurring clients give us a garage code or lockbox key, and we lock up when we leave.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What if something isn\'t cleaned right?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Tell us within 24 hours and we come back and re-clean it free. That\'s the guarantee, no fine print.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How do recurring discounts work?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Weekly saves 20%, bi-weekly 15%, and monthly 10% off the standard rate — starting from the first recurring visit.',
-      },
-    },
-  ],
+  mainEntity: HOME_FAQS.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
 };
 
 export const breadcrumbSchema = (items: { name: string; url: string }[]) => ({

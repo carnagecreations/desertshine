@@ -4,7 +4,7 @@ import { MotionConfig } from 'framer-motion';
 import SmoothScroll from '@/components/SmoothScroll';
 import Navigation from '@/components/Navigation';
 import { SITE } from '@/lib/site';
-import { organizationSchema, servicesSchema, faqSchema } from '@/lib/schema';
+import { organizationSchema, servicesSchema } from '@/lib/schema';
 import './globals.css';
 
 const sora = Sora({ subsets: ['latin'], variable: '--font-display' });
@@ -83,10 +83,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
         <MotionConfig reducedMotion="user">
           <SmoothScroll>

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { marked } from 'marked';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import { GUIDES } from '@/lib/guides';
 import { SITE } from '@/lib/site';
 import { breadcrumbSchema } from '@/lib/schema';
@@ -53,13 +54,12 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
 
       <main className="relative z-10 bg-[var(--paper)]">
-        <article className="mx-auto max-w-3xl px-6 py-20">
-          <nav className="mb-8 text-sm">
-            <Link href="/blog" className="text-[var(--accent)] hover:underline">
-              ← Back to Blog
-            </Link>
-          </nav>
-
+        <Breadcrumbs items={[
+          { name: 'Home', href: '/' },
+          { name: 'Blog', href: '/blog' },
+          { name: guide.title },
+        ]} />
+        <article className="mx-auto max-w-3xl px-6 pb-20 pt-10">
           <header className="mb-8">
             <p className="text-xs tracking-[0.2em] uppercase text-[var(--accent)] mb-4">
               {guide.category} • {guide.readTime} min read

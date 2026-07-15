@@ -5,6 +5,7 @@ import { AREAS } from '@/lib/areas';
 import { SERVICES } from '@/lib/services';
 import { SITE } from '@/lib/site';
 import { breadcrumbSchema } from '@/lib/schema';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import SplitHeadline from '@/components/sections/SplitHeadline';
 import GiantCTA from '@/components/sections/GiantCTA';
 import RevealFooter from '@/components/sections/RevealFooter';
@@ -62,7 +63,12 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
 
       <main className="relative z-10 bg-[var(--paper)]">
-        <section className="px-6 pb-4 pt-40 md:px-16">
+        <Breadcrumbs items={[
+          { name: 'Home', href: '/' },
+          { name: 'Service Areas', href: '/areas' },
+          { name: area.name },
+        ]} />
+        <section className="px-6 pb-4 pt-8 md:px-16">
           <p className="mb-4 text-sm tracking-[0.25em] uppercase text-[var(--accent)]">
             Serving {area.name}, {area.zip}
           </p>

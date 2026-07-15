@@ -1179,7 +1179,7 @@ Typical frequencies:
 
 ## An Honest Note
 
-We're a locally owned Yuma business, and we tell you straight: we are not yet licensed, bonded, or insured. Many larger contracts require a certificate of insurance, so if your business needs that, we'll say so upfront rather than waste your time. For many small and mid-size offices that don't require it, we deliver dependable, detail-focused service at a fair local price.
+We're a locally owned, newly launched Yuma business, and we're straight with you: some larger contracts require a vendor to carry a certificate of insurance. If your business needs that, ask us first and we'll tell you where we stand rather than waste your time. For many small and mid-size offices that don't require it, we deliver dependable, detail-focused service at a fair local price.
 
 ## Serving Yuma-Area Businesses
 
@@ -1610,6 +1610,231 @@ Routine cleaning keeps the surface under control, but a few times a year a pet h
 We serve pet owners across [Yuma](/areas/yuma), [Fortuna Foothills](/areas/fortuna-foothills), and the surrounding valley, and we work on flexible schedules — including evenings and weekends — so we can fit around your animals' routines. Tell us about your pets when you book and we'll tailor the visit.
 
 [See pricing →](/pricing) or [get a free quote in 60 seconds](/contact). Call (928) 555-0148 — we answer our own phone.
+    `,
+  },
+  {
+    slug: 'house-cleaning-cost-yuma',
+    title: 'How Much Does House Cleaning Cost in Yuma? (2026 Prices)',
+    excerpt: 'What house cleaning actually costs in Yuma in 2026 — real flat rates by home size and frequency, with no hidden fees or travel charges.',
+    category: 'Cost Guide',
+    published: '2026-01-14',
+    readTime: 6,
+    keywords: [
+      'house cleaning cost yuma',
+      'how much does house cleaning cost',
+      'maid service prices yuma',
+      'house cleaning prices yuma az',
+      'cost of house cleaning 2026',
+    ],
+    relatedServices: ['house-cleaning', 'deep-cleaning'],
+    relatedAreas: ['yuma', 'fortuna-foothills', 'somerton'],
+    content: `
+# How Much Does House Cleaning Cost in Yuma? (2026 Prices)
+
+**Recurring house cleaning in Yuma starts at $129 per visit for a home up to about 1,500 sq ft with two bathrooms, and recurring schedules save 10–20%.** Larger homes get an exact flat quote before we start, and there are no travel fees anywhere in Yuma County. That's the short answer — here's the full breakdown.
+
+## Our Flat-Rate Model
+
+Most of the confusion around cleaning prices comes from hourly billing, where the meter runs and the final bill is a surprise. We don't do that. We quote a flat rate up front, and that's the price on your invoice — no time-and-materials estimates, no travel surcharges, no "the job took longer than expected."
+
+The [$129 starting rate](/pricing) covers a standard recurring clean of a home up to roughly 1,500 sq ft with two bathrooms. Bigger homes simply get an exact flat quote first, so you always know the number before we arrive.
+
+## Typical House Cleaning Costs by Home Size & Frequency
+
+The table below shows typical per-visit flat rates. Recurring plans save you money on every visit: **weekly saves 20%, bi-weekly 15%, and monthly 10%** off the one-time rate.
+
+| Home size | One-time | Monthly (10% off) | Bi-weekly (15% off) | Weekly (20% off) |
+|---|---|---|---|---|
+| Up to ~1,500 sq ft, 2 baths | from $129 | ~$116 | ~$110 | ~$103 |
+| ~1,500–2,200 sq ft, 2–3 baths | from $159 | ~$143 | ~$135 | ~$127 |
+| ~2,200–3,000 sq ft, 3+ baths | from $199 | ~$179 | ~$169 | ~$159 |
+| Larger / custom | exact flat quote first | — | — | — |
+
+Rates above the base tier depend on square footage, number of bathrooms, and condition, so we confirm the exact flat price for your home before the first visit.
+
+## What Drives the Price
+
+A few honest factors move the number up or down:
+
+- **Square footage and bathrooms.** More space and more bathrooms mean more time — bathrooms are the most labor-intensive rooms.
+- **Frequency.** The more often we clean, the less builds up between visits, which is why recurring plans cost less per visit.
+- **Condition at the start.** If a home hasn't had a professional clean in a while, we usually recommend starting with a one-time [deep clean from $249](/pricing) to reset it, then maintaining with recurring visits.
+
+## What's Included at the Base Rate
+
+A standard recurring clean covers the whole home: dusting, floors, kitchen surfaces and appliance exteriors, and full bathroom cleaning. Detail work like inside the oven, inside the fridge, hand-scrubbed baseboards, and grout sealing belongs to a [deep clean](/services/deep-cleaning) rather than a standard visit. We publish the full checklist so there are no surprises about where that line sits.
+
+## How Yuma Compares
+
+Cleaning prices in Yuma tend to run a bit lower than Phoenix or coastal California, but our dust and hard water mean homes here need consistent attention. A bi-weekly schedule is the sweet spot for most Yuma households — it keeps desert dust from ever really building up without the cost of weekly service.
+
+## An Honest Note
+
+We're a locally owned, newly launched Yuma business — and we compete on transparency. That means flat-rate pricing published up front, a room-by-room checklist you can hold us to, a 100% re-clean guarantee, and flexible scheduling: mornings, evenings, and weekends.
+
+## Same Rates Across the County
+
+Our flat rates are identical whether you're in [Yuma](/areas/yuma), [Fortuna Foothills](/areas/fortuna-foothills), or [Somerton](/areas/somerton) — no travel fees anywhere in the county.
+
+[See full pricing →](/pricing) or [get a free quote in 60 seconds](/contact). Call (928) 555-0148 — we answer our own phone.
+    `,
+  },
+  {
+    slug: 'deep-cleaning-cost-guide',
+    title: 'Deep Cleaning Cost in Yuma: What to Expect in 2026',
+    excerpt: 'What a deep clean costs in Yuma in 2026, how it compares to a standard clean, and exactly what drives the price — flat rates, no hidden fees.',
+    category: 'Cost Guide',
+    published: '2026-02-18',
+    readTime: 6,
+    keywords: [
+      'deep cleaning cost',
+      'deep clean price yuma',
+      'deep vs standard cleaning cost',
+      'deep cleaning cost yuma az',
+      'how much is a deep clean',
+    ],
+    relatedServices: ['deep-cleaning', 'house-cleaning'],
+    relatedAreas: ['yuma', 'fortuna-foothills', 'san-luis'],
+    content: `
+# Deep Cleaning Cost in Yuma: What to Expect in 2026
+
+**A deep clean in Yuma starts at $249 for a home up to about 1,500 sq ft with two bathrooms, compared to $129 for a standard recurring visit.** The difference covers the detail work standard cleans skip — inside the oven and fridge, hand-scrubbed baseboards, grout, and vents. Larger homes get an exact flat quote first, and there are never travel fees in Yuma County.
+
+## Standard vs. Deep Cleaning Cost
+
+The best way to understand deep-clean pricing is to see it next to a standard clean. Same home, two different scopes:
+
+| | Standard clean | Deep clean |
+|---|---|---|
+| Starting flat rate | from $129 | from $249 |
+| Typical time (3-bed home) | 2–3 hours | 4–5 hours |
+| Frequency | weekly / bi-weekly / monthly | quarterly / seasonal |
+| Oven & fridge interior | not included | included |
+| Baseboards | dusted | hand-scrubbed |
+| Blinds | dusted | washed |
+| Grout | wiped | scrubbed & sealed as needed |
+| Vents, tracks, fixtures | surface only | detailed |
+
+A deep clean costs more because it takes roughly twice as long and reaches everywhere dust and grime hide. It's the periodic reset; the standard clean is the ongoing upkeep.
+
+## What Drives the Price of a Deep Clean
+
+The [$249 starting rate](/pricing) covers a home up to about 1,500 sq ft with two bathrooms. Above that, the flat quote depends on:
+
+- **Square footage and bathroom count.** More space and more bathrooms add time.
+- **How long since the last deep clean.** A home that's been maintained costs less to deep clean than one with heavy built-up grime.
+- **Yuma-specific buildup.** Hard-water scale on shower glass and fixtures, plus fine desert dust in vents and tracks, take extra labor to remove here.
+- **Add-on scope.** Interior windows, inside cabinets, and heavy grease removal can be included — we confirm it all in the flat quote first.
+
+## Typical Deep Cleaning Costs by Home Size
+
+| Home size | Deep clean flat rate |
+|---|---|
+| Up to ~1,500 sq ft, 2 baths | from $249 |
+| ~1,500–2,200 sq ft, 2–3 baths | from $299 |
+| ~2,200–3,000 sq ft, 3+ baths | from $369 |
+| Larger / custom | exact flat quote first |
+
+These are typical starting points; we confirm the exact flat price for your home before we begin, with no travel fees anywhere in the county.
+
+## When a Deep Clean Is Worth the Extra Cost
+
+Paying $249 instead of $129 makes sense when:
+
+- You're starting recurring service and want to reset the home first
+- It's been many months (or you've never had a professional deep clean)
+- Haboob or monsoon season left dust in vents, tracks, and fixtures
+- Grout is darkening or shower glass looks permanently cloudy
+- You're prepping for a move, an event, or the start of snowbird season
+
+Many clients book one [deep clean](/services/deep-cleaning) to start, then switch to lighter, cheaper [recurring visits](/pricing) that keep the home from ever needing a full reset again.
+
+## An Honest Note
+
+We're a locally owned, newly launched business that competes on transparency: a clear flat rate, a published checklist, a 100% re-clean guarantee, and flexible scheduling including evenings and weekends.
+
+## Serving the Whole Valley
+
+Deep cleans are the same flat rate across [Yuma](/areas/yuma), [Fortuna Foothills](/areas/fortuna-foothills), and [San Luis](/areas/san-luis) — no travel charges anywhere in Yuma County.
+
+[See deep cleaning pricing →](/pricing) or [get a free quote in 60 seconds](/contact). Call (928) 555-0148 — we answer our own phone.
+    `,
+  },
+  {
+    slug: 'move-out-cleaning-cost-yuma',
+    title: 'Move-Out Cleaning Cost in Yuma (and How to Get Your Deposit Back)',
+    excerpt: 'What move-out cleaning costs in Yuma by unit size, why it pays for itself in recovered deposit, and how to pass the landlord inspection.',
+    category: 'Cost Guide',
+    published: '2026-03-24',
+    readTime: 6,
+    keywords: [
+      'move out cleaning cost',
+      'move out cleaning price yuma',
+      'end of lease cleaning cost',
+      'move out cleaning cost yuma az',
+      'get deposit back cleaning',
+    ],
+    relatedServices: ['move-out-cleaning', 'deep-cleaning'],
+    relatedAreas: ['yuma', 'somerton', 'san-luis'],
+    content: `
+# Move-Out Cleaning Cost in Yuma (and How to Get Your Deposit Back)
+
+**Move-out cleaning in Yuma starts at $299 as a flat rate for a home up to about 1,500 sq ft with two bathrooms, and larger units get an exact flat quote first.** Since Yuma-area security deposits often run $500–$1,500+, a single move-out clean frequently pays for itself several times over in recovered deposit. There are no travel fees anywhere in the county.
+
+## Why Move-Out Cleaning Costs More Than a Standard Clean
+
+A move-out clean is built for one thing: passing a landlord inspection on an empty unit. That means everything a [deep clean](/services/deep-cleaning) includes — inside the oven and fridge, hand-scrubbed baseboards, grout, cabinet interiors, tracks, and vents — done to move-out standard, top to bottom. That's why it starts at $299 rather than the $129 standard rate.
+
+## Typical Move-Out Cleaning Costs by Unit Size
+
+| Unit size | Move-out flat rate |
+|---|---|
+| Studio / 1-bed apartment | from $299 |
+| 2-bed, up to ~1,500 sq ft, 2 baths | from $299 |
+| 3-bed, ~1,500–2,200 sq ft | from $349 |
+| 4-bed / larger home, 3+ baths | exact flat quote first |
+
+The starting rate covers a home up to about 1,500 sq ft with two bathrooms; beyond that we confirm an exact flat price before booking. No hidden charges and no travel fees anywhere in Yuma County.
+
+## The Deposit ROI
+
+Here's the math that makes move-out cleaning an easy call:
+
+| | Amount |
+|---|---|
+| Typical Yuma security deposit | $500 – $1,500+ |
+| Move-out clean (up to ~1,500 sq ft) | from $299 |
+| Common deductions for a dirty unit | oven, grout, carpet, general cleaning |
+| Net if the clean saves your deposit | you come out ahead, often by hundreds |
+
+Landlords are looking for reasons to deduct, and cleaning is the easiest one to justify. A professional move-out clean removes that justification. Under Arizona law, landlords generally must return your deposit (or an itemized list of deductions) within 14 days — so a clean, well-documented handoff protects you.
+
+## What Landlords Inspect Most Closely
+
+If you're deciding whether the flat rate is worth it, these are the items that most often trigger deductions:
+
+- **Oven interior** — an automatic deduction if it's greasy
+- **Bathroom grout and shower glass** — Yuma hard water makes these look worse fast
+- **Baseboards and vents** — dust here signals the unit wasn't deep cleaned
+- **Cabinet interiors** — often forgotten, always checked
+- **Carpet stains** — may require professional treatment
+
+## Tips to Protect Your Deposit
+
+1. **Book the clean 2–3 days before you hand over keys**, so you have time for any touch-ups.
+2. **Take time-stamped photos** of the clean, empty unit.
+3. **Do a walk-through with your landlord** and note any pre-existing damage.
+4. **Keep your cleaning receipt** as proof the unit was professionally cleaned.
+
+## An Honest Note
+
+We're a locally owned, newly launched Yuma business that competes on transparency. If your lease specifically requires a bonded or insured cleaner, ask us first and we'll be straight with you rather than waste your time. For most renters, our flat-rate [move-out cleaning](/pricing) and published checklist are exactly what's needed to pass inspection.
+
+## Serving Renters Across the County
+
+We handle move-outs across [Yuma](/areas/yuma), [Somerton](/areas/somerton), and [San Luis](/areas/san-luis) at the same flat rate — no travel fees anywhere in Yuma County, and same-week availability even in peak moving season.
+
+[See move-out pricing →](/pricing) or [get a free quote in 60 seconds](/contact). Call (928) 555-0148 — we answer our own phone.
     `,
   },
 ];

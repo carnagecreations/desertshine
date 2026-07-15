@@ -6,6 +6,7 @@ import { AREAS } from '@/lib/areas';
 import { GUIDES } from '@/lib/guides';
 import { SITE } from '@/lib/site';
 import { serviceSchema, faqSchemaFrom, breadcrumbSchema } from '@/lib/schema';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import SplitHeadline from '@/components/sections/SplitHeadline';
 import GiantCTA from '@/components/sections/GiantCTA';
 import RevealFooter from '@/components/sections/RevealFooter';
@@ -50,7 +51,12 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
       ])) }} />
 
       <main className="relative z-10 bg-[var(--paper)]">
-        <section className="px-6 pb-4 pt-40 md:px-16">
+        <Breadcrumbs items={[
+          { name: 'Home', href: '/' },
+          { name: 'Services', href: '/services' },
+          { name: s.shortName },
+        ]} />
+        <section className="px-6 pb-4 pt-8 md:px-16">
           <p className="mb-4 text-sm tracking-[0.25em] uppercase text-[var(--accent)]">{s.eyebrow} · {s.price}</p>
           <SplitHeadline text={`${s.name} in *Yuma*.`} />
           <p className="mt-6 max-w-2xl text-lg text-[var(--body)]">{s.intro}</p>

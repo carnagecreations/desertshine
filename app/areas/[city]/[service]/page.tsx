@@ -5,6 +5,7 @@ import { AREAS } from '@/lib/areas';
 import { SERVICES, getService } from '@/lib/services';
 import { SITE } from '@/lib/site';
 import { serviceSchema, faqSchemaFrom, breadcrumbSchema } from '@/lib/schema';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import SplitHeadline from '@/components/sections/SplitHeadline';
 import GiantCTA from '@/components/sections/GiantCTA';
 import RevealFooter from '@/components/sections/RevealFooter';
@@ -53,7 +54,13 @@ export default async function AreaServicePage({ params }: { params: Promise<{ ci
       ])) }} />
 
       <main className="relative z-10 bg-[var(--paper)]">
-        <section className="px-6 pb-4 pt-40 md:px-16">
+        <Breadcrumbs items={[
+          { name: 'Home', href: '/' },
+          { name: 'Service Areas', href: '/areas' },
+          { name: area.name, href: `/areas/${area.slug}` },
+          { name: s.shortName },
+        ]} />
+        <section className="px-6 pb-4 pt-8 md:px-16">
           <p className="mb-4 text-sm tracking-[0.25em] uppercase text-[var(--accent)]">
             {area.name}, {area.zip} · {s.price}
           </p>
