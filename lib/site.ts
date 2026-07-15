@@ -8,6 +8,6 @@ export const SITE = {
   email: 'hello@cleanconviction.com', // CUSTOMIZE: real email
   address: 'Yuma, AZ 85364',
   url: 'https://www.cleanconviction.com', // CUSTOMIZE: real domain
-  hours: 'Nights & weekends',
+  hours: 'Your schedule, not ours',
   serviceAreas: ['Yuma', 'Fortuna Foothills', 'Somerton', 'San Luis', 'Wellton', 'Winterhaven'],
 } as const;

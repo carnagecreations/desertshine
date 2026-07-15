@@ -103,7 +103,7 @@ export const AREAS: Area[] = [
       },
       {
         q: 'What hours do you work in San Luis?',
-        a: 'We clean nights and weekends so you are not disrupted during the day. Schedule whatever works for you.',
+        a: 'We clean on your schedule — mornings, evenings, weekends, whenever works best for you. Same-week availability.',
       },
     ],
   },

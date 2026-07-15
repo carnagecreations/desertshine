@@ -9,7 +9,7 @@ export default function ScrollZoomHero({
   src = '/images/hero.webp',
   eyebrow = 'Locally owned — Yuma, AZ',
   lines = ['Come home to', 'a spotless house.'],
-  sub = 'Flat-rate cleaning at night & on weekends. 100% re-clean guarantee. No daytime disruption — we work when you sleep.',
+  sub = 'Flat-rate cleaning on your schedule — mornings, evenings, weekends, whenever you need. 100% re-clean guarantee.',
 }: { src?: string; eyebrow?: string; lines?: string[]; sub?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });

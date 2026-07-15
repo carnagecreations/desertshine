@@ -326,7 +326,7 @@ We serve [Yuma](/areas/yuma), [Fortuna Foothills](/areas/fortuna-foothills), [So
 
 ---
 
-**Still have questions?** Check out our [pricing page](/pricing) for full service details or [call us at (928) 555-0148](tel:+19285550148). We clean nights and weekends.
+**Still have questions?** Check out our [pricing page](/pricing) for full service details or [call us at (928) 555-0148](tel:+19285550148). We schedule around you.
     `,
   },
   {
