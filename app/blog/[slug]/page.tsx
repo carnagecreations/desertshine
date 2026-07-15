@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const guide = GUIDES.find((g) => g.slug === slug);
   if (!guide) return {};
   return {
-    title: `${guide.title} | Clean Conviction Blog`,
+    title: guide.title,
     description: guide.excerpt,
     alternates: { canonical: `${SITE.url}/blog/${guide.slug}` },
   };
@@ -69,7 +69,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           </header>
 
           <div className="prose prose-sm md:prose-base prose-headings:text-[var(--ink)] prose-a:text-[var(--accent)] max-w-none mb-12">
-            <div dangerouslySetInnerHTML={{ __html: marked.parse(guide.content, { async: false }) as string }} />
+            <div dangerouslySetInnerHTML={{ __html: marked.parse(guide.content.replace(/^\s*#\s+.*(\r?\n)+/, ''), { async: false }) as string }} />
           </div>
 
           <aside className="rounded-2xl border border-[var(--line)] bg-white/50 p-8 mb-12">
