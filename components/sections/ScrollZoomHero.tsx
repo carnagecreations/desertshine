@@ -7,7 +7,7 @@ import { SITE } from '@/lib/site';
 
 export default function ScrollZoomHero({
   src = '/images/hero.webp',
-  eyebrow = 'Licensed & insured — Yuma, AZ',
+  eyebrow = 'Locally owned — Yuma, AZ',
   lines = ['Come home to', 'a spotless house.'],
   sub = 'Flat-rate house and office cleaning with a 100% re-clean guarantee. Same-week availability across Yuma County.',
 }: { src?: string; eyebrow?: string; lines?: string[]; sub?: string }) {

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 const FAQ = [
   { q: 'Are these prices final?', a: 'The "from" price covers homes up to about 1,500 sq ft with 2 bathrooms. Larger homes get an exact flat quote before we book — never a surprise after.' },
-  { q: 'Do I need to be home?', a: 'No. Most recurring clients give us a garage code or lockbox key. Every cleaner is background-checked, bonded, and insured.' },
+  { q: 'Do I need to be home?', a: 'No. Most recurring clients give us a garage code or lockbox key, and we lock up when we leave.' },
   { q: 'Do you bring supplies?', a: 'Yes — everything, including a HEPA vacuum. Prefer your own products? Just leave them out and tell us once.' },
   { q: 'What if something isn’t cleaned right?', a: 'Tell us within 24 hours and we come back and re-clean it free. That’s the guarantee, no fine print.' },
   { q: 'How do recurring discounts work?', a: 'Weekly saves 20%, bi-weekly 15%, and monthly 10% off the standard rate — starting from the first recurring visit.' },

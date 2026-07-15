@@ -9,7 +9,7 @@ import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'About Us',
-  description: 'Desert Shine is a locally owned, licensed, and insured cleaning company serving Yuma, Fortuna Foothills, Somerton, and the surrounding valley.',
+  description: 'Desert Shine is a locally owned cleaning company serving Yuma, Fortuna Foothills, Somerton, and the surrounding valley.',
 };
 
 const VALUES = [
@@ -25,7 +25,7 @@ export default function AboutPage() {
         <section className="px-6 pb-16 pt-40 md:px-16">
           <SplitHeadline text="A local crew that treats your home like a *reputation*." />
           <p className="mt-6 max-w-lg text-lg text-[var(--body)]">
-            {SITE.name} is locally owned, licensed, bonded, and insured — built on repeat clients and referrals, not ad spend.
+            {SITE.name} is locally owned and operated — built on repeat clients and referrals, not ad spend.
           </p>
         </section>
 

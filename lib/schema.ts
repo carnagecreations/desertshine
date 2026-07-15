@@ -17,28 +17,32 @@ export const organizationSchema = {
     postalCode: '85364',
     addressCountry: 'US',
   },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 32.6927,
+    longitude: -114.6277,
+  },
   areaServed: SITE.serviceAreas.map((area) => ({
     '@type': 'City',
     name: area,
   })),
+  knowsAbout: [
+    'house cleaning',
+    'deep cleaning',
+    'move-out cleaning',
+    'office cleaning',
+    'janitorial services',
+    'recurring maid service',
+  ],
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
     dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
     opens: '07:00',
     closes: '18:00',
   },
-  sameAs: [
-    'https://www.facebook.com/desertshineyuma',
-    'https://www.instagram.com/desertshineyuma',
-  ],
   priceRange: '$$',
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    ratingCount: '120',
-    bestRating: '5',
-    worstRating: '1',
-  },
+  // NOTE: add aggregateRating + sameAs social links only once real reviews/profiles exist.
+  // Fake review schema risks a Google manual action.
 };
 
 export const servicesSchema = [
@@ -117,7 +121,7 @@ export const faqSchema = {
       name: 'Do I need to be home during cleaning?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'No. Most recurring clients give us a garage code or lockbox key. Every cleaner is background-checked, bonded, and insured.',
+        text: 'No. Most recurring clients give us a garage code or lockbox key, and we lock up when we leave.',
       },
     },
     {

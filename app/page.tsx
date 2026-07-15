@@ -60,7 +60,7 @@ export default function Home() {
             price: 'custom quote',
             blurb: 'After-hours janitorial for offices, clinics, and storefronts. Keyed access, supply management, and a walk-through report after every service.',
             image: '/images/service-office.webp',
-            includes: ['Nightly, weekly, or custom schedules', 'Restrooms, breakrooms, and floors', 'Trash, recycling, and consumables restock', 'Insured and background-checked staff'],
+            includes: ['Nightly, weekly, or custom schedules', 'Restrooms, breakrooms, and floors', 'Trash, recycling, and consumables restock', 'Walk-through report after every service'],
           },
         ]} />
 

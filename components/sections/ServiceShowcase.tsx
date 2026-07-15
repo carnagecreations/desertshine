@@ -149,7 +149,7 @@ export default function ServiceShowcase({ services }: Props) {
               { icon: '✓', label: 'Flat rates' },
               { icon: '✓', label: '24-hr re-clean guarantee' },
               { icon: '✓', label: 'Same cleaner, every time' },
-              { icon: '✓', label: 'Licensed & insured' },
+              { icon: '✓', label: 'Locally owned & operated' },
             ].map((feature) => (
               <motion.div
                 key={feature.label}

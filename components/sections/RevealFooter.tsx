@@ -2,10 +2,12 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { SITE } from '@/lib/site';
+import { AREAS } from '@/lib/areas';
 
 const LINKS = [
   { label: 'Services', href: '/services' },
   { label: 'Pricing', href: '/pricing' },
+  { label: 'Service areas', href: '/areas' },
   { label: 'About', href: '/about' },
   { label: 'Get a quote', href: '/contact' },
 ];
@@ -35,10 +37,18 @@ export default function RevealFooter() {
         </div>
       </div>
       <div>
-        <p className="mb-4 text-sm opacity-40">Serving {SITE.serviceAreas.join(' · ')}</p>
+        <p className="mb-4 text-sm opacity-40">
+          Serving{' '}
+          {AREAS.map((a, i) => (
+            <span key={a.slug}>
+              <Link href={`/areas/${a.slug}`} className="underline-offset-4 hover:underline hover:opacity-100">{a.name}</Link>
+              {i < AREAS.length - 1 ? ' · ' : ''}
+            </span>
+          ))}
+        </p>
         <h2 className="text-[13vw] leading-[0.85] tracking-tight text-[var(--paper)] select-none font-[family-name:var(--font-display)]">DesertShine</h2>
         <div className="mt-6 flex flex-wrap justify-between gap-4 border-t border-white/10 pt-6 text-xs opacity-40">
-          <p>© {new Date().getFullYear()} {SITE.name} All rights reserved. Licensed · Bonded · Insured.</p>
+          <p>© {new Date().getFullYear()} {SITE.name} All rights reserved. Locally owned · Yuma, AZ.</p>
           <p><Link href="/privacy" className="hover:opacity-100">Privacy</Link> · <Link href="/terms" className="hover:opacity-100">Terms</Link></p>
         </div>
       </div>

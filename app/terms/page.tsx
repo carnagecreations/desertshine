@@ -14,7 +14,7 @@ export default function TermsPage() {
             <p><strong className="text-[var(--ink)]">Quotes.</strong> Quoted prices are flat rates based on the information you provide. If your home differs significantly from what was described, we’ll confirm a revised price with you before starting — never after.</p>
             <p><strong className="text-[var(--ink)]">Guarantee.</strong> If anything on the service checklist isn’t completed to standard, report it within 24 hours and we will return and re-clean the affected areas at no charge.</p>
             <p><strong className="text-[var(--ink)]">Cancellations.</strong> Reschedule or cancel free of charge up to 24 hours before your appointment. Later cancellations may incur a $50 fee.</p>
-            <p><strong className="text-[var(--ink)]">Insurance.</strong> {SITE.name} is licensed, bonded, and insured. Any damage claims must be reported within 48 hours of service.</p>
+            <p><strong className="text-[var(--ink)]">Damage claims.</strong> Any damage claims must be reported within 48 hours of service. We make it right — that&apos;s the standard we hold ourselves to.</p>
             <p>Questions? Call {SITE.phone}.</p>
           </div>
         </section>

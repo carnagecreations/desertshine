@@ -1,14 +1,25 @@
 import type { MetadataRoute } from 'next';
 import { SITE } from '@/lib/site';
+import { AREAS } from '@/lib/areas';
 
 export const revalidate = 3600;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ['', '/services', '/pricing', '/about', '/contact'];
-  return routes.map((route) => ({
-    url: `${SITE.url}${route}`,
+  const core: MetadataRoute.Sitemap = [
+    { url: SITE.url, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
+    { url: `${SITE.url}/services`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${SITE.url}/pricing`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${SITE.url}/areas`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${SITE.url}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${SITE.url}/contact`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${SITE.url}/privacy`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${SITE.url}/terms`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
+  ];
+  const cities: MetadataRoute.Sitemap = AREAS.map((area) => ({
+    url: `${SITE.url}/areas/${area.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
-    priority: route === '' ? 1 : 0.8,
+    priority: 0.8,
   }));
+  return [...core, ...cities];
 }

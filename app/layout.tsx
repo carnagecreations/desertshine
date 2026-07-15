@@ -73,7 +73,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${sora.variable} ${inter.variable}`}>
       <head>
         <meta httpEquiv="content-language" content="en-us" />
-        <link rel="canonical" href={SITE.url} />
+        <meta name="geo.region" content="US-AZ" />
+        <meta name="geo.placename" content="Yuma" />
+        <meta name="geo.position" content="32.6927;-114.6277" />
+        <meta name="ICBM" content="32.6927, -114.6277" />
         <meta name="theme-color" content="#0d3b5c" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
