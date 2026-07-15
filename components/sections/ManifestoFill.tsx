@@ -10,7 +10,7 @@ function Word({ children, progress, range, accent }: {
   const filter = useTransform(blur, (b) => `blur(${b}px)`);
   return (
     <motion.span style={{ opacity, filter }}
-      className={`mr-[0.3em] inline-block will-change-[opacity,filter] ${accent ? 'text-[var(--accent)] italic' : ''}`}>
+      className={`mr-[0.3em] inline-block will-change-[opacity,filter] ${accent ? 'text-[var(--accent)] italic font-serif' : ''}`}>
       {children}
     </motion.span>
   );
