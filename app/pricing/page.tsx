@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import SplitHeadline from '@/components/sections/SplitHeadline';
 import FlipCards from '@/components/sections/FlipCards';
+import PricingCalculator from '@/components/sections/PricingCalculator';
+import ComparisonMatrix from '@/components/sections/ComparisonMatrix';
 import TestimonialTheater from '@/components/sections/TestimonialTheater';
 import GiantCTA from '@/components/sections/GiantCTA';
 import RevealFooter from '@/components/sections/RevealFooter';
@@ -31,6 +33,10 @@ export default function PricingPage() {
         </section>
 
         <FlipCards />
+
+        <PricingCalculator />
+
+        <ComparisonMatrix />
 
         <section className="mx-auto max-w-3xl px-6 py-20">
           <h2 className="mb-10 text-3xl md:text-4xl">Common questions</h2>
