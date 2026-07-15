@@ -10,7 +10,6 @@ import ParallaxScene from '@/components/sections/ParallaxScene';
 import ProgressTimeline from '@/components/sections/ProgressTimeline';
 import SpotlightGrid from '@/components/sections/SpotlightGrid';
 import DragCarousel from '@/components/sections/DragCarousel';
-import TiltShowcase from '@/components/sections/TiltShowcase';
 import FaqSection from '@/components/sections/FaqSection';
 import GiantCTA from '@/components/sections/GiantCTA';
 import RevealFooter from '@/components/sections/RevealFooter';
@@ -77,20 +76,16 @@ export default function Home() {
         {/* Spotlight grid for features */}
         <SpotlightGrid />
 
-        {/* Testimonials with 3D tilt */}
+        {/* Social proof — invite early clients */}
         <section className="px-6 py-28 md:px-16">
-          <h2 className="mb-16 text-center text-4xl md:text-5xl text-[var(--ink)]">What our clients say</h2>
-          <div className="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
-            <TiltShowcase
-              src="/images/testimonial-1.webp"
-              badge="Deep Clean"
-              caption="Before looked impossible. They made it spotless."
-            />
-            <TiltShowcase
-              src="/images/testimonial-2.webp"
-              badge="Attention to Detail"
-              caption="Every corner perfect. Worth every penny."
-            />
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="mb-8 text-4xl md:text-5xl text-[var(--ink)]">Be one of our first</h2>
+            <p className="mb-8 text-lg text-[var(--body)] leading-relaxed">
+              Clean Conviction just launched with a simple promise: flat-rate pricing, transparent service, and a 100% re-clean guarantee. We're still ramping up reviews, so your feedback will shape how we grow.
+            </p>
+            <p className="text-base text-[var(--body)]">
+              Book a free quote today. If we nail it, we'd love your honest review.
+            </p>
           </div>
         </section>
 
