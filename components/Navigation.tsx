@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { EASE_OUT } from '@/lib/motion';
 import { SITE } from '@/lib/site';
@@ -30,8 +31,8 @@ export default function Navigation() {
         scrolled ? 'shadow-[0_1px_0_var(--line)]' : ''
       }`}>
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
-        <Link href="/" className="font-[family-name:var(--font-display)] text-lg font-bold tracking-tight text-[var(--ink)]">
-          Clean<span className="text-[var(--accent)]">Conviction</span>
+        <Link href="/" aria-label="Clean Conviction — home" className="flex items-center">
+          <Image src="/clean-conviction-logo.webp" alt="Clean Conviction" width={347} height={240} priority className="h-12 w-auto md:h-14" />
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">

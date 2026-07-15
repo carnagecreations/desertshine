@@ -6,7 +6,7 @@ export const organizationSchema = {
   '@id': `${SITE.url}#organization`,
   name: SITE.name,
   url: SITE.url,
-  logo: `${SITE.url}/opengraph-image`,
+  logo: `${SITE.url}/clean-conviction-logo.webp`,
   image: `${SITE.url}/opengraph-image`,
   slogan: 'No Compromise. No Dust.',
   description: 'Professional house and office cleaning services in Yuma, Arizona with flat-rate pricing, flexible scheduling, and a 100% re-clean guarantee.',
