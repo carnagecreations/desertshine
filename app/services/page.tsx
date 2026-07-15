@@ -6,8 +6,8 @@ import GiantCTA from '@/components/sections/GiantCTA';
 import RevealFooter from '@/components/sections/RevealFooter';
 
 export const metadata: Metadata = {
-  title: 'Cleaning Services in Yuma, AZ',
-  description: 'Recurring house cleaning, deep cleaning, move-in/move-out cleaning, and commercial janitorial in Yuma, Arizona. Flat rates, checklists, guaranteed.',
+  title: 'House & Office Cleaning Services | Yuma, Arizona',
+  description: 'Professional cleaning services in Yuma: recurring house cleaning, deep cleaning, move-in/move-out, and commercial janitorial. Flat rates, same-week availability, guaranteed.',
 };
 
 const SERVICES = [

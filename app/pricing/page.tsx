@@ -9,8 +9,8 @@ import GiantCTA from '@/components/sections/GiantCTA';
 import RevealFooter from '@/components/sections/RevealFooter';
 
 export const metadata: Metadata = {
-  title: 'Cleaning Prices in Yuma, AZ',
-  description: 'Published flat-rate cleaning prices for Yuma, Arizona. Standard cleans from $129, deep cleans from $249, move-out cleans from $299. No surprises.',
+  title: 'Transparent Cleaning Prices in Yuma, AZ | Flat-Rate Pricing',
+  description: 'See our published prices for house and office cleaning in Yuma. Recurring from $129, deep cleans from $249, move-outs from $299. No hidden fees—flat rates every time.',
 };
 
 const FAQ = [

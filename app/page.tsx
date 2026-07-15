@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import ScrollZoomHero from '@/components/sections/ScrollZoomHero';
 import VelocityMarquee from '@/components/sections/VelocityMarquee';
 import ConstellationHero from '@/components/sections/ConstellationHero';
@@ -12,6 +13,11 @@ import DragCarousel from '@/components/sections/DragCarousel';
 import TiltShowcase from '@/components/sections/TiltShowcase';
 import GiantCTA from '@/components/sections/GiantCTA';
 import RevealFooter from '@/components/sections/RevealFooter';
+
+export const metadata: Metadata = {
+  title: 'Professional Cleaning Services in Yuma, AZ | Desert Shine',
+  description: 'Flat-rate house and office cleaning in Yuma, Arizona. Same-week availability, 100% re-clean guarantee, and transparent pricing. Get a free quote in 60 seconds.',
+};
 
 export default function Home() {
   return (
