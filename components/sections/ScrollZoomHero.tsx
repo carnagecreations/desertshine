@@ -9,7 +9,7 @@ export default function ScrollZoomHero({
   src = '/images/hero.webp',
   eyebrow = 'Locally owned — Yuma, AZ',
   lines = ['Come home to', 'a spotless house.'],
-  sub = 'Flat-rate house and office cleaning with a 100% re-clean guarantee. Same-week availability across Yuma County.',
+  sub = 'Flat-rate cleaning at night & on weekends. 100% re-clean guarantee. No daytime disruption — we work when you sleep.',
 }: { src?: string; eyebrow?: string; lines?: string[]; sub?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });

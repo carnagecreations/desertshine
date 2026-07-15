@@ -103,7 +103,7 @@ export const AREAS: Area[] = [
       },
       {
         q: 'What hours do you work in San Luis?',
-        a: 'Standard hours are 7am–6pm Monday–Saturday, and we can start early for households on cross-border work schedules.',
+        a: 'We clean nights and weekends so you are not disrupted during the day. Schedule whatever works for you.',
       },
     ],
   },
