@@ -108,24 +108,28 @@ export default function PricingCalculator() {
               name: 'Recurring',
               desc: 'Weekly, bi-weekly, or monthly',
               price: prices.recurring,
+              isCustom: false,
               includes: ['Same cleaner every visit', 'Consistent schedule', 'Maintenance focused'],
             },
             {
               name: 'Deep Clean',
               desc: 'The seasonal reset',
               price: prices.deep,
+              isCustom: false,
               includes: ['Everything in Recurring', 'Inside appliances', 'Baseboards & vents', 'Grout detail'],
             },
             {
               name: 'Move-In / Out',
               desc: 'Landlord-checklist ready',
               price: prices.moveout,
+              isCustom: false,
               includes: ['Every cabinet & closet', 'All appliances inside/out', 'Windows & tracks', 'Move-ready clean'],
             },
             {
               name: 'Commercial',
               desc: 'After-hours janitorial',
-              price: prices.commercial,
+              price: 0,
+              isCustom: true,
               includes: ['Custom schedule', 'Supply management', 'Walk-through report', 'Restrooms & common areas'],
             },
           ].map((service, i) => (
@@ -142,19 +146,28 @@ export default function PricingCalculator() {
                 <p className="text-sm text-[var(--body)] mb-6">{service.desc}</p>
 
                 <div className="mb-8 py-6 border-y border-white/20">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-sm text-[var(--body)]">from</span>
-                    <motion.span
-                      className="text-5xl font-bold text-[var(--accent)]"
-                      key={service.price}
-                      initial={{ scale: 0.8 }}
-                      animate={{ scale: 1 }}
-                      transition={{ type: 'spring', stiffness: 300 }}
-                    >
-                      <AnimatedPrice value={service.price} />
-                    </motion.span>
-                  </div>
-                  <p className="text-xs text-[var(--body)] mt-2">based on your home size</p>
+                  {service.isCustom ? (
+                    <div>
+                      <div className="text-4xl font-bold text-[var(--accent)] mb-2">Custom</div>
+                      <p className="text-sm text-[var(--body)]">Tailored to your location, hours, and needs</p>
+                    </div>
+                  ) : (
+                    <div>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-sm text-[var(--body)]">from</span>
+                        <motion.span
+                          className="text-5xl font-bold text-[var(--accent)]"
+                          key={service.price}
+                          initial={{ scale: 0.8 }}
+                          animate={{ scale: 1 }}
+                          transition={{ type: 'spring', stiffness: 300 }}
+                        >
+                          <AnimatedPrice value={service.price} />
+                        </motion.span>
+                      </div>
+                      <p className="text-xs text-[var(--body)] mt-2">based on your home size</p>
+                    </div>
+                  )}
                 </div>
 
                 <ul className="space-y-3">
