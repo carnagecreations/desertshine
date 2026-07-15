@@ -27,7 +27,7 @@ export const GUIDES: Guide[] = [
       'get deposit back',
       'landlord inspection cleaning',
     ],
-    relatedServices: ['moveout'],
+    relatedServices: ['move-out-cleaning'],
     relatedAreas: ['yuma', 'somerton', 'san-luis'],
     content: `
 # The Ultimate Move-Out Cleaning Checklist for Yuma Rentals
@@ -256,7 +256,7 @@ We serve [Yuma](/areas/yuma), [Somerton](/areas/somerton), [San Luis](/areas/san
       'reliable maid service yuma',
       'top rated cleaning services',
     ],
-    relatedServices: ['recurring', 'deep', 'moveout'],
+    relatedServices: ['house-cleaning', 'deep-cleaning', 'move-out-cleaning'],
     relatedAreas: ['yuma', 'fortuna-foothills', 'somerton'],
     content: `
 # Best Cleaning Services in Yuma, AZ: What to Look For
@@ -291,14 +291,14 @@ Ask to see the checklist. If they don't have one, they're not professional enoug
 ### 4. **Real Guarantees**
 "100% satisfaction" means nothing if there's fine print. Real guarantees sound like: "Not happy within 24 hours? We come back and re-clean for free. No forms, no fuss."
 
-That's what we offer at Desert Shine. If something isn't right, you call, and we fix it—no argument.
+That's what we offer at Clean Conviction. If something isn't right, you call, and we fix it—no argument.
 
 ### 5. **Local Experience**
 Yuma isn't Phoenix. Phoenix cleaners don't understand haboob season, monsoon dust, or the specific mineral content of our Colorado River water.
 
 A cleaning service that's been operating in Yuma for years has already solved the problems your home faces. Desert dust, hard-water stains, snowbird seasonal timing—they know it.
 
-## The Desert Shine Difference
+## The Clean Conviction Difference
 
 **Recurring cleans from $129/visit.** Same cleaner, same checklist, same day every visit. No surprises.
 
@@ -331,7 +331,7 @@ We serve [Yuma](/areas/yuma), [Fortuna Foothills](/areas/fortuna-foothills), [So
   },
   {
     slug: 'how-to-clean-grout-like-a-pro',
-    title: 'How to Clean Grout Like a Pro: The Desert Shine Method',
+    title: 'How to Clean Grout Like a Pro: The Clean Conviction Method',
     excerpt: 'Grout stains got you down? Learn the pro techniques for cleaning tile grout—and why it\'s worth hiring someone who knows.',
     category: 'How-To',
     published: '2025-01-20',
@@ -343,10 +343,10 @@ We serve [Yuma](/areas/yuma), [Fortuna Foothills](/areas/fortuna-foothills), [So
       'remove grout stains',
       'professional grout cleaning',
     ],
-    relatedServices: ['deep'],
+    relatedServices: ['deep-cleaning'],
     relatedAreas: ['yuma'],
     content: `
-# How to Clean Grout Like a Pro: The Desert Shine Method
+# How to Clean Grout Like a Pro: The Clean Conviction Method
 
 Grout is one of the hardest surfaces to clean in your home. It's porous, it stains easily, and most DIY methods either don't work or damage the grout itself.
 
@@ -391,7 +391,7 @@ Our Colorado River water is mineral-heavy. Even if you clean your grout perfectl
 
 ## Our Deep Clean Includes Professional Grout Work
 
-When you book a [deep clean with Desert Shine](/pricing), we:
+When you book a [deep clean with Clean Conviction](/pricing), we:
 1. Pre-treat grout with oxygen-based cleaner
 2. Hand-scrub with grout brushes (not power tools that damage grout)
 3. Rinse thoroughly with hot water
@@ -420,7 +420,7 @@ When you book a [deep clean with Desert Shine](/pricing), we:
       'post haboob cleaning',
       'dust storm cleanup',
     ],
-    relatedServices: ['deep', 'recurring'],
+    relatedServices: ['deep-cleaning', 'house-cleaning'],
     relatedAreas: ['yuma', 'fortuna-foothills'],
     content: `
 # Haboob Season Cleanup: The Complete Yuma Guide
@@ -536,7 +536,7 @@ Serving [Yuma](/areas/yuma), [Fortuna Foothills](/areas/fortuna-foothills), [Som
       'winterhaven vacation home',
       'short term rental cleaning yuma',
     ],
-    relatedServices: ['deep'],
+    relatedServices: ['deep-cleaning'],
     relatedAreas: ['yuma', 'winterhaven', 'fortuna-foothills'],
     content: `
 # Snowbird Home Opening & Closing Checklist for Yuma
@@ -686,7 +686,7 @@ We'll have your home ready before you arrive.
       'house cleaning difference',
       'when to deep clean',
     ],
-    relatedServices: ['recurring', 'deep'],
+    relatedServices: ['house-cleaning', 'deep-cleaning'],
     relatedAreas: ['yuma'],
     content: `
 # Deep Cleaning vs Regular Cleaning: What's the Difference?
@@ -765,7 +765,7 @@ Here's what we actually clean during each service.
 
 ---
 
-## The Desert Shine Difference
+## The Clean Conviction Difference
 
 In Yuma, deep cleans matter more because of dust and hard water:
 
@@ -849,9 +849,80 @@ We serve [Yuma](/areas/yuma), [Fortuna Foothills](/areas/fortuna-foothills), [So
       'monthly cleaning yuma',
       'house cleaning subscription',
     ],
-    relatedServices: ['recurring'],
+    relatedServices: ['house-cleaning'],
     relatedAreas: ['yuma', 'fortuna-foothills'],
-    content: `Cost/value analysis coming soon.`,
+    content: `
+# Is Recurring Cleaning Worth It? The Math Behind Monthly Service
+
+You've thought about hiring a cleaner. Then you did the math in your head, felt guilty about the cost, and put it off. Sound familiar?
+
+Let's do the math for real. Because when you actually break down what recurring cleaning costs versus what it saves, the answer surprises most Yuma homeowners.
+
+## What Recurring Cleaning Actually Costs
+
+At Clean Conviction, [recurring house cleaning starts at $129 per visit](/pricing). Here's what different schedules cost per month:
+
+- **Weekly:** ~$516/month
+- **Bi-weekly (every 2 weeks):** ~$258/month
+- **Monthly:** $129/month
+
+For most Yuma households, bi-weekly is the sweet spot. It keeps dust — and we get a lot of dust here — from ever really building up, without the cost of weekly service.
+
+## The Hidden Costs of Cleaning It Yourself
+
+"Free" cleaning isn't free. Here's what you're actually spending when you do it all yourself:
+
+### 1. Your Time
+The average deep-clean of a 3-bedroom home takes 3–4 hours. Do that twice a month and you've spent 6–8 hours scrubbing instead of resting, working, or being with family. What's an hour of your weekend worth to you? Even at a modest $25/hour, that's $150–$200 of your time every month.
+
+### 2. Supplies
+Quality cleaners, microfiber cloths, mop refills, glass cleaner, grout brushes, degreaser — it adds up to $30–$50 a month for a household that cleans thoroughly. We bring our own professional-grade supplies, so that line item disappears.
+
+### 3. The "It Never Gets Done Right" Tax
+Be honest: when you're tired, the baseboards get skipped. The ceiling fan hasn't been touched in months. In Yuma, skipped dusting isn't cosmetic — fine desert dust works into HVAC systems, coats electronics, and aggravates allergies. Deferred cleaning has a real cost.
+
+## The Real Comparison
+
+| | DIY (bi-weekly) | Recurring Service |
+|---|---|---|
+| Cash cost/month | ~$40 supplies | ~$258 |
+| Your time/month | 6–8 hours | 0 hours |
+| Consistency | Variable | Same checklist every visit |
+| Detail work | Usually skipped | Included |
+
+When you value your time at even $25/hour, the DIY option costs roughly $190–$240 per month in cash plus time. Recurring service lands right in the same range — except you get your weekends back and a consistently clean home.
+
+## Why Consistency Is the Real Value
+
+The biggest benefit of recurring cleaning isn't any single visit. It's that dust and grime never get a foothold. In our climate, a home cleaned every two weeks never reaches the "I need to spend a whole Saturday on this" stage.
+
+That's especially true during [haboob and monsoon season](/blog/haboob-cleanup-guide), when fine dust settles on everything within hours of a storm. A recurring schedule means a professional is already coming to handle it.
+
+## Who Recurring Cleaning Is Worth It For
+
+Recurring service tends to pay off most for:
+
+- **Busy professionals and dual-income households** who value time over money
+- **Families with kids or pets** where mess accumulates fast
+- **Older residents** for whom scrubbing floors and tubs is physically hard
+- **Snowbirds** who want their winter home maintained without lifting a finger
+
+## Making It Affordable
+
+A few ways our Yuma clients keep recurring cleaning budget-friendly:
+
+1. **Go bi-weekly, not weekly.** For most homes it's plenty.
+2. **Start with a [deep clean](/pricing), then maintain.** The first visit resets the home; recurring visits are lighter and stay affordable.
+3. **Skip the add-ons you don't need.** We only clean what you ask for.
+
+We schedule around you — mornings, evenings, or weekends — across [Yuma](/areas/yuma), [Fortuna Foothills](/areas/fortuna-foothills), and the surrounding valley.
+
+## The Bottom Line
+
+Recurring cleaning is worth it when your time is worth more than the cost — and for most people, once you factor in supplies, effort, and the mental load, the gap is smaller than you'd think. You're not paying for a clean house so much as buying back your weekends.
+
+[See recurring cleaning rates →](/pricing) or [get a free quote in 60 seconds](/contact). We answer our own phone at (928) 555-0148.
+    `,
   },
   {
     slug: 'monsoon-season-home-prep',
@@ -867,9 +938,73 @@ We serve [Yuma](/areas/yuma), [Fortuna Foothills](/areas/fortuna-foothills), [So
       'dust storm preparation',
       'water damage prevention',
     ],
-    relatedServices: ['deep'],
+    relatedServices: ['deep-cleaning'],
     relatedAreas: ['yuma', 'fortuna-foothills'],
-    content: `Monsoon guide coming soon.`,
+    content: `
+# Monsoon Season Home Prep: Yuma Guide to Dust & Water Safety
+
+Yuma's monsoon season runs roughly mid-June through late September. It brings two things most homes here aren't built to shrug off: walls of blowing dust and sudden, heavy downpours on ground that can't absorb them fast enough.
+
+A little preparation before the first storm saves you hours of cleanup and, in the worst cases, real water damage. Here's how to get your home ready and clean up smart afterward.
+
+## Understand What Monsoon Storms Do
+
+Monsoon storms in the Yuma area typically arrive in two phases: a dust front (the leading edge, often a haboob) followed by rain. That combination is what makes them harder to clean up than dust or rain alone. Fine dust settles into every gap, then rain turns it to grime on windows, patios, and entryways.
+
+## Before the Season: Prep Checklist
+
+### Seal the Gaps
+- Check and replace worn weatherstripping on exterior doors
+- Re-caulk around windows where you can see daylight or feel a draft
+- Inspect the garage door bottom seal — a common dust and water entry point
+- Make sure attic and crawlspace vents have intact screens
+
+### Manage Water
+- Clear roof gutters and downspouts of debris so sudden rain drains away from the house
+- Check that the ground slopes away from your foundation; add soil if it pools toward the house
+- Move stored boxes off garage floors onto shelves or pallets
+- Know where your rooftop AC drain lines run and confirm they're clear
+
+### Protect Interiors
+- Start the season with a [professional deep clean](/pricing) so dust that blows in settles on clean surfaces, not layered grime
+- Replace your HVAC filter and buy spares — you'll swap them more often now
+- Wash and store or cover patio furniture and cushions
+
+## During a Storm
+
+- Close all windows and doors, including interior doors to bedrooms
+- Switch your HVAC to recirculate rather than pulling outside air
+- If you have a rooftop evaporative (swamp) cooler, close its damper — dust and rain both foul the pads
+- Stay off the roads; blowing dust drops visibility to zero in seconds
+
+## After the Storm: Cleanup Order
+
+Doing this in the right order saves you from cleaning the same surface twice.
+
+1. **Outside first.** Rinse windows, patios, and entryways while the dust is still damp and easy to remove. Gently hose the AC condenser fins (low pressure only).
+2. **Dust before you vacuum, top to bottom.** Ceiling fans, shelves, then furniture, then floors. Vacuuming first just kicks dust back into the air.
+3. **Windows and tracks.** Monsoon grime leaves a film — vinegar and microfiber cut it. Vacuum out window and slider tracks where mud collects.
+4. **Swap the HVAC filter** once the indoor dust has settled.
+5. **Check for water intrusion.** Look at door thresholds, window sills, garage corners, and around rooftop AC units for any signs of leaks.
+
+## Watch for Water Damage
+
+Standing water and hidden moisture lead to mold fast in our heat. After a heavy storm, check:
+
+- Baseboards and lower drywall near doors and windows for dampness or discoloration
+- Ceiling stains beneath rooftop AC units or roof penetrations
+- Under-sink and closet corners for musty smells
+
+Catching moisture early is the difference between a wipe-down and a costly repair. If you find damp drywall or a musty odor, address the source and dry the area quickly.
+
+## When to Call for a Deep Clean
+
+After a major dust event, a lot of grime ends up where you can't easily reach — vents, range hood filters, window tracks, cabinet tops. A [deep clean from Clean Conviction](/pricing) pulls dust from those hidden spots and resets the whole home.
+
+We serve [Yuma](/areas/yuma), [Fortuna Foothills](/areas/fortuna-foothills), and the surrounding valley, with same-week availability even during peak monsoon season. [Get a free quote →](/contact) or call (928) 555-0148.
+
+**No Compromise. No Dust.** — even in monsoon season.
+    `,
   },
   {
     slug: 'what-is-included-in-cleaning-checklist',
@@ -885,8 +1020,596 @@ We serve [Yuma](/areas/yuma), [Fortuna Foothills](/areas/fortuna-foothills), [So
       'cleaning service checklist',
       'what do cleaners clean',
     ],
-    relatedServices: ['recurring', 'deep'],
+    relatedServices: ['house-cleaning', 'deep-cleaning'],
     relatedAreas: ['yuma', 'fortuna-foothills', 'somerton'],
-    content: `Checklist coming soon.`,
+    content: `
+# What's Actually Included in Our Cleaning Checklist
+
+One of the most common questions we get from Yuma homeowners is simple: "What do you actually clean?" Too many cleaning companies keep that vague so they can rush through and skip things. We don't. Here's the exact room-by-room checklist we follow on a standard [recurring house cleaning visit](/pricing) — no surprises, no fine print.
+
+## Every Room
+
+On every visit, in every room, we:
+
+- Dust all reachable surfaces, shelves, and decor
+- Dust ceiling fans and light fixtures within reach
+- Wipe light switches, door handles, and door frames
+- Remove cobwebs from corners and ceilings
+- Empty trash and reset liners
+- Vacuum carpets and rugs
+- Sweep and mop hard floors
+- Tidy and straighten as we go
+
+## Kitchen
+
+The kitchen gets the most detailed attention on a standard clean:
+
+- Counters and backsplash wiped down
+- Sink scrubbed and faucet polished
+- Stovetop cleaned (exterior surface and grates)
+- Exterior of all appliances wiped — fridge, oven, dishwasher, microwave
+- Inside the microwave cleaned
+- Cabinet fronts spot-cleaned for spills and smudges
+- Floors swept and mopped, including along the baseboards
+
+## Bathrooms
+
+- Toilet scrubbed and disinfected, inside and out, including the base
+- Tub and shower surfaces cleaned
+- Shower glass wiped (with attention to our region's hard-water spotting)
+- Sink and vanity scrubbed
+- Mirror polished streak-free
+- Counters and fixtures wiped and shined
+- Floors swept and mopped
+
+## Bedrooms & Living Areas
+
+- All surfaces dusted, including nightstands, dressers, and sills
+- Beds made (or linens changed if you leave them out)
+- Mirrors and glass surfaces wiped
+- Floors vacuumed and/or mopped
+- Visible clutter neatly organized
+
+## What's NOT in a Standard Clean
+
+Being transparent means telling you what a standard visit does *not* include. These items are part of our [deep cleaning service](/pricing) instead:
+
+- Inside the oven and inside the refrigerator
+- Interior cabinet and drawer cleaning
+- Baseboards scrubbed by hand (we dust them on standard visits)
+- Blinds washed (we dust them on standard visits)
+- Interior windows and tracks
+- Grout scrubbing and sealing
+- Cleaning behind and under heavy furniture and appliances
+
+If you want any of these on a given visit, just ask — we can add them or schedule a periodic deep clean to cover them.
+
+## Why We Publish the Whole List
+
+In Yuma's dust and hard-water environment, the difference between a good clean and a rushed one shows up fast. Publishing our exact checklist keeps us accountable: you know what to expect, and our team knows what "done" looks like every single time. That's what "No Compromise. No Dust." means in practice.
+
+## Customize It to Your Home
+
+Every home is different. Some clients want extra focus on pet areas; others skip rooms they rarely use. We'll walk the checklist with you and adjust it to fit your home and budget.
+
+We bring our own professional-grade supplies and equipment on every visit, and we schedule around you — mornings, evenings, or weekends.
+
+## Ready to See It in Action?
+
+We serve [Yuma](/areas/yuma), [Fortuna Foothills](/areas/fortuna-foothills), [Somerton](/areas/somerton), and the surrounding valley. [See full pricing →](/pricing) or [get a free quote in 60 seconds](/contact). Questions? Call us at (928) 555-0148 — we answer our own phone.
+    `,
+  },
+  {
+    slug: 'office-cleaning-guide-yuma-businesses',
+    title: 'Commercial Office Cleaning Guide for Yuma Businesses',
+    excerpt: 'A practical guide for Yuma business owners on choosing office and commercial cleaning — what to expect, how to budget, and what to ask.',
+    category: 'Buyer\'s Guide',
+    published: '2025-04-12',
+    readTime: 5,
+    keywords: [
+      'office cleaning yuma',
+      'commercial cleaning yuma',
+      'janitorial services yuma',
+      'business cleaning yuma az',
+      'commercial office cleaning',
+    ],
+    relatedServices: ['office-cleaning', 'deep-cleaning'],
+    relatedAreas: ['yuma', 'fortuna-foothills', 'somerton'],
+    content: `
+# Commercial Office Cleaning Guide for Yuma Businesses
+
+A clean office isn't just about appearances. For Yuma businesses, it affects employee health, customer impressions, and even how long your furnishings and floors last in our harsh dust-and-heat climate. If you're evaluating [office and commercial cleaning](/pricing) for the first time — or thinking about switching providers — this guide walks you through what matters.
+
+## Why Office Cleaning Is Different in Yuma
+
+Commercial spaces face challenges homes don't:
+
+- **Higher foot traffic** tracks in more dust, grit, and debris — and Yuma has plenty of all three
+- **Shared restrooms and break rooms** need consistent disinfection to keep staff healthy
+- **Dust infiltration** settles on desks, electronics, and HVAC vents faster here than almost anywhere
+- **First impressions** matter the moment a client or customer walks through the door
+
+A rushed, once-over cleaning that might slide at home shows immediately in a lobby or conference room.
+
+## What a Commercial Clean Should Cover
+
+A thorough office cleaning generally includes:
+
+### Common Areas & Offices
+- Dusting desks, surfaces, sills, and fixtures
+- Wiping high-touch points: door handles, light switches, shared equipment
+- Emptying all trash and replacing liners
+- Vacuuming carpets and mopping hard floors
+- Spot-cleaning glass doors and interior windows
+
+### Break Rooms & Kitchens
+- Sanitizing counters, sinks, and tables
+- Wiping appliance exteriors (fridge, microwave)
+- Cleaning and restocking as arranged
+
+### Restrooms
+- Scrubbing and disinfecting toilets, urinals, and sinks
+- Polishing mirrors and fixtures
+- Mopping and disinfecting floors
+- Restocking paper products and soap (if arranged)
+
+## After-Hours vs. Business Hours
+
+Most Yuma offices prefer cleaning after closing or before opening so staff and customers aren't disrupted. Because we clean on flexible schedules — evenings and weekends included — we can work around your operating hours. Some clients prefer a daytime presence for restroom and break-room upkeep; either works.
+
+## How to Budget for It
+
+Commercial cleaning is usually priced by square footage, frequency, and scope rather than a flat per-visit rate, so we quote it after a quick walk-through of your space. When you compare providers, make sure you're comparing the same scope — a cheap quote often means restrooms less often or floors skipped.
+
+Typical frequencies:
+
+- **Daily:** high-traffic retail, medical, or client-facing offices
+- **2–3x per week:** mid-size offices with steady traffic
+- **Weekly:** small offices and low-traffic professional spaces
+
+[Request a commercial quote →](/pricing) and we'll size the right plan for your space.
+
+## Questions to Ask Any Commercial Cleaner
+
+1. **"Will it be the same crew each time?"** Consistency means they learn your space and standards.
+2. **"What's your exact scope of work?"** Get the checklist in writing.
+3. **"Can you work around our hours?"** Flexibility should be a yes.
+4. **"How do we report a missed spot?"** Look for a real fix-it commitment, not excuses.
+5. **"Do you bring your own supplies and equipment?"** We do.
+
+## An Honest Note
+
+We're a locally owned Yuma business, and we tell you straight: we are not yet licensed, bonded, or insured. Many larger contracts require a certificate of insurance, so if your business needs that, we'll say so upfront rather than waste your time. For many small and mid-size offices that don't require it, we deliver dependable, detail-focused service at a fair local price.
+
+## Serving Yuma-Area Businesses
+
+We clean offices and commercial spaces across [Yuma](/areas/yuma), [Fortuna Foothills](/areas/fortuna-foothills), [Somerton](/areas/somerton), and the surrounding valley. Whether you need a nightly janitorial routine or a periodic [deep clean](/pricing) to reset the space, we build the plan around your business.
+
+[Get a free walk-through quote →](/contact) or call (928) 555-0148. We answer our own phone.
+    `,
+  },
+  {
+    slug: 'how-often-should-you-deep-clean',
+    title: 'How Often Should You Deep Clean Your Home?',
+    excerpt: 'How frequently should you really deep clean? A room-by-room guide to deep cleaning frequency — with extra tips for Yuma\'s dusty climate.',
+    category: 'How-To',
+    published: '2025-05-08',
+    readTime: 5,
+    keywords: [
+      'how often deep clean',
+      'deep cleaning frequency',
+      'how often deep clean house',
+      'deep cleaning schedule',
+      'deep clean yuma',
+    ],
+    relatedServices: ['deep-cleaning', 'house-cleaning'],
+    relatedAreas: ['yuma', 'fortuna-foothills'],
+    content: `
+# How Often Should You Deep Clean Your Home?
+
+Regular tidying keeps a home presentable. But deep cleaning — the scrub-behind-the-fridge, seal-the-grout, wash-the-baseboards kind of clean — is what actually keeps a home healthy over time. So how often do you really need it?
+
+The short answer: **most homes need a deep clean every 3 to 4 months.** But in Yuma, our dust and hard water push that timeline up. Here's a practical, room-by-room breakdown.
+
+## The General Rule
+
+For a typical household, a full [deep clean](/pricing) every quarter (four times a year) keeps grime from ever becoming permanent. Between deep cleans, [recurring maintenance cleaning](/pricing) handles the surface-level upkeep.
+
+But "every 3–4 months" is a starting point, not a law. Adjust it based on your home and life.
+
+## Deep Clean More Often If You...
+
+- **Live in Yuma or Fortuna Foothills.** Fine desert dust and monsoon storms load surfaces and vents fast. Many of our [Yuma](/areas/yuma) and [Fortuna Foothills](/areas/fortuna-foothills) clients deep clean every 2–3 months, and twice during summer haboob season.
+- **Have pets.** Dander, hair, and litter dust build up quickly.
+- **Have young kids or anyone with allergies or asthma.** Deep cleaning removes the allergens that regular dusting misses.
+- **Cook a lot.** Grease accumulates on range hoods, backsplashes, and cabinet fronts.
+- **Have hard water.** Yuma's mineral-heavy Colorado River water leaves scale on glass and fixtures that only deep cleaning removes.
+
+## Room-by-Room Frequency Guide
+
+### Kitchen — Every 2–3 Months
+The kitchen earns the most frequent deep cleans. Inside the oven, inside the fridge, the range hood filter, and the backsplash all collect grease and grime that surface wiping won't touch.
+
+### Bathrooms — Every 2–3 Months
+Grout, shower glass, and caulk are hard-water and mildew magnets here. Regular cleaning keeps them presentable; deep cleaning keeps stains from setting permanently. In our climate, resealing grout periodically pays off.
+
+### Bedrooms & Living Areas — Every 3–4 Months
+Baseboards, ceiling fans, behind furniture, window tracks, and vents are the usual dust traps. In Yuma, check these sooner after any major dust storm.
+
+### Whole-Home Systems — Seasonally
+HVAC vents and returns, window tracks, and light fixtures collect the dust you can't see. A seasonal deep clean catches them.
+
+## A Simple Yuma Deep-Clean Calendar
+
+- **Spring (March–April):** Post-winter reset; snowbird home openings
+- **Early Summer (May–June):** Pre-haboob-season deep clean
+- **Late Summer (August):** Post-dust-storm cleanup
+- **Fall (October–November):** Seasonal reset before the holidays
+
+Four deep cleans a year, timed to our climate, keeps almost any home in great shape.
+
+## Signs You're Overdue
+
+Not sure where you stand? You probably need a deep clean if:
+
+- Baseboards and vents have visible dust despite regular cleaning
+- Shower glass looks cloudy no matter how you wipe it
+- Grout lines are darkening
+- The house feels "dusty" a day after you clean
+- You can't remember the last time the oven or fridge interior was cleaned
+
+## The Smart Approach
+
+Pairing recurring maintenance cleaning with a quarterly deep clean is the most cost-effective way to keep a home consistently clean. The maintenance visits keep dust from building; the deep cleans handle what accumulates in the hidden spots.
+
+We serve [Yuma](/areas/yuma), [Fortuna Foothills](/areas/fortuna-foothills), and the surrounding valley, and we can set up a deep-clean schedule matched to your home and our seasons.
+
+[See deep cleaning pricing →](/pricing) or [get a free quote](/contact). Call (928) 555-0148 — we answer our own phone.
+    `,
+  },
+  {
+    slug: 'standard-house-cleaning-checklist',
+    title: 'What\'s Included in a Standard House Cleaning Checklist',
+    excerpt: 'The complete standard house cleaning checklist, room by room — what a professional clean covers, what it doesn\'t, and how to use it.',
+    category: 'Checklist',
+    published: '2025-06-03',
+    readTime: 5,
+    keywords: [
+      'house cleaning checklist',
+      'what is included in house cleaning',
+      'standard cleaning checklist',
+      'house cleaning services checklist',
+      'cleaning checklist yuma',
+    ],
+    relatedServices: ['house-cleaning', 'deep-cleaning'],
+    relatedAreas: ['yuma', 'somerton', 'san-luis'],
+    content: `
+# What's Included in a Standard House Cleaning Checklist
+
+If you've never hired a cleaning service, "standard house cleaning" can feel like a mystery. What's actually covered? What costs extra? This guide lays out a complete standard house cleaning checklist so you know exactly what to expect — and how it differs from a deep clean.
+
+You can also use this as a DIY checklist if you're cleaning your own home and want to make sure nothing gets missed.
+
+## What "Standard" Means
+
+A standard (or "maintenance") clean keeps an already-reasonably-clean home fresh. It focuses on the surfaces and tasks that need regular attention. It is not the same as a [deep clean](/pricing), which tackles built-up grime, hidden areas, and detail work on a periodic basis.
+
+Think of it this way: standard cleaning is the every-week or every-two-week upkeep. Deep cleaning is the quarterly reset.
+
+## The Standard Checklist, Room by Room
+
+### Whole Home (Every Room)
+- [ ] Dust all reachable surfaces, shelves, and decor
+- [ ] Dust ceiling fans and light fixtures within reach
+- [ ] Wipe light switches, door handles, and frames
+- [ ] Remove cobwebs
+- [ ] Empty trash and replace liners
+- [ ] Vacuum carpets and rugs
+- [ ] Sweep and mop hard floors
+- [ ] General tidying
+
+### Kitchen
+- [ ] Wipe counters and backsplash
+- [ ] Scrub sink, polish faucet
+- [ ] Clean stovetop surface and grates
+- [ ] Wipe appliance exteriors
+- [ ] Clean inside the microwave
+- [ ] Spot-clean cabinet fronts
+- [ ] Sweep and mop floors
+
+### Bathrooms
+- [ ] Scrub and disinfect toilet, inside and out
+- [ ] Clean tub and shower surfaces
+- [ ] Wipe shower glass
+- [ ] Scrub sink and vanity
+- [ ] Polish mirror
+- [ ] Wipe fixtures
+- [ ] Sweep and mop floors
+
+### Bedrooms & Living Areas
+- [ ] Dust all surfaces and sills
+- [ ] Make beds (or change linens if left out)
+- [ ] Wipe mirrors and glass
+- [ ] Vacuum and/or mop floors
+- [ ] Organize visible clutter
+
+## What's Usually NOT in a Standard Clean
+
+These tasks are typically part of a deep clean, not standard service. Knowing the line prevents surprises:
+
+- Inside the oven and refrigerator
+- Inside cabinets and drawers
+- Hand-scrubbing baseboards (standard = dusting them)
+- Washing blinds (standard = dusting them)
+- Interior windows and tracks
+- Grout scrubbing and sealing
+- Behind and under heavy appliances and furniture
+
+If you want any of these, just ask. We can add them to a visit or schedule a periodic deep clean.
+
+## How to Use This Checklist
+
+- **Hiring a cleaner?** Compare their scope to this list so you're comparing apples to apples. A quote that skips restrooms or floors isn't really cheaper.
+- **Cleaning yourself?** Work top to bottom, one room at a time, and dust before you vacuum — especially in Yuma, where airborne dust resettles fast.
+- **On a budget?** Prioritize kitchen and bathrooms; they affect health and hygiene most.
+
+## A Yuma-Specific Note
+
+Our desert dust and hard water mean a couple of checklist items deserve extra attention here: shower glass (mineral spotting) and any horizontal surface near vents or windows (dust). A consistent standard-clean schedule keeps both from getting ahead of you.
+
+## Customized to Your Home
+
+No two homes are identical. When we start service, we walk this checklist with you and adjust it — more focus where you want it, skip what you don't need. We bring our own professional supplies and work on flexible schedules including evenings and weekends.
+
+We serve [Yuma](/areas/yuma), [Somerton](/areas/somerton), [San Luis](/areas/san-luis), and the surrounding valley.
+
+[See full pricing →](/pricing) or [get a free quote in 60 seconds](/contact). Call (928) 555-0148 — we answer our own phone.
+    `,
+  },
+  {
+    slug: 'is-maid-service-worth-the-cost',
+    title: 'Recurring Cleaning: Is a Maid Service Worth the Cost?',
+    excerpt: 'Weighing a maid service in Yuma? We compare DIY vs. hiring help — cost, time, and quality — to help you decide if house cleaning is worth it.',
+    category: 'Comparison',
+    published: '2025-07-01',
+    readTime: 5,
+    keywords: [
+      'maid service yuma',
+      'is house cleaning worth it',
+      'maid service cost yuma',
+      'hire a cleaner yuma',
+      'cleaning service vs diy',
+    ],
+    relatedServices: ['house-cleaning', 'deep-cleaning'],
+    relatedAreas: ['yuma', 'fortuna-foothills', 'somerton'],
+    content: `
+# Recurring Cleaning: Is a Maid Service Worth the Cost?
+
+"Is a maid service actually worth it, or am I just being lazy?" It's the question almost every Yuma homeowner asks before hiring their first cleaner. Let's answer it honestly — with real trade-offs, not a sales pitch.
+
+## First, Drop the Guilt
+
+Hiring help with cleaning isn't laziness any more than hiring a mechanic is. It's a decision about where your time and energy are best spent. The real question isn't "should I be able to do this myself?" It's "is paying someone worth what I get back?" For a lot of people, it is. For some, it isn't. Both answers are fine.
+
+## The Honest Comparison: DIY vs. Maid Service
+
+### Cost
+DIY looks free, but it isn't. Cleaning supplies run $30–$50 a month for a household that cleans thoroughly, plus equipment you replace over time. A [recurring maid service](/pricing) with us starts at $129 per visit — around $258/month for bi-weekly service, the most popular schedule.
+
+### Time
+This is where the math shifts. A proper clean of a 3-bedroom home takes 3–4 hours. Bi-weekly, that's 6–8 hours a month of your life spent scrubbing. Value your time at even $25/hour and DIY "costs" $150–$200/month on top of supplies — right in the same range as hiring out.
+
+### Quality & Consistency
+Be honest about your own cleaning: when you're tired, corners get cut. A professional follows the same checklist every visit, so the baseboards and the bathroom grout actually get done. In Yuma's dust, consistency matters more than in most places.
+
+### Mental Load
+Hard to price, easy to feel. Not thinking about when you'll find time to clean — and walking into a consistently fresh home — is worth real money to a lot of people.
+
+## When a Maid Service Is Clearly Worth It
+
+- You work long hours or run a business
+- You have kids, pets, or both
+- Cleaning is physically hard for you
+- You're a snowbird who wants a maintained home
+- You'd genuinely rather spend weekends on almost anything else
+
+## When DIY Might Make More Sense
+
+- You have plenty of free time and don't mind the work
+- Your home is small and stays tidy easily
+- Money is tighter than time right now
+- You actually find cleaning satisfying (some people do!)
+
+There's no shame in either column. The point is to choose deliberately instead of defaulting.
+
+## The Middle Path
+
+You don't have to go all-in. Many of our clients:
+
+- Book **monthly** instead of weekly to keep costs down
+- Start with a [deep clean](/pricing), then maintain it themselves for a while
+- Hire out only the jobs they hate — bathrooms, floors — and do the rest
+
+We only clean what you ask for, so the service scales to your budget.
+
+## What You're Really Buying
+
+A maid service isn't just a clean house — you can achieve that yourself. What you're buying is time and consistency: your weekends back, a home that's always ready for guests, and one fewer thing on your mental checklist. Whether that's worth $129 a visit is a personal call, but for most busy households in [Yuma](/areas/yuma), [Fortuna Foothills](/areas/fortuna-foothills), and [Somerton](/areas/somerton), the answer turns out to be yes.
+
+## Try It Without Committing
+
+The best way to know is to try one clean and see how it feels to come home to it. No long-term contract required.
+
+[See recurring cleaning rates →](/pricing) or [get a free quote in 60 seconds](/contact). Call (928) 555-0148 — we answer our own phone.
+    `,
+  },
+  {
+    slug: 'monsoon-season-home-prep-yuma',
+    title: 'Monsoon Season Home Prep for Yuma Homes',
+    excerpt: 'A focused prep guide for Yuma homeowners: protect your home from monsoon dust storms and sudden rain, and clean up fast afterward.',
+    category: 'Seasonal',
+    published: '2025-06-20',
+    readTime: 5,
+    keywords: [
+      'monsoon season cleaning yuma',
+      'dust storm prep',
+      'monsoon home prep yuma',
+      'haboob preparation',
+      'yuma dust storm cleanup',
+    ],
+    relatedServices: ['deep-cleaning', 'house-cleaning'],
+    relatedAreas: ['yuma', 'fortuna-foothills', 'somerton'],
+    content: `
+# Monsoon Season Home Prep for Yuma Homes
+
+Every Yuma resident knows the summer sky can turn brown in minutes. Monsoon season — roughly mid-June to late September — brings dust storms (haboobs) and heavy, fast-moving rain. This is a focused, practical prep guide to keep the dust out, prevent water problems, and make cleanup quick.
+
+## The One-Time Prep (Do It Before the First Storm)
+
+Set aside an afternoon before the season ramps up and knock out these tasks once:
+
+### Seal Dust and Water Out
+- Replace worn weatherstripping on exterior doors
+- Re-caulk gaps around windows
+- Check and adjust the garage door bottom seal
+- Confirm attic/soffit vent screens are intact
+
+### Handle Water Flow
+- Clear gutters and downspouts
+- Make sure the ground slopes away from your foundation
+- Lift garage-stored boxes off the floor onto shelves or pallets
+
+### Reset Your Baseline
+- Start the season with a [deep clean](/pricing) so blown-in dust settles on clean surfaces instead of layering onto old grime
+- Stock up on HVAC filters — you'll change them more often now
+
+## The Storm-Day Routine
+
+When a dust wall or storm is coming:
+
+- Close every window and door, including interior doors
+- Set the HVAC to recirculate, not fresh-air intake
+- Bring in or cover patio furniture and cushions
+- Close the damper on any evaporative (swamp) cooler
+- Never drive into a dust wall — pull over and wait
+
+## The Fast Cleanup (In This Order)
+
+Order matters. Do it right and you clean each surface once:
+
+1. **Outside while damp.** Hose windows, patios, and entryways before the dust dries and cakes. Lightly rinse the AC condenser fins.
+2. **Dust top to bottom, then vacuum.** Fans and shelves first, floors last. Vacuuming first just launches dust back into the air.
+3. **Windows, glass, and tracks.** Vinegar and microfiber cut the monsoon film; vacuum the mud out of slider tracks.
+4. **Swap the HVAC filter** once indoor dust settles.
+
+## Don't Skip the Water Check
+
+Dust is the visible problem; water is the expensive one. After heavy rain, check:
+
+- Door thresholds and window sills for pooling or dampness
+- Ceilings under rooftop AC units and roof penetrations
+- Garage corners and low closet walls for musty smells
+
+In our heat, trapped moisture turns to mold fast. Dry any damp area quickly and fix the source.
+
+## Living With Monsoon Season
+
+You can't stop the storms, but a rhythm keeps your home ahead of them:
+
+- **Before the season:** one deep clean + sealing gaps
+- **During the season:** [recurring cleaning](/pricing) every 1–2 weeks to stay ahead of dust
+- **After a big storm:** targeted cleanup, plus a deep clean after the worst of them
+
+Homes in [Yuma](/areas/yuma), [Fortuna Foothills](/areas/fortuna-foothills), and [Somerton](/areas/somerton) all take a beating during monsoon season, and we clean throughout it — including evenings and weekends, with same-week availability.
+
+## Let Us Handle the Cleanup
+
+When a storm buries your home in dust, a [deep clean](/pricing) pulls it out of the vents, tracks, and hidden corners you can't easily reach. [Get a free quote →](/contact) or call (928) 555-0148. We answer our own phone.
+
+**No Compromise. No Dust.**
+    `,
+  },
+  {
+    slug: 'pet-friendly-cleaning-desert-homes',
+    title: 'Pet-Friendly Cleaning: Keeping a Clean Home With Pets in the Desert',
+    excerpt: 'Hair, dander, litter dust, and desert grit — how to keep a clean, healthy home with pets in Yuma, plus which products keep animals safe.',
+    category: 'How-To',
+    published: '2025-05-22',
+    readTime: 5,
+    keywords: [
+      'pet friendly cleaning yuma',
+      'cleaning with pets',
+      'pet hair cleaning',
+      'pet safe cleaning yuma',
+      'cleaning home with dogs cats',
+    ],
+    relatedServices: ['house-cleaning', 'deep-cleaning'],
+    relatedAreas: ['yuma', 'fortuna-foothills'],
+    content: `
+# Pet-Friendly Cleaning: Keeping a Clean Home With Pets in the Desert
+
+We love our pets — and we love them a little less when we spot the tumbleweed of fur under the couch or catch that faint litter-box smell on a hot afternoon. In Yuma, pet ownership comes with an extra wrinkle: desert dust and pet hair combine into a stubborn, ever-present layer. Here's how to stay ahead of it and keep your home clean, fresh, and safe for the animals.
+
+## The Desert-Plus-Pets Challenge
+
+Two things stack up here:
+
+1. **Pet hair and dander** shed constantly, cling to fabric, and float into vents.
+2. **Fine desert dust** blows in year-round and spikes during [monsoon and haboob season](/blog/haboob-cleanup-guide).
+
+Together they settle faster and thicker than in milder climates. That means routine, not heroics, is what keeps a pet home clean.
+
+## A Simple Weekly Rhythm
+
+### Floors
+- Vacuum high-traffic and pet-favorite areas 2–3 times a week
+- Use a vacuum with a HEPA filter — it traps dander and fine dust instead of blowing it back out
+- Mop hard floors weekly; paws track in more grit here than you'd think
+
+### Fabric and Soft Surfaces
+- Wash pet bedding weekly in hot water
+- Keep a lint roller or rubber pet-hair brush by the couch
+- A slightly dampened rubber glove dragged across upholstery pulls embedded hair better than most tools
+
+### Litter and Feeding Areas
+- Scoop daily; a covered mat under the box catches tracked litter
+- Wipe feeding-area floors daily — spilled food plus desert ants is a bad combo
+
+## Controlling Odor the Right Way
+
+Odor control isn't about masking with heavy air freshener. It's about removing the source:
+
+- Blot accidents immediately, then treat with an enzyme-based cleaner that breaks down the odor compounds
+- Wash bedding and soft surfaces regularly
+- Baking soda sprinkled on carpet before vacuuming helps neutralize smells
+
+## Keep Products Pet-Safe
+
+This part matters. Some common cleaners are genuinely hazardous to animals:
+
+- **Avoid or use with great care:** products with strong pine oils, undiluted bleach, ammonia, and certain concentrated disinfectants. Cats are especially sensitive.
+- **Watch for:** floor cleaners that leave residue pets walk on and then lick off their paws.
+- **Safer bets:** thoroughly rinsed surfaces, enzyme cleaners, and mild dish soap for many jobs.
+- **Always:** keep pets out of a freshly cleaned room until floors are dry and any product has been rinsed or has fully dried.
+
+When we clean pet homes, we're happy to use pet-conscious products and methods — just let us know about your animals when you book.
+
+## Don't Forget the Air
+
+In a dusty pet home, the HVAC system does a lot of quiet work:
+
+- Change your HVAC filter more often — monthly is reasonable in a pet home during dust season
+- Have vents and returns dusted during periodic [deep cleans](/pricing); dander and dust collect there heavily
+
+## When to Bring in a Deep Clean
+
+Routine cleaning keeps the surface under control, but a few times a year a pet home needs more: hair worked deep into carpet, dander on baseboards and vents, and grit in the corners. A periodic [deep clean](/pricing) resets all of it.
+
+## We Clean Pet Homes Every Day
+
+We serve pet owners across [Yuma](/areas/yuma), [Fortuna Foothills](/areas/fortuna-foothills), and the surrounding valley, and we work on flexible schedules — including evenings and weekends — so we can fit around your animals' routines. Tell us about your pets when you book and we'll tailor the visit.
+
+[See pricing →](/pricing) or [get a free quote in 60 seconds](/contact). Call (928) 555-0148 — we answer our own phone.
+    `,
   },
 ];

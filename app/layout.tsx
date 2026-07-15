@@ -36,14 +36,7 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     title: `${SITE.name} — House & Office Cleaning in Yuma, AZ`,
     description: 'Flat-rate house and office cleaning with a 100% re-clean guarantee. Professional service across Yuma County.',
-    images: [
-      {
-        url: `${SITE.url}/og-image.jpg`,
-        width: 1200,
-        height: 630,
-        alt: 'Clean Conviction - Professional House & Office Cleaning in Yuma, AZ',
-      },
-    ],
+    // Social image auto-wired from app/opengraph-image.tsx (generated 1200×630 PNG).
   },
   twitter: {
     card: 'summary_large_image',

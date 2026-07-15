@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { AREAS } from '@/lib/areas';
+import { SERVICES } from '@/lib/services';
 import { SITE } from '@/lib/site';
 import { breadcrumbSchema } from '@/lib/schema';
 import SplitHeadline from '@/components/sections/SplitHeadline';
@@ -84,18 +85,13 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
         <section className="mx-auto max-w-5xl px-6 py-8">
           <h2 className="mb-8 text-3xl md:text-4xl">Services in {area.name}</h2>
           <div className="grid gap-4 md:grid-cols-2">
-            {[
-              { name: 'Recurring Home Cleaning', price: 'from $129/visit' },
-              { name: 'Deep Cleaning', price: 'from $249' },
-              { name: 'Move-In / Move-Out', price: 'from $299' },
-              { name: 'Office & Commercial', price: 'custom quote' },
-            ].map((s) => (
+            {SERVICES.map((s) => (
               <Link
-                key={s.name}
-                href="/services"
+                key={s.slug}
+                href={`/areas/${area.slug}/${s.slug}`}
                 className="group flex items-center justify-between rounded-xl border border-[var(--line)] bg-white/50 p-5 transition-colors hover:border-[var(--accent)]"
               >
-                <span className="text-[var(--ink)]">{s.name}</span>
+                <span className="text-[var(--ink)]">{s.shortName} in {area.name}</span>
                 <span className="text-sm font-semibold text-[var(--accent)]">{s.price} →</span>
               </Link>
             ))}

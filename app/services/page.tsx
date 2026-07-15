@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import { SERVICES as SERVICE_LINKS } from '@/lib/services';
 import SplitHeadline from '@/components/sections/SplitHeadline';
 import ServiceShowcase from '@/components/sections/ServiceShowcase';
 import ProgressTimeline from '@/components/sections/ProgressTimeline';
@@ -57,6 +59,22 @@ export default function ServicesPage() {
         </section>
 
         <ServiceShowcase services={SERVICES} />
+
+        <section className="mx-auto max-w-5xl px-6 py-12">
+          <h2 className="mb-8 text-3xl md:text-4xl">Explore each service</h2>
+          <div className="grid gap-4 md:grid-cols-2">
+            {SERVICE_LINKS.map((s) => (
+              <Link
+                key={s.slug}
+                href={`/services/${s.slug}`}
+                className="group flex items-center justify-between rounded-xl border border-[var(--line)] bg-white/50 p-6 transition-colors hover:border-[var(--accent)]"
+              >
+                <span className="text-lg text-[var(--ink)]">{s.shortName}</span>
+                <span className="text-sm font-semibold text-[var(--accent)]">{s.price} →</span>
+              </Link>
+            ))}
+          </div>
+        </section>
 
         <ProgressTimeline />
         <GiantCTA />

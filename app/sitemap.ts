@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { SITE } from '@/lib/site';
 import { AREAS } from '@/lib/areas';
 import { GUIDES } from '@/lib/guides';
+import { SERVICES } from '@/lib/services';
 
 export const revalidate = 3600;
 
@@ -23,11 +24,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly',
     priority: 0.8,
   }));
+  const services: MetadataRoute.Sitemap = SERVICES.map((s) => ({
+    url: `${SITE.url}/services/${s.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.9,
+  }));
+  const matrix: MetadataRoute.Sitemap = AREAS.flatMap((area) =>
+    SERVICES.map((s) => ({
+      url: `${SITE.url}/areas/${area.slug}/${s.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.75,
+    }))
+  );
   const blogs: MetadataRoute.Sitemap = GUIDES.map((guide) => ({
     url: `${SITE.url}/blog/${guide.slug}`,
     lastModified: new Date(guide.published),
     changeFrequency: 'monthly',
     priority: 0.7,
   }));
-  return [...core, ...cities, ...blogs];
+  return [...core, ...services, ...cities, ...matrix, ...blogs];
 }

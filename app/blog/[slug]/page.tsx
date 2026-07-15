@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { marked } from 'marked';
 import { GUIDES } from '@/lib/guides';
 import { SITE } from '@/lib/site';
 import { breadcrumbSchema } from '@/lib/schema';
@@ -32,7 +33,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     '@type': 'BlogPosting',
     headline: guide.title,
     description: guide.excerpt,
-    image: `${SITE.url}/og-image.jpg`,
+    image: `${SITE.url}/opengraph-image`,
     datePublished: guide.published,
     dateModified: guide.published,
     author: { '@type': 'Organization', name: SITE.name, url: SITE.url },
@@ -68,7 +69,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           </header>
 
           <div className="prose prose-sm md:prose-base prose-headings:text-[var(--ink)] prose-a:text-[var(--accent)] max-w-none mb-12">
-            <div dangerouslySetInnerHTML={{ __html: guide.content }} />
+            <div dangerouslySetInnerHTML={{ __html: marked.parse(guide.content, { async: false }) as string }} />
           </div>
 
           <aside className="rounded-2xl border border-[var(--line)] bg-white/50 p-8 mb-12">
@@ -76,10 +77,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             <div className="grid gap-4 md:grid-cols-2">
               {guide.relatedServices.map((service) => {
                 const serviceMap: Record<string, { name: string; href: string }> = {
-                  recurring: { name: 'Recurring Cleaning', href: '/pricing' },
-                  deep: { name: 'Deep Cleaning', href: '/pricing' },
-                  moveout: { name: 'Move-Out Cleaning', href: '/pricing' },
-                  commercial: { name: 'Commercial Cleaning', href: '/pricing' },
+                  'house-cleaning': { name: 'House Cleaning', href: '/services/house-cleaning' },
+                  'deep-cleaning': { name: 'Deep Cleaning', href: '/services/deep-cleaning' },
+                  'move-out-cleaning': { name: 'Move-Out Cleaning', href: '/services/move-out-cleaning' },
+                  'office-cleaning': { name: 'Office & Commercial Cleaning', href: '/services/office-cleaning' },
                 };
                 const s = serviceMap[service];
                 return (
