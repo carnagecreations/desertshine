@@ -9,7 +9,7 @@ import RevealFooter from '@/components/sections/RevealFooter';
 export const metadata: Metadata = {
   title: 'Service Areas — Cleaning Across Yuma County, AZ',
   description:
-    'Desert Shine cleans homes and offices in Yuma, Fortuna Foothills, Somerton, San Luis, Wellton, and Winterhaven. Same flat rates everywhere — no travel fees.',
+    'Clean Conviction cleans homes and offices in Yuma, Fortuna Foothills, Somerton, San Luis, Wellton, and Winterhaven. Same flat rates everywhere — no travel fees.',
   alternates: { canonical: `${SITE.url}/areas` },
 };
 

@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const guide = GUIDES.find((g) => g.slug === slug);
   if (!guide) return {};
   return {
-    title: `${guide.title} | Desert Shine Blog`,
+    title: `${guide.title} | Clean Conviction Blog`,
     description: guide.excerpt,
     alternates: { canonical: `${SITE.url}/blog/${guide.slug}` },
   };

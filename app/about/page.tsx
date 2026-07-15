@@ -9,7 +9,7 @@ import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'About Us',
-  description: 'Desert Shine is a locally owned cleaning company serving Yuma, Fortuna Foothills, Somerton, and the surrounding valley.',
+  description: 'Clean Conviction is a locally owned cleaning company serving Yuma, Fortuna Foothills, Somerton, and the surrounding valley. No Compromise. No Dust.',
 };
 
 const VALUES = [

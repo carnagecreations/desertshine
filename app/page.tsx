@@ -15,7 +15,7 @@ import GiantCTA from '@/components/sections/GiantCTA';
 import RevealFooter from '@/components/sections/RevealFooter';
 
 export const metadata: Metadata = {
-  title: 'Professional Cleaning Services in Yuma, AZ | Desert Shine',
+  title: 'Professional Cleaning Services in Yuma, AZ | Clean Conviction',
   description: 'Flat-rate house and office cleaning in Yuma, Arizona. Same-week availability, 100% re-clean guarantee, and transparent pricing. Get a free quote in 60 seconds.',
 };
 

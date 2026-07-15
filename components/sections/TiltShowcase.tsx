@@ -5,7 +5,7 @@ import VanillaTilt from 'vanilla-tilt';
 export default function TiltShowcase({
   src = '/showcase.png',                                 // CUSTOMIZE
   badge = 'Featured work',                               // CUSTOMIZE
-  caption = 'Desert Shine — bookings up 240%',          // CUSTOMIZE
+  caption = 'Clean Conviction — bookings up 240%',     // CUSTOMIZE
 }: { src?: string; badge?: string; caption?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
