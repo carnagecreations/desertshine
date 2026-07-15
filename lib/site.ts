@@ -3,8 +3,8 @@ export const SITE = {
   name: 'Clean Conviction',
   shortName: 'Clean Conviction',
   tagline: 'House & office cleaning in Yuma, AZ — No Compromise. No Dust.',
-  phone: '(928) 555-0148',            // CUSTOMIZE: real phone number
-  phoneHref: 'tel:+19285550148',      // CUSTOMIZE: real phone number
+  phone: '(928) 298-5509',
+  phoneHref: 'tel:+19282985509',
   email: 'hello@cleanconviction.com', // CUSTOMIZE: real email
   address: 'Yuma, AZ 85364',
   url: 'https://www.cleanconviction.com', // CUSTOMIZE: real domain
