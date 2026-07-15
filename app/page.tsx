@@ -75,14 +75,14 @@ export default function Home() {
           <h2 className="mb-16 text-center text-4xl md:text-5xl text-[var(--ink)]">What our clients say</h2>
           <div className="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
             <TiltShowcase
-              src="/images/service-recurring.webp"
-              badge="Happy Client"
-              caption="Deposit back guaranteed — and they delivered."
+              src="/images/testimonial-1.webp"
+              badge="Deep Clean"
+              caption="Before looked impossible. They made it spotless."
             />
             <TiltShowcase
-              src="/images/service-deep.webp"
-              badge="Same Team"
-              caption="Same cleaner every visit means they remember the routine."
+              src="/images/testimonial-2.webp"
+              badge="Attention to Detail"
+              caption="Every corner perfect. Worth every penny."
             />
           </div>
         </section>
