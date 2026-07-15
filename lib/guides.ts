@@ -14,6 +14,235 @@ export type Guide = {
 
 export const GUIDES: Guide[] = [
   {
+    slug: 'move-out-cleaning-checklist',
+    title: 'The Ultimate Move-Out Cleaning Checklist for Yuma Rentals',
+    excerpt: 'Get your deposit back. Here\'s the complete room-by-room checklist for move-out cleaning that passes landlord inspection.',
+    category: 'Checklist',
+    published: '2025-02-15',
+    readTime: 9,
+    keywords: [
+      'move out cleaning checklist',
+      'move out cleaning yuma',
+      'rental cleaning checklist',
+      'get deposit back',
+      'landlord inspection cleaning',
+    ],
+    relatedServices: ['moveout'],
+    relatedAreas: ['yuma', 'somerton', 'san-luis'],
+    content: `
+# The Ultimate Move-Out Cleaning Checklist for Yuma Rentals
+
+Moving out of a rental in Yuma? Your landlord is going to inspect. They're looking for reasons to keep your deposit.
+
+This is the checklist we use for [move-out cleans from $299](/pricing). Follow it, and you'll pass inspection.
+
+## Before You Move: Key Dates
+
+- **Move-out date:** ________
+- **Final walkthrough with landlord:** ________
+- **Cleaning appointment (48 hours before):** ________
+
+Book your move-out clean 2–3 days before you leave. This gives you time to do touch-ups if landlord requests them.
+
+## The Complete Room-by-Room Checklist
+
+### Living Room & Hallways
+
+**Walls & Baseboards**
+- [ ] Wipe down all baseboards (dust + vacuum them first)
+- [ ] Check for scuffs on walls (magic eraser for marks)
+- [ ] Wipe light switches and door frames
+- [ ] Check closet corners for dust
+
+**Floors**
+- [ ] Vacuum thoroughly, including closets
+- [ ] Mop hard floors
+- [ ] Check corners for dust/hair
+- [ ] Remove any stains (carpet steam clean if needed)
+
+**Windows & Glass**
+- [ ] Clean all windows inside and out (if accessible)
+- [ ] Wipe down window sills and frames
+- [ ] Clean blinds or dust them thoroughly
+- [ ] Wipe glass doors
+
+**Fixtures & Hardware**
+- [ ] Clean light fixtures
+- [ ] Wipe door handles and locks
+- [ ] Check ceiling corners for spiderwebs
+
+### Kitchen
+
+**Cabinets**
+- [ ] Wipe down all cabinet fronts and handles
+- [ ] Clean inside cabinets (especially where you stored items)
+- [ ] Check inside for spills or residue
+- [ ] Wipe cabinet tops
+
+**Appliances**
+- [ ] Oven: Clean inside and out (this is critical)
+- [ ] Stovetop: Scrub burners and drip pans
+- [ ] Exhaust hood: Clean filter and grease
+- [ ] Refrigerator: Wipe inside and out, clean coils (if accessible)
+- [ ] Microwave: Clean inside (heat water to loosen grime)
+- [ ] Dishwasher: Run empty cycle, wipe exterior
+- [ ] Garbage disposal: Run with ice and vinegar
+
+**Sink & Counters**
+- [ ] Scrub sink thoroughly (no hard water stains)
+- [ ] Polish faucet and handles
+- [ ] Wipe down all counters
+- [ ] Remove any backsplash buildup (degreaser works)
+
+**Floors**
+- [ ] Mop entire kitchen (grease cleanup if needed)
+- [ ] Clean baseboards
+- [ ] Check corners and under sink area for spills
+
+### Bathrooms (Most Critical)
+
+**Toilet**
+- [ ] Scrub inside and outside
+- [ ] Clean rim and base thoroughly
+- [ ] Disinfect completely
+
+**Shower/Tub**
+- [ ] Scrub tile and grout (this gets heavy inspection)
+- [ ] Clean shower doors or curtain rod (remove any mineral deposits)
+- [ ] Wipe caulking for mold/mildew (replace if heavily stained)
+- [ ] Clean showerhead
+
+**Sink & Mirror**
+- [ ] Scrub sink thoroughly
+- [ ] Polish faucet and handles
+- [ ] Clean mirror (streak-free)
+- [ ] Wipe down vanity
+
+**Walls & Floors**
+- [ ] Wipe down baseboards
+- [ ] Mop floors thoroughly
+- [ ] Check corners for dust/spiderwebs
+- [ ] Wipe exhaust fan cover
+
+**Storage**
+- [ ] Clean inside medicine cabinet
+- [ ] Clean under sink (check for leaks/damage)
+- [ ] Wipe down shelving
+
+### Bedrooms
+
+**Walls & Baseboards**
+- [ ] Wipe all baseboards
+- [ ] Check for scuffs or marks
+- [ ] Wipe light switches and door frames
+- [ ] Check closets (shelves, rods, corners)
+
+**Closets (Often Missed)**
+- [ ] Wipe down shelves
+- [ ] Check for dust behind/above rods
+- [ ] Vacuum floor
+- [ ] Check for any damage to walls/rods
+
+**Floors**
+- [ ] Vacuum thoroughly, including closets and corners
+- [ ] Mop hard floors
+- [ ] Check under bed area (dust bunnies hide here)
+- [ ] Steam clean carpet if needed
+
+**Windows**
+- [ ] Clean windows inside and out
+- [ ] Wipe sills and frames
+- [ ] Clean blinds
+
+### Laundry Room (If Applicable)
+
+- [ ] Wipe down washer/dryer
+- [ ] Vacuum lint from dryer vent
+- [ ] Mop floor
+- [ ] Check for any spillage or stains
+
+### Entry & Garage
+
+**Entry Door**
+- [ ] Wipe door frame
+- [ ] Clean door glass (if applicable)
+- [ ] Wipe down door and lock
+
+**Garage** (if included)
+- [ ] Sweep thoroughly
+- [ ] Remove any items left behind
+- [ ] Check for stains or damage
+- [ ] Wipe down doors and windows
+
+---
+
+## The Landlord Inspection Red Flags
+
+Landlords look for these (and will deduct from deposit):
+
+1. **Grout stains** — This is #1. Dirty grout loses deposits.
+2. **Hard water deposits** — On glass, fixtures, tile
+3. **Greasy stovetop** — Shows lack of care
+4. **Dirty oven inside** — Automatic deduction
+5. **Mold in shower** — Can mean deeper water damage
+6. **Carpet stains** — Professional cleaning may be required
+7. **Scuffs on walls** — Shows you didn't maintain the place
+8. **Dust on baseboards** — Signals you didn't deep clean
+9. **Items left behind** — Shows abandonment
+
+## Professional vs. DIY
+
+**DIY move-out cleaning works if:**
+- You have 4+ hours
+- You're detail-oriented
+- You know how to clean grout
+- You can handle hard-water deposits
+
+**Professional move-out cleaning is worth it if:**
+- You're in a time crunch
+- Your lease requires "broom clean" (professional standard)
+- Landlord is known for being strict
+- You want to guarantee your deposit back
+
+[Professional move-out clean: $299 → /pricing](/pricing)
+
+---
+
+## Timing
+
+**Best practice:** Clean 2–3 days before you leave.
+
+This gives you:
+- Time to address landlord concerns if they show up early
+- Ability to do touch-ups if you notice something
+- Fresh clean on final walkthrough day
+
+**Worst practice:** Cleaning the day you leave. You'll miss spots and stress.
+
+---
+
+## Getting Your Deposit Back
+
+1. **Do this checklist** (or hire us to)
+2. **Take photos** of the clean home (time-stamped)
+3. **Walk through with landlord** and note any pre-existing damage they claim
+4. **Keep receipts** for any professional cleaning
+5. **Follow up** within 30 days if deposit isn't returned
+
+Arizona law requires landlords to return deposits within 14 days (or provide an itemized list of deductions). If they don't, you can dispute.
+
+---
+
+## Ready to Move?
+
+[Schedule your move-out clean →](/contact)
+
+We serve [Yuma](/areas/yuma), [Somerton](/areas/somerton), [San Luis](/areas/san-luis), and the [surrounding valley](/areas). Same-week availability, even during peak moving season.
+
+**Flat rate: $299 and up.** No surprises. Get your deposit back.
+    `,
+  },
+  {
     slug: 'best-cleaning-services-yuma',
     title: 'Best Cleaning Services in Yuma, AZ: What to Look For',
     excerpt: 'How to find the right cleaning service in Yuma. We break down what separates good cleaners from great ones.',
@@ -442,5 +671,222 @@ We specialize in seasonal snowbird cleans for Yuma's winter residents:
 
 We'll have your home ready before you arrive.
     `,
+  },
+  {
+    slug: 'deep-cleaning-vs-regular-cleaning',
+    title: 'Deep Cleaning vs Regular Cleaning: What\'s the Difference?',
+    excerpt: 'Confused about deep cleans? Here\'s exactly what we clean during each service—and when you need deep.',
+    category: 'Comparison',
+    published: '2025-02-25',
+    readTime: 7,
+    keywords: [
+      'deep cleaning vs regular cleaning',
+      'what is deep cleaning',
+      'deep cleaning service',
+      'house cleaning difference',
+      'when to deep clean',
+    ],
+    relatedServices: ['recurring', 'deep'],
+    relatedAreas: ['yuma'],
+    content: `
+# Deep Cleaning vs Regular Cleaning: What's the Difference?
+
+"Do I need a deep clean or a regular clean?"
+
+The answer: You probably need both—at different times.
+
+Here's what we actually clean during each service.
+
+## Regular/Recurring Cleaning
+
+**Goal:** Keep your home consistently clean week-to-week.
+
+**What we clean:**
+- Kitchen: Counters, sink, stovetop (exterior), appliance exteriors, floors
+- Bathrooms: Toilet, tub/shower surfaces, sink, mirrors, floors
+- Bedrooms: Dust surfaces, vacuum/mop floors
+- Living areas: Dust, vacuum, mop
+- Entry/hallways: Vacuum, mop, dust
+
+**What we DON'T clean:**
+- Inside the oven
+- Inside the fridge
+- Baseboards (just dust them)
+- Blinds (we dust, not wash)
+- Inside cabinet interiors
+- Vents or ceiling fans
+- Behind/under furniture
+- Grout detail
+
+**Time:** 2–3 hours for average 3-bed home
+
+**Cost:** [From $129/visit](/pricing)
+
+**Frequency:** Weekly, bi-weekly, or monthly
+
+---
+
+## Deep Cleaning
+
+**Goal:** Get into the places dust hides. The seasonal reset.
+
+**Everything in regular cleaning, PLUS:**
+
+**Kitchen:**
+- Inside oven (scrubbed clean)
+- Inside fridge (emptied and wiped)
+- Exhaust hood (filter cleaned or replaced)
+- Cabinet interiors (shelves wiped down)
+- Backsplash (grease and buildup removed)
+
+**Bathrooms:**
+- Grout detail (scrubbed and sealed if needed)
+- Shower glass (hard-water deposits removed)
+- Caulking (checked for mold; resealed if needed)
+- Baseboards (scrubbed, not just dusted)
+
+**Bedrooms & Living Areas:**
+- Behind furniture (moved and cleaned)
+- Baseboards (scrubbed thoroughly)
+- Ceiling fans (blades cleaned)
+- Light fixtures (detailed)
+
+**Vents & Details:**
+- Vents and returns (dusted)
+- Window sills and tracks (cleaned out)
+- Door frames (wiped down)
+- Any visible dust sources addressed
+
+**Time:** 4–5 hours for average 3-bed home
+
+**Cost:** [From $249](/pricing)
+
+**Frequency:** Quarterly or seasonally (every 3–4 months)
+
+---
+
+## The Desert Shine Difference
+
+In Yuma, deep cleans matter more because of dust and hard water:
+
+**Dust (haboob season):**
+- After a haboob, dust gets into vents, window tracks, light fixtures
+- Regular clean gets surface dust; deep clean pulls it from everywhere
+
+**Hard water (Colorado River):**
+- Hard water leaves mineral deposits on glass, tile, fixtures
+- Regular cleaning doesn't remove deep mineral stains
+- Deep cleaning includes descaling and special treatment
+
+---
+
+## When You Need Each
+
+### Regular Cleaning (Weekly/Bi-Weekly)
+
+✅ You want a consistently clean home
+✅ You have kids/pets
+✅ You're busy (can't keep up with dust)
+✅ You want to delegate the daily maintenance
+
+### Deep Cleaning (Quarterly)
+
+✅ Before summer (haboob season prep)
+✅ After summer (haboob damage cleanup)
+✅ Before entertaining (for special events)
+✅ Before moving (move-in to new rental)
+✅ Seasonal reset (spring/fall)
+✅ When your home feels "dusty" despite regular cleans
+
+---
+
+## The Smart Combo
+
+**Most Yuma homes benefit from:**
+- Monthly or bi-weekly recurring cleaning (maintenance)
+- Quarterly deep cleaning (seasonal reset)
+
+**Cost:** $129 × 4 months + $249 × 1 deep = **$765/quarter**
+
+**Benefit:** Your home stays clean, dust doesn't accumulate, grout doesn't stain.
+
+---
+
+## Common Questions
+
+**Q: Can I just do deep cleans and skip regular cleaning?**
+A: No. Deep cleans are expensive and time-intensive. You'll accumulate dust between deep cleans. Regular + deep = best results.
+
+**Q: How often do I REALLY need a deep clean?**
+A: In Yuma, at minimum quarterly. During haboob season (May–September), twice per summer.
+
+**Q: Is deep cleaning worth the extra cost?**
+A: Yes, if you're letting grout stain, dust accumulate, or hard-water deposits build up. It's cheaper to do quarterly deep cleans than to repair damage later.
+
+---
+
+## Ready to Schedule?
+
+[Regular cleaning from $129 →](/pricing)
+[Deep cleaning from $249 →](/pricing)
+
+Ask us about quarterly combos. We can set up auto-scheduling so you get regular + seasonal deep cleans on the same day of the month.
+
+We serve [Yuma](/areas/yuma), [Fortuna Foothills](/areas/fortuna-foothills), [Somerton](/areas/somerton), and [the surrounding areas](/areas).
+    `,
+  },
+  {
+    slug: 'recurring-cleaning-worth-the-cost',
+    title: 'Is Recurring Cleaning Worth It? The Math Behind Monthly Service',
+    excerpt: 'Should you hire a weekly or monthly cleaner? We break down the real cost—and why it saves you money.',
+    category: 'Guide',
+    published: '2025-02-20',
+    readTime: 6,
+    keywords: [
+      'recurring cleaning service',
+      'weekly cleaning cost',
+      'maid service worth it',
+      'monthly cleaning yuma',
+      'house cleaning subscription',
+    ],
+    relatedServices: ['recurring'],
+    relatedAreas: ['yuma', 'fortuna-foothills'],
+    content: `Cost/value analysis coming soon.`,
+  },
+  {
+    slug: 'monsoon-season-home-prep',
+    title: 'Monsoon Season Home Prep: Yuma Guide to Dust & Water Safety',
+    excerpt: 'Monsoon storms bring dust and water damage risk. Here\'s how to prep your home and clean up after.',
+    category: 'Seasonal',
+    published: '2025-03-01',
+    readTime: 8,
+    keywords: [
+      'monsoon season home prep',
+      'monsoon cleaning yuma',
+      'prepare home for monsoon',
+      'dust storm preparation',
+      'water damage prevention',
+    ],
+    relatedServices: ['deep'],
+    relatedAreas: ['yuma', 'fortuna-foothills'],
+    content: `Monsoon guide coming soon.`,
+  },
+  {
+    slug: 'what-is-included-in-cleaning-checklist',
+    title: 'What\'s Actually Included in Our Cleaning Checklist',
+    excerpt: 'No surprises. Here\'s exactly what we clean on every visit—the complete room-by-room breakdown.',
+    category: 'Transparency',
+    published: '2025-03-05',
+    readTime: 6,
+    keywords: [
+      'cleaning checklist',
+      'what is included in cleaning',
+      'house cleaning services',
+      'cleaning service checklist',
+      'what do cleaners clean',
+    ],
+    relatedServices: ['recurring', 'deep'],
+    relatedAreas: ['yuma', 'fortuna-foothills', 'somerton'],
+    content: `Checklist coming soon.`,
   },
 ];
