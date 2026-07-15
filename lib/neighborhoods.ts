@@ -6,7 +6,6 @@ export interface Neighborhood {
   description: string;
   audience: string;
   address?: string;
-  image: string;
   latitude?: number;
   longitude?: number;
 }
@@ -20,7 +19,6 @@ export const NEIGHBORHOODS: Neighborhood[] = [
     city: 'Yuma',
     description: 'Upscale foothills neighborhood with custom homes and scenic desert views.',
     audience: 'Families and professionals seeking premium residential living in Yuma foothills.',
-    image: '/images/neighborhoods/mesa-del-sol.webp',
     latitude: 32.68,
     longitude: -114.62,
   },

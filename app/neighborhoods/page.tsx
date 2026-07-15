@@ -21,14 +21,15 @@ export default function NeighborhoodsPage() {
   const NeighborhoodCard = ({ item }: { item: typeof NEIGHBORHOODS[0] }) => (
     <Link href={`/neighborhoods/${item.slug}`} className="group">
       <div className="relative overflow-hidden rounded-2xl bg-white/50 backdrop-blur-sm border border-[var(--line)] transition-all hover:border-[var(--accent)] hover:shadow-lg hover:shadow-[var(--accent)]/10 h-full">
-        <div className="relative h-48 overflow-hidden bg-gradient-to-br from-[var(--accent)]/20 to-[var(--accent)]/5 flex items-center justify-center">
-          <div className="text-center">
-            <p className="text-sm text-[var(--body)] uppercase tracking-widest mb-2">{item.city}</p>
-            <h3 className="text-2xl font-bold text-[var(--ink)]">{item.name}</h3>
+        <div className="relative h-40 overflow-hidden bg-gradient-to-br from-[var(--accent)]/20 via-[var(--accent)]/10 to-transparent flex items-center justify-center">
+          <div className="text-center px-4">
+            <p className="text-xs text-[var(--body)] uppercase tracking-widest mb-2">{item.type === 'neighborhood' ? 'Neighborhood' : item.type === 'rv-park' ? 'RV Park' : 'Family Community'}</p>
+            <h3 className="text-xl md:text-2xl font-bold text-[var(--ink)] leading-tight">{item.name}</h3>
+            <p className="text-xs text-[var(--body)]/70 mt-1">{item.city}</p>
           </div>
         </div>
         <div className="p-6">
-          <p className="text-sm text-[var(--body)] leading-relaxed mb-4">{item.description}</p>
+          <p className="text-sm text-[var(--body)] leading-relaxed mb-4 line-clamp-2">{item.description}</p>
           <p className="text-xs text-[var(--body)]/60 group-hover:text-[var(--accent)] transition-colors">
             View services →
           </p>
