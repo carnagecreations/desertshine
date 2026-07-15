@@ -8,7 +8,6 @@ import ServiceShowcase from '@/components/sections/ServiceShowcase';
 import ManifestoFill from '@/components/sections/ManifestoFill';
 import ParallaxScene from '@/components/sections/ParallaxScene';
 import ProgressTimeline from '@/components/sections/ProgressTimeline';
-import SpotlightGrid from '@/components/sections/SpotlightGrid';
 import DragCarousel from '@/components/sections/DragCarousel';
 import FaqSection from '@/components/sections/FaqSection';
 import GiantCTA from '@/components/sections/GiantCTA';
@@ -72,9 +71,6 @@ export default function Home() {
 
         {/* Progress timeline */}
         <ProgressTimeline />
-
-        {/* Spotlight grid for features */}
-        <SpotlightGrid />
 
         {/* Social proof — invite early clients */}
         <section className="px-6 py-28 md:px-16">
