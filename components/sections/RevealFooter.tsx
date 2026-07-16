@@ -22,7 +22,7 @@ export default function RevealFooter() {
     return () => clearInterval(t);
   }, []);
   return (
-    <footer className="sticky bottom-0 z-10 flex min-h-[85svh] flex-col justify-between bg-[var(--paper-dark)] p-8 text-[var(--paper)] md:p-16">
+    <footer className="sticky bottom-0 -z-10 flex min-h-[85svh] flex-col justify-between bg-[var(--paper-dark)] p-8 text-[var(--paper)] md:p-16">
       <div className="flex items-start justify-between gap-8">
         <nav className="flex flex-col gap-3 text-2xl md:text-3xl">
           {LINKS.map((l) => (
@@ -48,7 +48,7 @@ export default function RevealFooter() {
           ))}
         </p>
         <h2 className="text-[13vw] leading-[0.85] tracking-tight text-[var(--paper)] select-none font-[family-name:var(--font-display)]">Clean Conviction</h2>
-        <div className="mt-6 flex flex-wrap justify-between gap-4 border-t border-white/10 pt-6 text-xs opacity-40">
+        <div className="relative z-20 mt-6 flex flex-wrap justify-between gap-4 border-t border-white/10 pt-6 text-xs opacity-40">
           <p>© {new Date().getFullYear()} {SITE.name} All rights reserved. Locally owned · Yuma, AZ.</p>
           <p><Link href="/privacy" className="hover:opacity-100">Privacy</Link> · <Link href="/terms" className="hover:opacity-100">Terms</Link></p>
         </div>
