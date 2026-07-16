@@ -5,9 +5,9 @@ export const SITE = {
   tagline: 'House & office cleaning in Yuma, AZ — No Compromise. No Dust.',
   phone: '(928) 298-5509',
   phoneHref: 'tel:+19282985509',
-  email: 'hello@cleanconviction.com', // CUSTOMIZE: real email
+  email: 'hello@cleanconvictions.com',
   address: 'Yuma, AZ 85364',
-  url: 'https://www.cleanconviction.com', // CUSTOMIZE: real domain
+  url: 'https://www.cleanconvictions.com',
   hours: 'Your schedule, not ours',
   serviceAreas: ['Yuma', 'Fortuna Foothills', 'Somerton', 'San Luis', 'Wellton', 'Winterhaven'],
 } as const;
