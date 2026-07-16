@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GALLERY } from '@/lib/gallery';
 
@@ -38,12 +37,10 @@ export default function BeforeAfterGallery() {
               transition={{ duration: 0.4 }}
               className="absolute inset-0"
             >
-              <Image
+              <img
                 src={isAfter ? current.after : current.before}
                 alt={isAfter ? `${current.title} - After` : `${current.title} - Before`}
-                fill
-                className="object-cover"
-                priority
+                className="h-full w-full object-cover"
               />
 
               {/* Shine effect */}
