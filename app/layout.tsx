@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Sora, Inter } from 'next/font/google';
 import { MotionConfig } from 'framer-motion';
 import SmoothScroll from '@/components/SmoothScroll';
@@ -76,6 +77,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
       <body>
+        {/* Google Analytics (GA4) — loads after page is interactive to protect mobile speed */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${SITE.gaId}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${SITE.gaId}');
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}

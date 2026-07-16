@@ -10,4 +10,5 @@ export const SITE = {
   url: 'https://www.cleanconvictions.com',
   hours: 'Your schedule, not ours',
   serviceAreas: ['Yuma', 'Fortuna Foothills', 'Somerton', 'San Luis', 'Wellton', 'Winterhaven'],
+  gaId: 'G-C83BRJPSMR',
 } as const;
