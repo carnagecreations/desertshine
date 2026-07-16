@@ -15,7 +15,7 @@ export default function ProgressTimeline() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start 0.65', 'end 0.65'] });
   const scaleY = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
   return (
-    <section ref={ref} className="relative mx-auto max-w-4xl px-6 py-28">
+    <section ref={ref} className="relative mx-auto max-w-4xl overflow-x-clip px-6 py-28">
       <h2 className="mb-20 text-center text-4xl md:text-5xl">Booked to sparkling in four steps.</h2>
       <div className="absolute bottom-28 left-8 top-52 w-px bg-[var(--line)] md:left-1/2">
         <motion.div style={{ scaleY }}

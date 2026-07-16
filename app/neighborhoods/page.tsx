@@ -44,7 +44,7 @@ export default function NeighborhoodsPage() {
         <div className="mx-auto max-w-6xl">
           <Breadcrumbs items={breadcrumbs} />
           <div className="mt-8">
-            <h1 className="text-5xl md:text-6xl font-bold text-[var(--ink)] mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-[var(--ink)] mb-6">
               Cleaning for Yuma neighborhoods & communities
             </h1>
             <p className="text-lg text-[var(--body)] leading-relaxed max-w-2xl">
