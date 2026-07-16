@@ -3,7 +3,7 @@ import ScrollZoomHero from '@/components/sections/ScrollZoomHero';
 import VelocityMarquee from '@/components/sections/VelocityMarquee';
 import ConstellationHero from '@/components/sections/ConstellationHero';
 import StatCounters from '@/components/sections/StatCounters';
-import BeforeAfter from '@/components/sections/BeforeAfter';
+import BeforeAfterGallery from '@/components/sections/BeforeAfterGallery';
 import ServiceShowcase from '@/components/sections/ServiceShowcase';
 import ManifestoFill from '@/components/sections/ManifestoFill';
 import ParallaxScene from '@/components/sections/ParallaxScene';
@@ -25,7 +25,7 @@ export default function Home() {
         <ScrollZoomHero />
         <VelocityMarquee />
         <StatCounters />
-        <BeforeAfter />
+        <BeforeAfterGallery />
 
         {/* Enhanced services with immersive sections */}
         <ServiceShowcase services={[
