@@ -22,7 +22,7 @@ export default function RevealFooter() {
     return () => clearInterval(t);
   }, []);
   return (
-    <footer className="sticky bottom-0 -z-10 flex min-h-[85svh] flex-col justify-between bg-[var(--paper-dark)] p-8 text-[var(--paper)] md:p-16">
+    <footer className="sticky bottom-0 z-10 flex min-h-[85svh] flex-col justify-between bg-[var(--paper-dark)] p-8 text-[var(--paper)] md:p-16">
       <div className="flex items-start justify-between gap-8">
         <nav className="flex flex-col gap-3 text-2xl md:text-3xl">
           {LINKS.map((l) => (
