@@ -2,9 +2,7 @@
 import { useEffect, useRef } from 'react';
 import { useInView, useMotionValue, useSpring } from 'framer-motion';
 
-const STATS = [                                           // CUSTOMIZE: real numbers
-  { value: 1400, suffix: '+', label: 'Cleans completed across Yuma County' },
-  { value: 4.9, decimals: 1, suffix: '★', label: 'Average rating from local clients' },
+const STATS = [
   { value: 100, suffix: '%', label: 'Re-clean guarantee — not happy, we return free' },
 ];
 
@@ -27,15 +25,15 @@ function Counter({ value, decimals = 0, prefix = '', suffix = '' }: {
 
 export default function StatCounters() {
   return (
-    <section className="grid divide-y divide-[var(--line)] px-6 py-24 md:grid-cols-3 md:divide-x md:divide-y-0 md:px-16">
-      {STATS.map((s) => (
-        <div key={s.label} className="py-10 text-center md:py-4">
-          <p className="text-6xl font-medium text-[var(--ink)] md:text-7xl lg:text-8xl">
-            <Counter {...s} />
-          </p>
-          <p className="mx-auto mt-3 max-w-[22ch] text-sm tracking-wide text-[var(--body)]">{s.label}</p>
-        </div>
-      ))}
+    <section className="flex items-center justify-center px-6 py-16 md:py-24 md:px-16 bg-gradient-to-b from-transparent via-[var(--accent)]/5 to-transparent">
+      <div className="text-center">
+        <p className="text-7xl md:text-8xl lg:text-9xl font-medium text-[var(--accent)]">
+          <Counter value={100} suffix="%" />
+        </p>
+        <p className="mx-auto mt-4 max-w-sm text-base md:text-lg text-[var(--body)]">
+          Re-clean guarantee — not happy within 24 hours, we return free
+        </p>
+      </div>
     </section>
   );
 }
