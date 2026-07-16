@@ -24,7 +24,7 @@ export default function PrivacyPage() {
             <section>
               <h2 className="text-2xl font-bold text-[var(--ink)] mb-4">Introduction</h2>
               <p>
-                Clean Conviction ("we," "us," or "our") operates the cleanconviction.com website and related services. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our cleaning services.
+                Clean Conviction ("we," "us," or "our") operates the cleanconvictions.com website and related services. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our cleaning services.
               </p>
             </section>
 
@@ -65,8 +65,8 @@ export default function PrivacyPage() {
               <h2 className="text-2xl font-bold text-[var(--ink)] mb-4">Contact Us</h2>
               <p className="mb-3">If you have questions about this Privacy Policy, please contact us at:</p>
               <ul className="space-y-1">
-                <li>Email: info@cleanconviction.com</li>
-                <li>Phone: (928) 555-0148</li>
+                <li>Email: hello@cleanconvictions.com</li>
+                <li>Phone: (928) 298-5509</li>
                 <li>Address: Yuma, Arizona</li>
               </ul>
             </section>
