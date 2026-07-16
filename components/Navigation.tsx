@@ -9,7 +9,6 @@ import { SITE } from '@/lib/site';
 const LINKS = [
   { label: 'Services', href: '/services' },
   { label: 'Pricing', href: '/pricing' },
-  { label: 'Areas', href: '/areas' },
   { label: 'Neighborhoods', href: '/neighborhoods' },
   { label: 'Book', href: '/book' },
   { label: 'Blog', href: '/blog' },

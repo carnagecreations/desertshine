@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { SERVICES, getService } from '@/lib/services';
-import { AREAS } from '@/lib/areas';
 import { GUIDES } from '@/lib/guides';
 import { SITE } from '@/lib/site';
 import { serviceSchema, faqSchemaFrom, breadcrumbSchema } from '@/lib/schema';
@@ -95,22 +94,6 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
           </div>
         </section>
 
-        <section className="mx-auto max-w-5xl px-6 py-16">
-          <h2 className="mb-3 text-3xl md:text-4xl">{s.shortName} across Yuma County</h2>
-          <p className="mb-8 max-w-2xl text-[var(--body)]">Same flat rate in every service area — never a travel fee.</p>
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-            {AREAS.map((a) => (
-              <Link
-                key={a.slug}
-                href={`/areas/${a.slug}/${s.slug}`}
-                className="group flex items-center justify-between rounded-xl border border-[var(--line)] bg-white/50 p-5 transition-colors hover:border-[var(--accent)]"
-              >
-                <span className="text-[var(--ink)]">{s.shortName} in {a.name}</span>
-                <span className="text-[var(--accent)]">→</span>
-              </Link>
-            ))}
-          </div>
-        </section>
 
         <section className="mx-auto max-w-3xl px-6 py-16">
           <h2 className="mb-10 text-3xl md:text-4xl">Common questions</h2>

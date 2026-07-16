@@ -2,12 +2,11 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { SITE } from '@/lib/site';
-import { AREAS } from '@/lib/areas';
 
 const LINKS = [
   { label: 'Services', href: '/services' },
   { label: 'Pricing', href: '/pricing' },
-  { label: 'Service areas', href: '/areas' },
+  { label: 'Neighborhoods', href: '/neighborhoods' },
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
   { label: 'Get a quote', href: '/contact' },
@@ -39,13 +38,7 @@ export default function RevealFooter() {
       </div>
       <div>
         <p className="mb-4 text-sm opacity-40">
-          Serving{' '}
-          {AREAS.map((a, i) => (
-            <span key={a.slug}>
-              <Link href={`/areas/${a.slug}`} className="underline-offset-4 hover:underline hover:opacity-100">{a.name}</Link>
-              {i < AREAS.length - 1 ? ' · ' : ''}
-            </span>
-          ))}
+          Serving {SITE.serviceAreas.join(' · ')} and surrounding communities
         </p>
         <h2 className="text-[13vw] leading-[0.85] tracking-tight text-[var(--paper)] select-none font-[family-name:var(--font-display)]">Clean Conviction</h2>
         <div className="relative z-20 mt-6 flex flex-wrap justify-between gap-4 border-t border-white/10 pt-6 text-xs opacity-40">

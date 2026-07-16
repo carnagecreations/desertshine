@@ -77,6 +77,32 @@ export default function ServicesPage() {
         </section>
 
         <ProgressTimeline />
+
+        {/* Service Details Section */}
+        <section className="px-6 py-20 md:px-16 bg-[var(--paper-light)]">
+          <div className="mx-auto max-w-5xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--ink)] mb-12">What's included in each service</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {SERVICES.map((s) => (
+                <div key={s.id} className="bg-white/50 backdrop-blur-sm border border-[var(--line)] rounded-2xl p-6">
+                  <h3 className="text-xl font-bold text-[var(--ink)] mb-4">{s.name}</h3>
+                  <ul className="space-y-2 mb-6">
+                    {s.includes.map((item, i) => (
+                      <li key={i} className="flex items-start gap-3 text-sm text-[var(--body)]">
+                        <span className="text-[var(--accent)] font-bold mt-1">✓</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href="/services/breakdown" className="text-[var(--accent)] font-semibold hover:underline text-sm">
+                    See full breakdown →
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <GiantCTA />
       </main>
       <RevealFooter />
