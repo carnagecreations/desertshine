@@ -21,19 +21,19 @@ export default function RevealFooter() {
     return () => clearInterval(t);
   }, []);
   return (
-    <footer className="sticky bottom-0 -z-10 flex min-h-[85svh] flex-col justify-between bg-[var(--paper-dark)] p-8 text-[var(--paper)] md:p-16">
-      <div className="flex items-start justify-between gap-8">
-        <nav className="flex flex-col gap-3 text-2xl md:text-3xl">
+    <footer className="sticky bottom-0 -z-10 flex min-h-[85svh] flex-col justify-between bg-[var(--paper-dark)] p-6 text-[var(--paper)] md:p-16">
+      <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+        <nav className="flex flex-col gap-2 text-lg md:gap-3 md:text-2xl lg:text-3xl order-2 md:order-1">
           {LINKS.map((l) => (
             <Link key={l.label} href={l.href} className="w-fit opacity-70 transition-all duration-300 hover:translate-x-2 hover:opacity-100">{l.label}</Link>
           ))}
         </nav>
-        <div className="text-right text-sm opacity-60">
+        <div className="text-left text-xs md:text-right md:text-sm opacity-60 order-1 md:order-2">
           <p>{SITE.address}</p>
           <p suppressHydrationWarning>{time}</p>
-          <p className="mt-4"><a href={SITE.phoneHref} className="hover:opacity-100">{SITE.phone}</a></p>
+          <p className="mt-3 md:mt-4"><a href={SITE.phoneHref} className="hover:opacity-100">{SITE.phone}</a></p>
           <p><a href={`mailto:${SITE.email}`} className="hover:opacity-100">{SITE.email}</a></p>
-          <p className="mt-4">{SITE.hours}</p>
+          <p className="mt-3 md:mt-4 text-xs">{SITE.hours}</p>
         </div>
       </div>
       <div>
