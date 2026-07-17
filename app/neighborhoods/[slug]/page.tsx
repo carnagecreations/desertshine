@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!neighborhood) return {};
 
   return {
-    title: `${neighborhood.name} Cleaning Services | Clean Conviction`,
-    description: `Professional cleaning for ${neighborhood.name}, ${neighborhood.city}. ${neighborhood.description} Flat-rate pricing, 100% re-clean guarantee.`,
+    title: `House Cleaning in ${neighborhood.name}, ${neighborhood.city} AZ | Clean Conviction`,
+    description: `House, deep, and move-out cleaning near ${neighborhood.name} in ${neighborhood.city}, AZ. Flat-rate pricing from $89, same-week availability, and a 100% re-clean guarantee. ${neighborhood.description}`,
     alternates: { canonical: `${SITE.url}/neighborhoods/${neighborhood.slug}` },
   };
 }

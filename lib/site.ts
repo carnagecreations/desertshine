@@ -11,4 +11,13 @@ export const SITE = {
   hours: 'Your schedule, not ours',
   serviceAreas: ['Yuma', 'Fortuna Foothills', 'Somerton', 'San Luis', 'Wellton', 'Winterhaven'],
   gaId: 'G-C83BRJPSMR',
+  // Public profiles — fed into schema.org `sameAs` so Google links them as
+  // one business entity. Add each URL here as the profile goes live.
+  social: {
+    facebook: 'https://www.facebook.com/cleanconvictions',
+    // google: '',   // your Google Business Profile URL
+    // yelp: '',
+    // nextdoor: '',
+    // instagram: '',
+  } as Record<string, string>,
 } as const;

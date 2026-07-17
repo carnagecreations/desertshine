@@ -15,8 +15,8 @@ import GiantCTA from '@/components/sections/GiantCTA';
 import RevealFooter from '@/components/sections/RevealFooter';
 
 export const metadata: Metadata = {
-  title: 'Professional Cleaning Services in Yuma, AZ | Clean Conviction',
-  description: 'Flat-rate house and office cleaning in Yuma, Arizona. Same-week availability, 100% re-clean guarantee, and transparent pricing. Get a free quote in 60 seconds.',
+  title: 'House Cleaning in Yuma, AZ — Flat-Rate & Same-Week | Clean Conviction',
+  description: 'Looking for house cleaning near you in Yuma, AZ? Flat-rate home and office cleaning from $89, same-week availability, and a 100% re-clean guarantee. Get an instant price.',
 };
 
 export default function Home() {

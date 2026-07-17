@@ -1,4 +1,8 @@
 import { SITE } from './site';
+import { REVIEWS, aggregateRating } from './reviews';
+
+const rating = aggregateRating();
+const sameAs = Object.values(SITE.social).filter(Boolean);
 
 export const organizationSchema = {
   '@context': 'https://schema.org',
@@ -43,8 +47,25 @@ export const organizationSchema = {
     closes: '21:00',
   },
   priceRange: '$$',
-  // NOTE: add aggregateRating + sameAs social links only once real reviews/profiles exist.
-  // Fake review schema risks a Google manual action.
+  ...(sameAs.length ? { sameAs } : {}),
+  // aggregateRating + review are emitted ONLY when lib/reviews.ts has real
+  // entries — never fabricated (fake review markup risks a manual action).
+  ...(rating
+    ? {
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: rating.ratingValue,
+          reviewCount: rating.reviewCount,
+        },
+        review: REVIEWS.map((r) => ({
+          '@type': 'Review',
+          author: { '@type': 'Person', name: r.name },
+          reviewRating: { '@type': 'Rating', ratingValue: r.rating, bestRating: 5 },
+          reviewBody: r.quote,
+          datePublished: r.date,
+        })),
+      }
+    : {}),
 };
 
 export const servicesSchema = [

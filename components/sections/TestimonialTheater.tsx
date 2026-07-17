@@ -2,15 +2,17 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { EASE_OUT } from '@/lib/motion';
+import { REVIEWS } from '@/lib/reviews';
 
-const QUOTES = [                                          // CUSTOMIZE: real reviews
-  { quote: 'They had my rental spotless two days after I called. Got my full deposit back — worth every penny.', name: 'Maria G.', role: 'Move-out clean, Yuma' },
-  { quote: 'Same two cleaners every other Friday for a year now. I never have to re-explain anything. The house just stays done.', name: 'Dan R.', role: 'Bi-weekly service, Fortuna Foothills' },
-  { quote: 'Our office gets cleaned after close and it is perfect every single morning. Zero complaints in eight months.', name: 'Dr. Lisa Chen', role: 'Commercial client, Yuma' },
-];
+// Reads real reviews from lib/reviews.ts. Renders nothing until real
+// reviews exist — we never show fabricated testimonials.
+const QUOTES = REVIEWS;
 const DURATION = 6000;
 
 export default function TestimonialTheater() {
+  // QUOTES is a module constant, so this guard is deterministic per build
+  // and keeps hook order consistent.
+  if (QUOTES.length === 0) return null;
   const [i, setI] = useState(0);
   const [paused, setPaused] = useState(false);
   useEffect(() => {
