@@ -32,13 +32,27 @@ export const metadata: Metadata = {
     'commercial janitorial Yuma',
     'cleaning company Yuma County',
   ],
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/favicon.svg',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     siteName: SITE.name,
     title: `${SITE.name} — House & Office Cleaning in Yuma, AZ`,
     description: 'Flat-rate house and office cleaning with a 100% re-clean guarantee. Professional service across Yuma County.',
-    // Social image auto-wired from app/opengraph-image.tsx (generated 1200×630 PNG).
+    url: SITE.url,
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Clean Conviction — House & Office Cleaning in Yuma, AZ',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
