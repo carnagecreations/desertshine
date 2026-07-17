@@ -13,31 +13,31 @@ type FreqKey = 'one' | 'weekly' | 'biweekly' | 'monthly';
 type ConditionKey = 'kept' | 'average' | 'love';
 
 const SERVICES: { key: ServiceKey; label: string; base: number; tag: string; icon: string }[] = [
-  { key: 'standard', label: 'Standard / Recurring', base: 129, tag: 'from $129', icon: '🏠' },
+  { key: 'standard', label: 'Regular Cleaning', base: 129, tag: 'from $129', icon: '🏠' },
   { key: 'deep', label: 'Deep Clean', base: 249, tag: 'from $249', icon: '✨' },
-  { key: 'move', label: 'Move-In / Move-Out', base: 299, tag: 'from $299', icon: '📦' },
-  { key: 'office', label: 'Office / Commercial', base: 0, tag: 'custom', icon: '🏢' },
+  { key: 'move', label: 'Move Cleaning', base: 299, tag: 'from $299', icon: '📦' },
+  { key: 'office', label: 'Office Cleaning', base: 0, tag: 'custom', icon: '🏢' },
 ];
 
 const FREQUENCIES: { key: FreqKey; label: string; mult: number; tag?: string }[] = [
-  { key: 'one', label: 'One-time', mult: 1 },
+  { key: 'one', label: 'Just once', mult: 1 },
   { key: 'weekly', label: 'Weekly', mult: 0.8, tag: '−20%' },
-  { key: 'biweekly', label: 'Bi-weekly', mult: 0.85, tag: '−15%' },
+  { key: 'biweekly', label: 'Every other week', mult: 0.85, tag: '−15%' },
   { key: 'monthly', label: 'Monthly', mult: 0.9, tag: '−10%' },
 ];
 
 const CONDITIONS: { key: ConditionKey; label: string; mult: number; tag: string }[] = [
-  { key: 'kept', label: 'Well kept', mult: 1, tag: 'standard' },
-  { key: 'average', label: 'Lived in', mult: 1.15, tag: '+15%' },
-  { key: 'love', label: 'Needs love', mult: 1.3, tag: '+30%' },
+  { key: 'kept', label: 'Clean', mult: 1, tag: 'standard' },
+  { key: 'average', label: 'Normal wear', mult: 1.15, tag: '+15%' },
+  { key: 'love', label: 'Needs work', mult: 1.3, tag: '+30%' },
 ];
 
 const ADDONS: { key: string; label: string; price: number; includedIn: ServiceKey[] }[] = [
-  { key: 'fridge', label: 'Inside fridge', price: 30, includedIn: ['deep', 'move'] },
-  { key: 'oven', label: 'Inside oven', price: 30, includedIn: ['deep', 'move'] },
-  { key: 'windows', label: 'Interior windows', price: 40, includedIn: [] },
-  { key: 'garage', label: 'Garage sweep-out', price: 25, includedIn: ['move'] },
-  { key: 'laundry', label: 'Laundry & linens', price: 15, includedIn: [] },
+  { key: 'fridge', label: 'Fridge (inside)', price: 30, includedIn: ['deep', 'move'] },
+  { key: 'oven', label: 'Oven (inside)', price: 30, includedIn: ['deep', 'move'] },
+  { key: 'windows', label: 'Windows (inside)', price: 40, includedIn: [] },
+  { key: 'garage', label: 'Garage', price: 25, includedIn: ['move'] },
+  { key: 'laundry', label: 'Laundry room', price: 15, includedIn: [] },
 ];
 
 const round5 = (n: number) => Math.round(n / 5) * 5;
@@ -308,7 +308,7 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
           ) : (
             <>
               <div>
-                <SectionLabel>02 · Home size</SectionLabel>
+                <SectionLabel>02 · How big?</SectionLabel>
                 <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-4">
                   <div className="mb-3 flex items-baseline justify-between">
                     <span className="font-mono text-2xl text-white">{sqft.toLocaleString()}<span className="ml-1 text-sm text-white/50">sq ft</span></span>
@@ -334,7 +334,7 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
               </div>
 
               <div>
-                <SectionLabel>03 · Rooms</SectionLabel>
+                <SectionLabel>03 · Bedrooms & baths</SectionLabel>
                 <div className="grid gap-3 sm:grid-cols-2">
                   <Stepper label="Bedrooms" value={beds} min={1} max={6} onChange={setBeds} />
                   <Stepper label="Bathrooms" value={baths} min={1} max={5} onChange={setBaths} />
@@ -343,7 +343,7 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
 
               {service === 'standard' && (
                 <div>
-                  <SectionLabel>04 · Frequency</SectionLabel>
+                  <SectionLabel>04 · How often?</SectionLabel>
                   <div className="flex flex-wrap gap-2">
                     {FREQUENCIES.map((f) => (
                       <Chip key={f.key} active={freq === f.key} onClick={() => setFreq(f.key)}>
@@ -355,7 +355,7 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
               )}
 
               <div>
-                <SectionLabel>{service === 'standard' ? '05' : '04'} · Current condition</SectionLabel>
+                <SectionLabel>{service === 'standard' ? '05' : '04'} · What shape is it in?</SectionLabel>
                 <div className="flex flex-wrap gap-2">
                   {CONDITIONS.map((c) => (
                     <Chip key={c.key} active={condition === c.key} onClick={() => setCondition(c.key)}>
@@ -367,10 +367,10 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
               </div>
 
               <div>
-                <SectionLabel>{service === 'standard' ? '06' : '05'} · Extras</SectionLabel>
+                <SectionLabel>{service === 'standard' ? '06' : '05'} · Anything special?</SectionLabel>
                 <div className="flex flex-wrap gap-2">
                   <Chip active={pets} onClick={() => setPets(!pets)}>
-                    🐾 Pets in the home <span className="ml-1 font-mono text-xs opacity-60">+$15</span>
+                    🐾 Pets (pet-safe products) <span className="ml-1 font-mono text-xs opacity-60">+$15</span>
                   </Chip>
                   <Chip active={military} onClick={() => setMilitary(!military)}>
                     🇺🇸 Military / Veteran <span className="ml-1 font-mono text-xs opacity-60">−10%</span>
@@ -391,6 +391,9 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
                     );
                   })}
                 </div>
+                {pets && (
+                  <p className="mt-2 text-xs text-emerald-300/80">We're experienced with all animals — from horses to reptiles — and use pet-safe products.</p>
+                )}
                 {military && (
                   <p className="mt-2 text-xs text-white/50">Military verification required at time of cleaning</p>
                 )}
