@@ -119,14 +119,50 @@ export default function PriceEstimator() {
     let subtotal = svc.base;
     lines.push({ label: `Base — ${svc.label}`, amount: `$${svc.base}` });
 
-    const sizeAdd = Math.round(Math.max(0, sqft - 1500) / 250) * (service === 'standard' ? 12 : 18);
-    if (sizeAdd > 0) { subtotal += sizeAdd; lines.push({ label: `Size calibration · ${sqft.toLocaleString()} sq ft`, amount: `+$${sizeAdd}` }); }
+    // Size prices continuously in BOTH directions from the 1,500 sq ft
+    // baseline: extra footage costs more per block than compact footage
+    // credits back (fixed setup time means small homes aren't linearly cheap).
+    const blocks = Math.round((sqft - 1500) / 250);
+    const sizeAdd = blocks >= 0
+      ? blocks * (service === 'standard' ? 12 : 18)
+      : blocks * (service === 'standard' ? 8 : 12);
+    if (sizeAdd !== 0) {
+      subtotal += sizeAdd;
+      lines.push({
+        label: `Size calibration · ${sqft.toLocaleString()} sq ft`,
+        amount: sizeAdd > 0 ? `+$${sizeAdd}` : `−$${Math.abs(sizeAdd)}`,
+        neg: sizeAdd < 0,
+      });
+    }
 
-    const bathAdd = Math.max(0, baths - 2) * (service === 'standard' ? 20 : 30);
-    if (bathAdd > 0) { subtotal += bathAdd; lines.push({ label: `Bath modules × ${baths}`, amount: `+$${bathAdd}` }); }
+    // Bathrooms: baseline 2. Extra baths are heavy scrub-time; a single
+    // bath credits a little back.
+    const bathDelta = baths - 2;
+    const bathAdd = bathDelta >= 0
+      ? bathDelta * (service === 'standard' ? 20 : 30)
+      : bathDelta * (service === 'standard' ? 10 : 15);
+    if (bathAdd !== 0) {
+      subtotal += bathAdd;
+      lines.push({
+        label: `Bath modules × ${baths}`,
+        amount: bathAdd > 0 ? `+$${bathAdd}` : `−$${Math.abs(bathAdd)}`,
+        neg: bathAdd < 0,
+      });
+    }
 
-    const bedAdd = Math.max(0, beds - 3) * 10;
-    if (bedAdd > 0) { subtotal += bedAdd; lines.push({ label: `Bedroom count × ${beds}`, amount: `+$${bedAdd}` }); }
+    // Bedrooms: baseline 3, scaling both directions.
+    const bedDelta = beds - 3;
+    const bedAdd = bedDelta >= 0
+      ? bedDelta * (service === 'standard' ? 10 : 15)
+      : bedDelta * (service === 'standard' ? 8 : 10);
+    if (bedAdd !== 0) {
+      subtotal += bedAdd;
+      lines.push({
+        label: `Bedroom count × ${beds}`,
+        amount: bedAdd > 0 ? `+$${bedAdd}` : `−$${Math.abs(bedAdd)}`,
+        neg: bedAdd < 0,
+      });
+    }
 
     const cond = CONDITIONS.find((c) => c.key === condition)!;
     if (cond.mult > 1) {
@@ -149,7 +185,17 @@ export default function PriceEstimator() {
       lines.push({ label: `Loyalty discount · ${f.label.toLowerCase()}`, amount: `−$${discount}`, neg: true });
     }
 
-    return { price: round5(subtotal), lines };
+    // Hard minimum per program — small-home credits and loyalty discounts
+    // never stack below the cost of showing up with a full kit.
+    const MIN: Record<Exclude<ServiceKey, 'office'>, number> = { standard: 89, deep: 179, move: 199 };
+    let final = round5(subtotal);
+    const floor = MIN[service as Exclude<ServiceKey, 'office'>];
+    if (final < floor) {
+      final = floor;
+      lines.push({ label: 'Minimum visit rate applied', amount: `$${floor}` });
+    }
+
+    return { price: final, lines };
   }, [isOffice, svc, service, sqft, beds, baths, condition, pets, addons, freq]);
 
   const perVisit = service === 'standard' && freq !== 'one';
@@ -207,7 +253,7 @@ export default function PriceEstimator() {
                 <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-4">
                   <div className="mb-3 flex items-baseline justify-between">
                     <span className="font-mono text-2xl text-white">{sqft.toLocaleString()}<span className="ml-1 text-sm text-white/50">sq ft</span></span>
-                    <span className="font-mono text-[11px] tracking-widest text-white/40 uppercase">{sqft <= 1500 ? 'base range' : 'extended range'}</span>
+                    <span className="font-mono text-[11px] tracking-widest text-white/40 uppercase">{sqft < 1400 ? 'compact · credits on' : sqft <= 1600 ? 'base range' : 'extended range'}</span>
                   </div>
                   <input
                     type="range" min={600} max={4000} step={50} value={sqft}
