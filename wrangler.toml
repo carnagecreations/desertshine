@@ -1,1 +1,10 @@
 name = "desertshine"
+
+[env.production]
+routes = [
+  { pattern = "*.js", zone_name = "cleanconvictions.com", custom_domain = true }
+]
+
+[pages]
+build.command = "npm run build"
+build.output_dir = "out"
