@@ -15,9 +15,12 @@ export const SITE = {
   // one business entity. Add each URL here as the profile goes live.
   social: {
     facebook: 'https://www.facebook.com/cleanconvictions',
-    // google: '',   // your Google Business Profile URL
-    // yelp: '',
-    // nextdoor: '',
+    google: 'https://g.page/r/CRrKUEe7dr_rEAI',
+    yelp: 'https://www.yelp.com/biz/clean-conviction-yuma',
+    nextdoor: 'https://nextdoor.com/page/maid-a-difference-yuma-az/',
     // instagram: '',
   } as Record<string, string>,
+  // Direct "leave a review" deep-link (opens the Google review dialog) —
+  // hand this to customers after a job; reviews are the #1 local-pack lever.
+  googleReviewLink: 'https://g.page/r/CRrKUEe7dr_rEAI/review',
 } as const;
