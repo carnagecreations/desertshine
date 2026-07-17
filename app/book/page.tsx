@@ -13,7 +13,7 @@ export default function BookPage() {
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-[var(--ink)] mb-6">Book your cleaning</h1>
           <p className="text-lg text-[var(--body)] leading-relaxed mb-8">
-            Pick a service and time below. We'll call or text to confirm details, square footage, and any special requests — then send your flat-rate invoice within one business hour.
+            Pick a service and time below. We'll call or text to confirm details, square footage, and any special requests — then send your flat-rate invoice within one business day.
           </p>
           <div className="space-y-3 text-sm text-[var(--body)]/80">
             <p>✓ Free quote, no obligation</p>

@@ -5,7 +5,7 @@ import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Get a Free Quote',
-  description: 'Get a free flat-rate cleaning quote for your Yuma home or office in 60 seconds. Same-week availability, response within one business hour.',
+  description: 'Get a flat-rate cleaning quote for your Yuma home or office. No surprise charges. Dial in the Estimate Engine at /pricing or fill out a quick quote form here.',
 };
 
 export default function ContactPage() {
@@ -16,7 +16,7 @@ export default function ContactPage() {
           <div>
             <h1 className="text-4xl leading-tight md:text-6xl">Your quote, in 60 seconds.</h1>
             <p className="mt-6 max-w-sm text-lg text-[var(--body)]">
-              Fill this out and we reply with a flat price within one business hour — usually much faster.
+              Fill this out to lock in your flat price and book a date. We'll confirm details and square footage the day before, and again at your door.
             </p>
             <div className="mt-10 space-y-4 text-[var(--body)]">
               <p>

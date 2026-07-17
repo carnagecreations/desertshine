@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import GiantCTA from '@/components/sections/GiantCTA';
 import PriceEstimator from '@/components/PriceEstimator';
+import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Instant Cleaning Price Estimator — Yuma, AZ | Flat-Rate Pricing',
@@ -74,7 +75,7 @@ export default function PricingPage() {
             ))}
           </div>
           <p className="mt-10 text-[var(--body)]">
-            Still have questions? <Link href="/contact" className="text-[var(--accent)] font-semibold hover:underline">Get a free quote</Link> — we reply within one business hour.
+            Still have questions? <Link href="/contact" className="text-[var(--accent)] font-semibold hover:underline">Contact us</Link> — or call <a href={SITE.phoneHref} className="text-[var(--accent)] hover:underline">{SITE.phone}</a>.
           </p>
         </div>
       </section>

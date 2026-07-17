@@ -60,7 +60,7 @@ export default function ScrollZoomHero({
             </a>
           </div>
           <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-3 backdrop-blur-sm border border-white/20 w-fit">
-            <span className="text-sm font-medium text-white">⚡ Flat price within 1 business hour</span>
+            <span className="text-sm font-medium text-white">⚡ Flat price locked in instantly</span>
           </div>
         </motion.div>
       </motion.div>

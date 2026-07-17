@@ -81,9 +81,9 @@ export default function QuoteForm() {
           animate={{ y: [0, -8, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
           className="mb-4 text-6xl">✨</motion.div>
-        <h2 className="text-3xl font-bold text-[var(--ink)]">Quote request locked in!</h2>
-        <p className="mt-3 text-lg text-[var(--body)]">We'll email your flat price within one business hour. Check your inbox or spam folder just in case.</p>
-        <p className="mt-4 text-sm text-[var(--body)]">Or call us right now: <a href={SITE.phoneHref} className="font-medium text-[var(--accent)] hover:underline">{SITE.phone}</a></p>
+        <h2 className="text-3xl font-bold text-[var(--ink)]">You're booked at your flat rate.</h2>
+        <p className="mt-3 text-lg text-[var(--body)]">We'll send a confirmation and check in the day before. See you at the door.</p>
+        <p className="mt-4 text-sm text-[var(--body)]">Questions? Call <a href={SITE.phoneHref} className="font-medium text-[var(--accent)] hover:underline">{SITE.phone}</a></p>
       </motion.div>
     );
   }
@@ -271,7 +271,7 @@ export default function QuoteForm() {
 
       {/* Trust message */}
       <div className="border-t border-[var(--line)] bg-white/50 px-8 py-4 text-center text-xs text-[var(--body)]">
-        <p>✓ No spam • ✓ No obligation • ✓ Free quote in 1 hour</p>
+        <p>✓ No spam • ✓ No obligation • ✓ Locked in immediately</p>
       </div>
     </form>
   );

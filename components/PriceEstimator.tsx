@@ -475,11 +475,11 @@ export default function PriceEstimator() {
 
             <Link href={`/contact?${estParams}`} onClick={lockIn}
               className="mt-5 block rounded-full bg-[var(--accent)] px-6 py-3.5 text-center text-sm font-medium text-white transition-transform duration-300 hover:scale-[1.03]">
-              {isOffice ? 'Book my walk-through →' : 'Request my flat quote →'}
+              {isOffice ? 'Book my walk-through →' : 'Lock in this quote →'}
             </Link>
             {!isOffice && (
               <p className="mx-auto mt-2 max-w-[240px] text-center text-[11px] leading-relaxed text-white/45">
-                Nothing books automatically — a human confirms your flat quote within 1 business hour.
+                You pick your date and time. Locked in the moment you click.
               </p>
             )}
             <a href={SITE.phoneHref} className="mt-3 block text-center text-xs text-white/50 hover:text-white/80 transition-colors">
@@ -492,9 +492,9 @@ export default function PriceEstimator() {
                 <p className="mb-2.5 font-mono text-[10px] tracking-[0.2em] text-white/35 uppercase">What happens next</p>
                 <ol className="space-y-2">
                   {[
-                    'A human confirms your flat quote — within 1 business hour',
-                    'You pick the day and time',
-                    'We re-confirm at the door before work starts',
+                    'Your flat quote is locked in right now',
+                    'You pick the date and time to schedule',
+                    'We confirm details the morning-of, and again at your door',
                   ].map((step, i) => (
                     <li key={i} className="flex items-start gap-2.5 text-[11px] leading-snug text-white/60">
                       <span className="mt-px flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-[var(--accent)]/40 font-mono text-[9px] text-[var(--accent)]">{i + 1}</span>

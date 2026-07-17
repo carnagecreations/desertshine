@@ -11,9 +11,9 @@ const signals = [
   },
   {
     icon: '⚡',
-    metric: '1 hour',
-    label: 'Quote Response',
-    description: 'Flat price quote within one business hour',
+    metric: 'Instant',
+    label: 'Flat-Rate Pricing',
+    description: 'No estimates, no surprises — locked-in price before you book',
   },
   {
     icon: '🔄',
