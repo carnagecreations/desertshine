@@ -13,7 +13,7 @@ export default function BeforeAfter({
 
   return (
     <section className="flex flex-col items-center px-6 py-24">
-      <h2 className="mb-3 text-center text-4xl md:text-5xl">The Clean Conviction difference.</h2>
+      <h2 className="mb-3 text-center text-4xl md:text-5xl">The Clean Convictions difference.</h2>
       <p className="mb-10 max-w-md text-center text-[var(--body)]">Click to toggle dirty ↔ clean.</p>
 
       <motion.button

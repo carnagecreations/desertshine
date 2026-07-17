@@ -16,7 +16,7 @@ import GiantCTA from '@/components/sections/GiantCTA';
 import RevealFooter from '@/components/sections/RevealFooter';
 
 export const metadata: Metadata = {
-  title: 'House Cleaning in Yuma, AZ — Flat-Rate & Same-Week | Clean Conviction',
+  title: 'House Cleaning in Yuma, AZ — Flat-Rate & Same-Week | Clean Convictions',
   description: 'Looking for house cleaning near you in Yuma, AZ? Flat-rate home and office cleaning from $89, same-week availability, and a 100% re-clean guarantee. Get an instant price.',
 };
 
@@ -80,7 +80,7 @@ export default function Home() {
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-8 text-4xl md:text-5xl text-[var(--ink)]">Be one of our first</h2>
             <p className="mb-8 text-lg text-[var(--body)] leading-relaxed">
-              Clean Conviction just launched with a simple promise: flat-rate pricing, transparent service, and a 100% re-clean guarantee. We're still ramping up reviews, so your feedback will shape how we grow.
+              Clean Convictions just launched with a simple promise: flat-rate pricing, transparent service, and a 100% re-clean guarantee. We're still ramping up reviews, so your feedback will shape how we grow.
             </p>
             <p className="text-base text-[var(--body)]">
               Book a free quote today. If we nail it, we'd love your honest review.

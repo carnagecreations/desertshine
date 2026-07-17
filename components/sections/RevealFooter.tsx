@@ -43,7 +43,7 @@ export default function RevealFooter() {
         <p className="mb-4 text-sm opacity-40">
           Serving {SITE.serviceAreas.join(' · ')} and surrounding communities
         </p>
-        <h2 className="text-[9.5vw] leading-[0.85] tracking-tight text-[var(--paper)] select-none font-[family-name:var(--font-display)]">Clean Conviction</h2>
+        <h2 className="text-[9.5vw] leading-[0.85] tracking-tight text-[var(--paper)] select-none font-[family-name:var(--font-display)]">Clean Convictions</h2>
         <div className="mt-6 flex flex-wrap justify-between gap-4 border-t border-white/10 pt-6 text-xs opacity-40">
           <p>© {new Date().getFullYear()} {SITE.name} All rights reserved. Locally owned · Yuma, AZ.</p>
           <p><Link href="/privacy" className="hover:opacity-100">Privacy</Link> · <Link href="/terms" className="hover:opacity-100">Terms</Link></p>

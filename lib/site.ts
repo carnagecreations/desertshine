@@ -1,7 +1,7 @@
 // Single source of truth for business facts. Update here, changes everywhere.
 export const SITE = {
-  name: 'Clean Conviction',
-  shortName: 'Clean Conviction',
+  name: 'Clean Convictions',
+  shortName: 'Clean Convictions',
   tagline: 'House & office cleaning in Yuma, AZ — No Compromise. No Dust.',
   phone: '(928) 298-5509',
   phoneHref: 'tel:+19282985509',

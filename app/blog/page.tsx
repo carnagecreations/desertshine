@@ -6,7 +6,7 @@ import GiantCTA from '@/components/sections/GiantCTA';
 import RevealFooter from '@/components/sections/RevealFooter';
 
 export const metadata: Metadata = {
-  title: 'Cleaning Tips & Guides for Yuma Homes | Clean Conviction Blog',
+  title: 'Cleaning Tips & Guides for Yuma Homes | Clean Convictions Blog',
   description:
     'Learn how to clean grout, prep for haboob season, open your snowbird home, and more. Expert guides from a Yuma cleaning company.',
   alternates: { canonical: `${SITE.url}/blog` },

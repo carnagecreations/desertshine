@@ -291,14 +291,14 @@ Ask to see the checklist. If they don't have one, they're not professional enoug
 ### 4. **Real Guarantees**
 "100% satisfaction" means nothing if there's fine print. Real guarantees sound like: "Not happy within 24 hours? We come back and re-clean for free. No forms, no fuss."
 
-That's what we offer at Clean Conviction. If something isn't right, you call, and we fix it—no argument.
+That's what we offer at Clean Convictions. If something isn't right, you call, and we fix it—no argument.
 
 ### 5. **Local Experience**
 Yuma isn't Phoenix. Phoenix cleaners don't understand haboob season, monsoon dust, or the specific mineral content of our Colorado River water.
 
 A cleaning service that's been operating in Yuma for years has already solved the problems your home faces. Desert dust, hard-water stains, snowbird seasonal timing—they know it.
 
-## The Clean Conviction Difference
+## The Clean Convictions Difference
 
 **Recurring cleans from $129/visit.** Same cleaner, same checklist, same day every visit. No surprises.
 
@@ -331,7 +331,7 @@ We serve [Yuma](/areas/yuma), [Fortuna Foothills](/areas/fortuna-foothills), [So
   },
   {
     slug: 'how-to-clean-grout-like-a-pro',
-    title: 'How to Clean Grout Like a Pro: The Clean Conviction Method',
+    title: 'How to Clean Grout Like a Pro: The Clean Convictions Method',
     excerpt: 'Grout stains got you down? Learn the pro techniques for cleaning tile grout—and why it\'s worth hiring someone who knows.',
     category: 'How-To',
     published: '2025-01-20',
@@ -346,7 +346,7 @@ We serve [Yuma](/areas/yuma), [Fortuna Foothills](/areas/fortuna-foothills), [So
     relatedServices: ['deep-cleaning'],
     relatedAreas: ['yuma'],
     content: `
-# How to Clean Grout Like a Pro: The Clean Conviction Method
+# How to Clean Grout Like a Pro: The Clean Convictions Method
 
 Grout is one of the hardest surfaces to clean in your home. It's porous, it stains easily, and most DIY methods either don't work or damage the grout itself.
 
@@ -391,7 +391,7 @@ Our Colorado River water is mineral-heavy. Even if you clean your grout perfectl
 
 ## Our Deep Clean Includes Professional Grout Work
 
-When you book a [deep clean with Clean Conviction](/pricing), we:
+When you book a [deep clean with Clean Convictions](/pricing), we:
 1. Pre-treat grout with oxygen-based cleaner
 2. Hand-scrub with grout brushes (not power tools that damage grout)
 3. Rinse thoroughly with hot water
@@ -765,7 +765,7 @@ Here's what we actually clean during each service.
 
 ---
 
-## The Clean Conviction Difference
+## The Clean Convictions Difference
 
 In Yuma, deep cleans matter more because of dust and hard water:
 
@@ -860,7 +860,7 @@ Let's do the math for real. Because when you actually break down what recurring 
 
 ## What Recurring Cleaning Actually Costs
 
-At Clean Conviction, [recurring house cleaning starts at $129 per visit](/pricing). Here's what different schedules cost per month:
+At Clean Convictions, [recurring house cleaning starts at $129 per visit](/pricing). Here's what different schedules cost per month:
 
 - **Weekly:** ~$516/month
 - **Bi-weekly (every 2 weeks):** ~$258/month
@@ -999,7 +999,7 @@ Catching moisture early is the difference between a wipe-down and a costly repai
 
 ## When to Call for a Deep Clean
 
-After a major dust event, a lot of grime ends up where you can't easily reach — vents, range hood filters, window tracks, cabinet tops. A [deep clean from Clean Conviction](/pricing) pulls dust from those hidden spots and resets the whole home.
+After a major dust event, a lot of grime ends up where you can't easily reach — vents, range hood filters, window tracks, cabinet tops. A [deep clean from Clean Convictions](/pricing) pulls dust from those hidden spots and resets the whole home.
 
 We serve [Yuma](/areas/yuma), [Fortuna Foothills](/areas/fortuna-foothills), and the surrounding valley, with same-week availability even during peak monsoon season. [Get a free quote →](/contact) or call (928) 555-0148.
 

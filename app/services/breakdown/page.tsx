@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'What\'s Included in Our Cleaning Services | Clean Conviction',
+  title: 'What\'s Included in Our Cleaning Services | Clean Convictions',
   description: 'Detailed breakdown of what\'s included in each of our cleaning services: recurring, deep clean, move-out, and commercial.',
 };
 
@@ -22,7 +22,7 @@ export default function ServicesBreakdown() {
             What's Included in Every Clean
           </h1>
           <p className="text-lg text-[var(--body)] leading-relaxed max-w-3xl mb-8">
-            We believe in transparency. Here's exactly what your Clean Conviction team handles on every visit—no surprises, no upsell surprises.
+            We believe in transparency. Here's exactly what your Clean Convictions team handles on every visit—no surprises, no upsell surprises.
           </p>
         </div>
       </section>
@@ -261,7 +261,7 @@ export default function ServicesBreakdown() {
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--ink)] mb-8">Our Quality Promise</h2>
           <div className="bg-white/50 backdrop-blur-sm rounded-lg border border-[var(--line)] p-8">
             <p className="text-lg text-[var(--body)] mb-6">
-              Every member of the Clean Conviction team goes through rigorous, ongoing training to master the specialized cleaning techniques needed for our high standards. We require all employees to use our proven systems and methods that have built a track record of satisfied customers across Yuma County.
+              Every member of the Clean Convictions team goes through rigorous, ongoing training to master the specialized cleaning techniques needed for our high standards. We require all employees to use our proven systems and methods that have built a track record of satisfied customers across Yuma County.
             </p>
             <p className="text-lg text-[var(--body)] mb-6">
               We use state-of-the-art products and equipment, and every cleaner follows the exact same checklist on every visit—ensuring consistency, quality, and peace of mind.

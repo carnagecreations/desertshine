@@ -1,7 +1,7 @@
-# Clean Conviction — Brand Identity
+# Clean Convictions — Brand Identity
 
 ## Brand Name
-**Clean Conviction**
+**Clean Convictions**
 
 ## Tagline
 "No Compromise. No Dust."
@@ -42,17 +42,17 @@ Alternatives: cleanconvictionyuma.com, cleanconvictionaz.com
 **Option A (Recommended):** Geometric checkmark + conviction
 - Bold teal checkmark (✓)
 - Subtle orange accent on the serif/flourish
-- "Clean Conviction" wordmark below
+- "Clean Convictions" wordmark below
 - Represents: Done right, conviction, confidence
 
 **Option B:** Abstract dust particle becoming clean
 - Orange dust particle morphing into white sparkle
 - Teal background circle
-- "Clean Conviction" wordmark
+- "Clean Convictions" wordmark
 - Represents: Transformation, solution-focused
 
 **Option C:** Bold typography-first
-- "Clean Conviction" in Sora Bold
+- "Clean Convictions" in Sora Bold
 - Teal primary, orange underline accent
 - Minimal, modern, brandable
 - Represents: No-nonsense professionalism
@@ -84,7 +84,7 @@ Alternatives: cleanconvictionyuma.com, cleanconvictionaz.com
 ## Applications
 
 - Website: cleanconviction.com
-- Google Business Profile: Clean Conviction
+- Google Business Profile: Clean Convictions
 - Social: @cleanconviction
 - Email: hello@cleanconviction.com
 - Phone: (928) 555-0148

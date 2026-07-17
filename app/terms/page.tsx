@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Clean Conviction',
-  description: 'Terms of service for Clean Conviction cleaning services in Yuma, Arizona.',
+  title: 'Terms of Service | Clean Convictions',
+  description: 'Terms of service for Clean Convictions cleaning services in Yuma, Arizona.',
 };
 
 export default function TermsPage() {
@@ -24,14 +24,14 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold text-[var(--ink)] mb-4">Acceptance of Terms</h2>
               <p>
-                By booking or using Clean Conviction cleaning services, you agree to be bound by these Terms of Service. If you do not agree to any of these terms, please do not use our services.
+                By booking or using Clean Convictions cleaning services, you agree to be bound by these Terms of Service. If you do not agree to any of these terms, please do not use our services.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-[var(--ink)] mb-4">Service Description</h2>
               <p>
-                Clean Conviction provides professional cleaning services including recurring home cleaning, deep cleaning, move-in/move-out cleaning, and commercial office cleaning in Yuma County, Arizona. We perform services on a flat-rate basis with transparent pricing.
+                Clean Convictions provides professional cleaning services including recurring home cleaning, deep cleaning, move-in/move-out cleaning, and commercial office cleaning in Yuma County, Arizona. We perform services on a flat-rate basis with transparent pricing.
               </p>
             </section>
 
@@ -60,14 +60,14 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold text-[var(--ink)] mb-4">Access to Property</h2>
               <p>
-                You grant Clean Conviction access to your property during scheduled service times. Clients may provide access codes, keys, or be present during service. We take reasonable precautions to protect your property.
+                You grant Clean Convictions access to your property during scheduled service times. Clients may provide access codes, keys, or be present during service. We take reasonable precautions to protect your property.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-[var(--ink)] mb-4">Liability Limitations</h2>
               <p>
-                While we take care to protect your property, Clean Conviction is not responsible for damage caused by pre-existing conditions, client negligence, or circumstances beyond our control. Please disclose any fragile items before service.
+                While we take care to protect your property, Clean Convictions is not responsible for damage caused by pre-existing conditions, client negligence, or circumstances beyond our control. Please disclose any fragile items before service.
               </p>
             </section>
 

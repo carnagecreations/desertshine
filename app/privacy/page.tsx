@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Clean Conviction',
-  description: 'Privacy policy for Clean Conviction cleaning services in Yuma, Arizona.',
+  title: 'Privacy Policy | Clean Convictions',
+  description: 'Privacy policy for Clean Convictions cleaning services in Yuma, Arizona.',
 };
 
 export default function PrivacyPage() {
@@ -24,7 +24,7 @@ export default function PrivacyPage() {
             <section>
               <h2 className="text-2xl font-bold text-[var(--ink)] mb-4">Introduction</h2>
               <p>
-                Clean Conviction ("we," "us," or "our") operates the cleanconvictions.com website and related services. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our cleaning services.
+                Clean Convictions ("we," "us," or "our") operates the cleanconvictions.com website and related services. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our cleaning services.
               </p>
             </section>
 

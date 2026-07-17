@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'The Ultimate House Cleaning Checklist | Clean Conviction',
+  title: 'The Ultimate House Cleaning Checklist | Clean Convictions',
   description: 'Professional house cleaning checklist based on what expert cleaners never skip. Room-by-room guide for a spotless home in Yuma.',
 };
 
@@ -33,7 +33,7 @@ export default function BlogPost() {
             </p>
 
             <p>
-              At Clean Conviction, our expert cleaning teams follow proven systems that make every visit thorough, consistent, and efficient. Whether you're cleaning up before guests arrive or trying to stay on top of your home between professional cleanings, having a checklist makes a big difference.
+              At Clean Convictions, our expert cleaning teams follow proven systems that make every visit thorough, consistent, and efficient. Whether you're cleaning up before guests arrive or trying to stay on top of your home between professional cleanings, having a checklist makes a big difference.
             </p>
 
             <p>
@@ -134,7 +134,7 @@ export default function BlogPost() {
                 There's no shame in outsourcing the cleaning—especially to a team that's trained, trusted, and meticulous.
               </p>
               <p className="mb-4">
-                At Clean Conviction, we're proud to serve Yuma and surrounding areas with flexible cleaning plans that fit your schedule and lifestyle. Whether it's weekly, bi-weekly, monthly, or a one-time deep clean, we follow this exact checklist (and more) on every visit.
+                At Clean Convictions, we're proud to serve Yuma and surrounding areas with flexible cleaning plans that fit your schedule and lifestyle. Whether it's weekly, bi-weekly, monthly, or a one-time deep clean, we follow this exact checklist (and more) on every visit.
               </p>
               <p className="mb-6">
                 <strong>Here's what sets us apart:</strong>

@@ -4,7 +4,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import { NEIGHBORHOODS } from '@/lib/neighborhoods';
 
 export const metadata: Metadata = {
-  title: 'Neighborhoods & Communities | Clean Conviction',
+  title: 'Neighborhoods & Communities | Clean Convictions',
   description: 'Professional cleaning services for Yuma neighborhoods, RV parks, and mobile home communities. Serving Mesa Del Sol, The Palms, Country Roads, and more.',
 };
 

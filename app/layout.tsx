@@ -50,7 +50,7 @@ export const metadata: Metadata = {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Clean Conviction — House & Office Cleaning in Yuma, AZ',
+        alt: 'Clean Convictions — House & Office Cleaning in Yuma, AZ',
       },
     ],
   },

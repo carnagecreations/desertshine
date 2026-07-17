@@ -4,7 +4,7 @@ import { ImageResponse } from 'next/og';
 export const dynamic = 'force-static';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
-export const alt = 'Clean Conviction — House & Office Cleaning in Yuma, AZ';
+export const alt = 'Clean Convictions — House & Office Cleaning in Yuma, AZ';
 
 export default function OpengraphImage() {
   return new ImageResponse(
@@ -24,7 +24,7 @@ export default function OpengraphImage() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
           <div style={{ width: 56, height: 56, borderRadius: 14, background: '#ff6b35' }} />
           <span style={{ fontSize: 34, color: 'white', fontWeight: 700, letterSpacing: -1 }}>
-            Clean Conviction
+            Clean Convictions
           </span>
         </div>
 
