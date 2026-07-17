@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 import { useForm, ValidationError } from '@formspree/react';
 import { SITE } from '@/lib/site';
 
-// NOTE: This reuses the main Formspree endpoint so submissions reach the same
-// inbox. For a truly separate, confidential channel, create a dedicated
-// Formspree form and swap the ID here (see the note in the chat summary).
-const FORM_ID = 'xvzekkjj';
+// Dedicated Formspree endpoint for confidential Community Care requests —
+// kept separate from the quote-request form (xvzekkjj) so sensitive
+// submissions land in their own channel.
+const FORM_ID = 'mqerpnlj';
 
 export default function CommunityCareForm() {
   const [state, handleSubmit] = useForm(FORM_ID);
