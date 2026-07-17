@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const VALUES = [
   { title: 'Same faces, every time', body: 'You get a dedicated cleaner or pair, not whoever’s on shift. They learn your home once and keep it that way.' },
   { title: 'Checklists, not vibes', body: 'Every clean runs a printed room-by-room checklist, photographed at the end. Quality you can verify, not just feel.' },
-  { title: 'Yuma born and based', body: 'We live here. We know what desert dust does to blinds and what monsoon season does to floors — and we clean for it.' },
+  { title: 'Yuma-based, desert-tested', body: 'We live and work here. We know what desert dust does to blinds and what monsoon season does to floors — and we clean for it.' },
 ];
 
 export default function AboutPage() {
