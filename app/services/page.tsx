@@ -60,6 +60,24 @@ export default function ServicesPage() {
 
         <ServiceShowcase services={SERVICES} />
 
+        {/* Pet-safe specialization highlight */}
+        <section className="px-6 py-12 md:px-16 bg-gradient-to-r from-emerald-50 to-blue-50">
+          <div className="mx-auto max-w-5xl">
+            <div className="rounded-2xl border border-emerald-200 bg-white/80 p-8">
+              <h3 className="text-2xl font-bold text-[var(--ink)] mb-3">🐾 Pet-safe cleaning available</h3>
+              <p className="text-[var(--body)] mb-4">
+                All our services work with pet-safe products at no extra charge. If you have animals—horses,
+                dogs, cats, reptiles, birds—we use only non-toxic, zero-VOC cleaners verified safe by veterinary
+                toxicologists.
+              </p>
+              <Link href="/pet-safe-cleaning"
+                className="text-sm font-semibold text-[var(--accent)] hover:underline">
+                Learn about our pet-safe approach →
+              </Link>
+            </div>
+          </div>
+        </section>
+
         <section className="mx-auto max-w-5xl px-6 py-12">
           <h2 className="mb-8 text-3xl md:text-4xl">Explore each service</h2>
           <div className="grid gap-4 md:grid-cols-2">
