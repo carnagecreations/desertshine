@@ -42,3 +42,33 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Price estimator range slider */
+.est-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 9999px;
+  outline: none;
+  cursor: pointer;
+}
+.est-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 22px;
+  width: 22px;
+  border-radius: 9999px;
+  background: var(--accent);
+  border: 3px solid #fff;
+  box-shadow: 0 0 14px rgba(232, 93, 47, 0.8);
+  cursor: pointer;
+}
+.est-slider::-moz-range-thumb {
+  height: 22px;
+  width: 22px;
+  border-radius: 9999px;
+  background: var(--accent);
+  border: 3px solid #fff;
+  box-shadow: 0 0 14px rgba(232, 93, 47, 0.8);
+  cursor: pointer;
+}
