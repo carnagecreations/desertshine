@@ -322,6 +322,7 @@ export default function PriceEstimator() {
                     </Chip>
                   ))}
                 </div>
+                <p className="mt-2 font-mono text-[10px] tracking-wider text-white/35 uppercase">Self-reported — crew calibrates on arrival</p>
               </div>
 
               <div>
@@ -406,7 +407,7 @@ export default function PriceEstimator() {
 
             <Link href={`/contact?${estParams}`} onClick={lockIn}
               className="mt-6 block rounded-full bg-[var(--accent)] px-6 py-3.5 text-center text-sm font-medium text-white transition-transform duration-300 hover:scale-[1.03]">
-              {isOffice ? 'Book my walk-through →' : 'Get my exact price →'}
+              {isOffice ? 'Book my walk-through →' : 'Request my flat quote →'}
             </Link>
             {!isOffice && (
               <p className="mt-2 text-center text-[11px] text-white/40">Your setup rides along — no re-typing.</p>
@@ -420,9 +421,11 @@ export default function PriceEstimator() {
           <div className="mt-4 rounded-2xl border border-amber-400/20 bg-amber-400/5 p-4">
             <p className="font-mono text-[10px] tracking-[0.2em] text-amber-300/80 uppercase">⚠ Estimate, not a contract</p>
             <p className="mt-2 text-xs leading-relaxed text-white/60">
-              This number can shift once we confirm details — actual square footage or layout, heavy buildup that needs a first-visit deep clean,
-              rooms or baths beyond what you dialed in, or special requests on arrival. Your <span className="text-white/85">final flat quote is confirmed before we book</span> —
-              and once quoted, it never changes. That&apos;s the conviction.
+              This is our best read on what you dialed in. We confirm a flat quote before we book, and it holds —
+              <span className="text-white/85"> unless the home we walk into doesn&apos;t match the home you described</span>: significantly more
+              square footage, heavy buildup that needs first-visit deep-clean time, or rooms we didn&apos;t count. If that happens,
+              we give you the adjusted number <span className="text-white/85">before any work starts</span> — you approve it, or we reschedule.
+              No mid-job surprises, ever. That&apos;s the conviction.
             </p>
           </div>
         </div>
