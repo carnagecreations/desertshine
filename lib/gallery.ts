@@ -42,18 +42,4 @@ export const GALLERY: BeforeAfterPair[] = [
     after: '/images/gallery/shower after.jpg',
     category: 'bathroom',
   },
-  {
-    id: 'bathroom-1',
-    title: 'Full Bathroom Renovation',
-    before: '/images/gallery/bathroom1.jpg',
-    after: '/images/gallery/bathroom2.jpg',
-    category: 'bathroom',
-  },
-  {
-    id: 'bedroom',
-    title: 'Bedroom Transformation',
-    before: '/images/gallery/bedroom1.jpg',
-    after: '/images/gallery/after_1.webp',
-    category: 'general',
-  },
 ];
