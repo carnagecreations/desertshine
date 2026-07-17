@@ -42,6 +42,10 @@ const ADDONS: { key: string; label: string; price: number; includedIn: ServiceKe
 
 const round5 = (n: number) => Math.round(n / 5) * 5;
 
+// Hard minimum per program — credits and loyalty discounts never stack
+// below the cost of showing up with a full kit.
+const MIN_RATE: Record<Exclude<ServiceKey, 'office'>, number> = { standard: 89, deep: 179, move: 199 };
+
 /* ————— Animated odometer readout ————— */
 function Odometer({ value }: { value: number }) {
   const mv = useMotionValue(value);
@@ -112,8 +116,8 @@ export default function PriceEstimator() {
   const isOffice = service === 'office';
   const svc = SERVICES.find((s) => s.key === service)!;
 
-  const { price, lines } = useMemo(() => {
-    if (isOffice) return { price: 0, lines: [] as { label: string; amount: string; neg?: boolean }[] };
+  const { price, lines, preFreq } = useMemo(() => {
+    if (isOffice) return { price: 0, lines: [] as { label: string; amount: string; neg?: boolean }[], preFreq: 0 };
 
     const lines: { label: string; amount: string; neg?: boolean }[] = [];
     let subtotal = svc.base;
@@ -178,6 +182,8 @@ export default function PriceEstimator() {
       if (addons.has(a.key)) { subtotal += a.price; lines.push({ label: `Add-on · ${a.label.toLowerCase()}`, amount: `+$${a.price}` }); }
     }
 
+    const preFreq = subtotal; // work value before loyalty discount — used for time + savings math
+
     const f = FREQUENCIES.find((x) => x.key === freq)!;
     if (service === 'standard' && f.mult < 1) {
       const discount = Math.round(subtotal * (1 - f.mult));
@@ -185,21 +191,39 @@ export default function PriceEstimator() {
       lines.push({ label: `Loyalty discount · ${f.label.toLowerCase()}`, amount: `−$${discount}`, neg: true });
     }
 
-    // Hard minimum per program — small-home credits and loyalty discounts
-    // never stack below the cost of showing up with a full kit.
-    const MIN: Record<Exclude<ServiceKey, 'office'>, number> = { standard: 89, deep: 179, move: 199 };
     let final = round5(subtotal);
-    const floor = MIN[service as Exclude<ServiceKey, 'office'>];
+    const floor = MIN_RATE[service as Exclude<ServiceKey, 'office'>];
     if (final < floor) {
       final = floor;
       lines.push({ label: 'Minimum visit rate applied', amount: `$${floor}` });
     }
 
-    return { price: final, lines };
+    return { price: final, lines, preFreq };
   }, [isOffice, svc, service, sqft, beds, baths, condition, pets, addons, freq]);
 
   const perVisit = service === 'standard' && freq !== 'one';
   const sliderPct = ((sqft - 600) / (4000 - 600)) * 100;
+
+  // Derived readout extras — time on site scales with the work value
+  // (pre-discount), never with the loyalty-discounted price.
+  const floor = isOffice ? 0 : MIN_RATE[service as Exclude<ServiceKey, 'office'>];
+  const oneTimePrice = Math.max(round5(preFreq), floor);
+  const biweeklyPrice = Math.max(round5(preFreq * 0.85), floor);
+  const perVisitSavings = oneTimePrice - price;
+  const hoursLo = Math.min(9, Math.max(1.5, Math.round((preFreq / 50) * 2) / 2));
+
+  // Carry the dialed-in estimate to the quote form so nothing gets re-typed.
+  const estParams = new URLSearchParams({
+    est: isOffice ? 'custom' : String(price),
+    svc: service,
+    sqft: String(sqft),
+    bd: String(beds),
+    ba: String(baths),
+    freq,
+    cond: condition,
+    pets: pets ? '1' : '0',
+    add: [...addons].join(','),
+  }).toString();
 
   const lockIn = () => {
     try {
@@ -345,6 +369,20 @@ export default function PriceEstimator() {
               )}
             </div>
 
+            {!isOffice && (
+              <p className="mt-2 font-mono text-[11px] tracking-wider text-white/40">≈ {hoursLo}–{hoursLo + 1} crew-hours on site</p>
+            )}
+
+            {service === 'standard' && freq === 'one' && biweeklyPrice < price && (
+              <button type="button" onClick={() => setFreq('biweekly')}
+                className="mt-2 text-left text-xs text-emerald-300/90 transition-colors hover:text-emerald-200">
+                💡 Bi-weekly would run ${biweeklyPrice}/visit — tap to try it
+              </button>
+            )}
+            {service === 'standard' && freq !== 'one' && perVisitSavings > 0 && (
+              <p className="mt-2 text-xs text-emerald-300/90">Saving ${perVisitSavings} every visit vs one-time.</p>
+            )}
+
             {/* Receipt breakdown */}
             {!isOffice && (
               <div className="mt-5 space-y-1.5 border-t border-dashed border-white/15 pt-4">
@@ -366,10 +404,13 @@ export default function PriceEstimator() {
               </div>
             )}
 
-            <Link href="/contact" onClick={lockIn}
+            <Link href={`/contact?${estParams}`} onClick={lockIn}
               className="mt-6 block rounded-full bg-[var(--accent)] px-6 py-3.5 text-center text-sm font-medium text-white transition-transform duration-300 hover:scale-[1.03]">
-              {isOffice ? 'Book my walk-through →' : 'Lock in my exact quote →'}
+              {isOffice ? 'Book my walk-through →' : 'Get my exact price →'}
             </Link>
+            {!isOffice && (
+              <p className="mt-2 text-center text-[11px] text-white/40">Your setup rides along — no re-typing.</p>
+            )}
             <a href={SITE.phoneHref} className="mt-3 block text-center text-xs text-white/50 hover:text-white/80 transition-colors">
               or call {SITE.phone}
             </a>

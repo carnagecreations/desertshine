@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm, ValidationError } from '@formspree/react';
 import { SITE } from '@/lib/site';
@@ -30,6 +30,38 @@ export default function QuoteForm() {
     size: SIZE_OPTIONS[0].value,
     details: '',
   });
+
+  // Prefill from the Estimate Engine (/pricing) — the CTA there carries the
+  // dialed-in setup over as query params so visitors never re-type it.
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search);
+    const est = q.get('est');
+    if (!est) return;
+    const svcMap: Record<string, string> = {
+      standard: 'Recurring home cleaning',
+      deep: 'Deep clean',
+      move: 'Move-in / move-out',
+      office: 'Office / commercial',
+    };
+    const freqMap: Record<string, string> = { one: 'one-time', weekly: 'weekly', biweekly: 'bi-weekly', monthly: 'monthly' };
+    const condMap: Record<string, string> = { kept: 'well kept', average: 'lived in', love: 'needs love' };
+    const svc = q.get('svc') ?? '';
+    const sqft = Number(q.get('sqft') || 0);
+    const size = svc === 'office'
+      ? SIZE_OPTIONS[3].value
+      : sqft < 1500 ? SIZE_OPTIONS[0].value : sqft <= 2500 ? SIZE_OPTIONS[1].value : SIZE_OPTIONS[2].value;
+    const details = svc === 'office'
+      ? 'From the Estimate Engine: commercial walk-through requested.'
+      : `From the Estimate Engine: ≈ $${est} — ${[
+          `${sqft.toLocaleString()} sq ft`,
+          `${q.get('bd')} bed / ${q.get('ba')} bath`,
+          freqMap[q.get('freq') ?? ''],
+          condMap[q.get('cond') ?? ''],
+          q.get('pets') === '1' ? 'pets in the home' : '',
+          q.get('add') ? `add-ons: ${q.get('add')!.split(',').join(', ')}` : '',
+        ].filter(Boolean).join(' · ')}`;
+    setFormData((prev) => ({ ...prev, service: svcMap[svc] ?? prev.service, size, details }));
+  }, []);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -168,7 +200,7 @@ export default function QuoteForm() {
                       value={formData.size}
                       onChange={(e) => setFormData(prev => ({ ...prev, size: e.target.value }))}
                       className="w-full rounded-lg border border-[var(--line)] bg-white px-4 py-3 text-[var(--ink)] outline-none transition-all focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_rgba(232,93,47,0.1)]">
-                      {SIZE_OPTIONS.map(opt => <option key={opt.value}>{opt.label} ({opt.value})</option>)}
+                      {SIZE_OPTIONS.map(opt => <option key={opt.value} value={opt.value}>{opt.label} ({opt.value})</option>)}
                     </select>
                   </div>
                   <div>
