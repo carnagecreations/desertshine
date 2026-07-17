@@ -49,14 +49,19 @@ export default function ScrollZoomHero({
           className="mt-6 max-w-md text-lg text-white/80">{sub}</motion.p>
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.25, duration: 0.7, ease: EASE_OUT }}
-          className="mt-8 flex flex-wrap items-center gap-4">
-          <Link href="/contact"
-            className="rounded-full bg-[var(--accent)] px-8 py-4 text-base font-medium text-white transition-transform duration-300 hover:scale-105">
-            Get a free quote
-          </Link>
-          <a href={SITE.phoneHref} className="text-white/85 underline underline-offset-4 hover:text-white">
-            or call {SITE.phone}
-          </a>
+          className="mt-8 flex flex-col gap-6">
+          <div className="flex flex-wrap items-center gap-4">
+            <Link href="/contact"
+              className="rounded-full bg-[var(--accent)] px-8 py-4 text-base font-medium text-white transition-transform duration-300 hover:scale-105">
+              Get a free quote
+            </Link>
+            <a href={SITE.phoneHref} className="text-white/85 underline underline-offset-4 hover:text-white">
+              or call {SITE.phone}
+            </a>
+          </div>
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-3 backdrop-blur-sm border border-white/20 w-fit">
+            <span className="text-sm font-medium text-white">⚡ Flat price within 1 business hour</span>
+          </div>
         </motion.div>
       </motion.div>
 

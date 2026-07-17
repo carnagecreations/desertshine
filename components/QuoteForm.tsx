@@ -1,9 +1,10 @@
 'use client';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useForm, ValidationError } from '@formspree/react';
 import { SITE } from '@/lib/site';
 
-const FORM_ENDPOINT = '';
+const FORM_ID = 'xvzekkjj';
 
 const SERVICES = [
   { name: 'Recurring home cleaning', emoji: '🏠', color: 'from-blue-50 to-blue-100/50' },
@@ -20,7 +21,7 @@ const SIZE_OPTIONS = [
 ];
 
 export default function QuoteForm() {
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [state, handleSubmit] = useForm(FORM_ID);
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     service: SERVICES[0].name,
@@ -34,29 +35,11 @@ export default function QuoteForm() {
     e.preventDefault();
     if (!formData.name || !formData.phone) return;
 
-    if (!FORM_ENDPOINT) {
-      const body = encodeURIComponent(
-        `Name: ${formData.name}\nPhone: ${formData.phone}\nService: ${formData.service}\nHome size: ${formData.size}\nDetails: ${formData.details}`,
-      );
-      window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent('Quote request — ' + formData.name)}&body=${body}`;
-      return;
-    }
-
-    setStatus('sending');
-    try {
-      const res = await fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: JSON.stringify(formData),
-      });
-      if (!res.ok) throw new Error('send failed');
-      setStatus('sent');
-    } catch {
-      setStatus('error');
-    }
+    // Formspree handles the submission with the form fields
+    await handleSubmit(e);
   };
 
-  if (status === 'sent') {
+  if (state.succeeded) {
     return (
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
@@ -74,8 +57,11 @@ export default function QuoteForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="rounded-3xl border border-[var(--line)] bg-white/70 backdrop-blur-sm">
+    <form onSubmit={onSubmit} className="rounded-3xl border border-[var(--line)] bg-white/70 backdrop-blur-sm" method="POST">
       <div className="overflow-hidden">
+        {/* Hidden fields for multi-step form */}
+        <input type="hidden" name="service" value={formData.service} />
+
         {/* Progress bar */}
         <div className="border-b border-[var(--line)] px-8 pt-8 pb-6">
           <div className="mb-3 flex items-center justify-between">
@@ -140,6 +126,7 @@ export default function QuoteForm() {
                     <input
                       id="name"
                       type="text"
+                      name="name"
                       required
                       autoComplete="name"
                       placeholder="Jane Doe"
@@ -147,12 +134,14 @@ export default function QuoteForm() {
                       onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
                       className="w-full rounded-lg border border-[var(--line)] bg-white px-4 py-3 text-[var(--ink)] outline-none transition-all focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_rgba(232,93,47,0.1)]"
                     />
+                    <ValidationError field="name" errors={state.errors} />
                   </div>
                   <div>
                     <label htmlFor="phone" className="mb-2 block text-sm font-medium text-[var(--ink)]">Phone number</label>
                     <input
                       id="phone"
                       type="tel"
+                      name="phone"
                       required
                       autoComplete="tel"
                       placeholder="(555) 123-4567"
@@ -160,6 +149,7 @@ export default function QuoteForm() {
                       onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
                       className="w-full rounded-lg border border-[var(--line)] bg-white px-4 py-3 text-[var(--ink)] outline-none transition-all focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_rgba(232,93,47,0.1)]"
                     />
+                    <ValidationError field="phone" errors={state.errors} />
                   </div>
                 </div>
               </div>
@@ -174,6 +164,7 @@ export default function QuoteForm() {
                     <label htmlFor="size" className="mb-2 block text-sm font-medium text-[var(--ink)]">Space size</label>
                     <select
                       id="size"
+                      name="size"
                       value={formData.size}
                       onChange={(e) => setFormData(prev => ({ ...prev, size: e.target.value }))}
                       className="w-full rounded-lg border border-[var(--line)] bg-white px-4 py-3 text-[var(--ink)] outline-none transition-all focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_rgba(232,93,47,0.1)]">
@@ -187,19 +178,21 @@ export default function QuoteForm() {
                     </label>
                     <textarea
                       id="details"
+                      name="details"
                       rows={3}
                       placeholder="Pets, problem areas, preferred days, gate codes, etc."
                       value={formData.details}
                       onChange={(e) => setFormData(prev => ({ ...prev, details: e.target.value }))}
                       className="w-full rounded-lg border border-[var(--line)] bg-white px-4 py-3 text-[var(--ink)] outline-none transition-all focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_rgba(232,93,47,0.1)]"
                     />
+                    <ValidationError field="details" errors={state.errors} />
                   </div>
                 </div>
               </div>
             )}
           </motion.div>
 
-          {status === 'error' && (
+          {state.errors && Object.keys(state.errors).length > 0 && (
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-4 text-sm text-red-600">
               Something went wrong — please call <a href={SITE.phoneHref} className="font-medium hover:underline">{SITE.phone}</a> instead.
             </motion.p>
@@ -234,11 +227,11 @@ export default function QuoteForm() {
           ) : (
             <motion.button
               type="submit"
-              disabled={status === 'sending'}
+              disabled={state.submitting}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="rounded-full bg-[var(--accent)] px-8 py-2.5 text-sm font-medium text-white transition-all hover:shadow-lg hover:shadow-[var(--accent)]/30 disabled:opacity-60">
-              {status === 'sending' ? 'Sending…' : 'Get my quote'}
+              {state.submitting ? 'Sending…' : 'Get my quote'}
             </motion.button>
           )}
         </div>
