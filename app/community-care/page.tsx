@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import CommunityCareForm from '@/components/CommunityCareForm';
 import RevealFooter from '@/components/sections/RevealFooter';
-import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Community Care — A Free, Confidential Clean',
@@ -69,12 +68,9 @@ export default function CommunityCarePage() {
         <section className="px-6 py-16 md:px-16 bg-[var(--paper-light)]">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-lg text-[var(--body)] leading-relaxed">
-              Asking for help can be the hardest part. If a form feels like too much, just call or text us —
-              a real person answers.
+              Asking for help can be the hardest part. Take your time — the form above is completely private,
+              and you only share what you want to. We&apos;ll do the rest quietly.
             </p>
-            <a href={SITE.phoneHref} className="mt-4 inline-block text-xl font-medium text-[var(--accent)] hover:underline">
-              {SITE.phone}
-            </a>
           </div>
         </section>
       </main>

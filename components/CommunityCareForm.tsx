@@ -26,7 +26,7 @@ export default function CommunityCareForm() {
           out, we&apos;re glad you reached out — that took courage.
         </p>
         <p className="mt-4 text-sm text-[var(--body)]">
-          If you&apos;d rather talk to a person, call or text {SITE.phone}. We&apos;ll keep it between us.
+          Keep an eye out for a quiet message from us. We&apos;ll keep it between us.
         </p>
       </motion.div>
     );
@@ -120,7 +120,8 @@ export default function CommunityCareForm() {
 
       {state.errors && Object.keys(state.errors).length > 0 && (
         <p className="mt-3 text-center text-sm text-red-600">
-          Something went wrong — you can also call or text <a href={SITE.phoneHref} className="font-medium hover:underline">{SITE.phone}</a>.
+          Something went wrong — please try again, or email us privately at{' '}
+          <a href={`mailto:${SITE.email}`} className="font-medium hover:underline">{SITE.email}</a>.
         </p>
       )}
 
