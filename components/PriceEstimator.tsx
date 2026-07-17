@@ -38,6 +38,8 @@ const ADDONS: { key: string; label: string; price: number; includedIn: ServiceKe
   { key: 'windows', label: 'Windows (inside)', price: 40, includedIn: [] },
   { key: 'garage', label: 'Garage', price: 25, includedIn: ['move'] },
   { key: 'laundry', label: 'Laundry room', price: 15, includedIn: [] },
+  { key: 'organize', label: 'Organizing & tidying', price: 45, includedIn: [] },
+  { key: 'disinfect', label: 'Pet illness disinfect', price: 40, includedIn: [] },
 ];
 
 const round5 = (n: number) => Math.round(n / 5) * 5;
@@ -392,7 +394,10 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
                   })}
                 </div>
                 {pets && (
-                  <p className="mt-2 text-xs text-emerald-300/80">We're experienced with all animals — from horses to reptiles — and use pet-safe products.</p>
+                  <p className="mt-2 text-xs text-emerald-300/80">We&apos;re experienced with all animals — from horses to reptiles — and use pet-safe products.</p>
+                )}
+                {addons.has('disinfect') && (
+                  <p className="mt-2 text-xs text-emerald-300/80">Vet-grade sanitizing after a sick pet — safe for the whole household once dry.</p>
                 )}
                 {military && (
                   <p className="mt-2 text-xs text-white/50">Military verification required at time of cleaning</p>

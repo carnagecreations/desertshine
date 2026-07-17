@@ -104,6 +104,46 @@ export default function PetSafeCleaningPage() {
         </div>
       </section>
 
+      {/* Sick-pet disinfection service */}
+      <section className="px-6 py-20 md:px-16 bg-emerald-50/40">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-3xl font-bold text-[var(--ink)] mb-4">After your pet has been sick</h2>
+          <p className="text-lg text-[var(--body)] leading-relaxed max-w-3xl mb-8">
+            A vomiting or diarrhea episode isn&apos;t just a mess—it can be contagious. Parvovirus, giardia,
+            and feline panleukopenia survive on floors and fabric for weeks and standard mopping doesn&apos;t
+            touch them. We disinfect the way a vet clinic does, then leave the home safe for every animal in it.
+          </p>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            <div className="rounded-2xl border border-[var(--line)] bg-white/60 p-6">
+              <h3 className="font-semibold text-[var(--ink)] mb-2">Kills what mopping misses</h3>
+              <p className="text-sm text-[var(--body)]">
+                Vet-grade disinfectants with proven kill-times against parvo, giardia, and common pathogens—
+                applied at the correct dwell time, not just wiped on and off.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-[var(--line)] bg-white/60 p-6">
+              <h3 className="font-semibold text-[var(--ink)] mb-2">Safe once dry</h3>
+              <p className="text-sm text-[var(--body)]">
+                We rinse and neutralize treated surfaces so the disinfectant does its job during cleaning,
+                then leaves nothing behind for paws or tongues afterward.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-[var(--line)] bg-white/60 p-6">
+              <h3 className="font-semibold text-[var(--ink)] mb-2">Stops the spread</h3>
+              <p className="text-sm text-[var(--body)]">
+                In a multi-pet home, one sick animal can infect the rest. Prompt, thorough disinfection is
+                the difference between one vet bill and several.
+              </p>
+            </div>
+          </div>
+
+          <p className="mt-6 text-sm text-[var(--body)]">
+            Add it to any clean in the estimator (typically +$40), or call us for a same-week visit if it&apos;s urgent.
+          </p>
+        </div>
+      </section>
+
       {/* The honest trade-off */}
       <section className="px-6 py-20 md:px-16 bg-amber-50/40">
         <div className="mx-auto max-w-4xl">
