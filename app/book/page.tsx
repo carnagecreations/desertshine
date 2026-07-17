@@ -3,7 +3,7 @@ import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Book Your Cleaning',
-  description: "Schedule your cleaning appointment. Pick a time, and we'll confirm details and send your invoice within 24 hours.",
+  description: "Schedule your cleaning appointment. Pick a time, and we'll confirm details and send your flat-rate invoice.",
 };
 
 export default function BookPage() {

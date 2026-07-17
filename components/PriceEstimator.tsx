@@ -100,7 +100,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 }
 
 /* ————— The machine ————— */
-export default function PriceEstimator() {
+export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?: 'contact' | 'book' } = {}) {
   const [service, setService] = useState<ServiceKey>('standard');
   const [sqft, setSqft] = useState(1500);
   const [beds, setBeds] = useState(3);
@@ -473,7 +473,7 @@ export default function PriceEstimator() {
               </div>
             )}
 
-            <Link href={`/contact?${estParams}`} onClick={lockIn}
+            <Link href={`/${targetPage}?${estParams}`} onClick={lockIn}
               className="mt-5 block rounded-full bg-[var(--accent)] px-6 py-3.5 text-center text-sm font-medium text-white transition-transform duration-300 hover:scale-[1.03]">
               {isOffice ? 'Book my walk-through →' : 'Lock in this quote →'}
             </Link>
