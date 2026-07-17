@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import ReviewButton from '@/components/ReviewButton';
 import ScrollZoomHero from '@/components/sections/ScrollZoomHero';
 import VelocityMarquee from '@/components/sections/VelocityMarquee';
 import ConstellationHero from '@/components/sections/ConstellationHero';
@@ -84,6 +85,10 @@ export default function Home() {
             <p className="text-base text-[var(--body)]">
               Book a free quote today. If we nail it, we'd love your honest review.
             </p>
+            <div className="mt-8">
+              <ReviewButton />
+              <p className="mt-3 text-xs text-[var(--body)]">Already had us clean? It takes about 30 seconds.</p>
+            </div>
           </div>
         </section>
 

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import ReviewButton from '@/components/ReviewButton';
 import SplitHeadline from '@/components/sections/SplitHeadline';
 import ManifestoFill from '@/components/sections/ManifestoFill';
 import StatCounters from '@/components/sections/StatCounters';
@@ -63,6 +64,18 @@ export default function AboutPage() {
         </section>
 
         <TestimonialTheater />
+
+        {/* Review invitation for existing customers */}
+        <section className="px-6 py-16 md:px-16 text-center">
+          <div className="mx-auto max-w-2xl">
+            <h2 className="text-2xl md:text-3xl font-bold text-[var(--ink)] mb-3">Cleaned by us already?</h2>
+            <p className="text-[var(--body)] mb-6">
+              A quick, honest review helps other Yuma neighbors find us — and it means a lot to a brand-new local business.
+            </p>
+            <ReviewButton />
+          </div>
+        </section>
+
         <GiantCTA />
       </main>
       <RevealFooter />
