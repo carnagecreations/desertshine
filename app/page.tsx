@@ -3,6 +3,7 @@ import ScrollZoomHero from '@/components/sections/ScrollZoomHero';
 import VelocityMarquee from '@/components/sections/VelocityMarquee';
 import ConstellationHero from '@/components/sections/ConstellationHero';
 import StatCounters from '@/components/sections/StatCounters';
+import TrustSignals from '@/components/sections/TrustSignals';
 import BeforeAfterGallery from '@/components/sections/BeforeAfterGallery';
 import ServiceShowcase from '@/components/sections/ServiceShowcase';
 import ManifestoFill from '@/components/sections/ManifestoFill';
@@ -24,6 +25,7 @@ export default function Home() {
       <main className="relative z-10 bg-[var(--paper)]">
         <ScrollZoomHero />
         <VelocityMarquee />
+        <TrustSignals />
         <StatCounters />
         <BeforeAfterGallery />
 
