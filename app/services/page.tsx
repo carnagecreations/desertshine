@@ -16,7 +16,7 @@ const SERVICES = [
   {
     id: 'recurring',
     name: 'Recurring Home Cleaning',
-    price: 'from $129/visit',
+    price: 'from $89/visit',
     blurb: 'Weekly, bi-weekly, or monthly. The same cleaner every visit, working the same room-by-room checklist so your home stays consistently done, not occasionally rescued.',
     image: '/images/service-recurring.webp',
     includes: ['Kitchens: counters, sinks, exterior appliances, floors', 'Bathrooms: showers, tubs, toilets, mirrors, floors', 'All rooms: dusting, surfaces, floors, trash, tidying', 'Same cleaner, same checklist, every visit'],
@@ -24,7 +24,7 @@ const SERVICES = [
   {
     id: 'deep',
     name: 'Deep Cleaning',
-    price: 'from $249',
+    price: 'from $179',
     blurb: 'The seasonal reset. Everything in a standard clean, plus the places dust hides in a desert town baseboards, blinds, vents, grout, and inside the appliances.',
     image: '/images/service-deep.webp',
     includes: ['Baseboards, door frames, and light switches', 'Blinds, ceiling fans, and vents', 'Inside oven and refrigerator', 'Tile grout and shower glass detail'],
@@ -32,7 +32,7 @@ const SERVICES = [
   {
     id: 'move',
     name: 'Move-In / Move-Out',
-    price: 'from $299',
+    price: 'from $199',
     blurb: 'Built around landlord inspection checklists. For renters chasing a deposit, sellers prepping a listing, or landlords turning a unit fast.',
     image: '/images/service-move.webp',
     includes: ['Inside every cabinet, drawer, and closet', 'All appliances inside and out', 'Windows, tracks, and sills', 'Garage sweep-out on request'],
@@ -66,9 +66,9 @@ export default function ServicesPage() {
             <div className="rounded-2xl border border-emerald-200 bg-white/80 p-8">
               <h3 className="text-2xl font-bold text-[var(--ink)] mb-3">🐾 Pet-safe cleaning available</h3>
               <p className="text-[var(--body)] mb-4">
-                All our services work with pet-safe products at no extra charge. If you have animals—horses,
-                dogs, cats, reptiles, birds—we use only non-toxic, zero-VOC cleaners verified safe by veterinary
-                toxicologists.
+                All our services work with pet-safe products (typically +$15–30 depending on home size).
+                If you have animals—horses, dogs, cats, reptiles, birds—we use only non-toxic, zero-VOC cleaners
+                verified safe by veterinary toxicologists.
               </p>
               <Link href="/pet-safe-cleaning"
                 className="text-sm font-semibold text-[var(--accent)] hover:underline">

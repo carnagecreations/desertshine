@@ -5,6 +5,7 @@ import { SITE } from '@/lib/site';
 
 const LINKS = [
   { label: 'Services', href: '/services' },
+  { label: 'Pet-Safe Cleaning', href: '/pet-safe-cleaning' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'Neighborhoods', href: '/neighborhoods' },
   { label: 'Blog', href: '/blog' },
