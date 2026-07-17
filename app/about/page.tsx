@@ -38,6 +38,11 @@ export default function AboutPage() {
             <div key={v.title} className="rounded-2xl border border-[var(--line)] bg-white/60 p-8">
               <h3 className="text-2xl">{v.title}</h3>
               <p className="mt-3 text-[var(--body)]">{v.body}</p>
+              {v.title === 'Checklists, not vibes' && (
+                <a href="/cleaning-checklists.pdf" download className="mt-4 inline-block text-sm font-semibold text-[var(--accent)] hover:underline">
+                  ↓ Download our checklists
+                </a>
+              )}
             </div>
           ))}
         </section>
