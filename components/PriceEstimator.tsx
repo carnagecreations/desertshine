@@ -12,11 +12,11 @@ type ServiceKey = 'standard' | 'deep' | 'move' | 'office';
 type FreqKey = 'one' | 'weekly' | 'biweekly' | 'monthly';
 type ConditionKey = 'kept' | 'average' | 'love';
 
-const SERVICES: { key: ServiceKey; label: string; base: number; tag: string }[] = [
-  { key: 'standard', label: 'Standard / Recurring', base: 129, tag: 'from $129' },
-  { key: 'deep', label: 'Deep Clean', base: 249, tag: 'from $249' },
-  { key: 'move', label: 'Move-In / Move-Out', base: 299, tag: 'from $299' },
-  { key: 'office', label: 'Office / Commercial', base: 0, tag: 'custom' },
+const SERVICES: { key: ServiceKey; label: string; base: number; tag: string; icon: string }[] = [
+  { key: 'standard', label: 'Standard / Recurring', base: 129, tag: 'from $129', icon: '🏠' },
+  { key: 'deep', label: 'Deep Clean', base: 249, tag: 'from $249', icon: '✨' },
+  { key: 'move', label: 'Move-In / Move-Out', base: 299, tag: 'from $299', icon: '📦' },
+  { key: 'office', label: 'Office / Commercial', base: 0, tag: 'custom', icon: '🏢' },
 ];
 
 const FREQUENCIES: { key: FreqKey; label: string; mult: number; tag?: string }[] = [
@@ -91,7 +91,12 @@ function Stepper({ label, value, min, max, onChange }: { label: string; value: n
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
-  return <p className="mb-3 font-mono text-[11px] tracking-[0.25em] text-[var(--accent)] uppercase">{children}</p>;
+  return (
+    <div className="mb-3 flex items-center gap-3">
+      <p className="shrink-0 font-mono text-[11px] tracking-[0.25em] text-[var(--accent)] uppercase">{children}</p>
+      <span className="h-px flex-1 bg-gradient-to-r from-[var(--accent)]/40 via-[var(--accent)]/10 to-transparent" />
+    </div>
+  );
 }
 
 /* ————— The machine ————— */
@@ -233,11 +238,12 @@ export default function PriceEstimator() {
   };
 
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[var(--paper-dark)] shadow-[0_0_90px_-25px_rgba(232,93,47,0.55)]">
+    <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[var(--paper-dark)] shadow-[0_0_90px_-25px_rgba(232,93,47,0.55)] ring-1 ring-inset ring-white/5">
       {/* Ambient grid + scanlines */}
       <div className="pointer-events-none absolute inset-0 [background-image:linear-gradient(rgba(255,255,255,.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.04)_1px,transparent_1px)] [background-size:36px_36px]" />
       <div className="pointer-events-none absolute inset-0 opacity-[0.05] [background:repeating-linear-gradient(0deg,transparent,transparent_2px,#fff_2px,#fff_3px)]" />
       <div className="pointer-events-none absolute -top-32 right-0 h-64 w-64 rounded-full bg-[var(--accent)]/25 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-40 -left-20 h-80 w-80 rounded-full bg-sky-400/10 blur-3xl" />
 
       {/* Console header */}
       <div className="relative flex items-center justify-between border-b border-white/10 px-6 py-4 md:px-8">
@@ -249,18 +255,37 @@ export default function PriceEstimator() {
         <p className="font-mono text-[11px] tracking-[0.3em] text-white/50 uppercase">CC Estimate Engine · v2.0 · Yuma-calibrated</p>
         <motion.span animate={{ opacity: [1, 0, 1] }} transition={{ repeat: Infinity, duration: 1.1 }} className="hidden font-mono text-sm text-[var(--accent)] md:block">▌</motion.span>
       </div>
+      <motion.div
+        aria-hidden="true"
+        animate={{ opacity: [0.25, 0.7, 0.25] }}
+        transition={{ repeat: Infinity, duration: 3.5, ease: 'easeInOut' }}
+        className="relative h-px bg-gradient-to-r from-transparent via-[var(--accent)]/70 to-transparent"
+      />
 
       <div className="relative grid gap-8 p-6 md:grid-cols-[1fr_360px] md:gap-10 md:p-10">
         {/* ——— Controls ——— */}
         <div className="space-y-8">
           <div>
             <SectionLabel>01 · Select program</SectionLabel>
-            <div className="flex flex-wrap gap-2">
-              {SERVICES.map((s) => (
-                <Chip key={s.key} active={service === s.key} onClick={() => setService(s.key)}>
-                  {s.label} <span className="ml-1 font-mono text-xs opacity-60">{s.tag}</span>
-                </Chip>
-              ))}
+            <div className="grid gap-2 sm:grid-cols-2">
+              {SERVICES.map((s) => {
+                const active = service === s.key;
+                return (
+                  <button key={s.key} type="button" onClick={() => setService(s.key)}
+                    className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left transition-all duration-300 ${
+                      active
+                        ? 'border-[var(--accent)] bg-[var(--accent)]/15 shadow-[0_0_28px_-8px_var(--accent)]'
+                        : 'border-white/10 bg-white/5 hover:border-white/30 hover:bg-white/[0.08]'
+                    }`}>
+                    <span className="text-xl">{s.icon}</span>
+                    <span className="flex-1 min-w-0">
+                      <span className={`block truncate text-sm transition-colors ${active ? 'text-white' : 'text-white/75'}`}>{s.label}</span>
+                      <span className="font-mono text-[11px] text-white/45">{s.tag}</span>
+                    </span>
+                    <span className={`h-2 w-2 shrink-0 rounded-full transition-all duration-300 ${active ? 'bg-[var(--accent)] shadow-[0_0_10px_var(--accent)]' : 'bg-white/15'}`} />
+                  </button>
+                );
+              })}
             </div>
           </div>
 
@@ -286,7 +311,13 @@ export default function PriceEstimator() {
                     className="est-slider w-full"
                     style={{ background: `linear-gradient(90deg, var(--accent) ${sliderPct}%, rgba(255,255,255,0.12) ${sliderPct}%)` }}
                   />
-                  <div className="mt-2 flex justify-between font-mono text-[10px] text-white/35">
+                  <div className="relative mt-1.5 h-1.5">
+                    {[600, 1500, 2500, 4000].map((v) => (
+                      <span key={v} style={{ left: `${((v - 600) / 3400) * 100}%` }}
+                        className={`absolute top-0 h-1.5 w-px -translate-x-1/2 ${sqft >= v ? 'bg-[var(--accent)]/60' : 'bg-white/20'}`} />
+                    ))}
+                  </div>
+                  <div className="mt-1 flex justify-between font-mono text-[10px] text-white/35">
                     <span>600</span><span>1,500</span><span>2,500</span><span>4,000+</span>
                   </div>
                 </div>
@@ -354,15 +385,39 @@ export default function PriceEstimator() {
 
         {/* ——— Readout ——— */}
         <div className="md:sticky md:top-28 md:self-start">
-          <div className="rounded-2xl border border-[var(--accent)]/30 bg-black/30 p-6 backdrop-blur-sm">
-            <p className="font-mono text-[11px] tracking-[0.25em] text-white/40 uppercase">Estimated flat rate</p>
+          <div className="relative overflow-hidden rounded-2xl border border-[var(--accent)]/30 bg-gradient-to-b from-black/50 to-black/25 p-6 backdrop-blur-sm">
+            {/* HUD corner brackets */}
+            <span className="pointer-events-none absolute left-2 top-2 h-3 w-3 border-l-2 border-t-2 border-[var(--accent)]/60" />
+            <span className="pointer-events-none absolute right-2 top-2 h-3 w-3 border-r-2 border-t-2 border-[var(--accent)]/60" />
+            <span className="pointer-events-none absolute bottom-2 left-2 h-3 w-3 border-b-2 border-l-2 border-[var(--accent)]/60" />
+            <span className="pointer-events-none absolute bottom-2 right-2 h-3 w-3 border-b-2 border-r-2 border-[var(--accent)]/60" />
+            {/* Light sweep on every recompute */}
+            <motion.span
+              key={isOffice ? 'office' : price}
+              initial={{ x: '-140%' }}
+              animate={{ x: '340%' }}
+              transition={{ duration: 0.9, ease: 'easeOut' }}
+              className="pointer-events-none absolute inset-y-0 left-0 w-1/3 skew-x-12 bg-gradient-to-r from-transparent via-[var(--accent)]/10 to-transparent"
+            />
+
+            <div className="flex items-center justify-between">
+              <p className="font-mono text-[11px] tracking-[0.25em] text-white/40 uppercase">Estimated flat rate</p>
+              <div className="flex items-end gap-0.5" aria-hidden="true">
+                {[0, 1, 2].map((i) => (
+                  <motion.span key={i}
+                    animate={{ scaleY: [0.35, 1, 0.35] }}
+                    transition={{ repeat: Infinity, duration: 1.2, delay: i * 0.2, ease: 'easeInOut' }}
+                    className="h-2.5 w-0.5 origin-bottom rounded-full bg-[var(--accent)]/70" />
+                ))}
+              </div>
+            </div>
 
             <div className="mt-3 flex items-baseline gap-2">
               {isOffice ? (
                 <span className="font-mono text-5xl font-bold text-[var(--accent)] [text-shadow:0_0_24px_rgba(232,93,47,0.6)]">CUSTOM</span>
               ) : (
                 <>
-                  <span className="font-mono text-6xl font-bold text-[var(--accent)] [text-shadow:0_0_24px_rgba(232,93,47,0.6)]">
+                  <span className="font-mono text-6xl font-bold text-[var(--accent)] [font-variant-numeric:tabular-nums] [text-shadow:0_0_24px_rgba(232,93,47,0.6)]">
                     $<Odometer value={price} />
                   </span>
                   {perVisit && <span className="font-mono text-sm text-white/50">/ visit</span>}
