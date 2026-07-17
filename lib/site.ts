@@ -17,7 +17,7 @@ export const SITE = {
     facebook: 'https://www.facebook.com/cleanconvictions',
     google: 'https://g.page/r/CRrKUEe7dr_rEAI',
     yelp: 'https://www.yelp.com/biz/clean-conviction-yuma',
-    nextdoor: 'https://nextdoor.com/page/maid-a-difference-yuma-az/',
+    nextdoor: 'https://nextdoor.com/page/clean-conviction-yuma-az',
     // instagram: '',
   } as Record<string, string>,
   // Direct "leave a review" deep-link (opens the Google review dialog) —
