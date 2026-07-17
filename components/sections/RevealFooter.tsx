@@ -36,12 +36,12 @@ export default function RevealFooter() {
           <p className="mt-3 md:mt-4 text-xs">{SITE.hours}</p>
         </div>
       </div>
-      <div>
+      <div className="relative z-10">
         <p className="mb-4 text-sm opacity-40">
           Serving {SITE.serviceAreas.join(' · ')} and surrounding communities
         </p>
         <h2 className="text-[13vw] leading-[0.85] tracking-tight text-[var(--paper)] select-none font-[family-name:var(--font-display)]">Clean Conviction</h2>
-        <div className="relative z-20 mt-6 flex flex-wrap justify-between gap-4 border-t border-white/10 pt-6 text-xs opacity-40">
+        <div className="mt-6 flex flex-wrap justify-between gap-4 border-t border-white/10 pt-6 text-xs opacity-40">
           <p>© {new Date().getFullYear()} {SITE.name} All rights reserved. Locally owned · Yuma, AZ.</p>
           <p><Link href="/privacy" className="hover:opacity-100">Privacy</Link> · <Link href="/terms" className="hover:opacity-100">Terms</Link></p>
         </div>
