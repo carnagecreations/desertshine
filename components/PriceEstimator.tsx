@@ -197,6 +197,9 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
     }
 
     let final = round5(subtotal);
+    if (final !== subtotal) {
+      lines.push({ label: 'Rounded to nearest $5', amount: `$${final}`, neg: final < subtotal });
+    }
     const floor = MIN_RATE[service as Exclude<ServiceKey, 'office'>];
     if (final < floor) {
       final = floor;
