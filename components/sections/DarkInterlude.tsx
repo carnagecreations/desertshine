@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 
 export default function DarkInterlude({
   line = 'Life is too short to spend Saturdays scrubbing.',
-  sub = 'Get your weekends back — from $129 per visit.',
+  sub = 'Get your weekends back — from $89 per visit.',
 }: { line?: string; sub?: string }) {
   const ref = useRef<HTMLElement>(null);
   useEffect(() => {

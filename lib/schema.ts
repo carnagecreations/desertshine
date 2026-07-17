@@ -55,7 +55,7 @@ export const servicesSchema = [
     description: 'Weekly, bi-weekly, or monthly residential cleaning service with the same cleaner every visit.',
     provider: { '@type': 'LocalBusiness', '@id': `${SITE.url}#organization`, name: SITE.name, url: SITE.url },
     areaServed: SITE.serviceAreas.map((area) => ({ '@type': 'City', name: area })),
-    priceRange: 'from $129',
+    priceRange: 'from $89',
     url: `${SITE.url}/services/house-cleaning`,
   },
   {
@@ -65,7 +65,7 @@ export const servicesSchema = [
     description: 'Seasonal deep cleaning including baseboards, blinds, vents, grout, and inside appliances.',
     provider: { '@type': 'LocalBusiness', '@id': `${SITE.url}#organization`, name: SITE.name, url: SITE.url },
     areaServed: SITE.serviceAreas.map((area) => ({ '@type': 'City', name: area })),
-    priceRange: 'from $249',
+    priceRange: 'from $179',
     url: `${SITE.url}/services/deep-cleaning`,
   },
   {
@@ -75,7 +75,7 @@ export const servicesSchema = [
     description: 'Landlord inspection-ready cleaning for rental turnover, deposits, and listing prep.',
     provider: { '@type': 'LocalBusiness', '@id': `${SITE.url}#organization`, name: SITE.name, url: SITE.url },
     areaServed: SITE.serviceAreas.map((area) => ({ '@type': 'City', name: area })),
-    priceRange: 'from $299',
+    priceRange: 'from $199',
     url: `${SITE.url}/services/move-out-cleaning`,
   },
   {
@@ -95,7 +95,7 @@ export const servicesSchema = [
 export const HOME_FAQS: { q: string; a: string }[] = [
   {
     q: 'How much does cleaning cost in Yuma?',
-    a: 'Recurring house cleaning starts at $129 per visit, deep cleaning at $249, and move-out cleaning at $299. The "from" price covers homes up to about 1,500 sq ft with 2 bathrooms; larger homes get an exact flat quote before we book — never a surprise after.',
+    a: 'Recurring house cleaning starts at $89 per visit for compact homes, with a typical 1,500 sq ft home around $129. Deep cleaning starts at $179 and move-out cleaning at $199. Every home gets an exact flat quote before we book — never a surprise after.',
   },
   {
     q: 'Do you clean on evenings or weekends?',

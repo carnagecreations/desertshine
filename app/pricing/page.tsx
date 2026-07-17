@@ -7,7 +7,7 @@ import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Instant Cleaning Price Estimator — Yuma, AZ | Flat-Rate Pricing',
-  description: 'Dial in your home and get an instant flat-rate estimate. Recurring from $129, deep cleans from $249, move-outs from $299. No hidden fees—flat rates every time.',
+  description: 'Dial in your home and get an instant flat-rate estimate. Recurring from $89, deep cleans from $179, move-outs from $199. No hidden fees—flat rates every time.',
 };
 
 const FAQ = [
@@ -53,7 +53,7 @@ export default function PricingPage() {
             <span className="flex items-center gap-2"><span className="text-[var(--accent)]">✓</span> 24-hour re-clean guarantee</span>
           </div>
           <p className="mt-4 text-center text-sm text-[var(--body)]">
-            Published base rates: Standard from $129 · Deep clean from $249 · Move-in/out from $299 · Commercial custom ·{' '}
+            Published base rates: Standard from $89 · Deep clean from $179 · Move-in/out from $199 · Commercial custom ·{' '}
             <a href="/services/breakdown" className="text-[var(--accent)] font-semibold hover:underline">See everything included →</a>
           </p>
         </div>

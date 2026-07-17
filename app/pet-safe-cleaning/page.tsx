@@ -96,8 +96,8 @@ export default function PetSafeCleaningPage() {
               <h3 className="text-lg font-semibold text-[var(--ink)] mb-2">4. We take longer, on purpose</h3>
               <p className="text-[var(--body)]">
                 Pet-safe cleaning can't be rushed. We use extra ventilation time, allow longer drying periods,
-                and work around your animal's comfort. A $129 standard clean takes 2–3 hours. A pet-safe clean
-                takes 3–4. That's not inefficiency—it's care.
+                and work around your animal's comfort. Where a standard clean might take 2–3 hours, a pet-safe
+                clean takes 3–4. That's not inefficiency—it's care.
               </p>
             </div>
           </div>
@@ -154,8 +154,8 @@ export default function PetSafeCleaningPage() {
               <h3 className="font-semibold text-[var(--ink)] mb-3">Pet-safe costs more upfront</h3>
               <p className="text-[var(--body)] text-sm">
                 Certified pet-safe products cost 2–3× standard cleaners. We pass that cost on honestly.
-                No markup—just real ingredient prices. A standard $129 clean might be $145–160 with pet-safe
-                products.
+                No markup—just real ingredient prices. Pet-safe adds about $15–30 to any clean, depending on
+                home size and product needs.
               </p>
             </div>
 
@@ -265,9 +265,9 @@ export default function PetSafeCleaningPage() {
                 <span className="text-[var(--accent)] transition-transform duration-300 group-open:rotate-45">+</span>
               </summary>
               <p className="mt-3 text-[var(--body)]">
-                Yes, but not as a hidden "pet fee." It's transparent: standard cleaning is $129 (base). Pet-safe
-                is typically +$15–30 depending on home size and product needs. You see the breakdown before we
-                arrive, no surprises.
+                Yes, but not as a hidden "pet fee." It's transparent: pet-safe products add about $15–30 to
+                your clean, depending on home size and product needs. You see the breakdown in the estimator
+                before we arrive, no surprises.
               </p>
             </details>
 

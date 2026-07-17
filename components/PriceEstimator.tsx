@@ -13,9 +13,9 @@ type FreqKey = 'one' | 'weekly' | 'biweekly' | 'monthly';
 type ConditionKey = 'kept' | 'average' | 'love';
 
 const SERVICES: { key: ServiceKey; label: string; base: number; tag: string; icon: string }[] = [
-  { key: 'standard', label: 'Regular Cleaning', base: 129, tag: 'from $129', icon: '🏠' },
-  { key: 'deep', label: 'Deep Clean', base: 249, tag: 'from $249', icon: '✨' },
-  { key: 'move', label: 'Move Cleaning', base: 299, tag: 'from $299', icon: '📦' },
+  { key: 'standard', label: 'Regular Cleaning', base: 129, tag: 'from $89', icon: '🏠' },
+  { key: 'deep', label: 'Deep Clean', base: 249, tag: 'from $179', icon: '✨' },
+  { key: 'move', label: 'Move Cleaning', base: 299, tag: 'from $199', icon: '📦' },
   { key: 'office', label: 'Office Cleaning', base: 0, tag: 'custom', icon: '🏢' },
 ];
 

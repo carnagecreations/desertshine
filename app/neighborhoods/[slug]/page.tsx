@@ -39,7 +39,7 @@ export default async function NeighborhoodPage({ params }: { params: Promise<{ s
     {
       id: 'recurring',
       name: 'Recurring Home Cleaning',
-      price: 'from $129/visit',
+      price: 'from $89/visit',
       blurb: `Weekly, bi-weekly, or monthly service for ${neighborhood.name} residents. Same cleaner every visit ensures consistency and familiarity with your home.`,
       image: '/images/service-recurring.webp',
       includes: ['Kitchens: counters, sinks, exterior appliances, floors', 'Bathrooms: showers, tubs, toilets, mirrors, floors', 'All rooms: dusting, surfaces, floors, trash, tidying', 'Same cleaner, same checklist, every visit'],
@@ -47,7 +47,7 @@ export default async function NeighborhoodPage({ params }: { params: Promise<{ s
     {
       id: 'deep',
       name: 'Deep Cleaning',
-      price: 'from $249',
+      price: 'from $179',
       blurb: `Seasonal reset for ${neighborhood.name} properties. Everything in a standard clean, plus baseboards, blinds, vents, grout, and inside appliances.`,
       image: '/images/service-deep.webp',
       includes: ['Baseboards, door frames, and light switches', 'Blinds, ceiling fans, and vents', 'Inside oven and refrigerator', 'Tile grout and shower glass detail'],
@@ -55,7 +55,7 @@ export default async function NeighborhoodPage({ params }: { params: Promise<{ s
     {
       id: 'move',
       name: 'Move-In / Move-Out',
-      price: 'from $299',
+      price: 'from $199',
       blurb: `Landlord inspection-ready cleaning for ${neighborhood.name} turnover. Perfect for renters, sellers, and landlords.`,
       image: '/images/service-move.webp',
       includes: ['Inside every cabinet, drawer, and closet', 'All appliances inside and out', 'Windows, tracks, and sills', 'Garage sweep-out on request'],

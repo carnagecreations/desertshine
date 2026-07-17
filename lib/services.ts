@@ -23,7 +23,7 @@ export const SERVICES: Service[] = [
     slug: 'house-cleaning',
     name: 'Recurring House Cleaning',
     shortName: 'House Cleaning',
-    price: 'from $129/visit',
+    price: 'from $89/visit',
     eyebrow: 'Weekly · Bi-weekly · Monthly',
     tagline: 'The same cleaner, the same checklist, every single visit.',
     intro:
@@ -69,7 +69,7 @@ export const SERVICES: Service[] = [
     slug: 'deep-cleaning',
     name: 'Deep Cleaning',
     shortName: 'Deep Cleaning',
-    price: 'from $249',
+    price: 'from $179',
     eyebrow: 'The seasonal reset',
     tagline: 'Everything in a standard clean, plus the places dust hides in a desert town.',
     intro:
@@ -115,7 +115,7 @@ export const SERVICES: Service[] = [
     slug: 'move-out-cleaning',
     name: 'Move-In / Move-Out Cleaning',
     shortName: 'Move-Out Cleaning',
-    price: 'from $299',
+    price: 'from $199',
     eyebrow: 'Deposit-ready, inspection-ready',
     tagline: 'Built around landlord inspection checklists — so you get your deposit back.',
     intro:

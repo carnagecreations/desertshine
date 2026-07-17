@@ -30,7 +30,7 @@ export default function ServicesBreakdown() {
       <section className="px-6 py-20 md:px-16 bg-[var(--paper-light)]">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--ink)] mb-12">Recurring Home Cleaning</h2>
-          <p className="text-lg text-[var(--body)] mb-8">Weekly, bi-weekly, or monthly service. Same cleaner every visit. Starting at $129/visit.</p>
+          <p className="text-lg text-[var(--body)] mb-8">Weekly, bi-weekly, or monthly service. Same cleaner every visit. Starting at $89/visit.</p>
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Living Areas & Bedrooms */}
@@ -109,7 +109,7 @@ export default function ServicesBreakdown() {
       <section className="px-6 py-20 md:px-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--ink)] mb-12">Deep Cleaning</h2>
-          <p className="text-lg text-[var(--body)] mb-8">Everything in Recurring Cleaning, PLUS seasonal deep-clean items. Starting at $249.</p>
+          <p className="text-lg text-[var(--body)] mb-8">Everything in Recurring Cleaning, PLUS seasonal deep-clean items. Starting at $179.</p>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div>
@@ -151,7 +151,7 @@ export default function ServicesBreakdown() {
       <section className="px-6 py-20 md:px-16 bg-[var(--paper-light)]">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--ink)] mb-12">Move-In / Move-Out Cleaning</h2>
-          <p className="text-lg text-[var(--body)] mb-8">Landlord inspection-ready. Built around deposit return and listing standards. Starting at $299.</p>
+          <p className="text-lg text-[var(--body)] mb-8">Landlord inspection-ready. Built around deposit return and listing standards. Starting at $199.</p>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div>

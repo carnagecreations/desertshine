@@ -2,9 +2,9 @@
 import { motion } from 'framer-motion';
 
 const CARDS = [                                           // CUSTOMIZE: real pricing
-  { front: 'Standard', price: 'from $129', back: 'Kitchens, baths, floors, dusting, and tidying — every visit, every room on the checklist.', href: '/pricing' },
-  { front: 'Deep Clean', price: 'from $249', back: 'Everything in Standard plus baseboards, blinds, grout, inside oven and fridge, and door frames.', href: '/pricing' },
-  { front: 'Move-Out', price: 'from $299', back: 'Landlord-checklist clean for empty homes. Inside every cabinet, appliance, and closet. Deposit-back focused.', href: '/pricing' },
+  { front: 'Standard', price: 'from $89', back: 'Kitchens, baths, floors, dusting, and tidying — every visit, every room on the checklist.', href: '/pricing' },
+  { front: 'Deep Clean', price: 'from $179', back: 'Everything in Standard plus baseboards, blinds, grout, inside oven and fridge, and door frames.', href: '/pricing' },
+  { front: 'Move-Out', price: 'from $199', back: 'Landlord-checklist clean for empty homes. Inside every cabinet, appliance, and closet. Deposit-back focused.', href: '/pricing' },
 ];
 
 export default function FlipCards() {

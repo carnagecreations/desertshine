@@ -34,7 +34,7 @@ export default function Home() {
           {
             id: 'recurring',
             name: 'Recurring Home Cleaning',
-            price: 'from $129/visit',
+            price: 'from $89/visit',
             blurb: 'Weekly, bi-weekly, or monthly. The same cleaner every visit, working the same room-by-room checklist so your home stays consistently done.',
             image: '/images/service-recurring.webp',
             includes: ['Kitchens: counters, sinks, exterior appliances, floors', 'Bathrooms: showers, tubs, toilets, mirrors, floors', 'All rooms: dusting, surfaces, floors, trash, tidying', 'Same cleaner, same checklist, every visit'],
@@ -42,7 +42,7 @@ export default function Home() {
           {
             id: 'deep',
             name: 'Deep Cleaning',
-            price: 'from $249',
+            price: 'from $179',
             blurb: 'The seasonal reset. Everything in a standard clean, plus the places dust hides in a desert town baseboards, blinds, vents, grout, and inside the appliances.',
             image: '/images/service-deep.webp',
             includes: ['Baseboards, door frames, and light switches', 'Blinds, ceiling fans, and vents', 'Inside oven and refrigerator', 'Tile grout and shower glass detail'],
@@ -50,7 +50,7 @@ export default function Home() {
           {
             id: 'move',
             name: 'Move-In / Move-Out',
-            price: 'from $299',
+            price: 'from $199',
             blurb: 'Built around landlord inspection checklists. For renters chasing a deposit, sellers prepping a listing, or landlords turning a unit fast.',
             image: '/images/service-move.webp',
             includes: ['Inside every cabinet, drawer, and closet', 'All appliances inside and out', 'Windows, tracks, and sills', 'Garage sweep-out on request'],

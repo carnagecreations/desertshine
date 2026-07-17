@@ -18,9 +18,9 @@ const features = [
 ];
 
 const services = [
-  { key: 'recurring', name: 'Recurring', price: 'from $129', desc: 'Weekly/Bi-weekly/Monthly' },
-  { key: 'deep', name: 'Deep Clean', price: 'from $249', desc: 'Seasonal reset' },
-  { key: 'moveout', name: 'Move-In/Out', price: 'from $299', desc: 'Inspection ready' },
+  { key: 'recurring', name: 'Recurring', price: 'from $89', desc: 'Weekly/Bi-weekly/Monthly' },
+  { key: 'deep', name: 'Deep Clean', price: 'from $179', desc: 'Seasonal reset' },
+  { key: 'moveout', name: 'Move-In/Out', price: 'from $199', desc: 'Inspection ready' },
   { key: 'commercial', name: 'Commercial', price: 'Custom', desc: 'After-hours janitorial' },
 ];
 
