@@ -66,7 +66,7 @@ export default function Home() {
         ]} />
 
         {/* Manifesto section with ink fill */}
-        <ManifestoFill text="Most cleaning companies rush through. We *tended* your home like it matters, because it *does*." />
+        <ManifestoFill text="Most companies cut corners. We do the work *right*, every *time*." />
 
         {/* Parallax interlude */}
         <ParallaxScene word="SPOTLESS" />

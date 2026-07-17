@@ -32,7 +32,7 @@ export default function Navigation() {
         scrolled ? 'shadow-[0_1px_0_var(--line)]' : ''
       }`}>
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
-        <Link href="/" aria-label="Clean Conviction — home" className="flex items-center rounded-lg bg-slate-900/10 hover:bg-slate-900/20 transition-colors px-2.5 py-2 -mx-2.5">
+        <Link href="/" aria-label="Clean Conviction — home" className="flex items-center hover:opacity-75 transition-opacity">
           <Image src="/clean-conviction-logo.webp" alt="Clean Conviction" width={347} height={240} priority className="h-10 w-auto md:h-12" />
         </Link>
 
