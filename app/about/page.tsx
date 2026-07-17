@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import SplitHeadline from '@/components/sections/SplitHeadline';
 import ManifestoFill from '@/components/sections/ManifestoFill';
 import StatCounters from '@/components/sections/StatCounters';
@@ -41,6 +42,26 @@ export default function AboutPage() {
         </section>
 
         <StatCounters />
+
+        {/* Community Care — quiet, dignified mention */}
+        <section className="px-6 py-20 md:px-16">
+          <div className="mx-auto max-w-3xl">
+            <p className="mb-4 text-sm font-medium tracking-[0.2em] text-[var(--accent)] uppercase">Community Care</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--ink)] mb-5 leading-tight">
+              Once a month, one clean is on us.
+            </h2>
+            <p className="text-lg text-[var(--body)] leading-relaxed">
+              Being local means more than knowing the dust. Every month we quietly clean one home in the valley,
+              free, for a neighbor going through a hard stretch — illness, a loss, a new baby, a rough season.
+              It&apos;s completely confidential: we never show the home or the person, and we never use it for
+              marketing. That&apos;s the whole point.
+            </p>
+            <Link href="/community-care" className="mt-5 inline-block text-base font-semibold text-[var(--accent)] hover:underline">
+              How Community Care works, or reach out for someone →
+            </Link>
+          </div>
+        </section>
+
         <TestimonialTheater />
         <GiantCTA />
       </main>
