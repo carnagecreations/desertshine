@@ -35,6 +35,10 @@ export default function PricingPage() {
             No &ldquo;request a quote and wait&rdquo; games. Feed the machine your details and get a live flat-rate estimate —
             built on the same published rates we quote by phone.
           </p>
+          <p className="mt-4 text-lg text-[var(--body)] leading-relaxed max-w-3xl">
+            Most companies hide their prices until they&apos;ve sized you up.
+            We publish ours — <span className="font-semibold text-[var(--ink)]">so you can size us up</span>.
+          </p>
         </div>
       </section>
 
@@ -42,7 +46,12 @@ export default function PricingPage() {
       <section className="px-4 pb-8 md:px-16">
         <div className="mx-auto max-w-5xl">
           <PriceEstimator />
-          <p className="mt-6 text-center text-sm text-[var(--body)]">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-[var(--body)]">
+            <span className="flex items-center gap-2"><span className="text-[var(--accent)]">✓</span> Rates published in the open</span>
+            <span className="flex items-center gap-2"><span className="text-[var(--accent)]">✓</span> Math shown line by line</span>
+            <span className="flex items-center gap-2"><span className="text-[var(--accent)]">✓</span> 24-hour re-clean guarantee</span>
+          </div>
+          <p className="mt-4 text-center text-sm text-[var(--body)]">
             Published base rates: Standard from $129 · Deep clean from $249 · Move-in/out from $299 · Commercial custom ·{' '}
             <a href="/services/breakdown" className="text-[var(--accent)] font-semibold hover:underline">See everything included →</a>
           </p>

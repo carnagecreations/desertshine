@@ -439,9 +439,11 @@ export default function PriceEstimator() {
               <p className="mt-2 text-xs text-emerald-300/90">Saving ${perVisitSavings} every visit vs one-time.</p>
             )}
 
-            {/* Receipt breakdown */}
+            {/* Receipt breakdown — operational transparency: seeing the work builds trust */}
             {!isOffice && (
-              <div className="mt-5 space-y-1.5 border-t border-dashed border-white/15 pt-4">
+              <div className="mt-5 border-t border-dashed border-white/15 pt-4">
+                <p className="mb-2 font-mono text-[10px] tracking-[0.2em] text-white/35 uppercase">The math · nothing hidden</p>
+                <div className="space-y-1.5">
                 <AnimatePresence initial={false}>
                   {lines.map((l) => (
                     <motion.div
@@ -457,19 +459,51 @@ export default function PriceEstimator() {
                     </motion.div>
                   ))}
                 </AnimatePresence>
+                </div>
+              </div>
+            )}
+
+            {/* Risk reversal, placed exactly at the decision point */}
+            {!isOffice && (
+              <div className="mt-5 flex items-start gap-2.5 rounded-lg border border-emerald-400/20 bg-emerald-400/5 px-3 py-2.5">
+                <span className="text-sm">🛡️</span>
+                <p className="text-[11px] leading-snug text-white/70">
+                  Miss a spot? Say so within 24 hours and we re-clean it <span className="font-medium text-emerald-300">free</span>. Every visit, no fine print.
+                </p>
               </div>
             )}
 
             <Link href={`/contact?${estParams}`} onClick={lockIn}
-              className="mt-6 block rounded-full bg-[var(--accent)] px-6 py-3.5 text-center text-sm font-medium text-white transition-transform duration-300 hover:scale-[1.03]">
+              className="mt-5 block rounded-full bg-[var(--accent)] px-6 py-3.5 text-center text-sm font-medium text-white transition-transform duration-300 hover:scale-[1.03]">
               {isOffice ? 'Book my walk-through →' : 'Request my flat quote →'}
             </Link>
             {!isOffice && (
-              <p className="mt-2 text-center text-[11px] text-white/40">Your setup rides along — no re-typing.</p>
+              <p className="mx-auto mt-2 max-w-[240px] text-center text-[11px] leading-relaxed text-white/45">
+                Nothing books automatically — a human confirms your flat quote within 1 business hour.
+              </p>
             )}
             <a href={SITE.phoneHref} className="mt-3 block text-center text-xs text-white/50 hover:text-white/80 transition-colors">
               or call {SITE.phone}
             </a>
+
+            {/* Certainty: what happens after the button */}
+            {!isOffice && (
+              <div className="mt-5 border-t border-white/10 pt-4">
+                <p className="mb-2.5 font-mono text-[10px] tracking-[0.2em] text-white/35 uppercase">What happens next</p>
+                <ol className="space-y-2">
+                  {[
+                    'A human confirms your flat quote — within 1 business hour',
+                    'You pick the day and time',
+                    'We re-confirm at the door before work starts',
+                  ].map((step, i) => (
+                    <li key={i} className="flex items-start gap-2.5 text-[11px] leading-snug text-white/60">
+                      <span className="mt-px flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-[var(--accent)]/40 font-mono text-[9px] text-[var(--accent)]">{i + 1}</span>
+                      {step}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            )}
           </div>
 
           {/* Disclaimer */}
@@ -484,6 +518,11 @@ export default function PriceEstimator() {
             </p>
           </div>
         </div>
+      </div>
+
+      {/* Console footer — honest positioning (two-sided claims read as credible) */}
+      <div className="relative border-t border-white/10 px-6 py-3.5 text-center">
+        <p className="font-mono text-[10px] tracking-[0.3em] text-white/40 uppercase">Rarely the cheapest · Never a surprise</p>
       </div>
     </div>
   );
