@@ -46,7 +46,7 @@ export default function PricingPage() {
       {/* Estimate Engine */}
       <section className="px-4 pb-8 md:px-16">
         <div className="mx-auto max-w-5xl">
-          <PriceEstimator />
+          <PriceEstimator targetPage="book" />
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-[var(--body)]">
             <span className="flex items-center gap-2"><span className="text-[var(--accent)]">✓</span> Rates published in the open</span>
             <span className="flex items-center gap-2"><span className="text-[var(--accent)]">✓</span> Math shown line by line</span>

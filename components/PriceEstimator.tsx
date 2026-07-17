@@ -108,6 +108,7 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
   const [freq, setFreq] = useState<FreqKey>('biweekly');
   const [condition, setCondition] = useState<ConditionKey>('kept');
   const [pets, setPets] = useState(false);
+  const [military, setMilitary] = useState(false);
   const [addons, setAddons] = useState<Set<string>>(new Set());
 
   const toggleAddon = (key: string) => {
@@ -182,6 +183,12 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
 
     if (pets) { subtotal += 15; lines.push({ label: 'Pet-hair protocol', amount: '+$15' }); }
 
+    if (military) {
+      const milDiscount = Math.round(subtotal * 0.1);
+      subtotal -= milDiscount;
+      lines.push({ label: 'Military service discount · 10%', amount: `−$${milDiscount}`, neg: true });
+    }
+
     for (const a of ADDONS) {
       if (a.includedIn.includes(service)) continue;
       if (addons.has(a.key)) { subtotal += a.price; lines.push({ label: `Add-on · ${a.label.toLowerCase()}`, amount: `+$${a.price}` }); }
@@ -207,7 +214,7 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
     }
 
     return { price: final, lines, preFreq };
-  }, [isOffice, svc, service, sqft, beds, baths, condition, pets, addons, freq]);
+  }, [isOffice, svc, service, sqft, beds, baths, condition, pets, military, addons, freq]);
 
   const perVisit = service === 'standard' && freq !== 'one';
   const sliderPct = ((sqft - 600) / (4000 - 600)) * 100;
@@ -365,6 +372,9 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
                   <Chip active={pets} onClick={() => setPets(!pets)}>
                     🐾 Pets in the home <span className="ml-1 font-mono text-xs opacity-60">+$15</span>
                   </Chip>
+                  <Chip active={military} onClick={() => setMilitary(!military)}>
+                    🇺🇸 Military / Veteran <span className="ml-1 font-mono text-xs opacity-60">−10%</span>
+                  </Chip>
                   {ADDONS.map((a) => {
                     const included = a.includedIn.includes(service);
                     if (included) {
@@ -381,6 +391,9 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
                     );
                   })}
                 </div>
+                {military && (
+                  <p className="mt-2 text-xs text-white/50">Military verification required at time of cleaning</p>
+                )}
               </div>
             </>
           )}
@@ -486,7 +499,7 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
               </p>
             )}
             <a href={SITE.phoneHref} className="mt-3 block text-center text-xs text-white/50 hover:text-white/80 transition-colors">
-              or call {SITE.phone}
+              or call/text {SITE.phone}
             </a>
 
             {/* Certainty: what happens after the button */}
