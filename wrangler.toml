@@ -1,5 +1,12 @@
 name = "desertshine"
+type = "javascript"
+account_id = ""
+workers_dev = false
 
 [pages]
 build.command = "npm run build"
 build.output_dir = "out"
+build.watch_paths = ["app/**/*.tsx", "components/**/*.tsx", "lib/**/*.ts", "public/**/*"]
+
+[env.production]
+vars = { ENVIRONMENT = "production" }
