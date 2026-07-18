@@ -32,7 +32,7 @@ const CONDITIONS: { key: ConditionKey; label: string; mult: number; tag: string 
   { key: 'love', label: 'Needs work', mult: 1.3, tag: '+30%' },
 ];
 
-const ADDONS: { key: string; label: string; price: number; includedIn: ServiceKey[] }[] = [
+const ADDONS: { key: string; label: string; price: number; includedIn: ServiceKey[]; hourly?: boolean }[] = [
   { key: 'fridge', label: 'Fridge (inside)', price: 30, includedIn: ['deep', 'move'] },
   { key: 'oven', label: 'Oven (inside)', price: 30, includedIn: ['deep', 'move'] },
   { key: 'windows', label: 'Windows (inside)', price: 40, includedIn: [] },
