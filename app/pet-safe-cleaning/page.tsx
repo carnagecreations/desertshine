@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE } from '@/lib/site';
+import { faqSchemaFrom } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Pet-Safe Cleaning in Yuma, AZ | Non-Toxic Home Cleaning',
@@ -8,9 +9,30 @@ export const metadata: Metadata = {
   alternates: { canonical: `${SITE.url}/pet-safe-cleaning` },
 };
 
+// Rendered visibly below AND emitted as FAQPage schema — always in sync.
+const PET_FAQS = [
+  {
+    q: 'Are your products truly non-toxic?',
+    a: 'Yes. "Non-toxic" means LD50 (lethal dose for 50% of test subjects) is not achieved at realistic exposure levels. Every product we use has published toxicology data proving this. We can send you the safety sheets before we arrive.',
+  },
+  {
+    q: 'What about pets with respiratory issues or allergies?',
+    a: "Pet-safe cleaning often improves their symptoms because we're removing the irritants causing flare-ups. We can customize further: pre-warn us about sensitivities, and we'll avoid even mild irritants. In severe cases, we use only distilled water and enzyme-based cleaners with zero additives.",
+  },
+  {
+    q: 'Do you charge differently for pet-safe cleaning?',
+    a: 'Yes, but not as a hidden "pet fee." It\'s transparent: pet-safe products add about $15–30 to your clean, depending on home size and product needs. You see the breakdown in the estimator before we arrive, no surprises.',
+  },
+  {
+    q: 'What if my pet has a specific reaction during cleaning?',
+    a: 'We stop immediately, ventilate, and remove the offending product. If a reaction occurs within 24 hours (itching, sneezing, vomiting, breathing changes), call us and we re-clean those areas at no cost. Our 24-hour re-clean guarantee covers pet reactions specifically.',
+  },
+];
+
 export default function PetSafeCleaningPage() {
   return (
     <main className="relative z-10 bg-[var(--paper)]">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchemaFrom(PET_FAQS)) }} />
       {/* Hero */}
       <section className="pt-40 pb-12 px-6 md:px-16">
         <div className="mx-auto max-w-4xl">
@@ -235,54 +257,15 @@ export default function PetSafeCleaningPage() {
           <h2 className="text-3xl font-bold text-[var(--ink)] mb-12">Questions pet owners ask</h2>
 
           <div className="divide-y divide-[var(--line)]">
-            <details className="group py-5">
-              <summary className="flex cursor-pointer list-none items-center justify-between text-lg font-semibold text-[var(--ink)] hover:text-[var(--accent)] transition-colors">
-                Are your products truly non-toxic?
-                <span className="text-[var(--accent)] transition-transform duration-300 group-open:rotate-45">+</span>
-              </summary>
-              <p className="mt-3 text-[var(--body)]">
-                Yes. "Non-toxic" means LD50 (lethal dose for 50% of test subjects) is not achieved at realistic
-                exposure levels. Every product we use has published toxicology data proving this. We can send you
-                the safety sheets before we arrive.
-              </p>
-            </details>
-
-            <details className="group py-5">
-              <summary className="flex cursor-pointer list-none items-center justify-between text-lg font-semibold text-[var(--ink)] hover:text-[var(--accent)] transition-colors">
-                What about pets with respiratory issues or allergies?
-                <span className="text-[var(--accent)] transition-transform duration-300 group-open:rotate-45">+</span>
-              </summary>
-              <p className="mt-3 text-[var(--body)]">
-                Pet-safe cleaning often *improves* their symptoms because we're removing the irritants causing
-                flare-ups. We can customize further: pre-warn us about sensitivities, and we'll avoid even mild
-                irritants. In severe cases, we use only distilled water and enzyme-based cleaners with zero
-                additives.
-              </p>
-            </details>
-
-            <details className="group py-5">
-              <summary className="flex cursor-pointer list-none items-center justify-between text-lg font-semibold text-[var(--ink)] hover:text-[var(--accent)] transition-colors">
-                Do you charge differently for pet-safe cleaning?
-                <span className="text-[var(--accent)] transition-transform duration-300 group-open:rotate-45">+</span>
-              </summary>
-              <p className="mt-3 text-[var(--body)]">
-                Yes, but not as a hidden "pet fee." It's transparent: pet-safe products add about $15–30 to
-                your clean, depending on home size and product needs. You see the breakdown in the estimator
-                before we arrive, no surprises.
-              </p>
-            </details>
-
-            <details className="group py-5">
-              <summary className="flex cursor-pointer list-none items-center justify-between text-lg font-semibold text-[var(--ink)] hover:text-[var(--accent)] transition-colors">
-                What if my pet has a specific reaction during cleaning?
-                <span className="text-[var(--accent)] transition-transform duration-300 group-open:rotate-45">+</span>
-              </summary>
-              <p className="mt-3 text-[var(--body)]">
-                We stop immediately, ventilate, and remove the offending product. If a reaction occurs within
-                24 hours (itching, sneezing, vomiting, breathing changes), call us and we re-clean those areas
-                at no cost. Our 24-hour re-clean guarantee covers pet reactions specifically.
-              </p>
-            </details>
+            {PET_FAQS.map((f) => (
+              <details key={f.q} className="group py-5">
+                <summary className="flex cursor-pointer list-none items-center justify-between text-lg font-semibold text-[var(--ink)] hover:text-[var(--accent)] transition-colors">
+                  {f.q}
+                  <span className="text-[var(--accent)] transition-transform duration-300 group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-3 text-[var(--body)]">{f.a}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>

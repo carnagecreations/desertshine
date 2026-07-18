@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!neighborhood) return {};
 
   return {
-    title: `House Cleaning in ${neighborhood.name}, ${neighborhood.city} AZ | Clean Convictions`,
+    title: `House Cleaning in ${neighborhood.name}, ${neighborhood.city} AZ`,
     description: `House, deep, and move-out cleaning near ${neighborhood.name} in ${neighborhood.city}, AZ. Flat-rate pricing from $89, same-week availability, and a 100% re-clean guarantee. ${neighborhood.description}`,
     alternates: { canonical: `${SITE.url}/neighborhoods/${neighborhood.slug}` },
   };

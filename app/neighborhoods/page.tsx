@@ -5,7 +5,7 @@ import { NEIGHBORHOODS } from '@/lib/neighborhoods';
 import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Neighborhoods & Communities | Clean Convictions',
+  title: 'House Cleaning by Neighborhood — Yuma, AZ',
   description: 'Professional cleaning services for Yuma neighborhoods, RV parks, and mobile home communities. Serving Mesa Del Sol, The Palms, Country Roads, and more.',
   alternates: { canonical: `${SITE.url}/neighborhoods` },
 };

@@ -3,7 +3,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Clean Convictions',
+  title: 'Terms of Service',
   description: 'Terms of service for Clean Convictions cleaning services in Yuma, Arizona.',
   alternates: { canonical: `${SITE.url}/terms` },
 };

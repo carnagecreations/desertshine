@@ -4,10 +4,11 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import GiantCTA from '@/components/sections/GiantCTA';
 import PriceEstimator from '@/components/PriceEstimator';
 import { SITE } from '@/lib/site';
+import { faqSchemaFrom } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Instant Cleaning Price Estimator — Yuma, AZ | Flat-Rate Pricing',
-  description: 'Dial in your home and get an instant flat-rate estimate. Recurring from $89, deep cleans from $179, move-outs from $199. No hidden fees—flat rates every time.',
+  title: 'House Cleaning Prices in Yuma, AZ — Instant Flat-Rate Estimator',
+  description: 'See house cleaning prices for Yuma up front: recurring from $89, deep cleans from $179, move-outs from $199. Dial in your home for an instant flat-rate estimate.',
   alternates: { canonical: `${SITE.url}/pricing` },
 };
 
@@ -27,6 +28,8 @@ export default function PricingPage() {
 
   return (
     <main className="relative z-10 bg-[var(--paper)]">
+      {/* FAQPage schema for the visible FAQ below — eligible for rich results */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchemaFrom(FAQ)) }} />
       <section className="relative overflow-hidden pt-40 pb-12 px-6 md:px-16">
         {/* Ambient backdrop — echoes the estimator console below */}
         <div aria-hidden className="pointer-events-none absolute inset-0 [background-image:linear-gradient(rgba(13,59,92,.04)_1px,transparent_1px),linear-gradient(90deg,rgba(13,59,92,.04)_1px,transparent_1px)] [background-size:36px_36px] [mask-image:linear-gradient(to_bottom,black,transparent)]" />

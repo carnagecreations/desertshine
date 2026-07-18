@@ -46,7 +46,7 @@ export const organizationSchema = {
     opens: '07:00',
     closes: '21:00',
   },
-  priceRange: '$$',
+  priceRange: 'From $89',
   ...(sameAs.length ? { sameAs } : {}),
   // aggregateRating + review are emitted ONLY when lib/reviews.ts has real
   // entries — never fabricated (fake review markup risks a manual action).
