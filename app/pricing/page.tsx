@@ -8,6 +8,7 @@ import { SITE } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Instant Cleaning Price Estimator — Yuma, AZ | Flat-Rate Pricing',
   description: 'Dial in your home and get an instant flat-rate estimate. Recurring from $89, deep cleans from $179, move-outs from $199. No hidden fees—flat rates every time.',
+  alternates: { canonical: `${SITE.url}/pricing` },
 };
 
 const FAQ = [

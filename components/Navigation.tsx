@@ -2,9 +2,11 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { EASE_OUT } from '@/lib/motion';
 import { SITE } from '@/lib/site';
+import { track } from '@/lib/track';
 
 const LINKS = [
   { label: 'Services', href: '/services' },
@@ -18,6 +20,7 @@ const LINKS = [
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -25,6 +28,14 @@ export default function Navigation() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // Close the mobile menu on Escape — keyboard users shouldn't get trapped.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
 
   return (
     <header
@@ -37,13 +48,17 @@ export default function Navigation() {
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">
-          {LINKS.map((l) => (
-            <Link key={l.href} href={l.href}
-              className="text-sm text-[var(--body)] transition-colors hover:text-[var(--ink)]">
-              {l.label}
-            </Link>
-          ))}
-          <a href={SITE.phoneHref} className="text-sm font-medium text-[var(--ink)]">{SITE.phone}</a>
+          {LINKS.map((l) => {
+            const active = pathname === l.href || pathname.startsWith(`${l.href}/`);
+            return (
+              <Link key={l.href} href={l.href} aria-current={active ? 'page' : undefined}
+                className={`text-sm transition-colors hover:text-[var(--ink)] ${active ? 'font-medium text-[var(--ink)]' : 'text-[var(--body)]'}`}>
+                {l.label}
+              </Link>
+            );
+          })}
+          <a href={SITE.phoneHref} onClick={() => track('phone_click', { location: 'nav' })}
+            className="text-sm font-medium text-[var(--ink)]">{SITE.phone}</a>
           <Link href="/contact"
             className="rounded-full bg-[var(--accent)] px-5 py-2.5 text-sm font-medium text-white transition-transform duration-300 hover:scale-105">
             Get a free quote
@@ -71,8 +86,13 @@ export default function Navigation() {
                   {l.label}
                 </Link>
               ))}
-              <a href={SITE.phoneHref} className="py-3 text-lg font-medium text-[var(--ink)]">
+              <a href={SITE.phoneHref} onClick={() => track('phone_click', { location: 'mobile_menu' })}
+                className="py-3 text-lg font-medium text-[var(--ink)]">
                 Call {SITE.phone}
+              </a>
+              <a href={SITE.smsHref} onClick={() => track('sms_click', { location: 'mobile_menu' })}
+                className="py-3 text-lg font-medium text-[var(--ink)]">
+                Text us
               </a>
               <Link href="/contact" onClick={() => setOpen(false)}
                 className="mt-2 rounded-full bg-[var(--accent)] px-5 py-3.5 text-center font-medium text-white">

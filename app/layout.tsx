@@ -6,11 +6,11 @@ import SmoothScroll from '@/components/SmoothScroll';
 import Navigation from '@/components/Navigation';
 import StickyPhoneButton from '@/components/StickyPhoneButton';
 import { SITE } from '@/lib/site';
-import { organizationSchema, servicesSchema } from '@/lib/schema';
+import { organizationSchema, servicesSchema, websiteSchema } from '@/lib/schema';
 import './globals.css';
 
-const sora = Sora({ subsets: ['latin'], variable: '--font-display' });
-const inter = Inter({ subsets: ['latin'], variable: '--font-body' });
+const sora = Sora({ subsets: ['latin'], variable: '--font-display', display: 'swap' });
+const inter = Inter({ subsets: ['latin'], variable: '--font-body', display: 'swap' });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -72,9 +72,10 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
     },
   },
-  alternates: {
-    canonical: SITE.url,
-  },
+  manifest: '/site.webmanifest',
+  // NOTE: no root canonical — a layout-level canonical pointing at SITE.url
+  // makes every page without its own canonical claim to BE the homepage,
+  // which tells Google to ignore those pages. Each page sets its own.
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -114,10 +115,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-[var(--ink)] focus:px-5 focus:py-3 focus:text-white">
+          Skip to content
+        </a>
         <MotionConfig reducedMotion="user">
           <SmoothScroll>
             <Navigation />
-            {children}
+            <div id="main-content" className="contents">
+              {children}
+            </div>
           </SmoothScroll>
         </MotionConfig>
       </body>

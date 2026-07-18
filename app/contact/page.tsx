@@ -5,7 +5,8 @@ import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Get a Free Quote',
-  description: 'Get a flat-rate cleaning quote for your Yuma home or office. Dial in your home details and lock in your price instantly.',
+  description: 'Get a flat-rate cleaning quote for your Yuma home or office. Dial in your home details and see your estimate instantly.',
+  alternates: { canonical: `${SITE.url}/contact` },
 };
 
 export default function ContactPage() {
@@ -18,7 +19,7 @@ export default function ContactPage() {
               Get your flat rate.
             </h1>
             <p className="text-lg text-[var(--body)] leading-relaxed max-w-3xl">
-              Dial in your home details below and lock in your price instantly. Then pick a time on the scheduling page.
+              Dial in your home details below and see your flat-rate estimate instantly. Then pick a time on the scheduling page.
             </p>
           </div>
         </section>
@@ -36,9 +37,9 @@ export default function ContactPage() {
             <h2 className="text-3xl font-bold text-[var(--ink)] mb-8">Prefer another way?</h2>
             <div className="grid gap-6 md:grid-cols-3">
               <div>
-                <p className="text-xs tracking-widest uppercase opacity-60 mb-2">Call us</p>
+                <p className="text-xs tracking-widest uppercase opacity-60 mb-2">Call or text</p>
                 <a href={SITE.phoneHref} className="text-2xl font-medium text-[var(--accent)] hover:underline">{SITE.phone}</a>
-                <p className="text-sm text-[var(--body)] mt-1">We answer and respond fast</p>
+                <p className="text-sm text-[var(--body)] mt-1">If we&apos;re mid-clean we can&apos;t pick up — text us and we reply the same day</p>
               </div>
               <div>
                 <p className="text-xs tracking-widest uppercase opacity-60 mb-2">Email</p>

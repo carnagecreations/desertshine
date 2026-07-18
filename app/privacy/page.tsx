@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Clean Convictions',
   description: 'Privacy policy for Clean Convictions cleaning services in Yuma, Arizona.',
+  alternates: { canonical: `${SITE.url}/privacy` },
 };
 
 export default function PrivacyPage() {

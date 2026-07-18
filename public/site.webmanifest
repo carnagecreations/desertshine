@@ -1,0 +1,16 @@
+{
+  "name": "Clean Convictions",
+  "short_name": "Clean Convictions",
+  "description": "House & office cleaning in Yuma, AZ — No Compromise. No Dust.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#f8fafb",
+  "theme_color": "#0d3b5c",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}

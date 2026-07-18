@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'The Ultimate House Cleaning Checklist | Clean Convictions',
   description: 'Professional house cleaning checklist based on what expert cleaners never skip. Room-by-room guide for a spotless home in Yuma.',
+  alternates: { canonical: `${SITE.url}/blog/professional-house-cleaning-checklist` },
 };
 
 export default function BlogPost() {

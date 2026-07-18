@@ -36,6 +36,8 @@ export default function CommunityCareForm() {
     <form onSubmit={handleSubmit} method="POST" className="rounded-3xl border border-[var(--line)] bg-white p-6 md:p-8">
       {/* Routes this submission to a clearly-labeled subject line */}
       <input type="hidden" name="_subject" value="CONFIDENTIAL — Community Care request" />
+      {/* Honeypot — bots fill this, humans never see it (Formspree drops those) */}
+      <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
       <input type="hidden" name="request_type" value="Community Care (free monthly clean)" />
       <input type="hidden" name="requesting_for" value={forWho === 'self' ? 'Themselves' : 'Someone they care about'} />
 

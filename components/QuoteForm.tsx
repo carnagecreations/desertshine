@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm, ValidationError } from '@formspree/react';
 import { SITE } from '@/lib/site';
+import { track } from '@/lib/track';
 
 const FORM_ID = 'xvzekkjj';
 
@@ -50,6 +51,12 @@ export default function QuoteForm() {
     const size = svc === 'office'
       ? SIZE_OPTIONS[3].value
       : sqft < 1500 ? SIZE_OPTIONS[0].value : sqft <= 2500 ? SIZE_OPTIONS[1].value : SIZE_OPTIONS[2].value;
+    const addons = (q.get('add') ?? '').split(',').filter(Boolean);
+    const addonNotes = addons.map((a) => {
+      if (a === 'disinfect') return `pet illness disinfect (${q.get('disinfectRooms') ?? 1} room(s))`;
+      if (a === 'garage-organize') return `garage organizing (${q.get('garageOrgHours') ?? 1} hr(s))`;
+      return a.replace(/-/g, ' ');
+    });
     const details = svc === 'office'
       ? 'From the Estimate Engine: commercial walk-through requested.'
       : `From the Estimate Engine: ≈ $${est} — ${[
@@ -58,7 +65,7 @@ export default function QuoteForm() {
           freqMap[q.get('freq') ?? ''],
           condMap[q.get('cond') ?? ''],
           q.get('pets') === '1' ? 'pets in the home' : '',
-          q.get('add') ? `add-ons: ${q.get('add')!.split(',').join(', ')}` : '',
+          addonNotes.length ? `add-ons: ${addonNotes.join(', ')}` : '',
         ].filter(Boolean).join(' · ')}`;
     setFormData((prev) => ({ ...prev, service: svcMap[svc] ?? prev.service, size, details }));
   }, []);
@@ -71,6 +78,11 @@ export default function QuoteForm() {
     await handleSubmit(e);
   };
 
+  useEffect(() => {
+    if (state.succeeded) track('quote_submitted', { service: formData.service });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.succeeded]);
+
   if (state.succeeded) {
     return (
       <motion.div
@@ -81,9 +93,9 @@ export default function QuoteForm() {
           animate={{ y: [0, -8, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
           className="mb-4 text-6xl">✨</motion.div>
-        <h2 className="text-3xl font-bold text-[var(--ink)]">You're booked at your flat rate.</h2>
-        <p className="mt-3 text-lg text-[var(--body)]">We'll send a confirmation and check in the day before. See you at the door.</p>
-        <p className="mt-4 text-sm text-[var(--body)]">Questions? Call <a href={SITE.phoneHref} className="font-medium text-[var(--accent)] hover:underline">{SITE.phone}</a></p>
+        <h2 className="text-3xl font-bold text-[var(--ink)]">Got it — your quote request is in.</h2>
+        <p className="mt-3 text-lg text-[var(--body)]">We'll text you to confirm your flat rate within one business day. No spam, no pressure.</p>
+        <p className="mt-4 text-sm text-[var(--body)]">In a hurry? Call or text <a href={SITE.phoneHref} className="font-medium text-[var(--accent)] hover:underline">{SITE.phone}</a></p>
       </motion.div>
     );
   }
@@ -93,6 +105,8 @@ export default function QuoteForm() {
       <div className="overflow-hidden">
         {/* Hidden fields for multi-step form */}
         <input type="hidden" name="service" value={formData.service} />
+        {/* Honeypot — bots fill this, humans never see it (Formspree drops those) */}
+        <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
 
         {/* Progress bar */}
         <div className="border-b border-[var(--line)] px-8 pt-8 pb-6">
@@ -226,7 +240,7 @@ export default function QuoteForm() {
 
           {state.errors && Object.keys(state.errors).length > 0 && (
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-4 text-sm text-red-600">
-              Something went wrong — please call <a href={SITE.phoneHref} className="font-medium hover:underline">{SITE.phone}</a> instead.
+              Something went wrong — please call or text <a href={SITE.phoneHref} className="font-medium hover:underline">{SITE.phone}</a> instead.
             </motion.p>
           )}
         </div>
@@ -251,9 +265,10 @@ export default function QuoteForm() {
             <motion.button
               type="button"
               onClick={() => setStep(step + 1)}
+              disabled={step === 2 && (!formData.name.trim() || !formData.phone.trim())}
               whileHover={{ x: 4 }}
               whileTap={{ scale: 0.95 }}
-              className="rounded-full bg-[var(--accent)] px-6 py-2.5 text-sm font-medium text-white transition-all hover:shadow-lg hover:shadow-[var(--accent)]/30">
+              className="rounded-full bg-[var(--accent)] px-6 py-2.5 text-sm font-medium text-white transition-all hover:shadow-lg hover:shadow-[var(--accent)]/30 disabled:cursor-not-allowed disabled:opacity-40">
               Next →
             </motion.button>
           ) : (
@@ -271,7 +286,7 @@ export default function QuoteForm() {
 
       {/* Trust message */}
       <div className="border-t border-[var(--line)] bg-white/50 px-8 py-4 text-center text-xs text-[var(--body)]">
-        <p>✓ No spam • ✓ No obligation • ✓ Locked in immediately</p>
+        <p>✓ No spam • ✓ No obligation • ✓ Reply within one business day</p>
       </div>
     </form>
   );

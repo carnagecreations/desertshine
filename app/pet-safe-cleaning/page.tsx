@@ -5,6 +5,7 @@ import { SITE } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Pet-Safe Cleaning in Yuma, AZ | Non-Toxic Home Cleaning',
   description: 'Cleaning products safe for cats, dogs, horses, reptiles, and all pets. We use pet-safe cleaners with no VOCs, no residue, no hidden chemicals. 24-hour re-clean guarantee.',
+  alternates: { canonical: `${SITE.url}/pet-safe-cleaning` },
 };
 
 export default function PetSafeCleaningPage() {

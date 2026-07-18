@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence, useMotionValue, useTransform, animate } from 'framer-motion';
 import { SITE } from '@/lib/site';
+import { track } from '@/lib/track';
 
 /* ————— Pricing engine (calibrated to published rates) —————
    Base rates cover ~1,500 sq ft with 2 bathrooms, matching the
@@ -113,8 +114,10 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
   const [pets, setPets] = useState(false);
   const [military, setMilitary] = useState(false);
   const [addons, setAddons] = useState<Set<string>>(new Set());
-  const [disinfectRooms, setDisinfectRooms] = useState(1);
+  const [disinfectRoomsRaw, setDisinfectRooms] = useState(1);
   const [garageOrgHours, setGarageOrgHours] = useState(1);
+  // Clamp so lowering the bedroom count can't leave a stale, too-high room count.
+  const disinfectRooms = Math.min(disinfectRoomsRaw, beds + 1);
 
   const toggleAddon = (key: string) => {
     setAddons((prev) => {
@@ -261,12 +264,7 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
     garageOrgHours: String(garageOrgHours),
   }).toString();
 
-  const lockIn = () => {
-    try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (window as any).gtag?.('event', 'estimator_lock_in', { value: price, service, frequency: freq });
-    } catch { /* analytics is best-effort */ }
-  };
+  const lockIn = () => track('estimator_lock_in', { value: price, service, frequency: freq });
 
   return (
     <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[var(--paper-dark)] shadow-[0_0_90px_-25px_rgba(232,93,47,0.55)] ring-1 ring-inset ring-white/5">
@@ -468,7 +466,7 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
               </div>
             </div>
 
-            <div className="mt-3 flex items-baseline gap-2">
+            <div className="mt-3 flex items-baseline gap-2" aria-live="polite">
               {isOffice ? (
                 <span className="font-mono text-5xl font-bold text-[var(--accent)] [text-shadow:0_0_24px_rgba(232,93,47,0.6)]">CUSTOM</span>
               ) : (
@@ -538,7 +536,8 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
                 You pick your date and time. Locked in the moment you click.
               </p>
             )}
-            <a href={SITE.phoneHref} className="mt-3 block text-center text-xs text-white/50 hover:text-white/80 transition-colors">
+            <a href={SITE.phoneHref} onClick={() => track('phone_click', { location: 'estimator' })}
+              className="mt-3 block text-center text-xs text-white/50 hover:text-white/80 transition-colors">
               or call/text {SITE.phone}
             </a>
 

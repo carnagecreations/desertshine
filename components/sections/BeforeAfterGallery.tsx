@@ -26,6 +26,7 @@ export default function BeforeAfterGallery() {
         {/* Before/After Slider */}
         <motion.button
           onClick={() => setIsAfter(!isAfter)}
+          aria-label={`Show ${isAfter ? 'before' : 'after'} photo of ${current.title}`}
           className="group relative aspect-video w-full overflow-hidden rounded-2xl outline-offset-4 focus-visible:outline-2 focus-visible:outline-[var(--accent)]"
         >
           <AnimatePresence mode="wait">
@@ -40,6 +41,8 @@ export default function BeforeAfterGallery() {
               <img
                 src={isAfter ? current.after : current.before}
                 alt={isAfter ? `${current.title} - After` : `${current.title} - Before`}
+                loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover"
               />
 

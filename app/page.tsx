@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import ReviewButton from '@/components/ReviewButton';
 import ScrollZoomHero from '@/components/sections/ScrollZoomHero';
 import VelocityMarquee from '@/components/sections/VelocityMarquee';
-import ConstellationHero from '@/components/sections/ConstellationHero';
 import StatCounters from '@/components/sections/StatCounters';
 import TrustSignals from '@/components/sections/TrustSignals';
 import BeforeAfterGallery from '@/components/sections/BeforeAfterGallery';
@@ -10,14 +9,15 @@ import ServiceShowcase from '@/components/sections/ServiceShowcase';
 import ManifestoFill from '@/components/sections/ManifestoFill';
 import ParallaxScene from '@/components/sections/ParallaxScene';
 import ProgressTimeline from '@/components/sections/ProgressTimeline';
-import DragCarousel from '@/components/sections/DragCarousel';
 import FaqSection from '@/components/sections/FaqSection';
 import GiantCTA from '@/components/sections/GiantCTA';
 import RevealFooter from '@/components/sections/RevealFooter';
+import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'House Cleaning in Yuma, AZ — Flat-Rate & Same-Week | Clean Convictions',
   description: 'Looking for house cleaning near you in Yuma, AZ? Flat-rate home and office cleaning from $89, same-week availability, and a 100% re-clean guarantee. Get an instant price.',
+  alternates: { canonical: SITE.url },
 };
 
 export default function Home() {

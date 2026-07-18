@@ -5,7 +5,7 @@ import { SPRING_SOFT, EASE_SNAP } from '@/lib/motion';
 
 export default function GiantCTA({
   label = 'Get your quote', href = '/contact',
-  sub = 'Free, flat-rate, 60 seconds online — or call and we answer.',
+  sub = 'Free, flat-rate, 60 seconds online — or call/text and we reply the same day.',
 }: { label?: string; href?: string; sub?: string }) {
   const ref = useRef<HTMLAnchorElement>(null);
   const [hover, setHover] = useState(false);

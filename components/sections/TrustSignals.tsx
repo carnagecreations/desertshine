@@ -13,13 +13,13 @@ const signals = [
     icon: '⚡',
     metric: 'Instant',
     label: 'Flat-Rate Pricing',
-    description: 'No estimates, no surprises — locked-in price before you book',
+    description: 'Rates published in the open — your exact flat quote confirmed before we book',
   },
   {
-    icon: '🔄',
-    metric: '6+ years',
-    label: 'Local Trusted',
-    description: 'Serving Yuma families and businesses',
+    icon: '🏜️',
+    metric: 'Yuma, AZ',
+    label: 'Locally Owned & Operated',
+    description: 'We live here, work here, and answer to our neighbors',
   },
   {
     icon: '📅',

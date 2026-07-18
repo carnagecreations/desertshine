@@ -68,6 +68,16 @@ export const organizationSchema = {
     : {}),
 };
 
+// WebSite schema — helps Google display the site name correctly in results.
+export const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SITE.url}#website`,
+  name: SITE.name,
+  url: SITE.url,
+  publisher: { '@id': `${SITE.url}#organization` },
+};
+
 export const servicesSchema = [
   {
     '@context': 'https://schema.org',
@@ -137,6 +147,14 @@ export const HOME_FAQS: { q: string; a: string }[] = [
   {
     q: 'Which areas do you serve?',
     a: 'All of Yuma County at the same flat rates, with no travel fee: Yuma, Fortuna Foothills, Somerton, San Luis, Wellton, and Winterhaven.',
+  },
+  {
+    q: 'Are your cleaning products safe for pets?',
+    a: 'Yes — we offer pet-safe cleaning with zero-VOC, non-toxic products. We\'re experienced with all animals, from horses to reptiles, and we\'ll tell you exactly which products we use in your home.',
+  },
+  {
+    q: 'Do you offer a military discount?',
+    a: 'Yes. Active duty and veterans get 10% off every cleaning — we just ask to verify at the time of cleaning.',
   },
 ];
 

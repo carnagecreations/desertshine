@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'What\'s Included in Our Cleaning Services | Clean Convictions',
   description: 'Detailed breakdown of what\'s included in each of our cleaning services: recurring, deep clean, move-out, and commercial.',
+  alternates: { canonical: `${SITE.url}/services/breakdown` },
 };
 
 export default function ServicesBreakdown() {

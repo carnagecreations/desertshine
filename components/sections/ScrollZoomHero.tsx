@@ -24,7 +24,7 @@ export default function ScrollZoomHero({
         initial={{ scale: 1.15 }} animate={{ scale: 1 }}
         transition={{ duration: 1.6, ease: EASE_INOUT }}
         style={{ scale }} className="absolute inset-0 will-change-transform">
-        <img src={src} alt="A freshly cleaned, sunlit living room" className="h-full w-full object-cover" />
+        <img src={src} alt="A freshly cleaned, sunlit living room" fetchPriority="high" decoding="async" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-black/25" />
       </motion.div>
 
@@ -59,9 +59,10 @@ export default function ScrollZoomHero({
               or call {SITE.phone}
             </a>
           </div>
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-3 backdrop-blur-sm border border-white/20 w-fit">
-            <span className="text-sm font-medium text-white">⚡ Get your flat-rate estimate instantly</span>
-          </div>
+          <Link href="/pricing"
+            className="inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-3 backdrop-blur-sm transition-colors hover:bg-white/20">
+            <span className="text-sm font-medium text-white">⚡ Get your flat-rate estimate instantly →</span>
+          </Link>
         </motion.div>
       </motion.div>
 

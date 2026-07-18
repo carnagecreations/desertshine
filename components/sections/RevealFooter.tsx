@@ -12,6 +12,7 @@ const LINKS = [
   { label: 'About', href: '/about' },
   { label: 'Community Care', href: '/community-care' },
   { label: 'Get a quote', href: '/contact' },
+  { label: 'Book a cleaning', href: '/book' },
 ];
 
 export default function RevealFooter() {
@@ -34,6 +35,7 @@ export default function RevealFooter() {
           <p>{SITE.address}</p>
           <p suppressHydrationWarning>{time}</p>
           <p className="mt-3 md:mt-4"><a href={SITE.phoneHref} className="hover:opacity-100">{SITE.phone}</a></p>
+          <p><a href={SITE.smsHref} className="hover:opacity-100">Text us — we reply same day</a></p>
           <p><a href={`mailto:${SITE.email}`} className="hover:opacity-100">{SITE.email}</a></p>
           <p className="mt-3 md:mt-4"><a href={SITE.googleReviewLink} target="_blank" rel="noopener noreferrer" className="hover:opacity-100">★ Leave a review</a></p>
           <p className="mt-3 md:mt-4 text-xs">{SITE.hours}</p>

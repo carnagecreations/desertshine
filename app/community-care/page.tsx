@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import CommunityCareForm from '@/components/CommunityCareForm';
 import RevealFooter from '@/components/sections/RevealFooter';
+import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Community Care — A Free, Confidential Clean',
   description: 'Once a month we quietly clean one home, free, for a Yuma-area neighbor going through a hard stretch. Completely confidential — no photos, no names, no strings.',
+  alternates: { canonical: `${SITE.url}/community-care` },
 };
 
 export default function CommunityCarePage() {

@@ -41,6 +41,8 @@ export default function ServiceShowcase({ services }: Props) {
                   <motion.img
                     src={service.image}
                     alt={`${service.name} in Yuma, AZ — Clean Convictions`}
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover"
                     animate={{ scale: isExpanded ? 1.05 : 1 }}
                     transition={{ duration: 0.4 }}
