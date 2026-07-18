@@ -38,7 +38,8 @@ const ADDONS: { key: string; label: string; price: number; includedIn: ServiceKe
   { key: 'windows', label: 'Windows (inside)', price: 40, includedIn: [] },
   { key: 'garage', label: 'Garage', price: 25, includedIn: ['move'] },
   { key: 'laundry', label: 'Laundry room', price: 15, includedIn: [] },
-  { key: 'organize', label: 'Organizing & tidying', price: 45, includedIn: [] },
+  { key: 'closet-organize', label: 'Closet organizing', price: 60, includedIn: [] },
+  { key: 'garage-organize', label: 'Garage organizing', price: 50, includedIn: [], hourly: true },
   { key: 'disinfect', label: 'Pet illness disinfect', price: 40, includedIn: [] },
 ];
 
@@ -113,6 +114,7 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
   const [military, setMilitary] = useState(false);
   const [addons, setAddons] = useState<Set<string>>(new Set());
   const [disinfectRooms, setDisinfectRooms] = useState(1);
+  const [garageOrgHours, setGarageOrgHours] = useState(1);
 
   const toggleAddon = (key: string) => {
     setAddons((prev) => {
@@ -195,9 +197,18 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
     for (const a of ADDONS) {
       if (a.includedIn.includes(service)) continue;
       if (addons.has(a.key)) {
-        const addonPrice = a.key === 'disinfect' ? a.price * disinfectRooms : a.price;
+        let addonPrice = a.price;
+        let label = `Add-on · ${a.label.toLowerCase()}`;
+
+        if (a.key === 'disinfect') {
+          addonPrice = a.price * disinfectRooms;
+          label = `Add-on · ${a.label.toLowerCase()} × ${disinfectRooms} room${disinfectRooms > 1 ? 's' : ''}`;
+        } else if (a.key === 'garage-organize') {
+          addonPrice = a.price * garageOrgHours;
+          label = `Add-on · ${a.label.toLowerCase()} × ${garageOrgHours} hr${garageOrgHours > 1 ? 's' : ''} @ $${a.price}/hr`;
+        }
+
         subtotal += addonPrice;
-        const label = a.key === 'disinfect' ? `Add-on · ${a.label.toLowerCase()} × ${disinfectRooms} room${disinfectRooms > 1 ? 's' : ''}` : `Add-on · ${a.label.toLowerCase()}`;
         lines.push({ label, amount: `+$${addonPrice}` });
       }
     }
@@ -222,7 +233,7 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
     }
 
     return { price: final, lines, preFreq };
-  }, [isOffice, svc, service, sqft, beds, baths, condition, pets, military, addons, disinfectRooms, freq]);
+  }, [isOffice, svc, service, sqft, beds, baths, condition, pets, military, addons, disinfectRooms, garageOrgHours, freq]);
 
   const perVisit = service === 'standard' && freq !== 'one';
   const sliderPct = ((sqft - 600) / (4000 - 600)) * 100;
@@ -247,6 +258,7 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
     pets: pets ? '1' : '0',
     add: [...addons].join(','),
     disinfectRooms: String(disinfectRooms),
+    garageOrgHours: String(garageOrgHours),
   }).toString();
 
   const lockIn = () => {
@@ -408,6 +420,14 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
                     <p className="mt-2 text-xs text-emerald-300/80">Vet-grade sanitizing after a sick pet — safe for the whole household once dry.</p>
                     <div className="mt-3">
                       <Stepper label="Rooms to disinfect" value={disinfectRooms} min={1} max={beds + 1} onChange={setDisinfectRooms} />
+                    </div>
+                  </>
+                )}
+                {addons.has('garage-organize') && (
+                  <>
+                    <p className="mt-2 text-xs text-emerald-300/80">Sort, organize, and arrange. Price scales with time needed.</p>
+                    <div className="mt-3">
+                      <Stepper label="Hours for garage organizing" value={garageOrgHours} min={1} max={4} onChange={setGarageOrgHours} />
                     </div>
                   </>
                 )}
