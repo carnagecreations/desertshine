@@ -31,7 +31,7 @@ export default function ServiceShowcase({ services }: Props) {
                 key={service.id}
                 layout
                 onClick={() => setExpandedId(service.id)}
-                className="group relative cursor-pointer overflow-hidden rounded-2xl bg-white/50 backdrop-blur-sm border border-[var(--line)] transition-all hover:border-[var(--accent)] hover:shadow-lg hover:shadow-[var(--accent)]/10"
+                className="group card-lift relative cursor-pointer overflow-hidden rounded-2xl bg-white/50 backdrop-blur-sm border border-[var(--line)] hover:border-[var(--accent)]"
               >
                 {/* Image section */}
                 <motion.div
@@ -51,7 +51,7 @@ export default function ServiceShowcase({ services }: Props) {
 
                   {/* Price badge */}
                   <motion.div
-                    className="absolute top-4 left-4 rounded-full bg-[var(--accent)]/90 backdrop-blur-sm px-4 py-2 text-xs font-medium tracking-widest uppercase text-white"
+                    className="absolute top-4 left-4 rounded-full bg-[var(--paper-dark)]/85 backdrop-blur-sm px-4 py-2 text-xs font-medium tracking-widest uppercase text-white ring-1 ring-white/20"
                     animate={{ scale: isExpanded ? 1.1 : 1 }}
                   >
                     {service.price}
@@ -141,9 +141,9 @@ export default function ServiceShowcase({ services }: Props) {
                 key={feature.label}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                className="rounded-lg bg-white/30 p-4 backdrop-blur-sm border border-[var(--line)]"
+                className="card-lift rounded-xl bg-white/30 p-4 backdrop-blur-sm border border-[var(--line)] hover:border-[var(--accent)]"
               >
-                <div className="text-2xl mb-2 text-[var(--accent)]">{feature.icon}</div>
+                <div className="mx-auto mb-2 grid h-8 w-8 place-items-center rounded-full bg-[var(--accent)]/10 text-sm font-bold text-[var(--accent)]">{feature.icon}</div>
                 <p className="text-xs text-[var(--body)] font-medium">{feature.label}</p>
               </motion.div>
             ))}

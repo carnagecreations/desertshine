@@ -46,22 +46,22 @@ export default function BookPage() {
       <section className="px-6 py-20 md:px-16 bg-[var(--paper-light)]">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold text-[var(--ink)] mb-6">What happens next?</h2>
-          <div className="space-y-8">
-            <div>
-              <div className="text-4xl font-bold text-[var(--accent)] mb-2">1</div>
-              <h3 className="text-lg font-semibold text-[var(--ink)] mb-2">You book</h3>
-              <p className="text-[var(--body)]">Pick your service and preferred time.</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-[var(--accent)] mb-2">2</div>
-              <h3 className="text-lg font-semibold text-[var(--ink)] mb-2">We confirm</h3>
-              <p className="text-[var(--body)]">We'll text or call to confirm details, square footage, pets, special requests.</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-[var(--accent)] mb-2">3</div>
-              <h3 className="text-lg font-semibold text-[var(--ink)] mb-2">You get your invoice</h3>
-              <p className="text-[var(--body)]">Flat-rate quote via email. Pay on your terms, we'll schedule your cleaning.</p>
-            </div>
+          <div className="relative space-y-10">
+            {/* Connector line behind the number circles */}
+            <span aria-hidden className="absolute left-1/2 top-6 h-[calc(100%-3rem)] w-px -translate-x-1/2 bg-gradient-to-b from-[var(--accent)]/40 via-[var(--line)] to-[var(--accent)]/40" />
+            {[
+              { n: '1', title: 'You book', body: 'Pick your service and preferred time.' },
+              { n: '2', title: 'We confirm', body: "We'll text or call to confirm details, square footage, pets, special requests." },
+              { n: '3', title: 'You get your invoice', body: "Flat-rate quote via email. Pay on your terms, we'll schedule your cleaning." },
+            ].map((step) => (
+              <div key={step.n} className="relative">
+                <div className="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-full border-2 border-[var(--accent)] bg-[var(--paper-light)] text-xl font-bold text-[var(--accent)]">
+                  {step.n}
+                </div>
+                <h3 className="text-lg font-semibold text-[var(--ink)] mb-2">{step.title}</h3>
+                <p className="text-[var(--body)]">{step.body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

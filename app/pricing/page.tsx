@@ -27,11 +27,14 @@ export default function PricingPage() {
 
   return (
     <main className="relative z-10 bg-[var(--paper)]">
-      <section className="pt-40 pb-12 px-6 md:px-16">
-        <div className="mx-auto max-w-4xl">
+      <section className="relative overflow-hidden pt-40 pb-12 px-6 md:px-16">
+        {/* Ambient backdrop — echoes the estimator console below */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 [background-image:linear-gradient(rgba(13,59,92,.04)_1px,transparent_1px),linear-gradient(90deg,rgba(13,59,92,.04)_1px,transparent_1px)] [background-size:36px_36px] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
+        <div aria-hidden className="pointer-events-none absolute -top-24 right-[10%] h-72 w-72 rounded-full bg-[var(--accent)]/10 blur-3xl" />
+        <div className="relative mx-auto max-w-4xl">
           <Breadcrumbs items={breadcrumbs} />
           <h1 className="mt-8 text-5xl md:text-6xl font-bold text-[var(--ink)] mb-6">
-            Dial in your home. Watch the number.
+            Dial in your home. <span className="italic text-[var(--accent)]">Watch the number.</span>
           </h1>
           <p className="text-lg text-[var(--body)] leading-relaxed max-w-3xl">
             No &ldquo;request a quote and wait&rdquo; games. Feed the machine your details and get a live flat-rate estimate —

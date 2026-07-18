@@ -25,7 +25,10 @@ export default function VelocityMarquee({
     <section className="overflow-hidden border-y border-[var(--line)] py-5" aria-hidden>
       <motion.div style={{ x, skewX: skew }} className="flex w-max whitespace-nowrap will-change-transform">
         {Array.from({ length: 4 }).map((_, i) => (
-          <span key={i} className="text-5xl md:text-7xl text-[var(--ink)]/85 tracking-tight font-[family-name:var(--font-display)]">{text}</span>
+          <span key={i}
+            className={`text-5xl md:text-7xl tracking-tight font-[family-name:var(--font-display)] ${i % 2 ? 'text-outline' : 'text-[var(--ink)]/85'}`}>
+            {text}
+          </span>
         ))}
       </motion.div>
     </section>

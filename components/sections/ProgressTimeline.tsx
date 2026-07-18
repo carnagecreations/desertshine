@@ -32,7 +32,9 @@ export default function ProgressTimeline() {
               whileInView={{ scale: 1, backgroundColor: 'var(--accent)' }}
               viewport={{ once: true, margin: '-40%' }} transition={{ duration: 0.4 }}
               className={`absolute top-1.5 h-3.5 w-3.5 rounded-full border-2 border-[var(--accent)] ${i % 2 ? 'left-[26px] md:-left-[7px]' : 'left-[26px] md:-right-[7px] md:left-auto'}`} />
-            <p className="text-xs tracking-widest text-[var(--accent)] uppercase">Step 0{i + 1}</p>
+            <span className={`inline-block rounded-full border border-[var(--accent)]/30 bg-[var(--accent)]/5 px-3 py-1 text-xs tracking-widest text-[var(--accent)] uppercase`}>
+              Step 0{i + 1}
+            </span>
             <h3 className="mt-2 text-2xl text-[var(--ink)] md:text-3xl">{s.title}</h3>
             <p className="mt-2 text-[var(--body)]">{s.body}</p>
           </motion.article>

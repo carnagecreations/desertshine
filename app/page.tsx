@@ -77,7 +77,7 @@ export default function Home() {
 
         {/* Social proof — invite early clients */}
         <section className="px-6 py-28 md:px-16">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto max-w-3xl rounded-3xl border border-[var(--line)] bg-gradient-to-b from-[var(--paper-light)] to-white p-10 text-center shadow-[0_20px_60px_-30px_rgba(13,59,92,0.2)] md:p-14">
             <h2 className="mb-8 text-4xl md:text-5xl text-[var(--ink)]">Be one of our first</h2>
             <p className="mb-8 text-lg text-[var(--body)] leading-relaxed">
               Clean Convictions just launched with a simple promise: flat-rate pricing, transparent service, and a 100% re-clean guarantee. We're still ramping up reviews, so your feedback will shape how we grow.

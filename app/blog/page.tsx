@@ -43,9 +43,9 @@ export default function BlogPage() {
                   <Link
                     key={guide.slug}
                     href={`/blog/${guide.slug}`}
-                    className="group rounded-2xl border border-[var(--line)] bg-white/50 p-8 transition-colors hover:border-[var(--accent)]"
+                    className="group card-lift rounded-2xl border border-[var(--line)] bg-white/50 p-8 hover:border-[var(--accent)]"
                   >
-                    <p className="text-xs tracking-[0.2em] uppercase text-[var(--accent)] mb-2">{guide.readTime} min read</p>
+                    <p className="mb-3 inline-block rounded-full bg-[var(--accent)]/10 px-3 py-1 text-xs tracking-[0.2em] uppercase text-[var(--accent)]">{guide.readTime} min read</p>
                     <h3 className="text-xl md:text-2xl font-bold text-[var(--ink)] mb-3 group-hover:text-[var(--accent)] transition-colors">
                       {guide.title}
                     </h3>

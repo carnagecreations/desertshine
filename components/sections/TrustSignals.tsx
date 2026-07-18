@@ -55,8 +55,8 @@ export default function TrustSignals() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1, ease: EASE_OUT }}
-              className="rounded-2xl border border-[var(--line)] bg-white/70 p-8 backdrop-blur-sm hover:border-[var(--accent)] transition-colors">
-              <div className="text-5xl mb-4">{signal.icon}</div>
+              className="card-lift rounded-2xl border border-[var(--line)] bg-white/70 p-8 backdrop-blur-sm hover:border-[var(--accent)]">
+              <div className="mb-5 grid h-14 w-14 place-items-center rounded-xl bg-[var(--accent)]/10 text-3xl">{signal.icon}</div>
               <div className="mb-3 text-3xl font-bold text-[var(--accent)]">
                 {signal.metric}
               </div>

@@ -87,10 +87,10 @@ export default function ServicesPage() {
               <Link
                 key={s.slug}
                 href={`/services/${s.slug}`}
-                className="group flex items-center justify-between rounded-xl border border-[var(--line)] bg-white/50 p-6 transition-colors hover:border-[var(--accent)]"
+                className="group card-lift flex items-center justify-between rounded-xl border border-[var(--line)] bg-white/50 p-6 hover:border-[var(--accent)]"
               >
-                <span className="text-lg text-[var(--ink)]">{s.shortName}</span>
-                <span className="text-sm font-semibold text-[var(--accent)]">{s.price} →</span>
+                <span className="text-lg text-[var(--ink)] transition-colors group-hover:text-[var(--accent)]">{s.shortName}</span>
+                <span className="text-sm font-semibold text-[var(--accent)]">{s.price} <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span></span>
               </Link>
             ))}
           </div>

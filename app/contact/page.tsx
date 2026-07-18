@@ -36,17 +36,20 @@ export default function ContactPage() {
           <div className="mx-auto max-w-4xl">
             <h2 className="text-3xl font-bold text-[var(--ink)] mb-8">Prefer another way?</h2>
             <div className="grid gap-6 md:grid-cols-3">
-              <div>
+              <div className="card-lift rounded-2xl border border-[var(--line)] bg-white p-6 hover:border-[var(--accent)]">
+                <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-[var(--accent)]/10 text-xl">💬</div>
                 <p className="text-xs tracking-widest uppercase opacity-60 mb-2">Call or text</p>
                 <a href={SITE.phoneHref} className="text-2xl font-medium text-[var(--accent)] hover:underline">{SITE.phone}</a>
                 <p className="text-sm text-[var(--body)] mt-1">If we&apos;re mid-clean we can&apos;t pick up — text us and we reply the same day</p>
               </div>
-              <div>
+              <div className="card-lift rounded-2xl border border-[var(--line)] bg-white p-6 hover:border-[var(--accent)]">
+                <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-[var(--accent)]/10 text-xl">✉️</div>
                 <p className="text-xs tracking-widest uppercase opacity-60 mb-2">Email</p>
                 <a href={`mailto:${SITE.email}`} className="text-lg font-medium text-[var(--ink)] hover:text-[var(--accent)]">{SITE.email}</a>
                 <p className="text-sm text-[var(--body)] mt-1">Message us anytime</p>
               </div>
-              <div>
+              <div className="card-lift rounded-2xl border border-[var(--line)] bg-white p-6 hover:border-[var(--accent)]">
+                <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-[var(--accent)]/10 text-xl">📍</div>
                 <p className="text-xs tracking-widest uppercase opacity-60 mb-2">Service area</p>
                 <p className="text-lg font-medium text-[var(--ink)]">{SITE.serviceAreas.slice(0, 2).join(', ')}</p>
                 <p className="text-sm text-[var(--body)] mt-1">+ {SITE.serviceAreas.length - 2} more areas</p>

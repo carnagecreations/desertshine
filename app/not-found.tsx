@@ -10,8 +10,11 @@ const POPULAR = [
 
 export default function NotFound() {
   return (
-    <main className="grid min-h-[100svh] place-items-center bg-[var(--paper)] px-6 text-center">
-      <div>
+    <main className="relative grid min-h-[100svh] place-items-center overflow-hidden bg-[var(--paper)] px-6 text-center">
+      <span aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none text-[42vw] font-bold leading-none text-[var(--ink)]/[0.04] font-[family-name:var(--font-display)]">
+        404
+      </span>
+      <div className="relative">
         <p className="text-xs tracking-[0.3em] text-[var(--accent)] uppercase">404</p>
         <h1 className="mt-4 text-4xl md:text-6xl">This page got swept away.</h1>
         <p className="mt-4 text-[var(--body)]">The page you&apos;re looking for doesn&apos;t exist — but these do:</p>

@@ -8,7 +8,7 @@ import { SITE } from '@/lib/site';
 export default function ScrollZoomHero({
   src = '/images/hero.webp',
   eyebrow = 'Locally owned — Yuma, AZ',
-  lines = ['Come home to', 'a spotless house.'],
+  lines = ['Come home to', 'a *spotless* house.'],
   sub = 'Flat-rate cleaning on your schedule — mornings, evenings, weekends, whenever you need. 100% re-clean guarantee.',
 }: { src?: string; eyebrow?: string; lines?: string[]; sub?: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -39,7 +39,14 @@ export default function ScrollZoomHero({
               <motion.span className="block will-change-transform"
                 initial={{ y: '110%' }} animate={{ y: 0 }}
                 transition={{ delay: 0.4 + i * 0.14, duration: 1, ease: EASE_OUT }}>
-                {line}
+                {/* *word* renders as the accent-italic highlight */}
+                {line.split(/(\*[^*]+\*)/).map((part, j) =>
+                  part.startsWith('*') ? (
+                    <em key={j} className="italic text-[var(--accent)]">{part.slice(1, -1)}</em>
+                  ) : (
+                    <span key={j}>{part}</span>
+                  )
+                )}
               </motion.span>
             </span>
           ))}
@@ -52,8 +59,8 @@ export default function ScrollZoomHero({
           className="mt-8 flex flex-col gap-6">
           <div className="flex flex-wrap items-center gap-4">
             <Link href="/contact"
-              className="rounded-full bg-[var(--accent)] px-8 py-4 text-base font-medium text-white transition-transform duration-300 hover:scale-105">
-              Get a free quote
+              className="group rounded-full bg-[var(--accent)] px-8 py-4 text-base font-medium text-white shadow-[0_8px_30px_-8px_rgba(232,93,47,0.7)] transition-all duration-300 hover:scale-105 hover:shadow-[0_12px_36px_-8px_rgba(232,93,47,0.85)]">
+              Get a free quote <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
             </Link>
             <a href={SITE.phoneHref} className="text-white/85 underline underline-offset-4 hover:text-white">
               or call {SITE.phone}

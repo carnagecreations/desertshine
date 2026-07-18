@@ -26,8 +26,10 @@ function Counter({ value, decimals = 0, prefix = '', suffix = '' }: {
 export default function StatCounters() {
   return (
     <section className="flex items-center justify-center px-6 py-16 md:py-24 md:px-16 bg-gradient-to-b from-transparent via-[var(--accent)]/5 to-transparent">
-      <div className="text-center">
-        <p className="text-7xl md:text-8xl lg:text-9xl font-medium text-[var(--accent)]">
+      <div className="relative text-center">
+        <span aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--accent)]/10 blur-3xl" />
+        <span aria-hidden className="pointer-events-none absolute left-1/2 top-8 h-40 w-40 -translate-x-1/2 rounded-full border border-[var(--accent)]/20" />
+        <p className="relative text-7xl md:text-8xl lg:text-9xl font-medium text-[var(--accent)]">
           <Counter value={100} suffix="%" />
         </p>
         <p className="mx-auto mt-4 max-w-sm text-base md:text-lg text-[var(--body)]">

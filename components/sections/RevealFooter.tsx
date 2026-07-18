@@ -28,7 +28,7 @@ export default function RevealFooter() {
       <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
         <nav className="flex flex-col gap-1.5 text-lg md:gap-2 md:text-2xl order-2 md:order-1">
           {LINKS.map((l) => (
-            <Link key={l.label} href={l.href} className="w-fit opacity-70 transition-all duration-300 hover:translate-x-2 hover:opacity-100">{l.label}</Link>
+            <Link key={l.label} href={l.href} className="w-fit opacity-70 transition-all duration-300 hover:translate-x-2 hover:text-[var(--accent)] hover:opacity-100">{l.label}</Link>
           ))}
         </nav>
         <div className="text-left text-xs md:text-right md:text-sm opacity-60 order-1 md:order-2">
@@ -45,7 +45,7 @@ export default function RevealFooter() {
         <p className="mb-4 text-sm opacity-40">
           Serving {SITE.serviceAreas.join(' · ')} and surrounding communities
         </p>
-        <h2 className="text-[9.5vw] leading-[0.85] tracking-tight text-[var(--paper)] select-none font-[family-name:var(--font-display)]">Clean Convictions</h2>
+        <h2 className="text-[9.5vw] leading-[0.85] tracking-tight text-[var(--paper)] select-none font-[family-name:var(--font-display)]">Clean Convictions<span className="text-[var(--accent)]">.</span></h2>
         <div className="mt-6 flex flex-wrap justify-between gap-4 border-t border-white/10 pt-6 text-xs opacity-40">
           <p>© {new Date().getFullYear()} {SITE.name} All rights reserved. Locally owned · Yuma, AZ.</p>
           <p><Link href="/privacy" className="hover:opacity-100">Privacy</Link> · <Link href="/terms" className="hover:opacity-100">Terms</Link></p>

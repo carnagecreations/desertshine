@@ -51,6 +51,42 @@
   }
 }
 
+/* Branded scrollbar — thin, quiet, on-palette */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(13, 59, 92, 0.35) transparent;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(13, 59, 92, 0.3);
+  border-radius: 9999px;
+  border: 2px solid var(--paper);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Card hover lift — shared treatment so every card moves the same way */
+.card-lift {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px -16px rgba(13, 59, 92, 0.25);
+}
+
+/* Outlined display text — used by the marquee for alternating depth */
+.text-outline {
+  -webkit-text-stroke: 1.5px rgba(13, 59, 92, 0.5);
+  -webkit-text-fill-color: transparent;
+}
+
 /* Price estimator range slider */
 .est-slider {
   -webkit-appearance: none;

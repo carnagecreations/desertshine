@@ -27,7 +27,7 @@ export default function BeforeAfterGallery() {
         <motion.button
           onClick={() => setIsAfter(!isAfter)}
           aria-label={`Show ${isAfter ? 'before' : 'after'} photo of ${current.title}`}
-          className="group relative aspect-video w-full overflow-hidden rounded-2xl outline-offset-4 focus-visible:outline-2 focus-visible:outline-[var(--accent)]"
+          className="group relative aspect-video w-full overflow-hidden rounded-3xl shadow-xl ring-1 ring-[var(--line)] outline-offset-4 focus-visible:outline-2 focus-visible:outline-[var(--accent)]"
         >
           <AnimatePresence mode="wait">
             <motion.div
@@ -90,10 +90,10 @@ export default function BeforeAfterGallery() {
             onClick={prev}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="rounded-full bg-[var(--accent)] p-3 text-white transition-all hover:shadow-lg hover:shadow-[var(--accent)]/30"
+            className="grid h-12 w-12 place-items-center rounded-full border border-[var(--line)] bg-white text-lg text-[var(--ink)] transition-all hover:border-[var(--accent)] hover:text-[var(--accent)] hover:shadow-lg hover:shadow-[var(--accent)]/20"
             aria-label="Previous photo"
           >
-            ← Prev
+            ←
           </motion.button>
 
           {/* Dot indicators */}
@@ -114,10 +114,10 @@ export default function BeforeAfterGallery() {
             onClick={next}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="rounded-full bg-[var(--accent)] p-3 text-white transition-all hover:shadow-lg hover:shadow-[var(--accent)]/30"
+            className="grid h-12 w-12 place-items-center rounded-full bg-[var(--accent)] text-lg text-white transition-all hover:shadow-lg hover:shadow-[var(--accent)]/30"
             aria-label="Next photo"
           >
-            Next →
+            →
           </motion.button>
         </div>
       </div>
