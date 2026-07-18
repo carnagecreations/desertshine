@@ -112,6 +112,7 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
   const [pets, setPets] = useState(false);
   const [military, setMilitary] = useState(false);
   const [addons, setAddons] = useState<Set<string>>(new Set());
+  const [disinfectRooms, setDisinfectRooms] = useState(1);
 
   const toggleAddon = (key: string) => {
     setAddons((prev) => {
@@ -193,7 +194,12 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
 
     for (const a of ADDONS) {
       if (a.includedIn.includes(service)) continue;
-      if (addons.has(a.key)) { subtotal += a.price; lines.push({ label: `Add-on · ${a.label.toLowerCase()}`, amount: `+$${a.price}` }); }
+      if (addons.has(a.key)) {
+        const addonPrice = a.key === 'disinfect' ? a.price * disinfectRooms : a.price;
+        subtotal += addonPrice;
+        const label = a.key === 'disinfect' ? `Add-on · ${a.label.toLowerCase()} × ${disinfectRooms} room${disinfectRooms > 1 ? 's' : ''}` : `Add-on · ${a.label.toLowerCase()}`;
+        lines.push({ label, amount: `+$${addonPrice}` });
+      }
     }
 
     const preFreq = subtotal; // work value before loyalty discount — used for time + savings math
@@ -216,7 +222,7 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
     }
 
     return { price: final, lines, preFreq };
-  }, [isOffice, svc, service, sqft, beds, baths, condition, pets, military, addons, freq]);
+  }, [isOffice, svc, service, sqft, beds, baths, condition, pets, military, addons, disinfectRooms, freq]);
 
   const perVisit = service === 'standard' && freq !== 'one';
   const sliderPct = ((sqft - 600) / (4000 - 600)) * 100;
@@ -240,6 +246,7 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
     cond: condition,
     pets: pets ? '1' : '0',
     add: [...addons].join(','),
+    disinfectRooms: String(disinfectRooms),
   }).toString();
 
   const lockIn = () => {
@@ -397,7 +404,12 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
                   <p className="mt-2 text-xs text-emerald-300/80">We&apos;re experienced with all animals — from horses to reptiles — and use pet-safe products.</p>
                 )}
                 {addons.has('disinfect') && (
-                  <p className="mt-2 text-xs text-emerald-300/80">Vet-grade sanitizing after a sick pet — safe for the whole household once dry.</p>
+                  <>
+                    <p className="mt-2 text-xs text-emerald-300/80">Vet-grade sanitizing after a sick pet — safe for the whole household once dry.</p>
+                    <div className="mt-3">
+                      <Stepper label="Rooms to disinfect" value={disinfectRooms} min={1} max={beds + 1} onChange={setDisinfectRooms} />
+                    </div>
+                  </>
                 )}
                 {military && (
                   <p className="mt-2 text-xs text-white/50">Military verification required at time of cleaning</p>
