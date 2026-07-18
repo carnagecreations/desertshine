@@ -10,7 +10,7 @@ import RevealFooter from '@/components/sections/RevealFooter';
 import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'About Us',
+  title: 'About Us — A Local Yuma Cleaning Crew',
   description: 'Clean Convictions is a locally owned cleaning company serving Yuma, Fortuna Foothills, Somerton, and the surrounding valley. No Compromise. No Dust.',
   alternates: { canonical: `${SITE.url}/about` },
 };

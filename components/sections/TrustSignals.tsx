@@ -7,7 +7,7 @@ const signals = [
     icon: '⭐',
     metric: '100%',
     label: 'Satisfaction Guaranteed',
-    description: "Free re-clean if you're not completely satisfied",
+    description: 'Not happy? Tell us within 24 hours and we re-clean it free',
   },
   {
     icon: '⚡',
@@ -25,7 +25,7 @@ const signals = [
     icon: '📅',
     metric: 'Same-week',
     label: 'Availability',
-    description: 'Schedule at a time that works for you',
+    description: 'Mornings, evenings, weekends — your schedule, not ours',
   },
 ];
 
@@ -43,7 +43,7 @@ export default function TrustSignals() {
             Why Yuma families trust us
           </h2>
           <p className="mt-4 text-lg text-[var(--body)]">
-            Transparent pricing, real guarantees, no surprises
+            Published rates, a real guarantee, and no surprises at the door
           </p>
         </motion.div>
 
@@ -82,10 +82,10 @@ export default function TrustSignals() {
             Google reviews from your neighbors
           </h3>
           <p className="mt-3 text-[var(--body)]">
-            Real reviews from real Yuma families. We're building our reputation one satisfied customer at a time.
+            We just launched — reviews will appear here as real customers leave them, never before.
           </p>
           <p className="mt-4 text-sm text-[var(--body)]">
-            ⭐ Check back soon for verified reviews on Google Business Profile
+            ⭐ Verified reviews on our Google Business Profile
           </p>
         </motion.div>
       </div>

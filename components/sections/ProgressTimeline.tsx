@@ -6,8 +6,8 @@ import { EASE_OUT } from '@/lib/motion';
 const STEPS = [                                           // CUSTOMIZE
   { title: 'Get your quote', body: 'Sixty seconds online or one phone call. Flat rate, no walkthrough required for most homes.' },
   { title: 'Pick your day', body: 'Same-week slots in most of Yuma County. Evenings available for offices.' },
-  { title: 'We clean, you check', body: 'A room-by-room checklist, photographed when we finish. You approve before we leave.' },
-  { title: 'Guaranteed', body: 'Anything not right within 24 hours, we come back and re-clean it free. No forms, no fuss.' },
+  { title: 'We clean, you check', body: 'A room-by-room checklist, photographed when we finish — whether you\'re home or away.' },
+  { title: 'Guaranteed', body: 'Spot something within 24 hours? We come back and re-clean it free. No forms, no fuss.' },
 ];
 
 export default function ProgressTimeline() {

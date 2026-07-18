@@ -5,7 +5,7 @@ import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Book Your Cleaning',
-  description: "Schedule your cleaning appointment. Pick a time, and we'll confirm details and send your flat-rate invoice.",
+  description: "Pick a time online — we confirm details by text and send your flat-rate invoice within one business day.",
   alternates: { canonical: `${SITE.url}/book` },
 };
 

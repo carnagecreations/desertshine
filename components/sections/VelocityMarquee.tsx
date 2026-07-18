@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { motion, useAnimationFrame, useMotionValue, useScroll, useSpring, useTransform, useVelocity, wrap } from 'framer-motion';
 
 export default function VelocityMarquee({
-  text = 'HOMES — OFFICES — DEEP CLEANS — MOVE-OUTS — ',
+  text = 'HOMES — OFFICES — DEEP CLEANS — MOVE-OUTS — PET-SAFE — ',
   baseSpeed = 2,
 }: { text?: string; baseSpeed?: number }) {
   const baseX = useMotionValue(0);

@@ -7,9 +7,9 @@ import { SITE } from '@/lib/site';
 
 export default function ScrollZoomHero({
   src = '/images/hero.webp',
-  eyebrow = 'Locally owned — Yuma, AZ',
+  eyebrow = 'Locally owned & operated — Yuma, AZ',
   lines = ['Come home to', 'a *spotless* house.'],
-  sub = 'Flat-rate cleaning on your schedule — mornings, evenings, weekends, whenever you need. 100% re-clean guarantee.',
+  sub = 'Flat-rate cleaning on your schedule — mornings, evenings, weekends. Miss a spot? We re-clean it free.',
 }: { src?: string; eyebrow?: string; lines?: string[]; sub?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });

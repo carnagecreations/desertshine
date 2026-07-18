@@ -137,6 +137,10 @@ export const HOME_FAQS: { q: string; a: string }[] = [
     a: 'No. Most recurring clients give us a garage code or lockbox key, and we lock up when we leave.',
   },
   {
+    q: 'Do you bring your own supplies?',
+    a: 'Yes — all cleaning supplies and equipment are included. Prefer a specific product for your home? Leave it out and we\'ll use it.',
+  },
+  {
     q: 'What if something isn\'t cleaned right?',
     a: 'Tell us within 24 hours and we come back and re-clean it free. That\'s the guarantee, no fine print.',
   },

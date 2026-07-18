@@ -34,7 +34,7 @@ export default function ContactPage() {
         {/* Quick contact options */}
         <section className="px-6 py-16 md:px-16 bg-[var(--paper-light)]">
           <div className="mx-auto max-w-4xl">
-            <h2 className="text-3xl font-bold text-[var(--ink)] mb-8">Prefer another way?</h2>
+            <h2 className="text-3xl font-bold text-[var(--ink)] mb-8">Rather talk to a human?</h2>
             <div className="grid gap-6 md:grid-cols-3">
               <div className="card-lift rounded-2xl border border-[var(--line)] bg-white p-6 hover:border-[var(--accent)]">
                 <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-[var(--accent)]/10 text-xl">💬</div>

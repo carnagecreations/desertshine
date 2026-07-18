@@ -533,7 +533,7 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
             </Link>
             {!isOffice && (
               <p className="mx-auto mt-2 max-w-[240px] text-center text-[11px] leading-relaxed text-white/45">
-                You pick your date and time. Locked in the moment you click.
+                Your setup carries straight to booking — nothing to re-type.
               </p>
             )}
             <a href={SITE.phoneHref} onClick={() => track('phone_click', { location: 'estimator' })}
@@ -547,9 +547,9 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
                 <p className="mb-2.5 font-mono text-[10px] tracking-[0.2em] text-white/35 uppercase">What happens next</p>
                 <ol className="space-y-2">
                   {[
-                    'Your flat quote is locked in right now',
+                    'Your estimate carries over to booking',
                     'You pick the date and time to schedule',
-                    'We confirm details the morning-of, and again at your door',
+                    'We confirm your flat quote before the visit — then it holds',
                   ].map((step, i) => (
                     <li key={i} className="flex items-start gap-2.5 text-[11px] leading-snug text-white/60">
                       <span className="mt-px flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-[var(--accent)]/40 font-mono text-[9px] text-[var(--accent)]">{i + 1}</span>

@@ -33,7 +33,7 @@ export default function StatCounters() {
           <Counter value={100} suffix="%" />
         </p>
         <p className="mx-auto mt-4 max-w-sm text-base md:text-lg text-[var(--body)]">
-          Re-clean guarantee — not happy within 24 hours, we return free
+          Re-clean guarantee — tell us within 24 hours and we come back free
         </p>
       </div>
     </section>

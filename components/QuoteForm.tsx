@@ -134,7 +134,7 @@ export default function QuoteForm() {
 
             {step === 1 && (
               <div>
-                <h3 className="text-xl font-semibold text-[var(--ink)]">What do you need?</h3>
+                <h3 className="text-xl font-semibold text-[var(--ink)]">What kind of clean?</h3>
                 <p className="mt-1 mb-6 text-sm text-[var(--body)]">Pick the service that fits your home.</p>
                 <div className="grid gap-3 sm:grid-cols-2">
                   {SERVICES.map((s) => (
@@ -165,7 +165,7 @@ export default function QuoteForm() {
             {step === 2 && (
               <div>
                 <h3 className="text-xl font-semibold text-[var(--ink)]">Tell us who you are.</h3>
-                <p className="mt-1 mb-6 text-sm text-[var(--body)]">So we can send your quote and follow up.</p>
+                <p className="mt-1 mb-6 text-sm text-[var(--body)]">We&apos;ll text your flat quote — no spam, no sales calls.</p>
                 <div className="space-y-4">
                   <div>
                     <label htmlFor="name" className="mb-2 block text-sm font-medium text-[var(--ink)]">Your name</label>
@@ -203,8 +203,8 @@ export default function QuoteForm() {
 
             {step === 3 && (
               <div>
-                <h3 className="text-xl font-semibold text-[var(--ink)]">Almost there!</h3>
-                <p className="mt-1 mb-6 text-sm text-[var(--body)]">One more thing to get your quote.</p>
+                <h3 className="text-xl font-semibold text-[var(--ink)]">Last step.</h3>
+                <p className="mt-1 mb-6 text-sm text-[var(--body)]">Size, plus anything we should know before we quote.</p>
                 <div className="space-y-4">
                   <div>
                     <label htmlFor="size" className="mb-2 block text-sm font-medium text-[var(--ink)]">Space size</label>

@@ -19,7 +19,7 @@ export default function BeforeAfterGallery() {
         See the difference.
       </h2>
       <p className="mb-12 max-w-md text-center text-[var(--body)]">
-        Real before & afters from homes and offices we've cleaned.
+        Every photo here is our own work — no stock images, no staging.
       </p>
 
       <div className="w-full max-w-4xl">

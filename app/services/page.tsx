@@ -27,7 +27,7 @@ const SERVICES = [
     id: 'deep',
     name: 'Deep Cleaning',
     price: 'from $179',
-    blurb: 'The seasonal reset. Everything in a standard clean, plus the places dust hides in a desert town baseboards, blinds, vents, grout, and inside the appliances.',
+    blurb: 'The seasonal reset. Everything in a standard clean, plus the places dust hides in a desert town: baseboards, blinds, vents, grout, and inside the appliances.',
     image: '/images/service-deep.webp',
     includes: ['Baseboards, door frames, and light switches', 'Blinds, ceiling fans, and vents', 'Inside oven and refrigerator', 'Tile grout and shower glass detail'],
   },
@@ -66,7 +66,7 @@ export default function ServicesPage() {
         <section className="px-6 py-12 md:px-16 bg-gradient-to-r from-emerald-50 to-blue-50">
           <div className="mx-auto max-w-5xl">
             <div className="rounded-2xl border border-emerald-200 bg-white/80 p-8">
-              <h3 className="text-2xl font-bold text-[var(--ink)] mb-3">🐾 Pet-safe cleaning available</h3>
+              <h3 className="text-2xl font-bold text-[var(--ink)] mb-3">🐾 Got animals? We clean around them.</h3>
               <p className="text-[var(--body)] mb-4">
                 All our services work with pet-safe products (typically +$15–30 depending on home size).
                 If you have animals—horses, dogs, cats, reptiles, birds—we use only non-toxic, zero-VOC cleaners
@@ -81,7 +81,7 @@ export default function ServicesPage() {
         </section>
 
         <section className="mx-auto max-w-5xl px-6 py-12">
-          <h2 className="mb-8 text-3xl md:text-4xl">Explore each service</h2>
+          <h2 className="mb-8 text-3xl md:text-4xl">Go deeper on any service</h2>
           <div className="grid gap-4 md:grid-cols-2">
             {SERVICE_LINKS.map((s) => (
               <Link

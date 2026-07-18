@@ -33,7 +33,7 @@ export default function NeighborhoodsPage() {
         <div className="p-6">
           <p className="text-sm text-[var(--body)] leading-relaxed mb-4 line-clamp-2">{item.description}</p>
           <p className="text-xs text-[var(--body)]/60 group-hover:text-[var(--accent)] transition-colors">
-            View services →
+            See local details →
           </p>
         </div>
       </div>
@@ -47,10 +47,10 @@ export default function NeighborhoodsPage() {
           <Breadcrumbs items={breadcrumbs} />
           <div className="mt-8">
             <h1 className="text-4xl md:text-6xl font-bold text-[var(--ink)] mb-6">
-              Cleaning for Yuma neighborhoods & communities
+              We clean where you live.
             </h1>
             <p className="text-lg text-[var(--body)] leading-relaxed max-w-2xl">
-              From upscale foothills neighborhoods to RV resorts and family parks, we serve all of Yuma County with the same flat-rate pricing and 100% re-clean guarantee.
+              Foothills neighborhoods, RV resorts, family parks — all of Yuma County gets the same flat rates, no travel fee, and the same 24-hour re-clean guarantee.
             </p>
           </div>
         </div>
