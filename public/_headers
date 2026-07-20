@@ -1,0 +1,17 @@
+# Print/handout materials — not web pages; keep out of search indexes
+/yuma-tips-card.html
+  X-Robots-Tag: noindex, nofollow
+/contact-card.html
+  X-Robots-Tag: noindex, nofollow
+/community-flyer.html
+  X-Robots-Tag: noindex, nofollow
+/yuma-cleaning-tips.md
+  X-Robots-Tag: noindex, nofollow
+/contact-followup-card.md
+  X-Robots-Tag: noindex, nofollow
+/Yuma-Cleaning-Secrets.pdf
+  X-Robots-Tag: noindex, nofollow
+/Clean-Convictions-Contact-Card.pdf
+  X-Robots-Tag: noindex, nofollow
+/cleaning-checklists.pdf
+  X-Robots-Tag: noindex, nofollow

@@ -1,0 +1,45 @@
+# Consolidated duplicate blog guides into their canonical pages
+/blog/haboob-cleanup-guide /seasonal/haboob-cleanup 301
+/blog/monsoon-season-home-prep /seasonal/monsoon-prep 301
+/blog/monsoon-season-home-prep-yuma /seasonal/monsoon-prep 301
+/blog/snowbird-home-opening-closing /seasonal/snowbird-prep 301
+/blog/what-is-included-in-cleaning-checklist /blog/standard-house-cleaning-checklist 301
+
+# Friendly Acres was listed twice (RV park + family park) — one page for one place
+/neighborhoods/friendly-acres /neighborhoods/friendly-acres-rv-park 301
+
+# Removed unverifiable/duplicate neighborhood pages (existence audit, July 2026)
+/neighborhoods/barkley-ranch-north /neighborhoods 301
+/neighborhoods/barkley-ranch-south /neighborhoods 301
+/neighborhoods/ceres-gardens /neighborhoods 301
+/neighborhoods/chaparral-neighborhood /neighborhoods/chaparral-mhp 301
+/neighborhoods/coronado-estates /neighborhoods 301
+/neighborhoods/gila-ridge /neighborhoods 301
+/neighborhoods/glendale-heights /neighborhoods 301
+/neighborhoods/granite-hills /neighborhoods 301
+/neighborhoods/heritage-estates /neighborhoods 301
+/neighborhoods/highland-park /neighborhoods 301
+/neighborhoods/indian-palms /neighborhoods 301
+/neighborhoods/la-paz /neighborhoods 301
+/neighborhoods/las-quintas /neighborhoods 301
+/neighborhoods/loma-linda /neighborhoods 301
+/neighborhoods/maven-park /neighborhoods 301
+/neighborhoods/mesa-verde-neighborhood /neighborhoods 301
+/neighborhoods/monte-vista /neighborhoods 301
+/neighborhoods/north-frontage /neighborhoods 301
+/neighborhoods/palm-shadows /neighborhoods 301
+/neighborhoods/parkview /neighborhoods 301
+/neighborhoods/pena-blanca /neighborhoods 301
+/neighborhoods/rancho-del-sol /neighborhoods 301
+/neighborhoods/santa-clara /neighborhoods 301
+/neighborhoods/skyline /neighborhoods 301
+/neighborhoods/stoneridge /neighborhoods 301
+/neighborhoods/sundown-estates /neighborhoods 301
+/neighborhoods/sunridge /neighborhoods 301
+/neighborhoods/sunrise-park /neighborhoods 301
+/neighborhoods/tierra-del-sol /neighborhoods 301
+/neighborhoods/twin-palms /neighborhoods 301
+/neighborhoods/wildwood-neighborhood /neighborhoods 301
+/neighborhoods/araby-acres-neighborhood /neighborhoods/araby-acres-rv-resort 301
+/neighborhoods/desert-palms-neighborhood /neighborhoods/desert-palms-mobile-estates 301
+/neighborhoods/shady-acres-neighborhood /neighborhoods/shady-acres-mhc 301

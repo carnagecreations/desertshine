@@ -5,7 +5,6 @@ import { breadcrumbSchema } from '@/lib/schema';
 import { SITE } from '@/lib/site';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ServiceShowcase from '@/components/sections/ServiceShowcase';
-import FaqSection from '@/components/sections/FaqSection';
 import GiantCTA from '@/components/sections/GiantCTA';
 
 export function generateStaticParams() {
@@ -17,9 +16,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const neighborhood = getNeighborhoodBySlug(slug);
   if (!neighborhood) return {};
 
+  const firstSentence = neighborhood.intro.split(/(?<=[.!?])\s+/)[0];
   return {
     title: `House Cleaning in ${neighborhood.name}, ${neighborhood.city} AZ`,
-    description: `House, deep, and move-out cleaning near ${neighborhood.name} in ${neighborhood.city}, AZ. Flat-rate pricing from $89, same-week availability, and a 100% re-clean guarantee. ${neighborhood.description}`,
+    description: firstSentence.length > 160 ? `${firstSentence.slice(0, 157)}...` : firstSentence,
     alternates: { canonical: `${SITE.url}/neighborhoods/${neighborhood.slug}` },
   };
 }
@@ -104,13 +104,19 @@ export default async function NeighborhoodPage({ params }: { params: Promise<{ s
             <div className="mt-8">
               <p className="text-sm tracking-widest uppercase text-[var(--body)] mb-4">{neighborhood.city}, Arizona</p>
               <h1 className="text-5xl md:text-6xl font-bold text-[var(--ink)] mb-6">{neighborhood.name}</h1>
-              <p className="text-lg text-[var(--body)] leading-relaxed max-w-2xl">{neighborhood.description}</p>
-              <p className="text-base text-[var(--body)]/80 mt-4">{neighborhood.audience}</p>
+              <p className="text-lg text-[var(--body)] leading-relaxed max-w-2xl">{neighborhood.intro}</p>
             </div>
           </div>
         </section>
 
         <ServiceShowcase services={services} />
+
+        <section className="px-6 py-20 md:px-16">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="mb-6 text-4xl md:text-5xl text-[var(--ink)]">Cleaning in {neighborhood.name}</h2>
+            <p className="text-lg text-[var(--body)] leading-relaxed">{neighborhood.careNotes}</p>
+          </div>
+        </section>
 
         <section className="px-6 py-20 md:px-16 bg-[var(--paper-light)]">
           <div className="mx-auto max-w-3xl text-center">
@@ -135,8 +141,6 @@ export default async function NeighborhoodPage({ params }: { params: Promise<{ s
             </ul>
           </div>
         </section>
-
-        <FaqSection />
 
         <GiantCTA />
       </main>
