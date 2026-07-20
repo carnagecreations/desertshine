@@ -66,9 +66,9 @@ export default function ScrollZoomHero({
               or call {SITE.phone}
             </a>
           </div>
-          <Link href="/pricing"
+          <Link href="#estimate"
             className="inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-3 backdrop-blur-sm transition-colors hover:bg-white/20">
-            <span className="text-sm font-medium text-white">⚡ Get your flat-rate estimate instantly →</span>
+            <span className="text-sm font-medium text-white">⚡ Get your flat-rate estimate instantly ↓</span>
           </Link>
         </motion.div>
       </motion.div>

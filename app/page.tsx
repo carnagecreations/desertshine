@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ReviewButton from '@/components/ReviewButton';
+import PriceEstimator from '@/components/PriceEstimator';
 import ScrollZoomHero from '@/components/sections/ScrollZoomHero';
 import VelocityMarquee from '@/components/sections/VelocityMarquee';
 import StatCounters from '@/components/sections/StatCounters';
@@ -65,6 +66,23 @@ export default function Home() {
             includes: ['Nightly, weekly, or custom schedules', 'Restrooms, breakrooms, and floors', 'Trash, recycling, and consumables restock', 'Walk-through report after every service'],
           },
         ]} />
+
+        {/* Live estimate engine — the whole pitch, interactive */}
+        <section id="estimate" className="scroll-mt-24 px-4 py-24 md:px-16">
+          <div className="mx-auto max-w-5xl">
+            <div className="mb-10 text-center">
+              <p className="mb-3 font-mono text-xs tracking-[0.3em] text-[var(--accent)] uppercase">No forms · No waiting · No sales call</p>
+              <h2 className="mb-4 text-4xl md:text-6xl text-[var(--ink)]">
+                Price it yourself. <span className="italic text-[var(--accent)]">Right now.</span>
+              </h2>
+              <p className="mx-auto max-w-2xl text-lg text-[var(--body)] leading-relaxed">
+                Most companies hide their prices until they&apos;ve sized you up. Ours are published —
+                dial in your home and watch the flat rate compute, line by line.
+              </p>
+            </div>
+            <PriceEstimator targetPage="book" />
+          </div>
+        </section>
 
         {/* Manifesto section with ink fill */}
         <ManifestoFill text="Most companies *rush*. We take *time* to get it right." />
