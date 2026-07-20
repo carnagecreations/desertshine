@@ -44,7 +44,7 @@ export default function Navigation() {
       }`}>
       <nav className={`mx-auto flex max-w-7xl items-center justify-between px-6 transition-[padding] duration-500 md:px-10 ${scrolled ? 'py-2.5' : 'py-4'}`}>
         <Link href="/" aria-label="Clean Convictions — home" className="flex items-center hover:opacity-75 transition-opacity">
-          <Image src="/clean-conviction-logo.webp" alt="Clean Convictions" width={347} height={240} priority className="h-10 w-auto md:h-12" />
+          <Image src="/clean-conviction-logo.webp" alt="Clean Convictions" width={695} height={480} priority className="h-10 w-auto md:h-12" />
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">
