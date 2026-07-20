@@ -1,0 +1,7 @@
+name = "cleanconvictions-apex-redirect"
+main = "src/index.js"
+compatibility_date = "2026-07-18"
+
+routes = [
+  { pattern = "cleanconvictions.com/*", zone_name = "cleanconvictions.com" }
+]
