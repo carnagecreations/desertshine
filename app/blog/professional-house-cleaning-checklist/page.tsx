@@ -159,9 +159,9 @@ export default function BlogPost() {
                 <Link href="/book" className="rounded-full bg-[var(--accent)] px-6 py-3 text-white font-medium hover:shadow-lg hover:shadow-[var(--accent)]/30 transition-all">
                   Book Your Cleaning
                 </Link>
-                <a href="/neighborhoods" className="rounded-full border border-[var(--accent)] px-6 py-3 text-[var(--accent)] font-medium hover:bg-[var(--accent)]/5 transition-all">
+                <Link href="/neighborhoods" className="rounded-full border border-[var(--accent)] px-6 py-3 text-[var(--accent)] font-medium hover:bg-[var(--accent)]/5 transition-all">
                   See Your Area
-                </a>
+                </Link>
               </div>
             </div>
           </div>

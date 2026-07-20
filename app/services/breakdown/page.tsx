@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { SITE } from '@/lib/site';
 
@@ -298,12 +299,12 @@ export default function ServicesBreakdown() {
             See exactly what we'll do for your home. Get a free quote tailored to your needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/contact" className="rounded-full bg-[var(--accent)] px-8 py-4 text-lg font-medium text-white hover:shadow-lg hover:shadow-[var(--accent)]/30 transition-all">
+            <Link href="/contact" className="rounded-full bg-[var(--accent)] px-8 py-4 text-lg font-medium text-white hover:shadow-lg hover:shadow-[var(--accent)]/30 transition-all">
               Get a Free Quote
-            </a>
-            <a href="/book" className="rounded-full border-2 border-[var(--accent)] px-8 py-4 text-lg font-medium text-[var(--accent)] hover:bg-[var(--accent)]/5 transition-all">
+            </Link>
+            <Link href="/book" className="rounded-full border-2 border-[var(--accent)] px-8 py-4 text-lg font-medium text-[var(--accent)] hover:bg-[var(--accent)]/5 transition-all">
               Book Your Cleaning
-            </a>
+            </Link>
           </div>
         </div>
       </section>

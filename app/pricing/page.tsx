@@ -61,7 +61,7 @@ export default function PricingPage() {
           </div>
           <p className="mt-4 text-center text-sm text-[var(--body)]">
             Published base rates: Standard from $89 · Deep clean from $179 · Move-in/out from $199 · Commercial custom ·{' '}
-            <a href="/services/breakdown" className="text-[var(--accent)] font-semibold hover:underline">See everything included →</a>
+            <Link href="/services/breakdown" className="text-[var(--accent)] font-semibold hover:underline">See everything included →</Link>
           </p>
         </div>
       </section>

@@ -24,7 +24,7 @@ export default function ServiceShowcase({ services }: Props) {
       <div className="mx-auto max-w-6xl">
         {/* Grid on desktop, stack on mobile */}
         <div className="space-y-6 md:space-y-0 md:grid md:grid-cols-2 md:gap-6">
-          {services.map((service, idx) => {
+          {services.map((service) => {
             const isExpanded = expandedId === service.id;
             return (
               <motion.div

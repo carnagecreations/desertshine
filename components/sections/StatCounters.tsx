@@ -2,10 +2,6 @@
 import { useEffect, useRef } from 'react';
 import { useInView, useMotionValue, useSpring } from 'framer-motion';
 
-const STATS = [
-  { value: 100, suffix: '%', label: 'Re-clean guarantee — not happy, we return free' },
-];
-
 function Counter({ value, decimals = 0, prefix = '', suffix = '' }: {
   value: number; decimals?: number; prefix?: string; suffix?: string;
 }) {

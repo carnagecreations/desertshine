@@ -67,6 +67,8 @@ export default function QuoteForm() {
           q.get('pets') === '1' ? 'pets in the home' : '',
           addonNotes.length ? `add-ons: ${addonNotes.join(', ')}` : '',
         ].filter(Boolean).join(' · ')}`;
+    // One-time prefill from URL params on mount — not a render-loop concern.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setFormData((prev) => ({ ...prev, service: svcMap[svc] ?? prev.service, size, details }));
   }, []);
 

@@ -10,16 +10,16 @@ const QUOTES = REVIEWS;
 const DURATION = 6000;
 
 export default function TestimonialTheater() {
-  // QUOTES is a module constant, so this guard is deterministic per build
-  // and keeps hook order consistent.
-  if (QUOTES.length === 0) return null;
   const [i, setI] = useState(0);
   const [paused, setPaused] = useState(false);
   useEffect(() => {
-    if (paused) return;
+    if (paused || QUOTES.length === 0) return;
     const t = setTimeout(() => setI((v) => (v + 1) % QUOTES.length), DURATION);
     return () => clearTimeout(t);
   }, [i, paused]);
+  // Render nothing until real reviews exist — we never show fabricated
+  // testimonials. Hooks run first so their order stays consistent.
+  if (QUOTES.length === 0) return null;
   return (
     <section onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}
       className="mx-auto max-w-4xl px-6 py-28 text-center">
