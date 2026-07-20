@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { EASE_OUT } from '@/lib/motion';
 import { SITE } from '@/lib/site';
+import { GIVEAWAY } from '@/lib/giveaway';
 import { track } from '@/lib/track';
 
 const LINKS = [
@@ -58,6 +59,12 @@ export default function Navigation() {
               </Link>
             );
           })}
+          {GIVEAWAY.active && (
+            <Link href="/giveaway"
+              className="rounded-full border border-[var(--accent)]/40 bg-[var(--accent)]/5 px-3 py-1.5 text-sm font-medium text-[var(--accent)] transition-colors hover:bg-[var(--accent)]/10">
+              🎁 Giveaway
+            </Link>
+          )}
           <a href={SITE.phoneHref} onClick={() => track('phone_click', { location: 'nav' })}
             className="text-sm font-medium text-[var(--ink)]">{SITE.phone}</a>
           <Link href="/contact"
@@ -87,6 +94,12 @@ export default function Navigation() {
                   {l.label}
                 </Link>
               ))}
+              {GIVEAWAY.active && (
+                <Link href="/giveaway" onClick={() => setOpen(false)}
+                  className="py-3 text-lg font-medium text-[var(--accent)]">
+                  🎁 Giveaway
+                </Link>
+              )}
               <a href={SITE.phoneHref} onClick={() => track('phone_click', { location: 'mobile_menu' })}
                 className="py-3 text-lg font-medium text-[var(--ink)]">
                 Call {SITE.phone}

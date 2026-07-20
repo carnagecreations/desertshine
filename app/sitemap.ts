@@ -3,6 +3,7 @@ import { SITE } from '@/lib/site';
 import { GUIDES } from '@/lib/guides';
 import { SERVICES } from '@/lib/services';
 import { NEIGHBORHOODS } from '@/lib/neighborhoods';
+import { GIVEAWAY } from '@/lib/giveaway';
 
 export const revalidate = 3600;
 
@@ -41,5 +42,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly',
     priority: 0.7,
   }));
-  return [...core, ...services, ...neighborhoods, ...blogs];
+  // Only list the giveaway while it's live (short-lived, time-boxed page).
+  const giveaway: MetadataRoute.Sitemap = GIVEAWAY.active
+    ? [{ url: `${SITE.url}/giveaway`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 }]
+    : [];
+  return [...core, ...giveaway, ...services, ...neighborhoods, ...blogs];
 }
