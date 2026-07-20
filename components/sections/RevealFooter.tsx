@@ -15,6 +15,17 @@ const LINKS = [
   { label: 'Book a cleaning', href: '/book' },
 ];
 
+// Display labels for the social profiles in SITE.social. Only profiles with a
+// URL are rendered, so adding one in lib/site.ts makes it appear here.
+const SOCIAL_LABELS: Record<string, string> = {
+  facebook: 'Facebook',
+  google: 'Google',
+  yelp: 'Yelp',
+  nextdoor: 'Nextdoor',
+  instagram: 'Instagram',
+};
+const SOCIALS = Object.entries(SITE.social).filter(([, url]) => url);
+
 export default function RevealFooter() {
   const [time, setTime] = useState('');
   useEffect(() => {
@@ -38,6 +49,15 @@ export default function RevealFooter() {
           <p><a href={SITE.smsHref} className="hover:opacity-100">Text us — we reply same day</a></p>
           <p><a href={`mailto:${SITE.email}`} className="hover:opacity-100">{SITE.email}</a></p>
           <p className="mt-3 md:mt-4"><a href={SITE.googleReviewLink} target="_blank" rel="noopener noreferrer" className="hover:opacity-100">★ Leave a review</a></p>
+          {SOCIALS.length > 0 && (
+            <p className="mt-3 md:mt-4 flex flex-wrap gap-x-3 gap-y-1 md:justify-end">
+              {SOCIALS.map(([key, url]) => (
+                <a key={key} href={url} target="_blank" rel="noopener noreferrer" className="hover:opacity-100">
+                  {SOCIAL_LABELS[key] ?? key}
+                </a>
+              ))}
+            </p>
+          )}
           <p className="mt-3 md:mt-4 text-xs">{SITE.hours}</p>
         </div>
       </div>

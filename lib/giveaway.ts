@@ -28,11 +28,9 @@ export const GIVEAWAY = {
   winners: 1,
   runnerUpOffer: '15% off your first clean', // consolation for everyone who enters
 
-  // Formspree endpoint for entries. Defaults to the main quote form so the
-  // giveaway works the moment you deploy; every entry is tagged with a
-  // GIVEAWAY subject line so it's easy to filter. If you'd rather keep
-  // entries in their own inbox, create a new Formspree form and paste its id.
-  formId: 'xvzekkjj',
+  // Dedicated Formspree endpoint for giveaway entries — kept separate from the
+  // quote form (xvzekkjj) so entries land in their own inbox.
+  formId: 'xvzerlqy',
 
   // Only residents of the service area are eligible (keeps the list local).
   eligibility: SITE.serviceAreas,
