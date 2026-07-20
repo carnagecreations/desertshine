@@ -12,7 +12,8 @@ function parts(ms: number) {
   const clamp = Math.max(0, ms);
   const s = Math.floor(clamp / 1000);
   return {
-    h: String(Math.floor(s / 3600)).padStart(2, '0'),
+    d: String(Math.floor(s / 86400)).padStart(2, '0'),
+    h: String(Math.floor((s % 86400) / 3600)).padStart(2, '0'),
     m: String(Math.floor((s % 3600) / 60)).padStart(2, '0'),
     s: String(s % 60).padStart(2, '0'),
   };
@@ -27,17 +28,17 @@ function Countdown({ target, label }: { target: number; label: string }) {
     return () => clearInterval(id);
   }, []);
   // Render a stable placeholder until mounted, so server and client match.
-  const { h, m, s } = parts(now === null ? 0 : target - now);
+  const { d, h, m, s } = parts(now === null ? 0 : target - now);
   return (
     <div className="text-center">
       <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-[var(--body)]">{label}</p>
-      <div className="flex items-center justify-center gap-2 tabular-nums" suppressHydrationWarning>
-        {[{ v: h, l: 'hrs' }, { v: m, l: 'min' }, { v: s, l: 'sec' }].map((u, i) => (
-          <div key={u.l} className="flex items-center gap-2">
-            {i > 0 && <span className="text-2xl text-[var(--line)]">:</span>}
-            <div className="min-w-[3.5rem] rounded-xl bg-[var(--ink)] px-3 py-2 text-3xl font-bold text-[var(--paper)] md:text-4xl">
+      <div className="flex items-end justify-center gap-2 tabular-nums" suppressHydrationWarning>
+        {[{ v: d, l: 'days' }, { v: h, l: 'hrs' }, { v: m, l: 'min' }, { v: s, l: 'sec' }].map((u) => (
+          <div key={u.l} className="flex flex-col items-center gap-1">
+            <div className="min-w-[3.25rem] rounded-xl bg-[var(--ink)] px-3 py-2 text-2xl font-bold text-[var(--paper)] md:min-w-[3.5rem] md:text-4xl">
               {u.v}
             </div>
+            <span className="text-[0.65rem] uppercase tracking-widest text-[var(--body)]">{u.l}</span>
           </div>
         ))}
       </div>

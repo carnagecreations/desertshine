@@ -7,8 +7,8 @@ import { SITE } from '@/lib/site';
 import { GIVEAWAY, formatWindow } from '@/lib/giveaway';
 
 export const metadata: Metadata = {
-  title: 'Win a Free Deep Clean — Yuma Flash Giveaway',
-  description: `We're giving away ${GIVEAWAY.prize} (a $${GIVEAWAY.prizeValue} value) to one Yuma-area neighbor. Entry is free and open for a few hours only. Enter before the clock runs out.`,
+  title: 'Win a Free Deep Clean — Yuma Giveaway',
+  description: `We're giving away ${GIVEAWAY.prize} (a $${GIVEAWAY.prizeValue} value) to one Yuma-area neighbor. Free to enter, one winner drawn at random. Enter before the window closes.`,
   alternates: { canonical: `${SITE.url}/giveaway` },
 };
 
@@ -33,15 +33,15 @@ export default function GiveawayPage() {
           <div className="relative mx-auto max-w-3xl">
             <Breadcrumbs items={breadcrumbs} />
             <p className="mt-8 mb-4 text-sm font-medium tracking-[0.2em] text-[var(--accent)] uppercase">
-              Flash giveaway · a few hours only
+              Free giveaway · one lucky winner
             </p>
             <h1 className="text-4xl md:text-6xl font-bold text-[var(--ink)] mb-6 leading-tight">
               Win {GIVEAWAY.prize}. <span className="italic text-[var(--accent)]">On the house.</span>
             </h1>
             <p className="text-lg text-[var(--body)] leading-relaxed">
               One Yuma-area home is getting {GIVEAWAY.prize} — a ${GIVEAWAY.prizeValue} value — top to bottom,
-              baseboards to blinds, completely free. Entry costs nothing and takes seconds. The only catch is
-              the clock: this window is open for just a few hours.
+              baseboards to blinds, completely free. Entry costs nothing and takes seconds. Get your name in
+              before the window closes.
             </p>
             <p className="mt-4 text-sm text-[var(--body)]">
               Entry window: <span className="font-medium text-[var(--ink)]">{formatWindow()}</span>

@@ -45,7 +45,7 @@ export default function GiveawayRulesPage() {
             <section>
               <h2 className="text-2xl font-bold text-[var(--ink)] mb-4">2. Entry Period</h2>
               <p>
-                The giveaway opens and closes on the same day, within a short window:{' '}
+                The giveaway is open for entries during the following period:{' '}
                 <span className="font-medium text-[var(--ink)]">{formatWindow()}</span>. Entries submitted before it
                 opens or after it closes will not be eligible. Sponsor&apos;s clock is the official timekeeper.
               </p>

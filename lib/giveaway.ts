@@ -1,11 +1,10 @@
-// Single source of truth for the flash giveaway.
+// Single source of truth for the giveaway.
 //
-// It's a deliberately SHORT window — a few hours only — to create real
-// urgency without any fake "ending soon" pressure: when the clock says it's
-// closing, it genuinely is.
+// The countdown and copy stay honest: when the clock hits zero, entries
+// genuinely close — no fake "ending soon" pressure.
 //
 // To run it:
-//   1. Set `opensAt` / `closesAt` to your launch window (Arizona time).
+//   1. Set `opensAt` / `closesAt` to your window (Arizona time).
 //   2. Optionally swap `formId` for a dedicated Formspree form (see below).
 //   3. Rebuild and deploy.
 // To end it: set `active: false` and rebuild — the nav link and sitemap entry
@@ -17,10 +16,10 @@ export const GIVEAWAY = {
   // Master switch. false = pulled from nav + sitemap, page shows closed state.
   active: true,
 
-  // The flash window. Arizona observes no daylight saving, so MST is always
-  // UTC-07:00. Edit both timestamps before you launch.
-  opensAt: '2026-07-25T09:00:00-07:00',
-  closesAt: '2026-07-25T13:00:00-07:00', // ~4 hours later
+  // The entry window. Arizona observes no daylight saving, so MST is always
+  // UTC-07:00. Edit both timestamps to reschedule.
+  opensAt: '2026-07-20T00:00:00-07:00',
+  closesAt: '2026-08-20T23:59:00-07:00', // one month later
 
   // The prize is chosen to self-select real local customers — only someone
   // with a home in the service area wants a free deep clean.
@@ -50,21 +49,27 @@ export function giveawayStatus(now: number): GiveawayStatus {
   return 'open';
 }
 
-/** Human-readable entry window, e.g. "Saturday, July 25, 9:00 AM – 1:00 PM MST". */
+/**
+ * Human-readable entry window. Adapts to the window length:
+ *  - same day  → "Saturday, July 25, 9:00 AM – 1:00 PM MST"
+ *  - multi-day → "July 20 – August 20, 2026"
+ */
 export function formatWindow(): string {
-  const opens = new Date(GIVEAWAY.opensAt).toLocaleString('en-US', {
-    timeZone: 'America/Phoenix',
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: '2-digit',
-  });
-  const closes = new Date(GIVEAWAY.closesAt).toLocaleString('en-US', {
-    timeZone: 'America/Phoenix',
-    hour: 'numeric',
-    minute: '2-digit',
-    timeZoneName: 'short',
-  });
-  return `${opens} – ${closes}`;
+  const tz = 'America/Phoenix';
+  const opens = new Date(GIVEAWAY.opensAt);
+  const closes = new Date(GIVEAWAY.closesAt);
+  const sameDay =
+    opens.toLocaleDateString('en-US', { timeZone: tz }) ===
+    closes.toLocaleDateString('en-US', { timeZone: tz });
+
+  if (sameDay) {
+    const day = opens.toLocaleString('en-US', { timeZone: tz, weekday: 'long', month: 'long', day: 'numeric' });
+    const from = opens.toLocaleString('en-US', { timeZone: tz, hour: 'numeric', minute: '2-digit' });
+    const to = closes.toLocaleString('en-US', { timeZone: tz, hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
+    return `${day}, ${from} – ${to}`;
+  }
+
+  const from = opens.toLocaleString('en-US', { timeZone: tz, month: 'long', day: 'numeric' });
+  const to = closes.toLocaleString('en-US', { timeZone: tz, month: 'long', day: 'numeric', year: 'numeric' });
+  return `${from} – ${to}`;
 }
