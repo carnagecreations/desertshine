@@ -27,6 +27,9 @@ const TIME_OPTIONS = ['Morning', 'Afternoon', 'Evening', 'Flexible'];
 export default function QuoteForm() {
   const [state, handleSubmit] = useForm(FORM_ID);
   const [step, setStep] = useState(1);
+  // True when the Estimate Engine (/pricing) already carried over service +
+  // size — lets us skip re-asking for what we already know.
+  const [hasEstimate, setHasEstimate] = useState(false);
   const [formData, setFormData] = useState({
     service: SERVICES[0].name,
     name: '',
@@ -75,6 +78,11 @@ export default function QuoteForm() {
     // One-time prefill from URL params on mount — not a render-loop concern.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setFormData((prev) => ({ ...prev, service: svcMap[svc] ?? prev.service, size, details }));
+    // Service and size are already dialed in — skip straight to contact info.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setHasEstimate(true);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setStep(2);
   }, []);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -107,6 +115,9 @@ export default function QuoteForm() {
     );
   }
 
+  const totalSteps = hasEstimate ? 2 : 3;
+  const displayStep = hasEstimate ? step - 1 : step;
+
   return (
     <form onSubmit={onSubmit} className="rounded-3xl border border-[var(--line)] bg-white/70 backdrop-blur-sm" method="POST">
       <div className="overflow-hidden">
@@ -118,13 +129,13 @@ export default function QuoteForm() {
         {/* Progress bar */}
         <div className="border-b border-[var(--line)] px-8 pt-8 pb-6">
           <div className="mb-3 flex items-center justify-between">
-            <span className="text-xs font-medium uppercase tracking-widest text-[var(--body)]">Step {step} of 3</span>
-            <span className="text-xs text-[var(--body)]">{Math.round((step / 3) * 100)}%</span>
+            <span className="text-xs font-medium uppercase tracking-widest text-[var(--body)]">Step {displayStep} of {totalSteps}</span>
+            <span className="text-xs text-[var(--body)]">{Math.round((displayStep / totalSteps) * 100)}%</span>
           </div>
           <div className="h-1.5 overflow-hidden rounded-full bg-[var(--line)]">
             <motion.div
               className="h-full bg-gradient-to-r from-[var(--accent)] to-orange-600"
-              animate={{ width: `${(step / 3) * 100}%` }}
+              animate={{ width: `${(displayStep / totalSteps) * 100}%` }}
               transition={{ duration: 0.5 }}
             />
           </div>
@@ -211,19 +222,25 @@ export default function QuoteForm() {
             {step === 3 && (
               <div>
                 <h3 className="text-xl font-semibold text-[var(--ink)]">Last step.</h3>
-                <p className="mt-1 mb-6 text-sm text-[var(--body)]">Size and availability, plus anything we should know before we quote.</p>
+                <p className="mt-1 mb-6 text-sm text-[var(--body)]">
+                  {hasEstimate ? 'Availability, plus anything we should know before we quote.' : 'Size and availability, plus anything we should know before we quote.'}
+                </p>
                 <div className="space-y-4">
-                  <div>
-                    <label htmlFor="size" className="mb-2 block text-sm font-medium text-[var(--ink)]">Space size</label>
-                    <select
-                      id="size"
-                      name="size"
-                      value={formData.size}
-                      onChange={(e) => setFormData(prev => ({ ...prev, size: e.target.value }))}
-                      className="w-full rounded-lg border border-[var(--line)] bg-white px-4 py-3 text-[var(--ink)] outline-none transition-all focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_rgba(232,93,47,0.1)]">
-                      {SIZE_OPTIONS.map(opt => <option key={opt.value} value={opt.value}>{opt.label} ({opt.value})</option>)}
-                    </select>
-                  </div>
+                  {hasEstimate ? (
+                    <input type="hidden" name="size" value={formData.size} />
+                  ) : (
+                    <div>
+                      <label htmlFor="size" className="mb-2 block text-sm font-medium text-[var(--ink)]">Space size</label>
+                      <select
+                        id="size"
+                        name="size"
+                        value={formData.size}
+                        onChange={(e) => setFormData(prev => ({ ...prev, size: e.target.value }))}
+                        className="w-full rounded-lg border border-[var(--line)] bg-white px-4 py-3 text-[var(--ink)] outline-none transition-all focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_rgba(232,93,47,0.1)]">
+                        {SIZE_OPTIONS.map(opt => <option key={opt.value} value={opt.value}>{opt.label} ({opt.value})</option>)}
+                      </select>
+                    </div>
+                  )}
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
                       <label htmlFor="availDays" className="mb-2 block text-sm font-medium text-[var(--ink)]">Best days</label>
@@ -281,7 +298,7 @@ export default function QuoteForm() {
           <motion.button
             type="button"
             onClick={() => setStep(step - 1)}
-            disabled={step === 1}
+            disabled={step === (hasEstimate ? 2 : 1)}
             whileHover={{ x: -4 }}
             whileTap={{ scale: 0.95 }}
             className="text-sm font-medium text-[var(--body)] transition-colors hover:text-[var(--ink)] disabled:opacity-30">
@@ -289,7 +306,7 @@ export default function QuoteForm() {
           </motion.button>
 
           <div className="hidden text-xs text-[var(--body)] sm:block">
-            {step < 3 ? `Step ${step} of 3` : 'Ready to send'}
+            {step < 3 ? `Step ${displayStep} of ${totalSteps}` : 'Ready to send'}
           </div>
 
           {step < 3 ? (
