@@ -121,8 +121,11 @@ export default function QuoteForm() {
   return (
     <form onSubmit={onSubmit} className="rounded-3xl border border-[var(--line)] bg-white/70 backdrop-blur-sm" method="POST">
       <div className="overflow-hidden">
-        {/* Hidden fields for multi-step form */}
+        {/* Hidden fields for multi-step form — mirror state so fields from
+            earlier steps still submit once their step unmounts. */}
         <input type="hidden" name="service" value={formData.service} />
+        <input type="hidden" name="name" value={formData.name} />
+        <input type="hidden" name="phone" value={formData.phone} />
         {/* Honeypot — bots fill this, humans never see it (Formspree drops those) */}
         <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
 
@@ -190,7 +193,6 @@ export default function QuoteForm() {
                     <input
                       id="name"
                       type="text"
-                      name="name"
                       required
                       autoComplete="name"
                       placeholder="Jane Doe"
@@ -205,7 +207,6 @@ export default function QuoteForm() {
                     <input
                       id="phone"
                       type="tel"
-                      name="phone"
                       required
                       autoComplete="tel"
                       placeholder="(555) 123-4567"
