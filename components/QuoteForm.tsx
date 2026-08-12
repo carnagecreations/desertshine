@@ -21,6 +21,9 @@ const SIZE_OPTIONS = [
   { value: 'Commercial space', label: 'Commercial' },
 ];
 
+const DAY_OPTIONS = ['Weekdays', 'Weekends', 'Either'];
+const TIME_OPTIONS = ['Morning', 'Afternoon', 'Evening', 'Flexible'];
+
 export default function QuoteForm() {
   const [state, handleSubmit] = useForm(FORM_ID);
   const [step, setStep] = useState(1);
@@ -29,6 +32,8 @@ export default function QuoteForm() {
     name: '',
     phone: '',
     size: SIZE_OPTIONS[0].value,
+    availDays: DAY_OPTIONS[2],
+    availTime: TIME_OPTIONS[3],
     details: '',
   });
 
@@ -206,7 +211,7 @@ export default function QuoteForm() {
             {step === 3 && (
               <div>
                 <h3 className="text-xl font-semibold text-[var(--ink)]">Last step.</h3>
-                <p className="mt-1 mb-6 text-sm text-[var(--body)]">Size, plus anything we should know before we quote.</p>
+                <p className="mt-1 mb-6 text-sm text-[var(--body)]">Size and availability, plus anything we should know before we quote.</p>
                 <div className="space-y-4">
                   <div>
                     <label htmlFor="size" className="mb-2 block text-sm font-medium text-[var(--ink)]">Space size</label>
@@ -218,6 +223,30 @@ export default function QuoteForm() {
                       className="w-full rounded-lg border border-[var(--line)] bg-white px-4 py-3 text-[var(--ink)] outline-none transition-all focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_rgba(232,93,47,0.1)]">
                       {SIZE_OPTIONS.map(opt => <option key={opt.value} value={opt.value}>{opt.label} ({opt.value})</option>)}
                     </select>
+                  </div>
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div>
+                      <label htmlFor="availDays" className="mb-2 block text-sm font-medium text-[var(--ink)]">Best days</label>
+                      <select
+                        id="availDays"
+                        name="availDays"
+                        value={formData.availDays}
+                        onChange={(e) => setFormData(prev => ({ ...prev, availDays: e.target.value }))}
+                        className="w-full rounded-lg border border-[var(--line)] bg-white px-4 py-3 text-[var(--ink)] outline-none transition-all focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_rgba(232,93,47,0.1)]">
+                        {DAY_OPTIONS.map(opt => <option key={opt} value={opt}>{opt}</option>)}
+                      </select>
+                    </div>
+                    <div>
+                      <label htmlFor="availTime" className="mb-2 block text-sm font-medium text-[var(--ink)]">Best time</label>
+                      <select
+                        id="availTime"
+                        name="availTime"
+                        value={formData.availTime}
+                        onChange={(e) => setFormData(prev => ({ ...prev, availTime: e.target.value }))}
+                        className="w-full rounded-lg border border-[var(--line)] bg-white px-4 py-3 text-[var(--ink)] outline-none transition-all focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_rgba(232,93,47,0.1)]">
+                        {TIME_OPTIONS.map(opt => <option key={opt} value={opt}>{opt}</option>)}
+                      </select>
+                    </div>
                   </div>
                   <div>
                     <label htmlFor="details" className="mb-2 flex items-center justify-between text-sm font-medium text-[var(--ink)]">

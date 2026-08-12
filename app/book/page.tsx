@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import RevealFooter from '@/components/sections/RevealFooter';
+import QuoteForm from '@/components/QuoteForm';
 import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Book Your Cleaning',
-  description: "Pick a time online — we confirm details by text and send your flat-rate invoice within one business day.",
+  description: "Tell us about your space and availability — we confirm details by text and send your flat-rate invoice within one business day.",
   alternates: { canonical: `${SITE.url}/book` },
 };
 
@@ -17,7 +18,7 @@ export default function BookPage() {
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-[var(--ink)] mb-6">Book your cleaning</h1>
           <p className="text-lg text-[var(--body)] leading-relaxed mb-8">
-            Pick a service and time below. We'll call or text to confirm details, square footage, and any special requests — then send your flat-rate invoice within one business day.
+            Fill out the form below with your space and availability. We'll call or text to confirm details, square footage, and any special requests — then send your flat-rate invoice within one business day.
           </p>
           <div className="space-y-3 text-sm text-[var(--body)]/80">
             <p>✓ Free quote, no obligation</p>
@@ -29,17 +30,7 @@ export default function BookPage() {
 
       <section className="px-6 py-20 md:px-16">
         <div className="mx-auto max-w-2xl">
-          <div className="rounded-2xl border border-[var(--line)] bg-white/50 backdrop-blur-sm overflow-hidden">
-            <iframe
-              src="https://calendly.com/cleanconviction"
-              width="100%"
-              height="700"
-              frameBorder="0"
-              loading="lazy"
-              title="Book your cleaning appointment"
-              className="block"
-            />
-          </div>
+          <QuoteForm />
         </div>
       </section>
 
@@ -50,7 +41,7 @@ export default function BookPage() {
             {/* Connector line behind the number circles */}
             <span aria-hidden className="absolute left-1/2 top-6 h-[calc(100%-3rem)] w-px -translate-x-1/2 bg-gradient-to-b from-[var(--accent)]/40 via-[var(--line)] to-[var(--accent)]/40" />
             {[
-              { n: '1', title: 'You book', body: 'Pick your service and preferred time.' },
+              { n: '1', title: 'You book', body: 'Tell us your service, space, and availability.' },
               { n: '2', title: 'We confirm', body: "We'll text or call to confirm details, square footage, pets, special requests." },
               { n: '3', title: 'You get your invoice', body: "Flat-rate quote via email. Pay on your terms, we'll schedule your cleaning." },
             ].map((step) => (
