@@ -312,6 +312,7 @@ export default function QuoteForm() {
 
           {step < 3 ? (
             <motion.button
+              key="next"
               type="button"
               onClick={() => setStep(step + 1)}
               disabled={step === 2 && (!formData.name.trim() || !formData.phone.trim())}
@@ -322,6 +323,7 @@ export default function QuoteForm() {
             </motion.button>
           ) : (
             <motion.button
+              key="submit"
               type="submit"
               disabled={state.submitting}
               whileHover={{ scale: 1.05 }}
