@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import RevealFooter from '@/components/sections/RevealFooter';
 import QuoteForm from '@/components/QuoteForm';
+import PartnerBanner from '@/components/PartnerBanner';
 import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export default function BookPage() {
 
       <section className="px-6 py-20 md:px-16">
         <div className="mx-auto max-w-2xl">
+          <PartnerBanner />
           <QuoteForm />
         </div>
       </section>

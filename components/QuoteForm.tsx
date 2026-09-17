@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useForm, ValidationError } from '@formspree/react';
 import { SITE } from '@/lib/site';
 import { track } from '@/lib/track';
+import { getPartnerRef } from '@/lib/partnerRef';
 
 const FORM_ID = 'xvzekkjj';
 
@@ -38,7 +39,18 @@ export default function QuoteForm() {
     availDays: DAY_OPTIONS[2],
     availTime: TIME_OPTIONS[3],
     details: '',
+    partnerCode: '',
   });
+
+  // Pick up a partner referral code captured on any earlier page (see
+  // PartnerRefCapture in the root layout) so it rides along with the lead.
+  useEffect(() => {
+    const ref = getPartnerRef();
+    if (ref) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setFormData((prev) => ({ ...prev, partnerCode: ref }));
+    }
+  }, []);
 
   // Prefill from the Estimate Engine (/pricing) — the CTA there carries the
   // dialed-in setup over as query params so visitors never re-type it.
@@ -126,6 +138,7 @@ export default function QuoteForm() {
         <input type="hidden" name="service" value={formData.service} />
         <input type="hidden" name="name" value={formData.name} />
         <input type="hidden" name="phone" value={formData.phone} />
+        <input type="hidden" name="partnerCode" value={formData.partnerCode} />
         {/* Honeypot — bots fill this, humans never see it (Formspree drops those) */}
         <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
 

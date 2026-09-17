@@ -5,6 +5,7 @@ import { MotionConfig } from 'framer-motion';
 import SmoothScroll from '@/components/SmoothScroll';
 import Navigation from '@/components/Navigation';
 import StickyPhoneButton from '@/components/StickyPhoneButton';
+import PartnerRefCapture from '@/components/PartnerRefCapture';
 import { SITE } from '@/lib/site';
 import { organizationSchema, servicesSchema, websiteSchema } from '@/lib/schema';
 import './globals.css';
@@ -93,6 +94,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
       <body>
+        <PartnerRefCapture />
         <StickyPhoneButton />
         {/* Google Analytics (GA4) — loads after page is interactive to protect mobile speed */}
         <Script

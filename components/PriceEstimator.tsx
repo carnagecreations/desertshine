@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence, useMotionValue, useTransform, animate } from 'framer-motion';
 import { SITE } from '@/lib/site';
 import { track } from '@/lib/track';
+import { getPartnerRef } from '@/lib/partnerRef';
 
 /* ————— Pricing engine (calibrated to published rates) —————
    Base rates cover ~1,500 sq ft with 2 bathrooms, matching the
@@ -116,6 +117,14 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
   const [addons, setAddons] = useState<Set<string>>(new Set());
   const [disinfectRoomsRaw, setDisinfectRooms] = useState(1);
   const [garageOrgHours, setGarageOrgHours] = useState(1);
+  // Read only in an effect (never during render) so server and first client
+  // render match — sessionStorage isn't available during SSR anyway.
+  const [partnerRef, setPartnerRef] = useState('');
+  useEffect(() => {
+    // One-time read of sessionStorage on mount — not a render-loop concern.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setPartnerRef(getPartnerRef());
+  }, []);
   // Clamp so lowering the bedroom count can't leave a stale, too-high room count.
   const disinfectRooms = Math.min(disinfectRoomsRaw, beds + 1);
 
@@ -250,7 +259,10 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
   const hoursLo = Math.min(9, Math.max(1.5, Math.round((preFreq / 50) * 2) / 2));
 
   // Carry the dialed-in estimate to the quote form so nothing gets re-typed.
-  const estParams = new URLSearchParams({
+  // Also carry along a partner referral code if one was captured earlier
+  // (e.g. someone landed on the homepage via a partner's QR code, then
+  // clicked through to run the estimator before booking).
+  const estParamsObj: Record<string, string> = {
     est: isOffice ? 'custom' : String(price),
     svc: service,
     sqft: String(sqft),
@@ -262,7 +274,9 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
     add: [...addons].join(','),
     disinfectRooms: String(disinfectRooms),
     garageOrgHours: String(garageOrgHours),
-  }).toString();
+  };
+  if (partnerRef) estParamsObj.ref = partnerRef;
+  const estParams = new URLSearchParams(estParamsObj).toString();
 
   const lockIn = () => track('estimator_lock_in', { value: price, service, frequency: freq });
 
