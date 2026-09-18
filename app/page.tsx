@@ -103,7 +103,7 @@ export default function Home() {
               Your code is generated the moment you request a quote — before you&apos;ve even booked.
             </p>
             <Link href="/referrals"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent)] to-orange-600 px-8 py-4 text-lg font-medium text-white shadow-[0_4px_14px_-4px_rgba(232,93,47,0.5)] transition-all hover:scale-105">
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent)] to-[#812b0e] px-8 py-4 text-lg font-medium text-white shadow-[0_4px_14px_-4px_rgba(232,93,47,0.5)] transition-all hover:scale-105">
               See how it works
             </Link>
           </div>
