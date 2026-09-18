@@ -8,7 +8,7 @@ import { faqSchemaFrom } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'House Cleaning Prices in Yuma, AZ — Instant Flat-Rate Estimator',
-  description: 'See house cleaning prices for Yuma up front: recurring from $89, deep cleans from $179, move-outs from $199. Dial in your home for an instant flat-rate estimate.',
+  description: 'See house cleaning prices for Yuma up front: recurring from $109, deep cleans from $179, move-outs from $199. Dial in your home for an instant flat-rate estimate.',
   alternates: { canonical: `${SITE.url}/pricing` },
 };
 
@@ -60,7 +60,7 @@ export default function PricingPage() {
             <span className="flex items-center gap-2"><span className="text-[var(--accent)]">✓</span> 24-hour re-clean guarantee</span>
           </div>
           <p className="mt-4 text-center text-sm text-[var(--body)]">
-            Published base rates: Standard from $89 · Deep clean from $179 · Move-in/out from $199 · Commercial custom ·{' '}
+            Published base rates: Standard from $109 · Deep clean from $179 · Move-in/out from $199 · Commercial custom ·{' '}
             <Link href="/services/breakdown" className="text-[var(--accent)] font-semibold hover:underline">See everything included →</Link>
           </p>
         </div>

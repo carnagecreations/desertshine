@@ -23,7 +23,7 @@ export const SERVICES: Service[] = [
     slug: 'house-cleaning',
     name: 'Recurring House Cleaning',
     shortName: 'House Cleaning',
-    price: 'from $89/visit',
+    price: 'from $109/visit',
     eyebrow: 'Weekly · Bi-weekly · Monthly',
     tagline: 'The same cleaner, the same checklist, every single visit.',
     intro:

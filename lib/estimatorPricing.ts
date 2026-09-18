@@ -16,6 +16,19 @@ export const BASE_PRICE: Record<ServiceKey, number> = {
   move: 199,
 };
 
+// The true "from" price per program: the cheapest a one-time visit can
+// actually come out to (smallest home, 1 bed / 1 bath, no condition
+// surcharge, no add-ons, no recurring discount). Regular cleaning gets a
+// flat credit for compact homes under 1,100 sq ft; deep/move don't, so
+// their floor is just the base rate. Use this everywhere the site quotes
+// a "from $X" price so the marketing copy can never drift from what the
+// estimator (and the app) would actually charge.
+export const FROM_PRICE: Record<ServiceKey, number> = {
+  standard: 109,
+  deep: 179,
+  move: 199,
+};
+
 const SQFT_RATE: Record<ServiceKey, number> = {
   standard: 18,
   deep: 30,

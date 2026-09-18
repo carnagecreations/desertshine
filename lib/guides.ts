@@ -34,7 +34,7 @@ export const GUIDES: Guide[] = [
 
 Moving out of a rental in Yuma? Your landlord is going to inspect. They're looking for reasons to keep your deposit.
 
-This is the checklist we use for [move-out cleans from $299](/pricing). Follow it, and you'll pass inspection.
+This is the checklist we use for [move-out cleans from $199](/pricing). Follow it, and you'll pass inspection.
 
 ## Before You Move: Key Dates
 
@@ -204,7 +204,7 @@ Landlords look for these (and will deduct from deposit):
 - Landlord is known for being strict
 - You want to guarantee your deposit back
 
-[Professional move-out clean: $299 → /pricing](/pricing)
+[Professional move-out clean: $199 → /pricing](/pricing)
 
 ---
 
@@ -239,7 +239,7 @@ Arizona law requires landlords to return deposits within 14 days (or provide an 
 
 We serve [Yuma](/areas/yuma), [Somerton](/areas/somerton), [San Luis](/areas/san-luis), and the [surrounding valley](/areas). Same-week availability, even during peak moving season.
 
-**Flat rate: $299 and up.** No surprises. Get your deposit back.
+**Flat rate: $199 and up.** No surprises. Get your deposit back.
     `,
   },
   {
@@ -302,9 +302,9 @@ A cleaning service that's been operating in Yuma for years has already solved th
 
 **Recurring cleans from $129/visit.** Same cleaner, same checklist, same day every visit. No surprises.
 
-**Deep cleans from $249.** Everything in your regular clean, plus baseboards, blinds, vents, inside your oven and fridge, and grout detail.
+**Deep cleans from $179.** Everything in your regular clean, plus baseboards, blinds, vents, inside your oven and fridge, and grout detail.
 
-**Move-out cleans from $299.** Built for landlord inspections. Every cabinet, closet, and appliance—inside and out.
+**Move-out cleans from $199.** Built for landlord inspections. Every cabinet, closet, and appliance—inside and out.
 
 **Commercial janitorial—custom quote.** After-hours service with a walk-through report.
 
@@ -397,7 +397,7 @@ When you book a [deep clean with Clean Convictions](/pricing), we:
 3. Rinse thoroughly with hot water
 4. Apply professional penetrating sealer
 
-**Cost:** Included in our [deep cleaning service from $249 →](/pricing)
+**Cost:** Included in our [deep cleaning service from $179 →](/pricing)
 
 **Result:** Grout that stays visibly clean for months, not days.
 
@@ -493,7 +493,7 @@ Here's what we actually clean during each service.
 
 **Time:** 4–5 hours for average 3-bed home
 
-**Cost:** [From $249](/pricing)
+**Cost:** [From $179](/pricing)
 
 **Frequency:** Quarterly or seasonally (every 3–4 months)
 
@@ -540,7 +540,7 @@ In Yuma, deep cleans matter more because of dust and hard water:
 - Monthly or bi-weekly recurring cleaning (maintenance)
 - Quarterly deep cleaning (seasonal reset)
 
-**Cost:** $129 × 4 months + $249 × 1 deep = **$765/quarter**
+**Cost:** $129 × 4 months + $179 × 1 deep = **$695/quarter**
 
 **Benefit:** Your home stays clean, dust doesn't accumulate, grout doesn't stain.
 
@@ -562,7 +562,7 @@ A: Yes, if you're letting grout stain, dust accumulate, or hard-water deposits b
 ## Ready to Schedule?
 
 [Regular cleaning from $129 →](/pricing)
-[Deep cleaning from $249 →](/pricing)
+[Deep cleaning from $179 →](/pricing)
 
 Ask us about quarterly combos. We can set up auto-scheduling so you get regular + seasonal deep cleans on the same day of the month.
 
@@ -1131,7 +1131,7 @@ A few honest factors move the number up or down:
 
 - **Square footage and bathrooms.** More space and more bathrooms mean more time — bathrooms are the most labor-intensive rooms.
 - **Frequency.** The more often we clean, the less builds up between visits, which is why recurring plans cost less per visit.
-- **Condition at the start.** If a home hasn't had a professional clean in a while, we usually recommend starting with a one-time [deep clean from $249](/pricing) to reset it, then maintaining with recurring visits.
+- **Condition at the start.** If a home hasn't had a professional clean in a while, we usually recommend starting with a one-time [deep clean from $179](/pricing) to reset it, then maintaining with recurring visits.
 
 ## What's Included at the Base Rate
 
@@ -1171,7 +1171,7 @@ Our flat rates are identical whether you're in [Yuma](/areas/yuma), [Fortuna Foo
     content: `
 # Deep Cleaning Cost in Yuma: What to Expect in 2026
 
-**A deep clean in Yuma starts at $249 for a home up to about 1,500 sq ft with two bathrooms, compared to $129 for a standard recurring visit.** The difference covers the detail work standard cleans skip — inside the oven and fridge, hand-scrubbed baseboards, grout, and vents. Larger homes get an exact flat quote first, and there are never travel fees in Yuma County.
+**A deep clean in Yuma starts at $179 for a home up to about 1,500 sq ft with two bathrooms, compared to $129 for a standard recurring visit.** The difference covers the detail work standard cleans skip — inside the oven and fridge, hand-scrubbed baseboards, grout, and vents. Larger homes get an exact flat quote first, and there are never travel fees in Yuma County.
 
 ## Standard vs. Deep Cleaning Cost
 
@@ -1179,7 +1179,7 @@ The best way to understand deep-clean pricing is to see it next to a standard cl
 
 | | Standard clean | Deep clean |
 |---|---|---|
-| Starting flat rate | from $129 | from $249 |
+| Starting flat rate | from $129 | from $179 |
 | Typical time (3-bed home) | 2–3 hours | 4–5 hours |
 | Frequency | weekly / bi-weekly / monthly | quarterly / seasonal |
 | Oven & fridge interior | not included | included |
@@ -1192,7 +1192,7 @@ A deep clean costs more because it takes roughly twice as long and reaches every
 
 ## What Drives the Price of a Deep Clean
 
-The [$249 starting rate](/pricing) covers a home up to about 1,500 sq ft with two bathrooms. Above that, the flat quote depends on:
+The [$179 starting rate](/pricing) covers a home up to about 1,500 sq ft with two bathrooms. Above that, the flat quote depends on:
 
 - **Square footage and bathroom count.** More space and more bathrooms add time.
 - **How long since the last deep clean.** A home that's been maintained costs less to deep clean than one with heavy built-up grime.
@@ -1203,16 +1203,16 @@ The [$249 starting rate](/pricing) covers a home up to about 1,500 sq ft with tw
 
 | Home size | Deep clean flat rate |
 |---|---|
-| Up to ~1,500 sq ft, 2 baths | from $249 |
-| ~1,500–2,200 sq ft, 2–3 baths | from $299 |
-| ~2,200–3,000 sq ft, 3+ baths | from $369 |
+| Up to ~1,500 sq ft, 2 baths | from $179 |
+| ~1,500–2,200 sq ft, 2–3 baths | from $199 |
+| ~2,200–3,000 sq ft, 3+ baths | from $299 |
 | Larger / custom | exact flat quote first |
 
 These are typical starting points; we confirm the exact flat price for your home before we begin, with no travel fees anywhere in the county.
 
 ## When a Deep Clean Is Worth the Extra Cost
 
-Paying $249 instead of $129 makes sense when:
+Paying $179 instead of $129 makes sense when:
 
 - You're starting recurring service and want to reset the home first
 - It's been many months (or you've never had a professional deep clean)
@@ -1252,19 +1252,19 @@ Deep cleans are the same flat rate across [Yuma](/areas/yuma), [Fortuna Foothill
     content: `
 # Move-Out Cleaning Cost in Yuma (and How to Get Your Deposit Back)
 
-**Move-out cleaning in Yuma starts at $299 as a flat rate for a home up to about 1,500 sq ft with two bathrooms, and larger units get an exact flat quote first.** Since Yuma-area security deposits often run $500–$1,500+, a single move-out clean frequently pays for itself several times over in recovered deposit. There are no travel fees anywhere in the county.
+**Move-out cleaning in Yuma starts at $199 as a flat rate for a home up to about 1,500 sq ft with two bathrooms, and larger units get an exact flat quote first.** Since Yuma-area security deposits often run $500–$1,500+, a single move-out clean frequently pays for itself several times over in recovered deposit. There are no travel fees anywhere in the county.
 
 ## Why Move-Out Cleaning Costs More Than a Standard Clean
 
-A move-out clean is built for one thing: passing a landlord inspection on an empty unit. That means everything a [deep clean](/services/deep-cleaning) includes — inside the oven and fridge, hand-scrubbed baseboards, grout, cabinet interiors, tracks, and vents — done to move-out standard, top to bottom. That's why it starts at $299 rather than the $129 standard rate.
+A move-out clean is built for one thing: passing a landlord inspection on an empty unit. That means everything a [deep clean](/services/deep-cleaning) includes — inside the oven and fridge, hand-scrubbed baseboards, grout, cabinet interiors, tracks, and vents — done to move-out standard, top to bottom. That's why it starts at $199 rather than the $129 standard rate.
 
 ## Typical Move-Out Cleaning Costs by Unit Size
 
 | Unit size | Move-out flat rate |
 |---|---|
-| Studio / 1-bed apartment | from $299 |
-| 2-bed, up to ~1,500 sq ft, 2 baths | from $299 |
-| 3-bed, ~1,500–2,200 sq ft | from $349 |
+| Studio / 1-bed apartment | from $199 |
+| 2-bed, up to ~1,500 sq ft, 2 baths | from $199 |
+| 3-bed, ~1,500–2,200 sq ft | from $249 |
 | 4-bed / larger home, 3+ baths | exact flat quote first |
 
 The starting rate covers a home up to about 1,500 sq ft with two bathrooms; beyond that we confirm an exact flat price before booking. No hidden charges and no travel fees anywhere in Yuma County.
@@ -1276,7 +1276,7 @@ Here's the math that makes move-out cleaning an easy call:
 | | Amount |
 |---|---|
 | Typical Yuma security deposit | $500 – $1,500+ |
-| Move-out clean (up to ~1,500 sq ft) | from $299 |
+| Move-out clean (up to ~1,500 sq ft) | from $199 |
 | Common deductions for a dirty unit | oven, grout, carpet, general cleaning |
 | Net if the clean saves your deposit | you come out ahead, often by hundreds |
 

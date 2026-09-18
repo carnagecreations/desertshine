@@ -22,7 +22,7 @@ const FAQ_GROUPS = [
     questions: [
       {
         q: 'How much does house cleaning cost?',
-        a: 'Recurring home cleaning typically runs $129 per visit for a home up to about 1,500 sq ft with two bathrooms (compact homes start at $89). Deep cleans typically run $249, and move-out cleans typically run $299. Larger homes get an exact flat quote before we start—no surprises.',
+        a: 'Recurring home cleaning typically runs $129 per visit for a home up to about 1,500 sq ft with two bathrooms (compact homes start at $109). Deep cleans typically run $179, and move-out cleans typically run $199. Larger homes get an exact flat quote before we start—no surprises.',
       },
       {
         q: 'Do you charge travel fees?',
@@ -126,7 +126,7 @@ const FAQ_GROUPS = [
     questions: [
       {
         q: 'What\'s a move-out clean?',
-        a: 'Built to pass landlord inspections. Includes everything in a deep clean plus inside every cabinet, closet, and appliance. Typically $299 for homes up to 1,500 sq ft—and worth every dollar if it saves your security deposit.',
+        a: 'Built to pass landlord inspections. Includes everything in a deep clean plus inside every cabinet, closet, and appliance. Typically $199 for homes up to 1,500 sq ft—and worth every dollar if it saves your security deposit.',
       },
       {
         q: 'Do you do commercial office cleaning?',

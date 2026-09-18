@@ -39,7 +39,7 @@ export default async function NeighborhoodPage({ params }: { params: Promise<{ s
     {
       id: 'recurring',
       name: 'Recurring Home Cleaning',
-      price: 'from $89/visit',
+      price: 'from $109/visit',
       blurb: `Weekly, bi-weekly, or monthly service for ${neighborhood.name} residents. Same cleaner every visit ensures consistency and familiarity with your home.`,
       image: '/images/service-recurring.webp',
       includes: ['Kitchens: counters, sinks, exterior appliances, floors', 'Bathrooms: showers, tubs, toilets, mirrors, floors', 'All rooms: dusting, surfaces, floors, trash, tidying', 'Same cleaner, same checklist, every visit'],

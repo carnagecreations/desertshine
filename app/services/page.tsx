@@ -18,7 +18,7 @@ const SERVICES = [
   {
     id: 'recurring',
     name: 'Recurring Home Cleaning',
-    price: 'from $89/visit',
+    price: 'from $109/visit',
     blurb: 'Weekly, bi-weekly, or monthly. The same cleaner every visit, working the same room-by-room checklist so your home stays consistently done, not occasionally rescued.',
     image: '/images/service-recurring.webp',
     includes: ['Kitchens: counters, sinks, exterior appliances, floors', 'Bathrooms: showers, tubs, toilets, mirrors, floors', 'All rooms: dusting, surfaces, floors, trash, tidying', 'Same cleaner, same checklist, every visit'],

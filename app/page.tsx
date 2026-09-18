@@ -17,7 +17,7 @@ import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'House Cleaning in Yuma, AZ — Flat-Rate & Same-Week | Clean Convictions',
-  description: 'Looking for house cleaning near you in Yuma, AZ? Flat-rate home and office cleaning from $89, same-week availability, and a 100% re-clean guarantee. Get an instant price.',
+  description: 'Looking for house cleaning near you in Yuma, AZ? Flat-rate home and office cleaning from $109, same-week availability, and a 100% re-clean guarantee. Get an instant price.',
   alternates: { canonical: SITE.url },
 };
 
@@ -36,7 +36,7 @@ export default function Home() {
           {
             id: 'recurring',
             name: 'Recurring Home Cleaning',
-            price: 'from $89/visit',
+            price: 'from $109/visit',
             blurb: 'Weekly, bi-weekly, or monthly. The same cleaner every visit, working the same room-by-room checklist so your home stays consistently done — not occasionally rescued.',
             image: '/images/service-recurring.webp',
             includes: ['Kitchens: counters, sinks, exterior appliances, floors', 'Bathrooms: showers, tubs, toilets, mirrors, floors', 'All rooms: dusting, surfaces, floors, trash, tidying', 'Same cleaner, same checklist, every visit'],

@@ -219,7 +219,7 @@ export default function SnowbirdPrepPage() {
                 Schedule Seasonal Clean
               </Link>
               <p className="text-xs text-[var(--body)] mt-3">
-                Opening: typically $249 deep clean • Closing: custom quote • Call (928) 298-5509
+                Opening: typically $179 deep clean • Closing: custom quote • Call (928) 298-5509
               </p>
             </div>
 

@@ -137,7 +137,7 @@ export default function HaboobCleanupPage() {
               >
                 Book Post-Haboob Deep Clean
               </Link>
-              <p className="text-xs text-[var(--body)] mt-3">Same-week availability • Deep clean typically $249</p>
+              <p className="text-xs text-[var(--body)] mt-3">Same-week availability • Deep clean typically $179</p>
             </div>
 
             {/* Prevention */}

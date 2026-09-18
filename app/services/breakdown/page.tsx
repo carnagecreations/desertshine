@@ -33,7 +33,7 @@ export default function ServicesBreakdown() {
       <section className="px-6 py-20 md:px-16 bg-[var(--paper-light)]">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--ink)] mb-12">Recurring Home Cleaning</h2>
-          <p className="text-lg text-[var(--body)] mb-8">Weekly, bi-weekly, or monthly service. Same cleaner every visit. Starting at $89/visit.</p>
+          <p className="text-lg text-[var(--body)] mb-8">Weekly, bi-weekly, or monthly service. Same cleaner every visit. Starting at $109/visit.</p>
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Living Areas & Bedrooms */}

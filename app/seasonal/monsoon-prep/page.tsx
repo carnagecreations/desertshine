@@ -67,7 +67,7 @@ export default function MonsoonPrepPage() {
                   >
                     Book Pre-Season Deep Clean
                   </Link>
-                  <p className="text-xs text-[var(--body)] mt-2">Available same-week • Typical cost: $249</p>
+                  <p className="text-xs text-[var(--body)] mt-2">Available same-week • Typical cost: $179</p>
                 </div>
               </div>
             </div>
@@ -150,7 +150,7 @@ export default function MonsoonPrepPage() {
               >
                 Schedule Post-Storm Deep Clean
               </Link>
-              <p className="text-xs text-[var(--body)] mt-3">Deep clean: typically $249 • Get a free quote in 60 seconds</p>
+              <p className="text-xs text-[var(--body)] mt-3">Deep clean: typically $179 • Get a free quote in 60 seconds</p>
             </div>
 
             {/* Living With Monsoon */}

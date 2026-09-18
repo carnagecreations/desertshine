@@ -46,7 +46,7 @@ export const organizationSchema = {
     opens: '07:00',
     closes: '21:00',
   },
-  priceRange: 'From $89',
+  priceRange: 'From $109',
   ...(sameAs.length ? { sameAs } : {}),
   // aggregateRating + review are emitted ONLY when lib/reviews.ts has real
   // entries — never fabricated (fake review markup risks a manual action).
@@ -86,7 +86,7 @@ export const servicesSchema = [
     description: 'Weekly, bi-weekly, or monthly residential cleaning service with the same cleaner every visit.',
     provider: { '@type': 'LocalBusiness', '@id': `${SITE.url}#organization`, name: SITE.name, url: SITE.url },
     areaServed: SITE.serviceAreas.map((area) => ({ '@type': 'City', name: area })),
-    priceRange: 'from $89',
+    priceRange: 'from $109',
     url: `${SITE.url}/services/house-cleaning`,
   },
   {
@@ -126,7 +126,7 @@ export const servicesSchema = [
 export const HOME_FAQS: { q: string; a: string }[] = [
   {
     q: 'How much does cleaning cost in Yuma?',
-    a: 'Recurring house cleaning starts at $89 per visit for compact homes, with a typical 1,500 sq ft home around $129. Deep cleaning starts at $179 and move-out cleaning at $199. Every home gets an exact flat quote before we book — never a surprise after.',
+    a: 'Recurring house cleaning starts at $109 per visit for compact homes, with a typical 1,500 sq ft home around $129. Deep cleaning starts at $179 and move-out cleaning at $199. Every home gets an exact flat quote before we book — never a surprise after.',
   },
   {
     q: 'Do you clean on evenings or weekends?',
