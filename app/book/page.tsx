@@ -19,12 +19,13 @@ export default function BookPage() {
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-[var(--ink)] mb-6">Book your cleaning</h1>
           <p className="text-lg text-[var(--body)] leading-relaxed mb-8">
-            Fill out the form below with your space and availability. We'll call or text to confirm details, square footage, and any special requests — then send your flat-rate invoice within one business day.
+            Fill out the form below with your space and availability. We'll confirm details, square footage, and any special requests — then send your flat-rate invoice within one business day.
           </p>
           <div className="space-y-3 text-sm text-[var(--body)]/80">
             <p>✓ Free quote, no obligation</p>
             <p>✓ Same-week availability</p>
             <p>✓ 100% re-clean guarantee</p>
+            <p>✓ Get your own referral code instantly — $25 off for friends you send our way</p>
           </div>
         </div>
       </section>
@@ -61,20 +62,20 @@ export default function BookPage() {
 
       <section className="px-6 py-20 md:px-16">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold text-[var(--ink)] mb-6">Prefer to talk it through?</h2>
+          <h2 className="text-3xl font-bold text-[var(--ink)] mb-6">Rather not fill out a form?</h2>
           <p className="text-lg text-[var(--body)] mb-8">
-            Call or text us. If we&apos;re mid-clean the phone stays in the pocket — but we reply the same day, every day.
+            Email us at <a href={`mailto:${SITE.email}`} className="font-medium text-[var(--accent)] hover:underline">{SITE.email}</a> and we&apos;ll reply the same day. Or call/text if you&apos;d rather — we just can&apos;t always pick up mid-clean.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-3">
             <a
               href={SITE.phoneHref}
-              className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-8 py-4 text-lg font-medium text-white transition-all hover:shadow-lg hover:shadow-[var(--accent)]/30 hover:scale-105"
+              className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] px-5 py-2.5 text-sm font-medium text-[var(--body)] transition-all hover:border-[var(--accent)] hover:text-[var(--accent)]"
             >
               Call {SITE.phone}
             </a>
             <a
               href={SITE.smsHref}
-              className="inline-flex items-center gap-2 rounded-full border-2 border-[var(--accent)] px-8 py-[14px] text-lg font-medium text-[var(--accent)] transition-all hover:bg-[var(--accent)]/10"
+              className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] px-5 py-2.5 text-sm font-medium text-[var(--body)] transition-all hover:border-[var(--accent)] hover:text-[var(--accent)]"
             >
               Text us
             </a>

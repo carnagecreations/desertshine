@@ -5,6 +5,7 @@ import { useForm, ValidationError } from '@formspree/react';
 import { SITE } from '@/lib/site';
 import { track } from '@/lib/track';
 import { getPartnerRef } from '@/lib/partnerRef';
+import { generateLeadReferralCode } from '@/lib/leadReferralCode';
 
 const FORM_ID = 'xvzekkjj';
 
@@ -28,6 +29,7 @@ const TIME_OPTIONS = ['Morning', 'Afternoon', 'Evening', 'Flexible'];
 export default function QuoteForm() {
   const [state, handleSubmit] = useForm(FORM_ID);
   const [step, setStep] = useState(1);
+  const [codeCopied, setCodeCopied] = useState(false);
   // True when the Estimate Engine (/pricing) already carried over service +
   // size — lets us skip re-asking for what we already know.
   const [hasEstimate, setHasEstimate] = useState(false);
@@ -40,6 +42,7 @@ export default function QuoteForm() {
     availTime: TIME_OPTIONS[3],
     details: '',
     partnerCode: '',
+    referralCode: '',
   });
 
   // Pick up a partner referral code captured on any earlier page (see
@@ -51,6 +54,22 @@ export default function QuoteForm() {
       setFormData((prev) => ({ ...prev, partnerCode: ref }));
     }
   }, []);
+
+  // The moment we know who they are, mint their own referral code — this is
+  // the "fill out the form, get a code" incentive, generated automatically
+  // (no backend needed) rather than something they have to call in for. It
+  // rides along in the submission (see hidden field below) so it shows up
+  // in the lead notification, and it's shown back to them on the success
+  // screen so they can share it right away.
+  useEffect(() => {
+    if (formData.name.trim() && formData.phone.trim() && !formData.referralCode) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setFormData((prev) =>
+        prev.referralCode ? prev : { ...prev, referralCode: generateLeadReferralCode(prev.name, prev.phone) }
+      );
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formData.name, formData.phone]);
 
   // Prefill from the Estimate Engine (/pricing) — the CTA there carries the
   // dialed-in setup over as query params so visitors never re-type it.
@@ -119,6 +138,30 @@ export default function QuoteForm() {
           className="mb-4 text-6xl">✨</motion.div>
         <h2 className="text-3xl font-bold text-[var(--ink)]">Got it — your quote request is in.</h2>
         <p className="mt-3 text-lg text-[var(--body)]">We'll text you to confirm your flat rate within one business day. No spam, no pressure.</p>
+
+        {formData.referralCode && (
+          <div className="mx-auto mt-6 max-w-sm rounded-2xl border-2 border-[var(--accent)]/30 bg-white p-5 text-left shadow-sm">
+            <span className="text-xs font-semibold uppercase tracking-widest text-[var(--accent)]">Your referral code</span>
+            <div className="mt-2 flex items-center justify-between gap-3">
+              <span className="font-mono text-2xl font-extrabold text-[var(--ink)]">{formData.referralCode}</span>
+              <button
+                type="button"
+                onClick={() => {
+                  navigator.clipboard.writeText(formData.referralCode);
+                  setCodeCopied(true);
+                  track('referral_code_copied', { location: 'quote_form_success' });
+                  setTimeout(() => setCodeCopied(false), 2000);
+                }}
+                className="shrink-0 rounded-full bg-[var(--paper-light)] px-3 py-1.5 text-xs font-medium text-[var(--ink)] transition hover:bg-[var(--line)]">
+                {codeCopied ? 'Copied ✓' : 'Copy'}
+              </button>
+            </div>
+            <p className="mt-3 text-sm text-[var(--body)]">
+              Share it with a friend or neighbor in Yuma — they get $25 off their first clean, and once you're a client you get a $25 credit for every referral that books.
+            </p>
+          </div>
+        )}
+
         <p className="mt-4 text-sm text-[var(--body)]">In a hurry? Call or text <a href={SITE.phoneHref} className="font-medium text-[var(--accent)] hover:underline">{SITE.phone}</a></p>
       </motion.div>
     );
@@ -136,6 +179,7 @@ export default function QuoteForm() {
         <input type="hidden" name="name" value={formData.name} />
         <input type="hidden" name="phone" value={formData.phone} />
         <input type="hidden" name="partnerCode" value={formData.partnerCode} />
+        <input type="hidden" name="referralCode" value={formData.referralCode} />
         {/* Honeypot — bots fill this, humans never see it (Formspree drops those) */}
         <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
 
