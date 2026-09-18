@@ -63,7 +63,7 @@ export default function Navigation() {
           <a href={SITE.phoneHref} onClick={() => track('phone_click', { location: 'nav' })}
             className="text-sm font-medium text-[var(--ink)]">{SITE.phone}</a>
           <Link href="/contact"
-            className="rounded-full bg-gradient-to-r from-[var(--accent)] to-orange-600 px-5 py-2.5 text-sm font-medium text-white shadow-[0_4px_14px_-4px_rgba(232,93,47,0.5)] transition-all duration-300 hover:scale-105 hover:shadow-[0_6px_20px_-4px_rgba(232,93,47,0.65)]">
+            className="rounded-full bg-gradient-to-r from-[var(--accent)] to-[#812b0e] px-5 py-2.5 text-sm font-medium text-white shadow-[0_4px_14px_-4px_rgba(232,93,47,0.5)] transition-all duration-300 hover:scale-105 hover:shadow-[0_6px_20px_-4px_rgba(232,93,47,0.65)]">
             Get a free quote
           </Link>
         </div>
