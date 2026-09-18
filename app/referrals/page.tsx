@@ -74,7 +74,7 @@ export default function ReferralsPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href="/book"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent)] to-orange-600 px-8 py-4 text-lg font-medium text-white shadow-[0_4px_14px_-4px_rgba(232,93,47,0.5)] transition-all hover:scale-105">
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent)] to-[#812b0e] px-8 py-4 text-lg font-medium text-white shadow-[0_4px_14px_-4px_rgba(232,93,47,0.5)] transition-all hover:scale-105">
                 Get my referral code
               </Link>
               <a href={SITE.smsHref}
@@ -158,7 +158,7 @@ export default function ReferralsPage() {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link href="/book"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent)] to-orange-600 px-8 py-4 text-lg font-medium text-white transition-all hover:scale-105">
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent)] to-[#812b0e] px-8 py-4 text-lg font-medium text-white transition-all hover:scale-105">
                 Get my code
               </Link>
               <a href={SITE.phoneHref}
