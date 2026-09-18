@@ -11,6 +11,8 @@ const LINKS = [
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
   { label: 'Community Care', href: '/community-care' },
+  { label: 'Give $25, Get $25', href: '/referrals' },
+  { label: 'Partner Program', href: '/partners' },
   { label: 'Get a quote', href: '/contact' },
   { label: 'Book a cleaning', href: '/book' },
 ];

@@ -29,6 +29,11 @@ export default function PartnerProgramPage({ category }: { category: PartnerCate
             <h1 className="text-4xl md:text-6xl font-bold text-[var(--ink)] mb-6">{category.title}</h1>
             <p className="text-lg md:text-xl text-[var(--body)] leading-relaxed max-w-3xl mb-4">{category.tagline}</p>
             <p className="text-sm uppercase tracking-widest text-[var(--body)]/70">For {category.audience}</p>
+            <p className="mt-4 max-w-2xl text-base font-medium text-[var(--ink)]">
+              It&apos;s free to join, takes about 2 minutes, there&apos;s zero exclusivity or paperwork —
+              and every reward on this page stacks the more people you send our way. Honestly, there&apos;s
+              no good reason not to.
+            </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a href="#partner-form"
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent)] to-orange-600 px-8 py-4 text-lg font-medium text-white shadow-[0_4px_14px_-4px_rgba(232,93,47,0.5)] transition-all hover:scale-105">

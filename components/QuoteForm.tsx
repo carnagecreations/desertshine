@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { SITE } from '@/lib/site';
 import { track } from '@/lib/track';
@@ -162,7 +163,7 @@ export default function QuoteForm() {
 
         {formData.referralCode && (
           <div className="mx-auto mt-6 max-w-sm rounded-2xl border-2 border-[var(--accent)]/30 bg-white p-5 text-left shadow-sm">
-            <span className="text-xs font-semibold uppercase tracking-widest text-[var(--accent)]">Your referral code</span>
+            <span className="text-xs font-semibold uppercase tracking-widest text-[var(--accent)]">🎁 Your referral code — share it now</span>
             <div className="mt-2 flex items-center justify-between gap-3">
               <span className="font-mono text-2xl font-extrabold text-[var(--ink)]">{formData.referralCode}</span>
               <button
@@ -178,8 +179,11 @@ export default function QuoteForm() {
               </button>
             </div>
             <p className="mt-3 text-sm text-[var(--body)]">
-              Share it with a friend or neighbor in Yuma — they get $25 off their first clean, and once you're a client you get a $25 credit for every referral that books.
+              Send it to a friend or neighbor in Yuma — they get <strong className="text-[var(--ink)]">$25 off</strong> their first clean, and a <strong className="text-[var(--ink)]">$25 credit</strong> lands on your account the moment their first clean is done. No limit — refer 10 friends, that&apos;s $250 back.
             </p>
+            <Link href="/referrals" className="mt-2 inline-block text-sm font-medium text-[var(--accent)] hover:underline">
+              See the full referral program →
+            </Link>
           </div>
         )}
 

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import ReviewButton from '@/components/ReviewButton';
 import PriceEstimator from '@/components/PriceEstimator';
 import ScrollZoomHero from '@/components/sections/ScrollZoomHero';
@@ -86,6 +87,27 @@ export default function Home() {
 
         {/* Manifesto section with ink fill */}
         <ManifestoFill text="Most companies *rush*. We take *time* to get it right." />
+
+        {/* Referral program teaser — high-visibility, links to the full page */}
+        <section className="px-6 py-20 md:px-16">
+          <div className="mx-auto max-w-4xl rounded-3xl border-2 border-[var(--accent)]/30 bg-gradient-to-br from-[var(--accent)]/10 via-white to-white p-10 text-center shadow-[0_20px_60px_-30px_rgba(232,93,47,0.3)] md:p-14">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--accent)]/40 bg-white px-3 py-1 text-sm font-medium text-[var(--accent)]">
+              🎁 Referral Program
+            </span>
+            <h2 className="mb-4 text-4xl md:text-5xl font-bold text-[var(--ink)]">
+              Give $25. Get $25. <span className="italic text-[var(--accent)]">No limit.</span>
+            </h2>
+            <p className="mx-auto mb-8 max-w-2xl text-lg text-[var(--body)] leading-relaxed">
+              Know someone in Yuma who needs a cleaner? Share your code — they save $25 on their first
+              clean, you get a $25 credit toward yours. Refer 10 friends, that&apos;s $250 in credit.
+              Your code is generated the moment you request a quote — before you&apos;ve even booked.
+            </p>
+            <Link href="/referrals"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent)] to-orange-600 px-8 py-4 text-lg font-medium text-white shadow-[0_4px_14px_-4px_rgba(232,93,47,0.5)] transition-all hover:scale-105">
+              See how it works
+            </Link>
+          </div>
+        </section>
 
         {/* Parallax interlude */}
         <ParallaxScene word="SPOTLESS" />

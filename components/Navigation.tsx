@@ -13,6 +13,7 @@ const LINKS = [
   { label: 'Pricing', href: '/pricing' },
   { label: 'Neighborhoods', href: '/neighborhoods' },
   { label: 'Book', href: '/book' },
+  { label: 'Referrals', href: '/referrals' },
   { label: 'Partners', href: '/partners' },
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
