@@ -170,7 +170,7 @@ export default function PartnerLeadForm({
       <button
         type="submit"
         disabled={submitting}
-        className="mt-6 w-full rounded-full bg-gradient-to-r from-[var(--accent)] to-orange-600 px-6 py-3.5 text-sm font-medium text-white transition-transform duration-300 hover:scale-[1.02] disabled:opacity-60 sm:w-auto sm:px-8">
+        className="mt-6 w-full rounded-full bg-gradient-to-r from-[var(--accent)] to-[#812b0e] px-6 py-3.5 text-sm font-medium text-white transition-transform duration-300 hover:scale-[1.02] disabled:opacity-60 sm:w-auto sm:px-8">
         {submitting ? 'Sending…' : 'Send it'}
       </button>
     </form>
