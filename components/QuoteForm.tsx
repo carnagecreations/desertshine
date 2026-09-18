@@ -229,7 +229,7 @@ export default function QuoteForm() {
           </div>
           <div className="h-1.5 overflow-hidden rounded-full bg-[var(--line)]">
             <motion.div
-              className="h-full bg-gradient-to-r from-[var(--accent)] to-orange-600"
+              className="h-full bg-gradient-to-r from-[var(--accent)] to-[#812b0e]"
               animate={{ width: `${(displayStep / totalSteps) * 100}%` }}
               transition={{ duration: 0.5 }}
             />
