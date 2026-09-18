@@ -20,7 +20,7 @@ export default function PrivacyPage() {
         <div className="mx-auto max-w-3xl">
           <Breadcrumbs items={breadcrumbs} />
           <h1 className="mt-8 text-5xl font-bold text-[var(--ink)] mb-6">Privacy Policy</h1>
-          <p className="text-lg text-[var(--body)] mb-8">Last updated: July 2026</p>
+          <p className="text-lg text-[var(--body)] mb-8">Last updated: September 2026</p>
 
           <div className="space-y-6 text-[var(--body)]">
             <section>
@@ -37,10 +37,11 @@ export default function PrivacyPage() {
                 <li>Request a free quote or booking</li>
                 <li>Contact us via phone, email, or form submission</li>
                 <li>Sign up for our newsletter or promotions</li>
+                <li>Participate in our referral program or a partner/business referral program</li>
                 <li>Use our website and services</li>
               </ul>
               <p>
-                This information may include your name, email address, phone number, home address, and service preferences.
+                This information may include your name, email address, phone number, home address, service preferences, and — if you participate in our referral program — your personal referral code and, if someone referred you, the referral code you entered. If you refer a friend, we associate the referral with your account so we can credit you once their first clean is complete; we do not share your contact information with the person you refer, or theirs with you, beyond what you each choose to share directly.
               </p>
             </section>
 
@@ -50,10 +51,18 @@ export default function PrivacyPage() {
               <ul className="list-disc list-inside space-y-2 mb-4">
                 <li>Process and deliver your cleaning service requests</li>
                 <li>Communicate with you about your service</li>
+                <li>Track and apply referral discounts and credits under our Referral & Partner Program</li>
                 <li>Send you promotional materials (with your consent)</li>
                 <li>Improve our website and services</li>
                 <li>Comply with legal obligations</li>
               </ul>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold text-[var(--ink)] mb-4">Service Providers</h2>
+              <p>
+                We use third-party service providers to help us operate — for example, to store and manage client records, process and route quote-form submissions, and send email and appointment-related communications. These providers only receive the information needed to perform their function and are not permitted to use it for their own purposes.
+              </p>
             </section>
 
             <section>
