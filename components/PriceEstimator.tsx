@@ -5,51 +5,32 @@ import { motion, AnimatePresence, useMotionValue, useTransform, animate } from '
 import { SITE } from '@/lib/site';
 import { track } from '@/lib/track';
 import { getPartnerRef } from '@/lib/partnerRef';
+import { ADDONS, BASE_PRICE, calcEstimate, type AddOnKey, type ConditionKey, type FreqKey, type ServiceKey } from '@/lib/estimatorPricing';
 
-/* ————— Pricing engine (calibrated to published rates) —————
-   Base rates cover ~1,500 sq ft with 2 bathrooms, matching the
-   "from" prices on the cards this machine replaced.            */
+/* ————— Pricing engine —————
+   The math lives in lib/estimatorPricing.ts, calibrated to match Clean
+   Convictions' actual invoicing engine (the business-manager app) exactly —
+   what you see here is what you'll be quoted, not a rough guess.          */
 
-type ServiceKey = 'standard' | 'deep' | 'move' | 'office';
-type FreqKey = 'one' | 'weekly' | 'biweekly' | 'monthly';
-type ConditionKey = 'kept' | 'average' | 'love';
-
-const SERVICES: { key: ServiceKey; label: string; base: number; tag: string; icon: string }[] = [
-  { key: 'standard', label: 'Regular Cleaning', base: 129, tag: 'from $89', icon: '🏠' },
-  { key: 'deep', label: 'Deep Clean', base: 249, tag: 'from $179', icon: '✨' },
-  { key: 'move', label: 'Move Cleaning', base: 299, tag: 'from $199', icon: '📦' },
-  { key: 'office', label: 'Office Cleaning', base: 0, tag: 'custom', icon: '🏢' },
+const SERVICES: { key: ServiceKey | 'office'; label: string; tag: string; icon: string }[] = [
+  { key: 'standard', label: 'Regular Cleaning', tag: `from $${BASE_PRICE.standard}`, icon: '🏠' },
+  { key: 'deep', label: 'Deep Clean', tag: `from $${BASE_PRICE.deep}`, icon: '✨' },
+  { key: 'move', label: 'Move Cleaning', tag: `from $${BASE_PRICE.move}`, icon: '📦' },
+  { key: 'office', label: 'Office Cleaning', tag: 'custom', icon: '🏢' },
 ];
 
-const FREQUENCIES: { key: FreqKey; label: string; mult: number; tag?: string }[] = [
-  { key: 'one', label: 'Just once', mult: 1 },
-  { key: 'weekly', label: 'Weekly', mult: 0.8, tag: '−20%' },
-  { key: 'biweekly', label: 'Every other week', mult: 0.85, tag: '−15%' },
-  { key: 'monthly', label: 'Monthly', mult: 0.9, tag: '−10%' },
+const FREQUENCIES: { key: FreqKey; label: string; tag?: string }[] = [
+  { key: 'one', label: 'Just once' },
+  { key: 'weekly', label: 'Weekly', tag: '−20%' },
+  { key: 'biweekly', label: 'Every other week', tag: '−15%' },
+  { key: 'monthly', label: 'Monthly', tag: '−10%' },
 ];
 
-const CONDITIONS: { key: ConditionKey; label: string; mult: number; tag: string }[] = [
-  { key: 'kept', label: 'Clean', mult: 1, tag: 'standard' },
-  { key: 'average', label: 'Normal wear', mult: 1.15, tag: '+15%' },
-  { key: 'love', label: 'Needs work', mult: 1.3, tag: '+30%' },
+const CONDITIONS: { key: ConditionKey; label: string; tag: string }[] = [
+  { key: 'kept', label: 'Clean', tag: 'standard' },
+  { key: 'average', label: 'Normal wear', tag: '+15%' },
+  { key: 'love', label: 'Needs work', tag: '+30%' },
 ];
-
-const ADDONS: { key: string; label: string; price: number; includedIn: ServiceKey[]; hourly?: boolean }[] = [
-  { key: 'fridge', label: 'Fridge (inside)', price: 30, includedIn: ['deep', 'move'] },
-  { key: 'oven', label: 'Oven (inside)', price: 30, includedIn: ['deep', 'move'] },
-  { key: 'windows', label: 'Windows (inside)', price: 40, includedIn: [] },
-  { key: 'garage', label: 'Garage', price: 25, includedIn: ['move'] },
-  { key: 'laundry', label: 'Laundry room', price: 15, includedIn: [] },
-  { key: 'closet-organize', label: 'Closet organizing', price: 60, includedIn: [] },
-  { key: 'garage-organize', label: 'Garage organizing', price: 50, includedIn: [], hourly: true },
-  { key: 'disinfect', label: 'Pet illness disinfect', price: 40, includedIn: [] },
-];
-
-const round5 = (n: number) => Math.round(n / 5) * 5;
-
-// Hard minimum per program — credits and loyalty discounts never stack
-// below the cost of showing up with a full kit.
-const MIN_RATE: Record<Exclude<ServiceKey, 'office'>, number> = { standard: 89, deep: 179, move: 199 };
 
 /* ————— Animated odometer readout ————— */
 function Odometer({ value }: { value: number }) {
@@ -106,7 +87,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 /* ————— The machine ————— */
 export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?: 'contact' | 'book' } = {}) {
-  const [service, setService] = useState<ServiceKey>('standard');
+  const [service, setService] = useState<ServiceKey | 'office'>('standard');
   const [sqft, setSqft] = useState(1500);
   const [beds, setBeds] = useState(3);
   const [baths, setBaths] = useState(2);
@@ -114,9 +95,7 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
   const [condition, setCondition] = useState<ConditionKey>('kept');
   const [pets, setPets] = useState(false);
   const [military, setMilitary] = useState(false);
-  const [addons, setAddons] = useState<Set<string>>(new Set());
-  const [disinfectRoomsRaw, setDisinfectRooms] = useState(1);
-  const [garageOrgHours, setGarageOrgHours] = useState(1);
+  const [addons, setAddons] = useState<Set<AddOnKey>>(new Set());
   // Read only in an effect (never during render) so server and first client
   // render match — sessionStorage isn't available during SSR anyway.
   const [partnerRef, setPartnerRef] = useState('');
@@ -125,10 +104,8 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setPartnerRef(getPartnerRef());
   }, []);
-  // Clamp so lowering the bedroom count can't leave a stale, too-high room count.
-  const disinfectRooms = Math.min(disinfectRoomsRaw, beds + 1);
 
-  const toggleAddon = (key: string) => {
+  const toggleAddon = (key: AddOnKey) => {
     setAddons((prev) => {
       const next = new Set(prev);
       if (next.has(key)) next.delete(key); else next.add(key);
@@ -137,126 +114,26 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
   };
 
   const isOffice = service === 'office';
-  const svc = SERVICES.find((s) => s.key === service)!;
 
-  const { price, lines, preFreq } = useMemo(() => {
-    if (isOffice) return { price: 0, lines: [] as { label: string; amount: string; neg?: boolean }[], preFreq: 0 };
+  const result = useMemo(() => {
+    if (isOffice) return null;
+    return calcEstimate({ service, sqft, beds, baths, condition, freq, pets, military, addons });
+  }, [isOffice, service, sqft, beds, baths, condition, freq, pets, military, addons]);
 
-    const lines: { label: string; amount: string; neg?: boolean }[] = [];
-    let subtotal = svc.base;
-    lines.push({ label: `Base — ${svc.label}`, amount: `$${svc.base}` });
+  const oneTimeResult = useMemo(() => {
+    if (isOffice || freq === 'one') return null;
+    return calcEstimate({ service: service as ServiceKey, sqft, beds, baths, condition, freq: 'one', pets, military, addons });
+  }, [isOffice, service, sqft, beds, baths, condition, freq, pets, military, addons]);
 
-    // Size prices continuously in BOTH directions from the 1,500 sq ft
-    // baseline: extra footage costs more per block than compact footage
-    // credits back (fixed setup time means small homes aren't linearly cheap).
-    const blocks = Math.round((sqft - 1500) / 250);
-    const sizeAdd = blocks >= 0
-      ? blocks * (service === 'standard' ? 12 : 18)
-      : blocks * (service === 'standard' ? 8 : 12);
-    if (sizeAdd !== 0) {
-      subtotal += sizeAdd;
-      lines.push({
-        label: `Size calibration · ${sqft.toLocaleString()} sq ft`,
-        amount: sizeAdd > 0 ? `+$${sizeAdd}` : `−$${Math.abs(sizeAdd)}`,
-        neg: sizeAdd < 0,
-      });
-    }
+  const biweeklyResult = useMemo(() => {
+    if (isOffice || freq !== 'one') return null;
+    return calcEstimate({ service: service as ServiceKey, sqft, beds, baths, condition, freq: 'biweekly', pets, military, addons });
+  }, [isOffice, service, sqft, beds, baths, condition, freq, pets, military, addons]);
 
-    // Bathrooms: baseline 2. Extra baths are heavy scrub-time; a single
-    // bath credits a little back.
-    const bathDelta = baths - 2;
-    const bathAdd = bathDelta >= 0
-      ? bathDelta * (service === 'standard' ? 20 : 30)
-      : bathDelta * (service === 'standard' ? 10 : 15);
-    if (bathAdd !== 0) {
-      subtotal += bathAdd;
-      lines.push({
-        label: `Bath modules × ${baths}`,
-        amount: bathAdd > 0 ? `+$${bathAdd}` : `−$${Math.abs(bathAdd)}`,
-        neg: bathAdd < 0,
-      });
-    }
-
-    // Bedrooms: baseline 3, scaling both directions.
-    const bedDelta = beds - 3;
-    const bedAdd = bedDelta >= 0
-      ? bedDelta * (service === 'standard' ? 10 : 15)
-      : bedDelta * (service === 'standard' ? 8 : 10);
-    if (bedAdd !== 0) {
-      subtotal += bedAdd;
-      lines.push({
-        label: `Bedroom count × ${beds}`,
-        amount: bedAdd > 0 ? `+$${bedAdd}` : `−$${Math.abs(bedAdd)}`,
-        neg: bedAdd < 0,
-      });
-    }
-
-    const cond = CONDITIONS.find((c) => c.key === condition)!;
-    if (cond.mult > 1) {
-      const condAdd = Math.round(subtotal * (cond.mult - 1));
-      subtotal += condAdd;
-      lines.push({ label: `Condition factor · ${cond.label.toLowerCase()}`, amount: `+$${condAdd}` });
-    }
-
-    if (pets) { subtotal += 15; lines.push({ label: 'Pet-hair protocol', amount: '+$15' }); }
-
-    if (military) {
-      const milDiscount = Math.round(subtotal * 0.1);
-      subtotal -= milDiscount;
-      lines.push({ label: 'Military service discount · 10%', amount: `−$${milDiscount}`, neg: true });
-    }
-
-    for (const a of ADDONS) {
-      if (a.includedIn.includes(service)) continue;
-      if (addons.has(a.key)) {
-        let addonPrice = a.price;
-        let label = `Add-on · ${a.label.toLowerCase()}`;
-
-        if (a.key === 'disinfect') {
-          addonPrice = a.price * disinfectRooms;
-          label = `Add-on · ${a.label.toLowerCase()} × ${disinfectRooms} room${disinfectRooms > 1 ? 's' : ''}`;
-        } else if (a.key === 'garage-organize') {
-          addonPrice = a.price * garageOrgHours;
-          label = `Add-on · ${a.label.toLowerCase()} × ${garageOrgHours} hr${garageOrgHours > 1 ? 's' : ''} @ $${a.price}/hr`;
-        }
-
-        subtotal += addonPrice;
-        lines.push({ label, amount: `+$${addonPrice}` });
-      }
-    }
-
-    const preFreq = subtotal; // work value before loyalty discount — used for time + savings math
-
-    const f = FREQUENCIES.find((x) => x.key === freq)!;
-    if (service === 'standard' && f.mult < 1) {
-      const discount = Math.round(subtotal * (1 - f.mult));
-      subtotal -= discount;
-      lines.push({ label: `Loyalty discount · ${f.label.toLowerCase()}`, amount: `−$${discount}`, neg: true });
-    }
-
-    let final = round5(subtotal);
-    if (final !== subtotal) {
-      lines.push({ label: 'Rounded to nearest $5', amount: `$${final}`, neg: final < subtotal });
-    }
-    const floor = MIN_RATE[service as Exclude<ServiceKey, 'office'>];
-    if (final < floor) {
-      final = floor;
-      lines.push({ label: 'Minimum visit rate applied', amount: `$${floor}` });
-    }
-
-    return { price: final, lines, preFreq };
-  }, [isOffice, svc, service, sqft, beds, baths, condition, pets, military, addons, disinfectRooms, garageOrgHours, freq]);
-
-  const perVisit = service === 'standard' && freq !== 'one';
+  const price = result?.finalPrice ?? 0;
+  const perVisit = !isOffice && freq !== 'one';
   const sliderPct = ((sqft - 600) / (4000 - 600)) * 100;
-
-  // Derived readout extras — time on site scales with the work value
-  // (pre-discount), never with the loyalty-discounted price.
-  const floor = isOffice ? 0 : MIN_RATE[service as Exclude<ServiceKey, 'office'>];
-  const oneTimePrice = Math.max(round5(preFreq), floor);
-  const biweeklyPrice = Math.max(round5(preFreq * 0.85), floor);
-  const perVisitSavings = oneTimePrice - price;
-  const hoursLo = Math.min(9, Math.max(1.5, Math.round((preFreq / 50) * 2) / 2));
+  const perVisitSavings = oneTimeResult ? oneTimeResult.finalPrice - price : 0;
 
   // Carry the dialed-in estimate to the quote form so nothing gets re-typed.
   // Also carry along a partner referral code if one was captured earlier
@@ -271,9 +148,8 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
     freq,
     cond: condition,
     pets: pets ? '1' : '0',
+    mil: military ? '1' : '0',
     add: [...addons].join(','),
-    disinfectRooms: String(disinfectRooms),
-    garageOrgHours: String(garageOrgHours),
   };
   if (partnerRef) estParamsObj.ref = partnerRef;
   const estParams = new URLSearchParams(estParamsObj).toString();
@@ -295,7 +171,7 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
           <span className="h-2.5 w-2.5 rounded-full bg-amber-400/80" />
           <span className="h-2.5 w-2.5 rounded-full bg-[var(--accent)]" />
         </div>
-        <p className="font-mono text-[11px] tracking-[0.3em] text-white/50 uppercase">CC Estimate Engine · v2.0 · Yuma-calibrated</p>
+        <p className="font-mono text-[11px] tracking-[0.3em] text-white/50 uppercase">CC Estimate Engine · v3.0 · Yuma-calibrated</p>
         <motion.span animate={{ opacity: [1, 0, 1] }} transition={{ repeat: Infinity, duration: 1.1 }} className="hidden font-mono text-sm text-[var(--accent)] md:block">▌</motion.span>
       </div>
       <motion.div
@@ -345,7 +221,7 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
                 <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-4">
                   <div className="mb-3 flex items-baseline justify-between">
                     <span className="font-mono text-2xl text-white">{sqft.toLocaleString()}<span className="ml-1 text-sm text-white/50">sq ft</span></span>
-                    <span className="font-mono text-[11px] tracking-widest text-white/40 uppercase">{sqft < 1400 ? 'compact · credits on' : sqft <= 1600 ? 'base range' : 'extended range'}</span>
+                    <span className="font-mono text-[11px] tracking-widest text-white/40 uppercase">{sqft < 1100 ? 'compact · credit applied' : sqft <= 1500 ? 'base range' : 'extended range'}</span>
                   </div>
                   <input
                     type="range" min={600} max={4000} step={50} value={sqft}
@@ -374,21 +250,19 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
                 </div>
               </div>
 
-              {service === 'standard' && (
-                <div>
-                  <SectionLabel>04 · How often?</SectionLabel>
-                  <div className="flex flex-wrap gap-2">
-                    {FREQUENCIES.map((f) => (
-                      <Chip key={f.key} active={freq === f.key} onClick={() => setFreq(f.key)}>
-                        {f.label}{f.tag && <span className="ml-1.5 font-mono text-xs text-emerald-300">{f.tag}</span>}
-                      </Chip>
-                    ))}
-                  </div>
+              <div>
+                <SectionLabel>04 · How often?</SectionLabel>
+                <div className="flex flex-wrap gap-2">
+                  {FREQUENCIES.map((f) => (
+                    <Chip key={f.key} active={freq === f.key} onClick={() => setFreq(f.key)}>
+                      {f.label}{f.tag && <span className="ml-1.5 font-mono text-xs text-emerald-300">{f.tag}</span>}
+                    </Chip>
+                  ))}
                 </div>
-              )}
+              </div>
 
               <div>
-                <SectionLabel>{service === 'standard' ? '05' : '04'} · What shape is it in?</SectionLabel>
+                <SectionLabel>05 · What shape is it in?</SectionLabel>
                 <div className="flex flex-wrap gap-2">
                   {CONDITIONS.map((c) => (
                     <Chip key={c.key} active={condition === c.key} onClick={() => setCondition(c.key)}>
@@ -400,7 +274,7 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
               </div>
 
               <div>
-                <SectionLabel>{service === 'standard' ? '06' : '05'} · Anything special?</SectionLabel>
+                <SectionLabel>06 · Anything special?</SectionLabel>
                 <div className="flex flex-wrap gap-2">
                   <Chip active={pets} onClick={() => setPets(!pets)}>
                     🐾 Pets (pet-safe products) <span className="ml-1 font-mono text-xs opacity-60">+$15</span>
@@ -408,40 +282,20 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
                   <Chip active={military} onClick={() => setMilitary(!military)}>
                     🇺🇸 Military / Veteran <span className="ml-1 font-mono text-xs opacity-60">−10%</span>
                   </Chip>
-                  {ADDONS.map((a) => {
-                    const included = a.includedIn.includes(service);
-                    if (included) {
-                      return (
-                        <span key={a.key} className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 text-sm text-emerald-300">
-                          {a.label} · included
-                        </span>
-                      );
-                    }
-                    return (
-                      <Chip key={a.key} active={addons.has(a.key)} onClick={() => toggleAddon(a.key)}>
-                        {a.label} <span className="ml-1 font-mono text-xs opacity-60">+${a.price}</span>
-                      </Chip>
-                    );
-                  })}
+                  {ADDONS.map((a) => (
+                    <Chip key={a.key} active={addons.has(a.key)} onClick={() => toggleAddon(a.key)}>
+                      {a.label} <span className="ml-1 font-mono text-xs opacity-60">+${a.price}</span>
+                    </Chip>
+                  ))}
                 </div>
                 {pets && (
                   <p className="mt-2 text-xs text-emerald-300/80">We&apos;re experienced with all animals — from horses to reptiles — and use pet-safe products.</p>
                 )}
                 {addons.has('disinfect') && (
-                  <>
-                    <p className="mt-2 text-xs text-emerald-300/80">Vet-grade sanitizing after a sick pet — safe for the whole household once dry.</p>
-                    <div className="mt-3">
-                      <Stepper label="Rooms to disinfect" value={disinfectRooms} min={1} max={beds + 1} onChange={setDisinfectRooms} />
-                    </div>
-                  </>
+                  <p className="mt-2 text-xs text-emerald-300/80">Vet-grade sanitizing after a sick pet — safe for the whole household once dry.</p>
                 )}
                 {addons.has('garage-organize') && (
-                  <>
-                    <p className="mt-2 text-xs text-emerald-300/80">Sort, organize, and arrange. Price scales with time needed.</p>
-                    <div className="mt-3">
-                      <Stepper label="Hours for garage organizing" value={garageOrgHours} min={1} max={4} onChange={setGarageOrgHours} />
-                    </div>
-                  </>
+                  <p className="mt-2 text-xs text-emerald-300/80">Sort, organize, and arrange the garage — bins grouped, tools staged.</p>
                 )}
                 {military && (
                   <p className="mt-2 text-xs text-white/50">Military verification required at time of cleaning</p>
@@ -493,29 +347,29 @@ export default function PriceEstimator({ targetPage = 'contact' }: { targetPage?
               )}
             </div>
 
-            {!isOffice && (
-              <p className="mt-2 font-mono text-[11px] tracking-wider text-white/40">≈ {hoursLo}–{hoursLo + 1} crew-hours on site</p>
+            {!isOffice && result && (
+              <p className="mt-2 font-mono text-[11px] tracking-wider text-white/40">≈ {result.hoursMin}–{result.hoursMax} crew-hours on site</p>
             )}
 
-            {service === 'standard' && freq === 'one' && biweeklyPrice < price && (
+            {!isOffice && freq === 'one' && biweeklyResult && biweeklyResult.finalPrice < price && (
               <button type="button" onClick={() => setFreq('biweekly')}
                 className="mt-2 text-left text-xs text-emerald-300/90 transition-colors hover:text-emerald-200">
-                💡 Bi-weekly would run ${biweeklyPrice}/visit — tap to try it
+                💡 Bi-weekly would run ${biweeklyResult.finalPrice}/visit — tap to try it
               </button>
             )}
-            {service === 'standard' && freq !== 'one' && perVisitSavings > 0 && (
+            {!isOffice && freq !== 'one' && perVisitSavings > 0 && (
               <p className="mt-2 text-xs text-emerald-300/90">Saving ${perVisitSavings} every visit vs one-time.</p>
             )}
 
             {/* Receipt breakdown — operational transparency: seeing the work builds trust */}
-            {!isOffice && (
+            {!isOffice && result && (
               <div className="mt-5 border-t border-dashed border-white/15 pt-4">
                 <p className="mb-2 font-mono text-[10px] tracking-[0.2em] text-white/35 uppercase">The math · nothing hidden</p>
                 <div className="space-y-1.5">
                 <AnimatePresence initial={false}>
-                  {lines.map((l) => (
+                  {result.lines.map((l, i) => (
                     <motion.div
-                      key={l.label}
+                      key={`${l.label}-${i}`}
                       layout
                       initial={{ opacity: 0, x: -8 }}
                       animate={{ opacity: 1, x: 0 }}

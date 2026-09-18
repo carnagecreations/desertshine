@@ -72,11 +72,7 @@ export default function QuoteForm() {
       ? SIZE_OPTIONS[3].value
       : sqft < 1500 ? SIZE_OPTIONS[0].value : sqft <= 2500 ? SIZE_OPTIONS[1].value : SIZE_OPTIONS[2].value;
     const addons = (q.get('add') ?? '').split(',').filter(Boolean);
-    const addonNotes = addons.map((a) => {
-      if (a === 'disinfect') return `pet illness disinfect (${q.get('disinfectRooms') ?? 1} room(s))`;
-      if (a === 'garage-organize') return `garage organizing (${q.get('garageOrgHours') ?? 1} hr(s))`;
-      return a.replace(/-/g, ' ');
-    });
+    const addonNotes = addons.map((a) => a.replace(/-/g, ' '));
     const details = svc === 'office'
       ? 'From the Estimate Engine: commercial walk-through requested.'
       : `From the Estimate Engine: ≈ $${est} — ${[
@@ -85,6 +81,7 @@ export default function QuoteForm() {
           freqMap[q.get('freq') ?? ''],
           condMap[q.get('cond') ?? ''],
           q.get('pets') === '1' ? 'pets in the home' : '',
+          q.get('mil') === '1' ? 'military/veteran discount' : '',
           addonNotes.length ? `add-ons: ${addonNotes.join(', ')}` : '',
         ].filter(Boolean).join(' · ')}`;
     // One-time prefill from URL params on mount — not a render-loop concern.

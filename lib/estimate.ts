@@ -40,11 +40,7 @@ export function parseEstimateFromSearch(search: string): ParsedEstimate | null {
   }
 
   const addons = (q.get('add') ?? '').split(',').filter(Boolean);
-  const addonNotes = addons.map((a) => {
-    if (a === 'disinfect') return `pet illness disinfect (${q.get('disinfectRooms') ?? 1} room(s))`;
-    if (a === 'garage-organize') return `garage organizing (${q.get('garageOrgHours') ?? 1} hr(s))`;
-    return a.replace(/-/g, ' ');
-  });
+  const addonNotes = addons.map((a) => a.replace(/-/g, ' '));
 
   const summaryParts = [
     `${sqft.toLocaleString()} sq ft`,
@@ -52,6 +48,7 @@ export function parseEstimateFromSearch(search: string): ParsedEstimate | null {
     FREQ_MAP[q.get('freq') ?? ''],
     COND_MAP[q.get('cond') ?? ''],
     q.get('pets') === '1' ? 'pets in the home' : '',
+    q.get('mil') === '1' ? 'military/veteran discount' : '',
     addonNotes.length ? `add-ons: ${addonNotes.join(', ')}` : '',
   ].filter(Boolean).join(' · ');
 
