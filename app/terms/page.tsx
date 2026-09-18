@@ -20,7 +20,7 @@ export default function TermsPage() {
         <div className="mx-auto max-w-3xl">
           <Breadcrumbs items={breadcrumbs} />
           <h1 className="mt-8 text-5xl font-bold text-[var(--ink)] mb-6">Terms of Service</h1>
-          <p className="text-lg text-[var(--body)] mb-8">Last updated: July 2026</p>
+          <p className="text-lg text-[var(--body)] mb-8">Last updated: September 2026</p>
 
           <div className="space-y-6 text-[var(--body)]">
             <section>
@@ -56,6 +56,21 @@ export default function TermsPage() {
                 <li>Contact us immediately with specific concerns</li>
                 <li>We will return and re-clean affected areas at no charge</li>
                 <li>No paperwork or forms required—your satisfaction is our priority</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold text-[var(--ink)] mb-4">Referral & Partner Program</h2>
+              <p className="mb-3">
+                Our "Give $25, Get $25" referral program and our business/partner referral program are optional promotions, not a guaranteed entitlement. By using a referral code or link, or by participating as a partner, you agree to the following:
+              </p>
+              <ul className="list-disc list-inside space-y-2 mb-4">
+                <li>The referred client must be new to Clean Convictions — someone who has not previously booked or received services from us.</li>
+                <li>The referrer's $25 credit (or a partner's equivalent reward) is applied only after the referred client's first paid cleaning is completed — not at the time of booking.</li>
+                <li>Referral and partner credits have no cash value, cannot be redeemed for cash, and are not transferable to another person or business.</li>
+                <li>Credits apply only toward future Clean Convictions services and do not expire unless we state otherwise.</li>
+                <li>We may decline, adjust, or reverse a credit, or suspend a client or partner from the program, if we reasonably believe a referral is fraudulent, self-referred, duplicated, or otherwise abusive of the program.</li>
+                <li>We may modify, pause, or end either program, or change reward amounts, at any time; changes apply to referrals made after the change, not ones already qualified.</li>
               </ul>
             </section>
 
