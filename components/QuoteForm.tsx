@@ -1,13 +1,12 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { useForm, ValidationError } from '@formspree/react';
 import { SITE } from '@/lib/site';
 import { track } from '@/lib/track';
 import { getPartnerRef } from '@/lib/partnerRef';
 import { generateLeadReferralCode } from '@/lib/leadReferralCode';
 
-const FORM_ID = 'xvzekkjj';
+const LEADS_ENDPOINT = 'https://casefiles.shiann.workers.dev/leads/submit';
 
 const SERVICES = [
   { name: 'Recurring home cleaning', emoji: '🏠', color: 'from-blue-50 to-blue-100/50' },
@@ -27,7 +26,9 @@ const DAY_OPTIONS = ['Weekdays', 'Weekends', 'Either'];
 const TIME_OPTIONS = ['Morning', 'Afternoon', 'Evening', 'Flexible'];
 
 export default function QuoteForm() {
-  const [state, handleSubmit] = useForm(FORM_ID);
+  const [submitting, setSubmitting] = useState(false);
+  const [succeeded, setSucceeded] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const [step, setStep] = useState(1);
   const [codeCopied, setCodeCopied] = useState(false);
   // True when the Estimate Engine (/pricing) already carried over service +
@@ -117,16 +118,36 @@ export default function QuoteForm() {
     e.preventDefault();
     if (!formData.name || !formData.phone) return;
 
-    // Formspree handles the submission with the form fields
-    await handleSubmit(e);
+    setSubmitting(true);
+    setSubmitError(false);
+    try {
+      const res = await fetch(LEADS_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          service: formData.service,
+          name: formData.name,
+          phone: formData.phone,
+          size: formData.size,
+          availDays: formData.availDays,
+          availTime: formData.availTime,
+          details: formData.details,
+          partnerCode: formData.partnerCode,
+          referralCode: formData.referralCode,
+          _gotcha: '',
+        }),
+      });
+      if (!res.ok) throw new Error('Lead submission failed');
+      setSucceeded(true);
+      track('quote_submitted', { service: formData.service });
+    } catch {
+      setSubmitError(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
-  useEffect(() => {
-    if (state.succeeded) track('quote_submitted', { service: formData.service });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.succeeded]);
-
-  if (state.succeeded) {
+  if (succeeded) {
     return (
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
@@ -173,16 +194,6 @@ export default function QuoteForm() {
   return (
     <form onSubmit={onSubmit} className="rounded-3xl border border-[var(--line)] bg-white/70 backdrop-blur-sm" method="POST">
       <div className="overflow-hidden">
-        {/* Hidden fields for multi-step form — mirror state so fields from
-            earlier steps still submit once their step unmounts. */}
-        <input type="hidden" name="service" value={formData.service} />
-        <input type="hidden" name="name" value={formData.name} />
-        <input type="hidden" name="phone" value={formData.phone} />
-        <input type="hidden" name="partnerCode" value={formData.partnerCode} />
-        <input type="hidden" name="referralCode" value={formData.referralCode} />
-        {/* Honeypot — bots fill this, humans never see it (Formspree drops those) */}
-        <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
-
         {/* Progress bar */}
         <div className="border-b border-[var(--line)] px-8 pt-8 pb-6">
           <div className="mb-3 flex items-center justify-between">
@@ -254,7 +265,6 @@ export default function QuoteForm() {
                       onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
                       className="w-full rounded-lg border border-[var(--line)] bg-white px-4 py-3 text-[var(--ink)] outline-none transition-all focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_rgba(232,93,47,0.1)]"
                     />
-                    <ValidationError field="name" errors={state.errors} />
                   </div>
                   <div>
                     <label htmlFor="phone" className="mb-2 block text-sm font-medium text-[var(--ink)]">Phone number</label>
@@ -268,7 +278,6 @@ export default function QuoteForm() {
                       onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
                       className="w-full rounded-lg border border-[var(--line)] bg-white px-4 py-3 text-[var(--ink)] outline-none transition-all focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_rgba(232,93,47,0.1)]"
                     />
-                    <ValidationError field="phone" errors={state.errors} />
                   </div>
                 </div>
               </div>
@@ -334,14 +343,13 @@ export default function QuoteForm() {
                       onChange={(e) => setFormData(prev => ({ ...prev, details: e.target.value }))}
                       className="w-full rounded-lg border border-[var(--line)] bg-white px-4 py-3 text-[var(--ink)] outline-none transition-all focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_rgba(232,93,47,0.1)]"
                     />
-                    <ValidationError field="details" errors={state.errors} />
                   </div>
                 </div>
               </div>
             )}
           </motion.div>
 
-          {state.errors && Object.keys(state.errors).length > 0 && (
+          {submitError && (
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-4 text-sm text-red-600">
               Something went wrong — please call or text <a href={SITE.phoneHref} className="font-medium hover:underline">{SITE.phone}</a> instead.
             </motion.p>
@@ -379,11 +387,11 @@ export default function QuoteForm() {
             <motion.button
               key="submit"
               type="submit"
-              disabled={state.submitting}
+              disabled={submitting}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="rounded-full bg-[var(--accent)] px-8 py-2.5 text-sm font-medium text-white transition-all hover:shadow-lg hover:shadow-[var(--accent)]/30 disabled:opacity-60">
-              {state.submitting ? 'Sending…' : 'Get my quote'}
+              {submitting ? 'Sending…' : 'Get my quote'}
             </motion.button>
           )}
         </div>
