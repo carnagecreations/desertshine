@@ -45,6 +45,7 @@ export default function QuoteForm() {
     details: '',
     partnerCode: '',
     referralCode: '',
+    referredByCode: '',
   });
 
   // Pick up a partner referral code captured on any earlier page (see
@@ -135,6 +136,7 @@ export default function QuoteForm() {
           details: formData.details,
           partnerCode: formData.partnerCode,
           referralCode: formData.referralCode,
+          referredByCode: formData.referredByCode,
           _gotcha: '',
         }),
       });
@@ -160,6 +162,11 @@ export default function QuoteForm() {
           className="mb-4 text-6xl">✨</motion.div>
         <h2 className="text-3xl font-bold text-[var(--ink)]">Got it — your quote request is in.</h2>
         <p className="mt-3 text-lg text-[var(--body)]">We'll text you to confirm your flat rate within one business day. No spam, no pressure.</p>
+        {formData.referredByCode && (
+          <p className="mt-2 text-sm font-medium text-[var(--accent)]">
+            🎉 Your $25 referral discount ({formData.referredByCode}) is on file.
+          </p>
+        )}
 
         {formData.referralCode && (
           <div className="mx-auto mt-6 max-w-sm rounded-2xl border-2 border-[var(--accent)]/30 bg-white p-5 text-left shadow-sm">
@@ -281,6 +288,21 @@ export default function QuoteForm() {
                       value={formData.phone}
                       onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
                       className="w-full rounded-lg border border-[var(--line)] bg-white px-4 py-3 text-[var(--ink)] outline-none transition-all focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_rgba(232,93,47,0.1)]"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="referredByCode" className="mb-2 flex items-center justify-between text-sm font-medium text-[var(--ink)]">
+                      <span>Referred by a friend?</span>
+                      <span className="font-normal text-[var(--body)]">optional — enter their code for $25 off</span>
+                    </label>
+                    <input
+                      id="referredByCode"
+                      type="text"
+                      autoComplete="off"
+                      placeholder="e.g. JANED-123"
+                      value={formData.referredByCode}
+                      onChange={(e) => setFormData(prev => ({ ...prev, referredByCode: e.target.value.toUpperCase() }))}
+                      className="w-full rounded-lg border border-[var(--line)] bg-white px-4 py-3 font-mono text-[var(--ink)] outline-none transition-all focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_rgba(232,93,47,0.1)]"
                     />
                   </div>
                 </div>
