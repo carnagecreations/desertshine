@@ -6,6 +6,7 @@ import SmoothScroll from '@/components/SmoothScroll';
 import Navigation from '@/components/Navigation';
 import StickyPhoneButton from '@/components/StickyPhoneButton';
 import PartnerRefCapture from '@/components/PartnerRefCapture';
+import ClientReferralRefCapture from '@/components/ClientReferralRefCapture';
 import { SITE } from '@/lib/site';
 import { organizationSchema, servicesSchema, websiteSchema } from '@/lib/schema';
 import './globals.css';
@@ -95,6 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <PartnerRefCapture />
+        <ClientReferralRefCapture />
         <StickyPhoneButton />
         {/* Google Analytics (GA4) — loads after page is interactive to protect mobile speed */}
         <Script
