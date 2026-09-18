@@ -3,7 +3,7 @@ import { SITE } from '@/lib/site';
 import { GUIDES } from '@/lib/guides';
 import { SERVICES } from '@/lib/services';
 import { NEIGHBORHOODS } from '@/lib/neighborhoods';
-import { GIVEAWAY } from '@/lib/giveaway';
+import { PARTNER_CATEGORIES } from '@/lib/partnerProgram';
 
 export const revalidate = 3600;
 
@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE.url}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE.url}/contact`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
     { url: `${SITE.url}/book`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${SITE.url}/partners`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE.url}/pet-safe-cleaning`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE.url}/community-care`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${SITE.url}/privacy`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
@@ -42,9 +43,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly',
     priority: 0.7,
   }));
-  // Only list the giveaway while it's live (short-lived, time-boxed page).
-  const giveaway: MetadataRoute.Sitemap = GIVEAWAY.active
-    ? [{ url: `${SITE.url}/giveaway`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 }]
-    : [];
-  return [...core, ...giveaway, ...services, ...neighborhoods, ...blogs];
+  const partners: MetadataRoute.Sitemap = PARTNER_CATEGORIES.map((p) => ({
+    url: `${SITE.url}/partners/${p.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }));
+  return [...core, ...partners, ...services, ...neighborhoods, ...blogs];
 }
