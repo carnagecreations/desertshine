@@ -6,7 +6,7 @@
   --paper-light: #eef3f6;  /* alternating section background — subtle tint */
   --ink: #0d3b5c;          /* headings — trust blue */
   --body: #5a6d7d;         /* body text — warm gray-blue */
-  --accent: #e85d2f;       /* CTA — warm orange (drives action/booking) */
+  --accent: #af3a13;       /* CTA — warm orange, darkened for WCAG AA contrast (was #e85d2f) */
   --paper-dark: #0a2238;   /* dark-section background — deep trust blue */
   --line: rgba(13, 59, 92, 0.12);  /* hairlines/borders — from --ink */
 }
