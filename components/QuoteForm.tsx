@@ -39,6 +39,7 @@ export default function QuoteForm() {
     service: SERVICES[0].name,
     name: '',
     phone: '',
+    email: '',
     size: SIZE_OPTIONS[0].value,
     availDays: DAY_OPTIONS[2],
     availTime: TIME_OPTIONS[3],
@@ -133,6 +134,7 @@ export default function QuoteForm() {
           size: formData.size,
           availDays: formData.availDays,
           availTime: formData.availTime,
+          email: formData.email,
           details: formData.details,
           partnerCode: formData.partnerCode,
           referralCode: formData.referralCode,
@@ -287,6 +289,21 @@ export default function QuoteForm() {
                       placeholder="(555) 123-4567"
                       value={formData.phone}
                       onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+                      className="w-full rounded-lg border border-[var(--line)] bg-white px-4 py-3 text-[var(--ink)] outline-none transition-all focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_rgba(232,93,47,0.1)]"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="mb-2 flex items-center justify-between text-sm font-medium text-[var(--ink)]">
+                      <span>Email</span>
+                      <span className="font-normal text-[var(--body)]">optional</span>
+                    </label>
+                    <input
+                      id="email"
+                      type="email"
+                      autoComplete="email"
+                      placeholder="jane@example.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                       className="w-full rounded-lg border border-[var(--line)] bg-white px-4 py-3 text-[var(--ink)] outline-none transition-all focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_rgba(232,93,47,0.1)]"
                     />
                   </div>
