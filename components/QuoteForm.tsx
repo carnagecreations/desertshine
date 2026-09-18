@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { SITE } from '@/lib/site';
 import { track } from '@/lib/track';
 import { getPartnerRef } from '@/lib/partnerRef';
+import { getClientReferralRef } from '@/lib/clientReferralRef';
 import { generateLeadReferralCode } from '@/lib/leadReferralCode';
 
 const LEADS_ENDPOINT = 'https://casefiles.shiann.workers.dev/leads/submit';
@@ -56,6 +57,19 @@ export default function QuoteForm() {
     if (ref) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setFormData((prev) => ({ ...prev, partnerCode: ref }));
+    }
+  }, []);
+
+  // Same idea, but for a CLIENT's shareable referral link (?rc=CODE — see
+  // ClientReferralRefCapture in the root layout) — pre-fills "Referred by a
+  // friend?" so the visitor doesn't have to type or remember the code.
+  // Manual entry still works either way; this just saves the step when they
+  // arrived via a link.
+  useEffect(() => {
+    const rc = getClientReferralRef();
+    if (rc) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setFormData((prev) => ({ ...prev, referredByCode: rc }));
     }
   }, []);
 
@@ -178,17 +192,17 @@ export default function QuoteForm() {
               <button
                 type="button"
                 onClick={() => {
-                  navigator.clipboard.writeText(formData.referralCode);
+                  navigator.clipboard.writeText(`${SITE.url}/book?rc=${formData.referralCode}`);
                   setCodeCopied(true);
                   track('referral_code_copied', { location: 'quote_form_success' });
                   setTimeout(() => setCodeCopied(false), 2000);
                 }}
                 className="shrink-0 rounded-full bg-[var(--paper-light)] px-3 py-1.5 text-xs font-medium text-[var(--ink)] transition hover:bg-[var(--line)]">
-                {codeCopied ? 'Copied ✓' : 'Copy'}
+                {codeCopied ? 'Link copied ✓' : 'Copy link'}
               </button>
             </div>
             <p className="mt-3 text-sm text-[var(--body)]">
-              Send it to a friend or neighbor in Yuma — they get <strong className="text-[var(--ink)]">$25 off</strong> their first clean, and a <strong className="text-[var(--ink)]">$25 credit</strong> lands on your account the moment their first clean is done. No limit — refer 10 friends, that&apos;s $250 back.
+              Send the link to a friend or neighbor in Yuma — they get <strong className="text-[var(--ink)]">$25 off</strong> their first clean (their code is pre-filled, nothing to type), and a <strong className="text-[var(--ink)]">$25 credit</strong> lands on your account the moment their first clean is done. No limit — refer 10 friends, that&apos;s $250 back.
             </p>
             <Link href="/referrals" className="mt-2 inline-block text-sm font-medium text-[var(--accent)] hover:underline">
               See the full referral program →
