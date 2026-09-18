@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import RevealFooter from '@/components/sections/RevealFooter';
+import PartnerLeadForm from '@/components/PartnerLeadForm';
 import { SITE } from '@/lib/site';
-import { PartnerCategory, mailtoFor } from '@/lib/partnerProgram';
+import { PartnerCategory } from '@/lib/partnerProgram';
 
 // Shared template for every /partners/<category> page — keeps the layout and
 // tone consistent while each category supplies its own copy and numbers.
@@ -29,7 +30,7 @@ export default function PartnerProgramPage({ category }: { category: PartnerCate
             <p className="text-lg md:text-xl text-[var(--body)] leading-relaxed max-w-3xl mb-4">{category.tagline}</p>
             <p className="text-sm uppercase tracking-widest text-[var(--body)]/70">For {category.audience}</p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a href={mailtoFor(category)}
+              <a href="#partner-form"
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent)] to-orange-600 px-8 py-4 text-lg font-medium text-white shadow-[0_4px_14px_-4px_rgba(232,93,47,0.5)] transition-all hover:scale-105">
                 Become a Partner
               </a>
@@ -110,18 +111,14 @@ export default function PartnerProgramPage({ category }: { category: PartnerCate
         <section className="px-6 py-20 md:px-16">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold text-[var(--ink)] mb-4">Ready to partner up?</h2>
-            <p className="text-lg text-[var(--body)] mb-8">{category.ctaNote}</p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <a href={mailtoFor(category)}
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent)] to-orange-600 px-8 py-4 text-lg font-medium text-white transition-all hover:scale-105">
-                Email us
-              </a>
-              <a href={SITE.smsHref}
-                className="inline-flex items-center gap-2 rounded-full border-2 border-[var(--accent)] px-8 py-[14px] text-lg font-medium text-[var(--accent)] transition-all hover:bg-[var(--accent)]/10">
-                Text us
-              </a>
-            </div>
-            <p className="mt-10 text-sm text-[var(--body)]">
+          </div>
+          <div className="mx-auto mt-2 max-w-xl">
+            <PartnerLeadForm sourceLabel={category.navLabel} ctaNote={category.ctaNote} />
+            <p className="mt-6 text-center text-sm text-[var(--body)]">
+              Rather talk it through? <a href={SITE.smsHref} className="font-medium text-[var(--accent)] hover:underline">Text us</a> or{' '}
+              <a href={SITE.phoneHref} className="font-medium text-[var(--accent)] hover:underline">call {SITE.phone}</a>.
+            </p>
+            <p className="mt-4 text-center text-sm text-[var(--body)]">
               Not sure this is the right fit?{' '}
               <Link href="/partners" className="font-medium text-[var(--accent)] hover:underline">See all partner programs →</Link>
             </p>

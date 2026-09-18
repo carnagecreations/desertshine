@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE } from '@/lib/site';
 import RevealFooter from '@/components/sections/RevealFooter';
+import ChecklistLeadForm from '@/components/ChecklistLeadForm';
 
 export const metadata: Metadata = {
   title: 'Free Cleaning Checklist — Download for Your Yuma Home',
@@ -72,48 +73,7 @@ export default function ChecklistPage() {
 
                 {/* Right side: signup form */}
                 <div>
-                  <form action="https://formspree.io/f/meoqpqwb" method="POST" className="space-y-4">
-                    <h3 className="text-lg font-semibold text-[var(--ink)]">Get it free (instant download)</h3>
-                    <p className="text-sm text-[var(--body)]">
-                      Enter your email below. We&apos;ll send you the PDF immediately — plus occasional cleaning tips and seasonal advice. Unsubscribe anytime.
-                    </p>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-[var(--ink)] mb-2">
-                        Your email
-                      </label>
-                      <input
-                        id="email"
-                        type="email"
-                        name="email"
-                        required
-                        placeholder="jane@example.com"
-                        className="w-full rounded-lg border border-[var(--line)] bg-white px-4 py-3 text-[var(--ink)] outline-none transition-all focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_rgba(232,93,47,0.4)]"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-[var(--ink)] mb-2">
-                        Your name (optional)
-                      </label>
-                      <input
-                        id="name"
-                        type="text"
-                        name="name"
-                        placeholder="Jane Doe"
-                        className="w-full rounded-lg border border-[var(--line)] bg-white px-4 py-3 text-[var(--ink)] outline-none transition-all focus:border-[var(--accent)] focus:shadow-[0_0_0_3px_rgba(232,93,47,0.4)]"
-                      />
-                    </div>
-                    <input type="hidden" name="_subject" value="Cleaning Checklist Download" />
-                    <input type="hidden" name="_captcha" value="false" />
-                    <button
-                      type="submit"
-                      className="w-full rounded-lg bg-[var(--accent)] px-6 py-3 text-white font-semibold transition-all hover:shadow-lg hover:shadow-[var(--accent)]/30"
-                    >
-                      Send Me the Checklist
-                    </button>
-                    <p className="text-xs text-[var(--body)]/70">
-                      ✓ Instant PDF download • ✓ No spam • ✓ Unsubscribe anytime
-                    </p>
-                  </form>
+                  <ChecklistLeadForm />
                 </div>
               </div>
             </div>

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import RevealFooter from '@/components/sections/RevealFooter';
+import PartnerLeadForm from '@/components/PartnerLeadForm';
 import { SITE } from '@/lib/site';
 import { PARTNER_CATEGORIES } from '@/lib/partnerProgram';
 
@@ -77,19 +78,15 @@ export default function PartnersHub() {
         <section className="px-6 py-20 md:px-16 bg-[var(--paper-light)]">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold text-[var(--ink)] mb-4">Don&apos;t see your business type?</h2>
-            <p className="text-lg text-[var(--body)] mb-8">
-              If you regularly meet people who need a home cleaned, let&apos;s talk — we&apos;ll build a program that fits.
+          </div>
+          <div className="mx-auto mt-2 max-w-xl">
+            <PartnerLeadForm
+              sourceLabel="Not listed / general inquiry"
+              ctaNote="If you regularly meet people who need a home cleaned, let's talk — we'll build a program that fits."
+            />
+            <p className="mt-6 text-center text-sm text-[var(--body)]">
+              Rather talk it through? <a href={SITE.phoneHref} className="font-medium text-[var(--accent)] hover:underline">Call {SITE.phone}</a>.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <a href={`mailto:${SITE.email}?subject=${encodeURIComponent('Partner Program Inquiry')}`}
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent)] to-orange-600 px-8 py-4 text-lg font-medium text-white transition-all hover:scale-105">
-                Email us
-              </a>
-              <a href={SITE.phoneHref}
-                className="inline-flex items-center gap-2 rounded-full border-2 border-[var(--accent)] px-8 py-[14px] text-lg font-medium text-[var(--accent)] transition-all hover:bg-[var(--accent)]/10">
-                Call {SITE.phone}
-              </a>
-            </div>
           </div>
         </section>
       </main>
