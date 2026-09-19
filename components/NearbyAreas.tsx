@@ -11,12 +11,34 @@ import { SERVICES } from '@/lib/services';
 // list is deterministic (sorted, sliced) rather than random — a static export
 // must produce the same HTML on every build.
 export default function NearbyAreas({ slug, city }: { slug: string; city: string }) {
-  const siblings = NEIGHBORHOODS.filter((n) => n.slug !== slug);
-  const sameCity = siblings.filter((n) => n.city === city).sort((a, b) => a.name.localeCompare(b.name));
-  const elsewhere = siblings.filter((n) => n.city !== city).sort((a, b) => a.name.localeCompare(b.name));
-  const nearby = [...sameCity, ...elsewhere].slice(0, 8);
   const here = NEIGHBORHOODS.find((n) => n.slug === slug);
   const name = here?.name ?? city;
+
+  // Rank by how much like *this* place the other one is: same kind of
+  // community first, then same city. Sorting on name alone put seven RV
+  // parks under a residential neighborhood simply because their names
+  // start with A.
+  //
+  // Within a tier, rotate the window by this page's own position instead of
+  // always taking the alphabetical first eight — otherwise all 69 pages
+  // link to the same handful of areas and the rest of the cluster receives
+  // nothing. Rotation is derived from a fixed index, so the export is still
+  // byte-identical on every build.
+  const index = Math.max(0, NEIGHBORHOODS.findIndex((n) => n.slug === slug));
+  const tierOf = (n: (typeof NEIGHBORHOODS)[number]) =>
+    (here && n.type === here.type ? 2 : 0) + (n.city === city ? 1 : 0);
+
+  const others = NEIGHBORHOODS.filter((n) => n.slug !== slug);
+  const nearby = [2, 3, 1, 0]
+    .flatMap((tier) => {
+      const group = others
+        .filter((n) => tierOf(n) === tier)
+        .sort((a, b) => a.name.localeCompare(b.name));
+      if (!group.length) return group;
+      const start = index % group.length;
+      return [...group.slice(start), ...group.slice(0, start)];
+    })
+    .slice(0, 8);
 
   return (
     <section className="px-6 py-20 md:px-16">
