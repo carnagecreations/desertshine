@@ -12,3 +12,6 @@ yarn-error.log*
 .DS_Store
 .wrangler
 tsconfig.tsbuildinfo
+
+# Claude Code local settings (machine-specific, not shared)
+.claude/settings.local.json
