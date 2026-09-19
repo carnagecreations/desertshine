@@ -40,9 +40,12 @@ export default function AboutPage() {
               <h3 className="text-2xl">{v.title}</h3>
               <p className="mt-3 text-[var(--body)]">{v.body}</p>
               {v.title === 'Checklists, not vibes' && (
-                <a href="/cleaning-checklists.pdf" download className="mt-4 inline-block text-sm font-semibold text-[var(--accent)] hover:underline">
-                  ↓ Download our checklists
-                </a>
+                /* The checklist is a lead magnet — /checklist trades it for an
+                   email and files the lead in the app. Linking the raw PDF
+                   here gave it away and captured nothing. */
+                <Link href="/checklist" className="mt-4 inline-block text-sm font-semibold text-[var(--accent)] hover:underline">
+                  ↓ Get our cleaning checklists
+                </Link>
               )}
             </div>
           ))}

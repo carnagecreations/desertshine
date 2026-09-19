@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE } from '@/lib/site';
 import RevealFooter from '@/components/sections/RevealFooter';
+import RelatedLinks from '@/components/RelatedLinks';
 
 export const metadata: Metadata = {
   title: 'Haboob Cleanup Guide for Yuma Homes — Dust Storm Recovery',
@@ -198,6 +199,16 @@ export default function HaboobCleanupPage() {
             </p>
           </div>
         </section>
+        <RelatedLinks
+          heading="After the dust settles"
+          intro="A haboob rarely leaves just one problem behind. These cover the rest of it."
+          links={[
+            { href: '/seasonal/monsoon-prep', label: 'Monsoon season prep', blurb: 'Seal, stage and prepare a Yuma home before the next storm rolls through.' },
+            { href: '/services/deep-cleaning', label: 'Deep cleaning', blurb: 'Vents, blinds, baseboards and grout — where blown dust actually ends up.' },
+            { href: '/pet-safe-cleaning', label: 'Pet-safe cleaning', blurb: 'Zero-VOC products for homes where animals share the dust you are clearing.' },
+            { href: '/neighborhoods', label: 'Areas we serve', blurb: 'Same flat rate across Yuma County, with no travel fee.' },
+          ]}
+        />
       </main>
       <RevealFooter />
     </>

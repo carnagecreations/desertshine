@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE } from '@/lib/site';
 import RevealFooter from '@/components/sections/RevealFooter';
+import RelatedLinks from '@/components/RelatedLinks';
 
 export const metadata: Metadata = {
   title: 'Snowbird Home Opening & Closing Guide for Yuma — Seasonal Prep',
@@ -278,6 +279,16 @@ export default function SnowbirdPrepPage() {
             </p>
           </div>
         </section>
+        <RelatedLinks
+          heading="Planning the rest of the season"
+          intro="Opening and closing a seasonal home touches more than one service."
+          links={[
+            { href: '/services/deep-cleaning', label: 'Deep cleaning', blurb: 'The arrival reset after a home has sat closed through a Yuma summer.' },
+            { href: '/services/move-out-cleaning', label: 'Move-out cleaning', blurb: 'Inspection-standard clean for the end of a season or a rental turnover.' },
+            { href: '/partners/property-managers', label: 'RV parks & property managers', blurb: 'Resident discounts and free office cleaning for the park or community.' },
+            { href: '/neighborhoods', label: 'Areas we serve', blurb: 'Parks and neighborhoods across Yuma County at the same flat rate.' },
+          ]}
+        />
       </main>
       <RevealFooter />
     </>

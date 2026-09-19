@@ -6,6 +6,7 @@ import { SITE } from '@/lib/site';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ServiceShowcase from '@/components/sections/ServiceShowcase';
 import GiantCTA from '@/components/sections/GiantCTA';
+import NearbyAreas from '@/components/NearbyAreas';
 
 export function generateStaticParams() {
   return NEIGHBORHOODS.map((n) => ({ slug: n.slug }));
@@ -117,6 +118,8 @@ export default async function NeighborhoodPage({ params }: { params: Promise<{ s
             <p className="text-lg text-[var(--body)] leading-relaxed">{neighborhood.careNotes}</p>
           </div>
         </section>
+
+        <NearbyAreas slug={neighborhood.slug} city={neighborhood.city} />
 
         <section className="px-6 py-20 md:px-16 bg-[var(--paper-light)]">
           <div className="mx-auto max-w-3xl text-center">

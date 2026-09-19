@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE } from '@/lib/site';
 import RevealFooter from '@/components/sections/RevealFooter';
+import RelatedLinks from '@/components/RelatedLinks';
 
 export const metadata: Metadata = {
   title: 'Monsoon Season Home Prep for Yuma — Dust & Water Protection Guide',
@@ -210,6 +211,16 @@ export default function MonsoonPrepPage() {
             <p className="mt-6 text-sm text-[var(--body)]">Call (928) 298-5509 or text — we reply same day, even during peak season.</p>
           </div>
         </section>
+        <RelatedLinks
+          heading="Before and after the storm"
+          intro="Monsoon prep is half the job. Here's the other half."
+          links={[
+            { href: '/seasonal/haboob-cleanup', label: 'Haboob cleanup', blurb: 'What to do in the days after a dust storm gets inside the house.' },
+            { href: '/services/deep-cleaning', label: 'Deep cleaning', blurb: 'A full reset before the season starts, so storm dust has less to cling to.' },
+            { href: '/checklist', label: 'Free cleaning checklist', blurb: 'The room-by-room list our crews actually work from. Free download.' },
+            { href: '/faq', label: 'Common questions', blurb: 'Pricing, scheduling, supplies, access and the re-clean guarantee.' },
+          ]}
+        />
       </main>
       <RevealFooter />
     </>

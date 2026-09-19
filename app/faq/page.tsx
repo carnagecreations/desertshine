@@ -4,6 +4,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import { SITE } from '@/lib/site';
 import { faqSchemaFrom } from '@/lib/schema';
 import RevealFooter from '@/components/sections/RevealFooter';
+import RelatedLinks from '@/components/RelatedLinks';
 
 export const metadata: Metadata = {
   title: 'Cleaning FAQs — Questions About House Cleaning in Yuma',
@@ -258,6 +259,16 @@ export default function FAQPage() {
             </div>
           </div>
         </section>
+        <RelatedLinks
+          heading="Still deciding?"
+          intro="The pages people usually read next."
+          links={[
+            { href: '/pricing', label: 'Pricing', blurb: 'Published flat rates, recurring discounts and what changes the number.' },
+            { href: '/services', label: 'All services', blurb: 'Recurring, deep, move-out and commercial — what each one includes.' },
+            { href: '/checklist', label: 'Free cleaning checklist', blurb: 'The room-by-room list our crews work from. Yours to download.' },
+            { href: '/about', label: 'Who you are hiring', blurb: 'Locally owned in Yuma, and who actually shows up at your door.' },
+          ]}
+        />
       </main>
       <RevealFooter />
     </>

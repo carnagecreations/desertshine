@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE } from '@/lib/site';
 import RevealFooter from '@/components/sections/RevealFooter';
+import RelatedLinks from '@/components/RelatedLinks';
 import ChecklistLeadForm from '@/components/ChecklistLeadForm';
 
 export const metadata: Metadata = {
@@ -151,6 +152,16 @@ export default function ChecklistPage() {
             </Link>
           </div>
         </section>
+        <RelatedLinks
+          heading="Rather not do it yourself?"
+          intro="That's the list. If you'd like it handled instead:"
+          links={[
+            { href: '/pricing', label: 'See flat-rate pricing', blurb: 'Published rates with no hourly meter and no surprises at the door.' },
+            { href: '/services/deep-cleaning', label: 'Deep cleaning', blurb: 'Everything on the checklist, plus vents, grout and inside appliances.' },
+            { href: '/faq', label: 'Common questions', blurb: 'Access, supplies, pets, scheduling and the re-clean guarantee.' },
+            { href: '/referrals', label: 'Give $25, get $25', blurb: 'Pass your code to a neighbor and bank credit toward your next clean.' },
+          ]}
+        />
       </main>
       <RevealFooter />
     </>
