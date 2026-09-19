@@ -137,9 +137,6 @@ export default function QuoteForm() {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formData.name || !formData.phone) return;
-    // A filled trap means a bot: drop it silently rather than
-    // letting it through to the app as a lead.
-    if (botField) return;
 
     setSubmitting(true);
     setSubmitError(false);
@@ -228,7 +225,7 @@ export default function QuoteForm() {
 
   return (
     <form onSubmit={onSubmit} className="relative rounded-3xl border border-[var(--line)] bg-white/70 backdrop-blur-sm" method="POST">
-      <HoneypotField value={botField} onChange={setBotField} id="qf-company-website" />
+      <HoneypotField value={botField} onChange={setBotField} id="qf-hp" />
       <div className="overflow-hidden">
         {/* Progress bar */}
         <div className="border-b border-[var(--line)] px-8 pt-8 pb-6">

@@ -35,9 +35,6 @@ export default function PartnerLeadForm({
     e.preventDefault();
     if (!businessName.trim() && !contactName.trim()) return;
     if (!phone.trim() && !email.trim()) return;
-    // A filled trap means a bot: drop it silently rather than
-    // letting it through to the app as a lead.
-    if (botField) return;
 
     setSubmitting(true);
     setSubmitError(false);
@@ -88,7 +85,7 @@ export default function PartnerLeadForm({
       id="partner-form"
       onSubmit={onSubmit}
       className="relative rounded-3xl border border-[var(--line)] bg-white p-6 text-left md:p-8">
-      <HoneypotField value={botField} onChange={setBotField} id="pl-company-website" />
+      <HoneypotField value={botField} onChange={setBotField} id="pl-hp" />
       <h3 className="text-lg font-semibold text-[var(--ink)]">Tell us about your business</h3>
       {ctaNote && <p className="mt-1 mb-6 text-sm text-[var(--body)]">{ctaNote}</p>}
       <div className="space-y-4">
