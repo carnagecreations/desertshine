@@ -131,7 +131,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <MotionConfig reducedMotion="user">
           <SmoothScroll>
             <Navigation />
-            <div id="main-content" className="contents">
+            {/* Skip-link target. Needs a real box and tabIndex to actually
+                receive focus — `display:contents` renders no box, so the skip
+                link moved nothing. */}
+            <div id="main-content" tabIndex={-1} className="outline-none">
               {children}
             </div>
           </SmoothScroll>

@@ -68,7 +68,8 @@ export default function Navigation() {
           </Link>
         </div>
 
-        <button onClick={() => setOpen(!open)} aria-label="Toggle menu" aria-expanded={open}
+        <button onClick={() => setOpen(!open)} aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open} aria-controls="mobile-menu"
           className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden">
           <span className={`h-0.5 w-6 bg-[var(--ink)] transition-transform duration-300 ${open ? 'translate-y-2 rotate-45' : ''}`} />
           <span className={`h-0.5 w-6 bg-[var(--ink)] transition-opacity duration-300 ${open ? 'opacity-0' : ''}`} />
@@ -79,16 +80,21 @@ export default function Navigation() {
       <AnimatePresence>
         {open && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.35, ease: EASE_OUT }}
             className="overflow-hidden border-t border-[var(--line)] bg-[var(--paper)] md:hidden">
             <div className="flex flex-col gap-1 px-6 py-4">
-              {LINKS.map((l) => (
-                <Link key={l.href} href={l.href} onClick={() => setOpen(false)}
-                  className="py-3 text-lg text-[var(--ink)]">
-                  {l.label}
-                </Link>
-              ))}
+              {LINKS.map((l) => {
+                const active = pathname === l.href || pathname.startsWith(`${l.href}/`);
+                return (
+                  <Link key={l.href} href={l.href} onClick={() => setOpen(false)}
+                    aria-current={active ? 'page' : undefined}
+                    className={`py-3 text-lg ${active ? 'font-semibold text-[var(--accent)]' : 'text-[var(--ink)]'}`}>
+                    {l.label}
+                  </Link>
+                );
+              })}
               <a href={SITE.phoneHref} onClick={() => track('phone_click', { location: 'mobile_menu' })}
                 className="py-3 text-lg font-medium text-[var(--ink)]">
                 Call {SITE.phone}

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { SITE } from '@/lib/site';
 import { track } from '@/lib/track';
+import HoneypotField from '@/components/HoneypotField';
 
 const LEADS_ENDPOINT = 'https://casefiles.shiann.workers.dev/leads/other';
 
@@ -20,6 +21,8 @@ export default function PartnerLeadForm({
   ctaNote?: string;
 }) {
   const [submitting, setSubmitting] = useState(false);
+  // Spam trap — see components/HoneypotField.tsx. Real users never fill this.
+  const [botField, setBotField] = useState('');
   const [succeeded, setSucceeded] = useState(false);
   const [submitError, setSubmitError] = useState(false);
   const [businessName, setBusinessName] = useState('');
@@ -32,6 +35,9 @@ export default function PartnerLeadForm({
     e.preventDefault();
     if (!businessName.trim() && !contactName.trim()) return;
     if (!phone.trim() && !email.trim()) return;
+    // A filled trap means a bot: drop it silently rather than
+    // letting it through to the app as a lead.
+    if (botField) return;
 
     setSubmitting(true);
     setSubmitError(false);
@@ -47,7 +53,7 @@ export default function PartnerLeadForm({
           phone,
           email,
           message,
-          _gotcha: '',
+          _gotcha: botField,
         }),
       });
       if (!res.ok) throw new Error('Partner lead submission failed');
@@ -65,6 +71,8 @@ export default function PartnerLeadForm({
       <motion.div
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
+        role="status"
+        aria-live="polite"
         className="rounded-3xl border border-[var(--line)] bg-white p-8 text-center md:p-10">
         <div className="mb-3 text-4xl">🤝</div>
         <h3 className="text-2xl font-bold text-[var(--ink)]">Got it — thanks for reaching out.</h3>
@@ -79,7 +87,8 @@ export default function PartnerLeadForm({
     <form
       id="partner-form"
       onSubmit={onSubmit}
-      className="rounded-3xl border border-[var(--line)] bg-white p-6 text-left md:p-8">
+      className="relative rounded-3xl border border-[var(--line)] bg-white p-6 text-left md:p-8">
+      <HoneypotField value={botField} onChange={setBotField} id="pl-company-website" />
       <h3 className="text-lg font-semibold text-[var(--ink)]">Tell us about your business</h3>
       {ctaNote && <p className="mt-1 mb-6 text-sm text-[var(--body)]">{ctaNote}</p>}
       <div className="space-y-4">
@@ -161,7 +170,7 @@ export default function PartnerLeadForm({
       </div>
 
       {submitError && (
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-4 text-sm text-red-600">
+        <motion.p role="alert" aria-live="assertive" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-4 text-sm text-red-600">
           Something went wrong — please call or text{' '}
           <a href={SITE.phoneHref} className="font-medium hover:underline">{SITE.phone}</a> instead.
         </motion.p>

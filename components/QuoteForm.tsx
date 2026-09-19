@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { SITE } from '@/lib/site';
 import { track } from '@/lib/track';
+import HoneypotField from '@/components/HoneypotField';
 import { getPartnerRef } from '@/lib/partnerRef';
 import { getClientReferralRef } from '@/lib/clientReferralRef';
 import { generateLeadReferralCode } from '@/lib/leadReferralCode';
@@ -29,6 +30,8 @@ const TIME_OPTIONS = ['Morning', 'Afternoon', 'Evening', 'Flexible'];
 
 export default function QuoteForm() {
   const [submitting, setSubmitting] = useState(false);
+  // Spam trap — see components/HoneypotField.tsx. Real users never fill this.
+  const [botField, setBotField] = useState('');
   const [succeeded, setSucceeded] = useState(false);
   const [submitError, setSubmitError] = useState(false);
   const [step, setStep] = useState(1);
@@ -134,6 +137,9 @@ export default function QuoteForm() {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formData.name || !formData.phone) return;
+    // A filled trap means a bot: drop it silently rather than
+    // letting it through to the app as a lead.
+    if (botField) return;
 
     setSubmitting(true);
     setSubmitError(false);
@@ -153,7 +159,7 @@ export default function QuoteForm() {
           partnerCode: formData.partnerCode,
           referralCode: formData.referralCode,
           referredByCode: formData.referredByCode,
-          _gotcha: '',
+          _gotcha: botField,
         }),
       });
       if (!res.ok) throw new Error('Lead submission failed');
@@ -171,6 +177,8 @@ export default function QuoteForm() {
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
+        role="status"
+        aria-live="polite"
         className="rounded-3xl border border-[var(--line)] bg-gradient-to-br from-white to-white/80 p-12 text-center backdrop-blur-sm">
         <motion.div
           animate={{ y: [0, -8, 0] }}
@@ -219,7 +227,8 @@ export default function QuoteForm() {
   const displayStep = hasEstimate ? step - 1 : step;
 
   return (
-    <form onSubmit={onSubmit} className="rounded-3xl border border-[var(--line)] bg-white/70 backdrop-blur-sm" method="POST">
+    <form onSubmit={onSubmit} className="relative rounded-3xl border border-[var(--line)] bg-white/70 backdrop-blur-sm" method="POST">
+      <HoneypotField value={botField} onChange={setBotField} id="qf-company-website" />
       <div className="overflow-hidden">
         {/* Progress bar */}
         <div className="border-b border-[var(--line)] px-8 pt-8 pb-6">
@@ -407,7 +416,7 @@ export default function QuoteForm() {
           </motion.div>
 
           {submitError && (
-            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-4 text-sm text-red-600">
+            <motion.p role="alert" aria-live="assertive" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-4 text-sm text-red-600">
               Something went wrong — please call or text <a href={SITE.phoneHref} className="font-medium hover:underline">{SITE.phone}</a> instead.
             </motion.p>
           )}

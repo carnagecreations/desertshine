@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { track } from '@/lib/track';
+import HoneypotField from '@/components/HoneypotField';
 
 const LEADS_ENDPOINT = 'https://casefiles.shiann.workers.dev/leads/other';
 const CHECKLIST_PDF = '/cleaning-checklists.pdf';
@@ -11,6 +12,8 @@ const CHECKLIST_PDF = '/cleaning-checklists.pdf';
 // immediately instead of waiting on an email autoresponder.
 export default function ChecklistLeadForm() {
   const [submitting, setSubmitting] = useState(false);
+  // Spam trap — see components/HoneypotField.tsx. Real users never fill this.
+  const [botField, setBotField] = useState('');
   const [succeeded, setSucceeded] = useState(false);
   const [submitError, setSubmitError] = useState(false);
   const [email, setEmail] = useState('');
@@ -19,6 +22,9 @@ export default function ChecklistLeadForm() {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!email.trim()) return;
+    // A filled trap means a bot: drop it silently rather than
+    // letting it through to the app as a lead.
+    if (botField) return;
 
     setSubmitting(true);
     setSubmitError(false);
@@ -31,7 +37,7 @@ export default function ChecklistLeadForm() {
           sourceLabel: 'Free checklist download',
           contactName: name,
           email,
-          _gotcha: '',
+          _gotcha: botField,
         }),
       });
       if (!res.ok) throw new Error('Checklist lead submission failed');
@@ -47,7 +53,7 @@ export default function ChecklistLeadForm() {
 
   if (succeeded) {
     return (
-      <div className="space-y-4 text-center">
+      <div role="status" aria-live="polite" className="space-y-4 text-center">
         <div className="text-4xl">📋</div>
         <h3 className="text-lg font-semibold text-[var(--ink)]">Your checklist should be opening now.</h3>
         <p className="text-sm text-[var(--body)]">
@@ -61,7 +67,8 @@ export default function ChecklistLeadForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4">
+    <form onSubmit={onSubmit} className="relative space-y-4">
+      <HoneypotField value={botField} onChange={setBotField} id="cl-company-website" />
       <h3 className="text-lg font-semibold text-[var(--ink)]">Get it free (instant download)</h3>
       <p className="text-sm text-[var(--body)]">
         Enter your email below and it opens right away — plus occasional cleaning tips and seasonal advice. Unsubscribe anytime.
@@ -96,7 +103,7 @@ export default function ChecklistLeadForm() {
         />
       </div>
       {submitError && (
-        <p className="text-sm text-red-600">
+        <p role="alert" aria-live="assertive" className="text-sm text-red-600">
           Something went wrong — you can still{' '}
           <a href={CHECKLIST_PDF} target="_blank" rel="noopener noreferrer" className="font-medium hover:underline">
             grab the checklist directly
