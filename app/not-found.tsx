@@ -1,5 +1,11 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE } from '@/lib/site';
+
+export const metadata: Metadata = {
+  title: 'Page not found',
+  robots: { index: false, follow: true },
+};
 
 const POPULAR = [
   { label: 'Get an instant estimate', href: '/pricing' },

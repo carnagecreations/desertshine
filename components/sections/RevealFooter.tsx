@@ -9,6 +9,11 @@ const LINKS = [
   { label: 'Pricing', href: '/pricing' },
   { label: 'Neighborhoods', href: '/neighborhoods' },
   { label: 'Blog', href: '/blog' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'Free Cleaning Checklist', href: '/checklist' },
+  { label: 'Snowbird Prep', href: '/seasonal/snowbird-prep' },
+  { label: 'Monsoon Prep', href: '/seasonal/monsoon-prep' },
+  { label: 'Haboob Cleanup', href: '/seasonal/haboob-cleanup' },
   { label: 'About', href: '/about' },
   { label: 'Community Care', href: '/community-care' },
   { label: 'Give $25, Get $25', href: '/referrals' },
@@ -39,7 +44,7 @@ export default function RevealFooter() {
   return (
     <footer className="sticky bottom-0 z-0 flex min-h-screen flex-col justify-between bg-[var(--paper-dark)] px-6 pb-6 pt-24 text-[var(--paper)] md:px-16 md:pb-10 md:pt-28">
       <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
-        <nav className="flex flex-col gap-1.5 text-lg md:gap-2 md:text-2xl order-2 md:order-1">
+        <nav aria-label="Footer" className="flex flex-col gap-1.5 text-lg md:gap-2 md:text-2xl order-2 md:order-1">
           {LINKS.map((l) => (
             <Link key={l.label} href={l.href} className="w-fit opacity-70 transition-all duration-300 hover:translate-x-2 hover:text-[var(--accent)] hover:opacity-100">{l.label}</Link>
           ))}
@@ -50,11 +55,12 @@ export default function RevealFooter() {
           <p className="mt-3 md:mt-4"><a href={SITE.phoneHref} className="hover:opacity-100">{SITE.phone}</a></p>
           <p><a href={SITE.smsHref} className="hover:opacity-100">Text us — we reply same day</a></p>
           <p><a href={`mailto:${SITE.email}`} className="hover:opacity-100">{SITE.email}</a></p>
-          <p className="mt-3 md:mt-4"><a href={SITE.googleReviewLink} target="_blank" rel="noopener noreferrer" className="hover:opacity-100">★ Leave a review</a></p>
+          <p className="mt-3 md:mt-4"><a href={SITE.googleReviewLink} target="_blank" rel="noopener noreferrer" className="hover:opacity-100">★ Leave a review<span className="sr-only"> (opens in a new tab)</span></a></p>
           {SOCIALS.length > 0 && (
             <p className="mt-3 md:mt-4 flex flex-wrap gap-x-3 gap-y-1 md:justify-end">
               {SOCIALS.map(([key, url]) => (
-                <a key={key} href={url} target="_blank" rel="noopener noreferrer" className="hover:opacity-100">
+                <a key={key} href={url} target="_blank" rel="noopener noreferrer"
+                  aria-label={`${SOCIAL_LABELS[key] ?? key} (opens in a new tab)`} className="hover:opacity-100">
                   {SOCIAL_LABELS[key] ?? key}
                 </a>
               ))}
@@ -67,7 +73,7 @@ export default function RevealFooter() {
         <p className="mb-4 text-sm opacity-40">
           Serving {SITE.serviceAreas.join(' · ')} and surrounding communities
         </p>
-        <h2 className="text-[9.5vw] leading-[0.85] tracking-tight text-[var(--paper)] select-none font-[family-name:var(--font-display)]">Clean Convictions<span className="text-[var(--accent)]">.</span></h2>
+        <p aria-hidden className="text-[9.5vw] leading-[0.85] tracking-tight text-[var(--paper)] select-none font-[family-name:var(--font-display)]">Clean Convictions<span className="text-[var(--accent)]">.</span></p>
         <div className="mt-6 flex flex-wrap justify-between gap-4 border-t border-white/10 pt-6 text-xs opacity-40">
           <p>© {new Date().getFullYear()} {SITE.name}. All rights reserved. Locally owned & operated · Yuma, AZ.</p>
           <p><Link href="/privacy" className="hover:opacity-100">Privacy</Link> · <Link href="/terms" className="hover:opacity-100">Terms</Link> · <Link href="/accessibility" className="hover:opacity-100">Accessibility</Link></p>

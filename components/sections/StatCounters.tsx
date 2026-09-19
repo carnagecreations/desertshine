@@ -1,22 +1,42 @@
 'use client';
-import { useEffect, useRef } from 'react';
-import { useInView, useMotionValue, useSpring } from 'framer-motion';
+import { useCallback, useEffect, useRef } from 'react';
+import { useInView, useMotionValue, useReducedMotion, useSpring } from 'framer-motion';
 
 function Counter({ value, decimals = 0, prefix = '', suffix = '' }: {
   value: number; decimals?: number; prefix?: string; suffix?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: '-20%' });
+  const reduced = useReducedMotion();
   const mv = useMotionValue(0);
   const spring = useSpring(mv, { duration: 2, bounce: 0 });
-  useEffect(() => { if (inView) mv.set(value); }, [inView, mv, value]);
-  useEffect(() => spring.on('change', (v) => {
-    if (ref.current)
-      ref.current.textContent = prefix + v.toLocaleString('en-US', {
-        minimumFractionDigits: decimals, maximumFractionDigits: decimals,
-      }) + suffix;
-  }), [spring, prefix, suffix, decimals]);
-  return <span ref={ref}>{prefix}0{suffix}</span>;
+
+  const format = useCallback(
+    (v: number) =>
+      prefix +
+      v.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) +
+      suffix,
+    [prefix, suffix, decimals]
+  );
+
+  // The real number is what renders. The count-up only ever overwrites it
+  // once the element is actually in view and motion is allowed.
+  //
+  // Previously the markup was hard-coded to 0 and the value arrived only via
+  // the spring, so the exported HTML read "0%" directly above "Re-clean
+  // guarantee" — that is what crawlers indexed, what anyone saw before
+  // hydration, and what stayed on screen forever for a visitor who never
+  // scrolled the section into view or who asked for reduced motion.
+  useEffect(() => {
+    if (!inView || reduced) return;
+    const unsubscribe = spring.on('change', (v) => {
+      if (ref.current) ref.current.textContent = format(v);
+    });
+    mv.set(value);
+    return unsubscribe;
+  }, [inView, reduced, spring, mv, value, format]);
+
+  return <span ref={ref}>{format(value)}</span>;
 }
 
 export default function StatCounters() {
