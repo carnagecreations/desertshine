@@ -65,9 +65,9 @@ export const PARTNER_CATEGORIES: PartnerCategory[] = [
       'Every referral earns you real rewards: free cleanings for your own listings, a closing-gift clean for clients, and priority scheduling.',
     ],
     tiers: [
-      { count: 3, reward: 'A free move-out/listing-prep cleaning for your next listing' },
-      { count: 6, reward: 'A free "closing gift" cleaning to hand any client at closing' },
-      { count: 10, reward: 'Priority same-week scheduling on every listing, plus a shoutout as a Preferred Cleaning Partner on our site & social' },
+      { count: 5, reward: 'A free move-out/listing-prep cleaning for your next listing' },
+      { count: 8, reward: 'A free "closing gift" cleaning to hand any client at closing' },
+      { count: 12, reward: 'Priority same-week scheduling on every listing, plus a shoutout as a Preferred Cleaning Partner on our site & social' },
     ],
     faq: [
       { q: 'Is this a referral fee or kickback?', a: "No — nothing cash changes hands with you directly. Rewards are cleaning services: a free listing-prep clean, a closing-gift clean, priority scheduling. It's a service perk, not a commission split." },
@@ -94,9 +94,9 @@ export const PARTNER_CATEGORIES: PartnerCategory[] = [
       'Referrals earn you real rewards — free cleanings, service credit, and eventually a standing bundle deal you can offer your own customers.',
     ],
     tiers: [
-      { count: 3, reward: 'A free move-out/move-in cleaning for your own home or office' },
-      { count: 6, reward: '$75 service credit, plus we hand your card to every client who books through you' },
-      { count: 10, reward: 'A standing "movers + cleaners" bundle deal to offer your customers, and a shoutout as a Preferred Cleaning Partner' },
+      { count: 5, reward: 'A free move-out/move-in cleaning for your own home or office' },
+      { count: 8, reward: '$75 service credit, plus we hand your card to every client who books through you' },
+      { count: 12, reward: 'A standing "movers + cleaners" bundle deal to offer your customers, and a shoutout as a Preferred Cleaning Partner' },
     ],
     faq: [
       { q: 'Does this cost us anything?', a: 'No — there\'s no fee to join or refer clients.' },
