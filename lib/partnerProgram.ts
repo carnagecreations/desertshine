@@ -65,8 +65,8 @@ export const PARTNER_CATEGORIES: PartnerCategory[] = [
       'Every referral earns you real rewards: free cleanings for your own listings, a closing-gift clean for clients, and priority scheduling.',
     ],
     tiers: [
-      { count: 2, reward: 'A free move-out/listing-prep cleaning for your next listing' },
-      { count: 5, reward: 'A free "closing gift" cleaning to hand any client at closing' },
+      { count: 3, reward: 'A free move-out/listing-prep cleaning for your next listing' },
+      { count: 6, reward: 'A free "closing gift" cleaning to hand any client at closing' },
       { count: 10, reward: 'Priority same-week scheduling on every listing, plus a shoutout as a Preferred Cleaning Partner on our site & social' },
     ],
     faq: [
@@ -94,8 +94,8 @@ export const PARTNER_CATEGORIES: PartnerCategory[] = [
       'Referrals earn you real rewards — free cleanings, service credit, and eventually a standing bundle deal you can offer your own customers.',
     ],
     tiers: [
-      { count: 2, reward: 'A free move-out/move-in cleaning for your own home or office' },
-      { count: 5, reward: '$75 service credit, plus we hand your card to every client who books through you' },
+      { count: 3, reward: 'A free move-out/move-in cleaning for your own home or office' },
+      { count: 6, reward: '$75 service credit, plus we hand your card to every client who books through you' },
       { count: 10, reward: 'A standing "movers + cleaners" bundle deal to offer your customers, and a shoutout as a Preferred Cleaning Partner' },
     ],
     faq: [
