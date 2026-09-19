@@ -156,21 +156,24 @@ export function PartnerTierLadder({
           />
           <ol className="grid gap-6 md:grid-cols-3">
             {tiers.map((tier, i) => (
-              <li key={tier.count} className="relative">
-                <div className="mb-5 flex justify-center">
+              // The <li> is a stretched grid item, so the card must grow with
+              // flex — `h-full` here would resolve 100% against the whole cell
+              // (badge included) and overflow the section by the badge height.
+              <li key={tier.count} className="relative flex flex-col">
+                <div className="mb-5 flex shrink-0 justify-center">
                   <span className="grid h-11 w-11 place-items-center rounded-full border-2 border-[var(--accent)] bg-[var(--paper)] text-base font-bold text-[var(--accent)]">
                     {tier.count}
                   </span>
                 </div>
                 <div
                   className={
-                    'card-lift h-full rounded-2xl border bg-white p-6 text-center ' +
+                    'card-lift flex flex-1 flex-col justify-center rounded-2xl border bg-white p-6 text-center ' +
                     (i === tiers.length - 1
                       ? 'border-[var(--accent)] shadow-[0_8px_30px_-12px_rgba(175,58,19,0.35)]'
                       : 'border-[var(--line)] hover:border-[var(--accent)]')
                   }>
                   {i === tiers.length - 1 && (
-                    <p className="mb-3 inline-block rounded-full bg-[var(--accent)] px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white">
+                    <p className="mx-auto mb-3 w-fit rounded-full bg-[var(--accent)] px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white">
                       Best tier
                     </p>
                   )}
